@@ -45,7 +45,7 @@ const MENU_ITEMS: Record<Role, MenuItem[]> = {
     { name: 'Paramètres',  icon: <Settings     className="h-5 w-5" />, path: '/admin/parametres' },
   ],
   'sous-admin': [
-    { name: 'Étudiants', icon: <GraduationCap className="h-5 w-5" />, path: '/sous-admin/etudiants' },
+    { name: 'Emploi du temps', icon: <GraduationCap className="h-5 w-5" />, path: '/sous-admin/emploiDuTemps' },
     { name: 'Actualité',  icon: <LetterText    className="h-5 w-5" />, path: '/sous-admin/actualite' },
     { name: 'Messages',   icon: <MessageSquare className="h-5 w-5" />, path: '/sous-admin/messages', badge: 7 },
   ],
