@@ -60,7 +60,7 @@ export default function FilieresPage() {
         </div>
         <button 
           onClick={() => setShowAddModal(true)}
-          className="inline-flex items-center px-4 py-2.5 bg-gradient-to-r from-blue-900 to-blue-700 hover:from-blue-800 hover:to-blue-600 text-white text-sm font-medium rounded-xl shadow-sm transition-all"
+          className="inline-flex items-center px-4 py-2.5 bg-linear-to-r from-blue-900 to-blue-700 hover:from-blue-800 hover:to-blue-600 text-white text-sm font-medium rounded-xl shadow-sm transition-all"
         >
           <Plus className="w-4 h-4 mr-2" />
           Ajouter une filière
@@ -100,6 +100,7 @@ export default function FilieresPage() {
                     <div>
                       <label className="block text-xs font-medium text-slate-500 mb-1">Cycle</label>
                       <select
+                        title="Cycle"
                         value={editData.cycle}
                         onChange={(e) => setEditData({...editData, cycle: e.target.value})}
                         className="block w-full px-3 py-2 border border-blue-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm bg-white"
@@ -111,6 +112,7 @@ export default function FilieresPage() {
                     <div>
                       <label className="block text-xs font-medium text-slate-500 mb-1">Niveau</label>
                       <select
+                        title="Niveau"
                         value={editData.niveau}
                         onChange={(e) => setEditData({...editData, niveau: e.target.value})}
                         className="block w-full px-3 py-2 border border-blue-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm bg-white"
@@ -251,6 +253,7 @@ export default function FilieresPage() {
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1.5">Cycle *</label>
                   <select
+                    title="Cycle"
                     required
                     value={addData.cycle}
                     onChange={(e) => setAddData({...addData, cycle: e.target.value})}
@@ -263,6 +266,7 @@ export default function FilieresPage() {
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1.5">Niveau *</label>
                   <select
+                    title="Niveau"
                     required
                     value={addData.niveau}
                     onChange={(e) => setAddData({...addData, niveau: e.target.value})}
