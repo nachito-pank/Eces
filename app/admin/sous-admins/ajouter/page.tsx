@@ -67,7 +67,7 @@ export default function AjouterSousAdminPage() {
   return (
     <div className="space-y-6">
       <nav className="flex text-sm text-slate-500 font-medium">
-        <Link href="/sous-admins" className="hover:text-blue-600 transition-colors">Sous-Admins</Link>
+        <Link href="/admin/sous-admins" className="hover:text-blue-600 transition-colors">Sous-Admins</Link>
         <ChevronRight className="w-4 h-4 mx-2 flex-shrink-0" />
         <span className="text-slate-900">Ajouter un sous-admin</span>
       </nav>
@@ -114,7 +114,7 @@ export default function AjouterSousAdminPage() {
                     Ajouter le sous-admin
                   </button>
                   <Link 
-                    href="/sous-admins"
+                    href="/admin/sous-admins"
                     className="w-full flex items-center justify-center px-4 py-2 bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 text-sm font-medium rounded-xl transition-colors"
                   >
                     Annuler
