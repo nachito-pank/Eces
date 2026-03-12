@@ -40,9 +40,8 @@ const ROLE_CONFIG: Record<Role, { label: string; icon: React.ReactNode }> = {
 const MENU_ITEMS: Record<Role, MenuItem[]> = {
   admin: [
     { name: 'Enseignants', icon: <Pencil       className="h-5 w-5" />, path: '/admin/enseignants', badge: 12 },
-    { name: 'Sous-admin',  icon: <Users        className="h-5 w-5" />, path: '/admin/sous-admin' },
+    { name: 'Sous-admin',  icon: <Users        className="h-5 w-5" />, path: '/admin/sous-admins' },
     { name: 'Filières',    icon: <School       className="h-5 w-5" />, path: '/admin/filieres' },
-    { name: 'Paramètres',  icon: <Settings     className="h-5 w-5" />, path: '/admin/parametres' },
   ],
   'sous-admin': [
     { name: 'Emploi du temps', icon: <GraduationCap className="h-5 w-5" />, path: '/sous-admin/emploiDuTemps' },
