@@ -57,12 +57,7 @@ const Navbar: React.FC<NavbarProps> = ({
           <div className="flex items-center justify-between h-16">
             {/* Partie gauche : Logo et menu burger */}
             <div className="flex items-center">
-              <button
-                onClick={onMenuClick}
-                className="p-2 rounded-lg text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 lg:hidden"
-              >
-                <Menu className="h-5 w-5" />
-              </button>
+           
             <Link href="/" className="flex items-center ml-2 lg:ml-0">
             {/* Remplacer l'emoji par une image */}
             <img 
