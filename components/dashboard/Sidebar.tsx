@@ -44,8 +44,8 @@ const MENU_ITEMS: Record<Role, MenuItem[]> = {
     { name: 'Filières',    icon: <School       className="h-5 w-5" />, path: '/admin/filieres' },
   ],
   'sous-admin': [
-    { name: 'Emploi du temps', icon: <GraduationCap className="h-5 w-5" />, path: '/sous-admin/emploiDuTemps' },
-    { name: 'Actualité',  icon: <LetterText    className="h-5 w-5" />, path: '/sous-admin/actualite' },
+{ name: 'Emploi du temps', icon: <GraduationCap className="h-5 w-5" />, path: '/sous-admin/emploi-du-temps' },
+{ name: 'Actualités',  icon: <LetterText    className="h-5 w-5" />, path: '/sous-admin/actualites' },
     { name: 'Messages',   icon: <MessageSquare className="h-5 w-5" />, path: '/sous-admin/messages', badge: 7 },
   ],
   enseignant: [
