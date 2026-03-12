@@ -28,6 +28,7 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
+import { AnimatedThemeToggler } from '../ui/animated-theme-toggler';
 
 type Role = 'admin' | 'sous-admin' | 'enseignant' | 'etudiant';
 
@@ -88,7 +89,7 @@ export default function Navbar({
               </Button>
 
               <Link href="/" className="flex items-center gap-2">
-                <Image src="/logo.png" alt="eceslogo" width={32} height={32} className="h-8 w-auto" />
+                <Image src="/logo.jpeg" alt="eceslogo" width={32} height={32} className="h-10 w-auto" />
                 <span className="text-xl font-semibold text-gray-800 dark:text-white">ECES</span>
               </Link>
             </div>
@@ -165,6 +166,8 @@ export default function Navbar({
                   <Settings className="h-5 w-5" />
                 </Link>
               </Button>
+
+              {/* <AnimatedThemeToggler className='h-5 w-5'/> */}
 
               {/* User menu */}
               <DropdownMenu>
