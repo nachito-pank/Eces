@@ -40,21 +40,20 @@ const ROLE_CONFIG: Record<Role, { label: string; icon: React.ReactNode }> = {
 const MENU_ITEMS: Record<Role, MenuItem[]> = {
   admin: [
     { name: 'Enseignants', icon: <Pencil       className="h-5 w-5" />, path: '/admin/enseignants', badge: 12 },
-    { name: 'Sous-admin',  icon: <Users        className="h-5 w-5" />, path: '/admin/sous-admin' },
+    { name: 'Sous-admin',  icon: <Users        className="h-5 w-5" />, path: '/admin/sous-admins' },
     { name: 'Filières',    icon: <School       className="h-5 w-5" />, path: '/admin/filieres' },
-    { name: 'Paramètres',  icon: <Settings     className="h-5 w-5" />, path: '/admin/parametres' },
   ],
   'sous-admin': [
-    { name: 'Étudiants', icon: <GraduationCap className="h-5 w-5" />, path: '/sous-admin/etudiants' },
+    { name: 'Emploi du temps', icon: <GraduationCap className="h-5 w-5" />, path: '/sous-admin/emploiDuTemps' },
     { name: 'Actualité',  icon: <LetterText    className="h-5 w-5" />, path: '/sous-admin/actualite' },
     { name: 'Messages',   icon: <MessageSquare className="h-5 w-5" />, path: '/sous-admin/messages', badge: 7 },
   ],
   enseignant: [
     { name: 'Mes Cours',  icon: <BookOpen      className="h-5 w-5" />, path: '/enseignant/mes-cours' },
-    { name: 'Étudiants',  icon: <Users         className="h-5 w-5" />, path: '/enseignant/etudiants' },
-    { name: 'Notes',      icon: <Award         className="h-5 w-5" />, path: '/enseignant/notes' },
-    { name: 'Présences',  icon: <Calendar      className="h-5 w-5" />, path: '/enseignant/presences' },
-    { name: 'Messages',   icon: <MessageSquare className="h-5 w-5" />, path: '/enseignant/messages', badge: 3 },
+    { name: 'Mes étudiants',  icon: <Users         className="h-5 w-5" />, path: '/enseignant/etudiants' },
+    { name: 'Notes devoirs',      icon: <Award         className="h-5 w-5" />, path: '/enseignant/notesDevoirs' },
+    { name: 'Notes sessions',  icon: <LetterText      className="h-5 w-5" />, path: '/enseignant/notesSessions' },
+    { name: 'Emploi du temps',   icon: <Calendar className="h-5 w-5" />, path: '/enseignant/emploiDuTemps', badge: 3 },
   ],
   etudiant: [
     { name: 'Mes Cours',       icon: <BookOpen      className="h-5 w-5" />, path: '/etudiant/mes-cours' },
