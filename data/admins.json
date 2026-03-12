@@ -12,8 +12,21 @@
       "email": "marie.dupont@ecole.fr",
       "motDePasse": "prof123",
       "telephone": "+33 6 12 34 56 78",
-      "matieres": ["Mathématiques", "Physique"],
-      "filieres": ["Sciences", "Informatique"],
+      "matieres": [
+        "Algorithmique et Programmation",
+        "Développement Web et Mobile"
+      ],
+      "filieres": [
+        "Génie Informatique",
+        "Data Science",
+        "Sécurité Informatique"
+      ],
+      "niveaux": [
+        "L1",
+        "L2",
+        "L3",
+        "M1"
+      ],
       "statut": "Actif",
       "dateEmbauche": "2019-09-01",
       "avatar": "MD",
@@ -26,8 +39,23 @@
       "email": "jean.martin@ecole.fr",
       "motDePasse": "prof123",
       "telephone": "+33 6 23 45 67 89",
-      "matieres": ["Physique", "Chimie"],
-      "filieres": ["Sciences"],
+      "matieres": [
+        "Mathématiques Financières",
+        "Mathématiques Actuarielles",
+        "Probabilités et Modèles de Risque"
+      ],
+      "filieres": [
+        "Actuariat",
+        "Banque, Finances et Assurances",
+        "Comptabilité et Gestion d'Entreprise",
+        "Audit Comptable et Financier"
+      ],
+      "niveaux": [
+        "L1",
+        "L2",
+        "L3",
+        "M2"
+      ],
       "statut": "Actif",
       "dateEmbauche": "2020-09-01",
       "avatar": "JM",
@@ -40,8 +68,20 @@
       "email": "sophie.bernard@ecole.fr",
       "motDePasse": "prof123",
       "telephone": "+33 6 34 56 78 90",
-      "matieres": ["Littérature", "Philosophie"],
-      "filieres": ["Lettres", "Humanités"],
+      "matieres": [
+        "Communication Professionnelle en Anglais",
+        "Négociation Commerciale Internationale"
+      ],
+      "filieres": [
+        "Langues et Affaires",
+        "Marketing et Action Commerciale",
+        "Secrétariat de Direction"
+      ],
+      "niveaux": [
+        "L1",
+        "L2",
+        "L3"
+      ],
       "statut": "Actif",
       "dateEmbauche": "2018-09-01",
       "avatar": "SB",
@@ -54,8 +94,19 @@
       "email": "paul.leroy@ecole.fr",
       "motDePasse": "prof123",
       "telephone": "+33 6 45 67 89 01",
-      "matieres": ["Histoire", "Géographie"],
-      "filieres": ["Humanités"],
+      "matieres": [
+        "Droit Administratif",
+        "Finances et Budget des Collectivités",
+        "Droit Bancaire"
+      ],
+      "filieres": [
+        "Gestion des Collectivités Locales",
+        "Finances Publiques",
+        "Droit et Techniques Fonciers Domaniaux"
+      ],
+      "niveaux": [
+        "L+1"
+      ],
       "statut": "Inactif",
       "dateEmbauche": "2021-09-01",
       "avatar": "PL",
@@ -68,12 +119,155 @@
       "email": "claire.moreau@ecole.fr",
       "motDePasse": "prof123",
       "telephone": "+33 6 56 78 90 12",
-      "matieres": ["Chimie"],
-      "filieres": ["Sciences"],
+      "matieres": [
+        "Management QHSE en Entreprise",
+        "Audit Environnemental et RSE",
+        "Maintenance Préventive et Corrective"
+      ],
+      "filieres": [
+        "Qualité, Hygiène, Sécurité et Environnement",
+        "Management QSE",
+        "Maintenance Industrielle"
+      ],
+      "niveaux": [
+        "L1",
+        "L2",
+        "M1",
+        "M2"
+      ],
       "statut": "Actif",
       "dateEmbauche": "2017-09-01",
       "avatar": "CM",
       "couleur": "#8B5CF6"
+    },
+    {
+      "id": 6,
+      "nom": "Diop",
+      "prenom": "Ibrahima",
+      "email": "ibrahima.diop@ecole.fr",
+      "motDePasse": "prof123",
+      "telephone": "+33 6 67 89 01 23",
+      "matieres": [
+        "Introduction à la Logistique",
+        "Économie des Transports",
+        "Chaîne de la Logistique"
+      ],
+      "filieres": [
+        "Transport et Logistique",
+        "Chaîne de la Logistique"
+      ],
+      "niveaux": [
+        "L1",
+        "L2",
+        "L3",
+        "M1"
+      ],
+      "statut": "Actif",
+      "dateEmbauche": "2020-02-01",
+      "avatar": "DI",
+      "couleur": "#06B6D4"
+    },
+    {
+      "id": 7,
+      "nom": "Ndiaye",
+      "prenom": "Aïssatou",
+      "email": "aissatou.ndiaye@ecole.fr",
+      "motDePasse": "prof123",
+      "telephone": "+33 6 78 90 12 34",
+      "matieres": [
+        "Fondamentaux des Ressources Humaines",
+        "Stratégie et Développement RH",
+        "Leadership et Gestion du Changement"
+      ],
+      "filieres": [
+        "Ressources Humaines",
+        "Management des Ressources Humaines"
+      ],
+      "niveaux": [
+        "L1",
+        "L2",
+        "L3",
+        "M1",
+        "M2"
+      ],
+      "statut": "Actif",
+      "dateEmbauche": "2019-03-15",
+      "avatar": "NA",
+      "couleur": "#EC4899"
+    },
+    {
+      "id": 8,
+      "nom": "Konaté",
+      "prenom": "Moussa",
+      "email": "moussa.konate@ecole.fr",
+      "motDePasse": "prof123",
+      "telephone": "+33 6 89 01 23 45",
+      "matieres": [
+        "Relations Internationales et Droit Diplomatique",
+        "Géopolitique et Enjeux Mondiaux",
+        "Méthodes de Prospective Stratégique"
+      ],
+      "filieres": [
+        "Diplomatie Contemporaine",
+        "Prospective et Planification"
+      ],
+      "niveaux": [
+        "L+1"
+      ],
+      "statut": "Actif",
+      "dateEmbauche": "2021-09-01",
+      "avatar": "KM",
+      "couleur": "#84CC16"
+    },
+    {
+      "id": 9,
+      "nom": "Traoré",
+      "prenom": "Aminata",
+      "email": "aminata.traore@ecole.fr",
+      "motDePasse": "prof123",
+      "telephone": "+33 6 90 12 34 56",
+      "matieres": [
+        "Anatomie et Physiologie Humaine",
+        "Soins Infirmiers Fondamentaux"
+      ],
+      "filieres": [
+        "Sciences Infirmières"
+      ],
+      "niveaux": [
+        "L1",
+        "L2",
+        "L3"
+      ],
+      "statut": "Actif",
+      "dateEmbauche": "2018-09-01",
+      "avatar": "TA",
+      "couleur": "#F97316"
+    },
+    {
+      "id": 10,
+      "nom": "Fontaine",
+      "prenom": "Marc",
+      "email": "marc.fontaine@ecole.fr",
+      "motDePasse": "prof123",
+      "telephone": "+33 6 01 23 45 67",
+      "matieres": [
+        "Topographie et Métrologie",
+        "Résistance des Matériaux",
+        "Électrotechnique Fondamentale"
+      ],
+      "filieres": [
+        "Génie Civil",
+        "Électricité Industrielle"
+      ],
+      "niveaux": [
+        "L1",
+        "L2",
+        "L3"
+      ],
+      "statut": "Actif",
+      "dateEmbauche": "2016-09-01",
+      "avatar": "FM",
+      "couleur": "#6366F1"
     }
   ],
   "sousAdmins": [
