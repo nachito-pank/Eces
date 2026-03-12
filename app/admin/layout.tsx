@@ -4,9 +4,13 @@ import Sidebar from "@/components/dashboard/Sidebar";
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div>
-   
-      <main className="p-4">{children}</main>
+      <Sidebar role="admin"/>
+      <div>
+        <Navbar showLogo={false} />
+        <main className="container mx-auto p-4">
+          {children}
+        </main>
+      </div>
     </div>
-  
   );
 }

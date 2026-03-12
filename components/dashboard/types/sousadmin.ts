@@ -10,7 +10,7 @@ export interface Actualite {
 
 export interface Message {
   id: string;
-  expedition: string;
+  expediteur: string;
   nomExpediteur: string;
   destinataire: string; // 'tous', 'etudiants_GI', etc.
   contenu: string;

@@ -6,7 +6,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div>
       <Sidebar role="sous-admin"/>
       <div>
-        <Navbar/>
+        <Navbar showLogo={false} />
         <main className="container mx-auto p-4">
           {children}
         </main>

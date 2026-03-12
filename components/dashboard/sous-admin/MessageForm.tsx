@@ -29,13 +29,18 @@ export default function MessageForm({ onSend }: MessageFormProps) {
     }
   };
 
-  const handleDestinataireChange = (value: string) => {
-    setFormData(prev => ({ ...prev, destinataire: value }));
+  const handleDestinataireChange = (value: string | null) => {
+    setFormData(prev => ({ ...prev, destinataire: value || 'tous' }));
   };
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-<DialogTrigger>\n        <Button className="bg-blue-600 hover:bg-blue-700 flex items-center gap-2 shadow-md w-full sm:w-auto">\n          <MessageSquare className="h-4 w-4" />\n          <span>Nouveau Message</span>\n        </Button>\n      </DialogTrigger>
+      <DialogTrigger>
+        <Button className="bg-blue-600 hover:bg-blue-700 flex items-center gap-2 shadow-md w-full sm:w-auto">
+          <MessageSquare className="h-4 w-4" />
+          <span>Nouveau Message</span>
+        </Button>
+      </DialogTrigger>
       <DialogContent className="max-w-md sm:max-w-lg mx-auto rounded-2xl p-6">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-gray-900 flex items-center gap-2">

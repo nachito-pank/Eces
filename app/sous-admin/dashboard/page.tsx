@@ -2,8 +2,9 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { LayoutDashboard, MessageSquare, Newspaper, CalendarDays, Users } from 'lucide-react';
+import { LayoutDashboard, MessageSquare, Newspaper, CalendarDays, Users, BookOpen, GraduationCap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 import sousAdminsData from '@/data/sous-admins.json';
 
 export default function SousAdminDashboard() {
@@ -11,6 +12,44 @@ export default function SousAdminDashboard() {
   const actualitesCount = sousAdminsData.actualites?.length || 0;
   const edtCoursCount = sousAdminsData.emploiDuTemps?.length || 0;
   const edtSessionsCount = sousAdminsData.emploiDuTempsSessions?.length || 0;
+
+  const getIconColor = (color: string) => {
+    switch (color) {
+      case 'blue': return 'from-blue-500 to-blue-600';
+      case 'green': return 'from-green-500 to-green-600';
+      case 'purple': return 'from-purple-500 to-purple-600';
+      case 'orange': return 'from-orange-500 to-orange-600';
+      default: return 'from-gray-500 to-gray-600';
+    }
+  };
+
+  const getBadgeColor = (color: string) => {
+    switch (color) {
+      case 'blue': return 'bg-blue-100 text-blue-800 border-blue-200';
+      case 'green': return 'bg-green-100 text-green-800 border-green-200';
+      case 'purple': return 'bg-purple-100 text-purple-800 border-purple-200';
+      case 'orange': return 'bg-orange-100 text-orange-800 border-orange-200';
+      default: return 'bg-gray-100 text-gray-800 border-gray-200';
+    }
+  };
+
+  const getActivityColor = (color: string) => {
+    switch (color) {
+      case 'blue': return 'bg-blue-100';
+      case 'green': return 'bg-green-100';
+      case 'purple': return 'bg-purple-100';
+      default: return 'bg-gray-100';
+    }
+  };
+
+  const getActivityIconColor = (color: string) => {
+    switch (color) {
+      case 'blue': return 'text-blue-600';
+      case 'green': return 'text-green-600';
+      case 'purple': return 'text-purple-600';
+      default: return 'text-gray-600';
+    }
+  };
 
   const stats = [
     {
@@ -41,7 +80,7 @@ export default function SousAdminDashboard() {
       title: 'Sessions d\'Examens',
       value: edtSessionsCount,
       change: 'Planifiées',
-      icon: Users,
+      icon: BookOpen,
       color: 'orange',
       href: '/sous-admin/emploi-du-temps'
     }
@@ -67,29 +106,31 @@ export default function SousAdminDashboard() {
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {stats.map((stat, index) => (
-          <Card key={index} className="group hover:shadow-xl hover:shadow-blue-200/50 transition-all duration-300 border-0 bg-gradient-to-br from-white to-blue-50/50 hover:to-blue-50">
-            <CardHeader className="pb-3">
-              <div className="flex items-center gap-3">
-                <div className={`p-3 rounded-xl bg-gradient-to-br from-${stat.color}-500 to-${stat.color}-600 shadow-lg`}>
-                  <stat.icon className="h-6 w-6 text-white" />
+          <Link key={index} href={stat.href}>
+            <Card className="group hover:shadow-xl hover:shadow-blue-200/50 transition-all duration-300 border-0 bg-gradient-to-br from-white to-blue-50/50 hover:to-blue-50 cursor-pointer">
+              <CardHeader className="pb-3">
+                <div className="flex items-center gap-3">
+                  <div className={`p-3 rounded-xl bg-gradient-to-br ${getIconColor(stat.color)} shadow-lg`}>
+                    <stat.icon className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-2xl font-bold text-gray-900">{stat.value}</CardTitle>
+                    <CardDescription>{stat.title}</CardDescription>
+                  </div>
                 </div>
-                <div>
-                  <CardTitle className="text-2xl font-bold text-gray-900">{stat.value}</CardTitle>
-                  <CardDescription>{stat.title}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center justify-between">
+                  <Badge className={getBadgeColor(stat.color)}>
+                    {stat.change}
+                  </Badge>
+                  <Button variant="ghost" size="sm" className="h-8 px-3 text-xs hover:bg-transparent hover:text-blue-600">
+                    Voir
+                  </Button>
                 </div>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <div className="flex items-center justify-between">
-                <Badge className={`bg-${stat.color}-100 text-${stat.color}-800 border-${stat.color}-200`}>
-                  {stat.change}
-                </Badge>
-                <Button variant="ghost" size="sm" className="h-8 px-3 text-xs hover:bg-transparent hover:text-blue-600">
-                  Voir
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          </Link>
         ))}
       </div>
 
@@ -131,8 +172,8 @@ export default function SousAdminDashboard() {
             { action: 'EDT mis à jour L1 GI', time: 'hier', icon: CalendarDays, color: 'purple' },
           ].map((activity, index) => (
             <div key={index} className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
-              <div className={`p-2 rounded-lg bg-${activity.color}-100`}>
-                <activity.icon className="h-5 w-5 text-blue-600" />
+              <div className={`p-2 rounded-lg ${getActivityColor(activity.color)}`}>
+                <activity.icon className={`h-5 w-5 ${getActivityIconColor(activity.color)}`} />
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-medium text-gray-900 truncate">{activity.action}</p>
