@@ -75,7 +75,7 @@ export default function EnseignantDetailPage() {
       {/* Breadcrumb */}
       <nav className="flex text-sm text-slate-500 font-medium">
         <Link href="/admin/enseignants" className="hover:text-blue-600 transition-colors">Enseignants</Link>
-        <ChevronRight className="w-4 h-4 mx-2 flex-shrink-0" />
+        <ChevronRight className="w-4 h-4 mx-2 shrink-0" />
         <span className="text-slate-900">{enseignant.prenom} {enseignant.nom}</span>
       </nav>
 
@@ -90,11 +90,10 @@ export default function EnseignantDetailPage() {
         {/* Left Column - Profile Card (Sticky) */}
         <div className="lg:col-span-1 sticky top-8">
           <div className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-            <div className="h-24 bg-gradient-to-r from-blue-900 to-blue-700"></div>
+            <div className="h-24 bg-linear-to-r from-blue-900 to-blue-700"></div>
             <div className="px-6 pb-6 relative">
               <div 
-                className="w-20 h-20 rounded-2xl flex items-center justify-center text-white font-title font-bold text-2xl border-4 border-white shadow-sm absolute -top-10"
-                style={{ backgroundColor: enseignant.couleur }}
+                className="w-20 h-20 rounded-2xl flex items-center justify-center text-white font-title font-bold text-2xl border-4 border-white shadow-sm absolute -top-10 bg-blue-500"
               >
                 {enseignant.avatar}
               </div>
@@ -317,6 +316,7 @@ export default function EnseignantDetailPage() {
                 <label className="block text-sm font-medium text-slate-700 mb-1.5">Statut</label>
                 {isEditing ? (
                   <select 
+                    title="Statut"
                     name="statut"
                     value={formData.statut}
                     onChange={handleChange}

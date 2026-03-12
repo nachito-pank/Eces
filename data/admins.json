@@ -279,7 +279,10 @@
       "motDePasse": "admin123",
       "telephone": "+33 6 11 22 33 44",
       "role": "Sous-Admin Scolarité",
-      "droits": ["Gestion Étudiants", "Gestion Filieres"],
+      "droits": [
+        "Gestion Étudiants",
+        "Gestion Filieres"
+      ],
       "statut": "Actif",
       "dateCreation": "2022-01-15",
       "avatar": "LG",
@@ -293,7 +296,10 @@
       "motDePasse": "admin123",
       "telephone": "+33 6 22 33 44 55",
       "role": "Sous-Admin RH",
-      "droits": ["Gestion Enseignants", "Rapports"],
+      "droits": [
+        "Gestion Enseignants",
+        "Rapports"
+      ],
       "statut": "Actif",
       "dateCreation": "2022-03-20",
       "avatar": "EP",
@@ -307,7 +313,10 @@
       "motDePasse": "admin123",
       "telephone": "+33 6 33 44 55 66",
       "role": "Sous-Admin Finances",
-      "droits": ["Rapports", "Statistiques"],
+      "droits": [
+        "Rapports",
+        "Statistiques"
+      ],
       "statut": "Inactif",
       "dateCreation": "2022-06-10",
       "avatar": "HR",
@@ -321,8 +330,8 @@
       "code": "LA",
       "cycle": "Licence Professionnelle",
       "niveau": "LP",
-      "nbEtudiants": 0,
-      "nbEnseignants": 0
+      "nbEtudiants": 1,
+      "nbEnseignants": 1
     },
     {
       "id": 2,
@@ -331,7 +340,7 @@
       "cycle": "Licence Professionnelle",
       "niveau": "LP",
       "nbEtudiants": 0,
-      "nbEnseignants": 0
+      "nbEnseignants": 1
     },
     {
       "id": 3,
@@ -339,8 +348,8 @@
       "code": "BFA",
       "cycle": "Licence Professionnelle",
       "niveau": "LP",
-      "nbEtudiants": 0,
-      "nbEnseignants": 0
+      "nbEtudiants": 1,
+      "nbEnseignants": 1
     },
     {
       "id": 4,
@@ -348,8 +357,8 @@
       "code": "CGE",
       "cycle": "Licence Professionnelle",
       "niveau": "LP",
-      "nbEtudiants": 0,
-      "nbEnseignants": 0
+      "nbEtudiants": 2,
+      "nbEnseignants": 1
     },
     {
       "id": 5,
@@ -357,8 +366,8 @@
       "code": "TL",
       "cycle": "Licence Professionnelle",
       "niveau": "LP",
-      "nbEtudiants": 0,
-      "nbEnseignants": 0
+      "nbEtudiants": 1,
+      "nbEnseignants": 1
     },
     {
       "id": 6,
@@ -366,8 +375,8 @@
       "code": "MI",
       "cycle": "Licence Professionnelle",
       "niveau": "LP",
-      "nbEtudiants": 0,
-      "nbEnseignants": 0
+      "nbEtudiants": 1,
+      "nbEnseignants": 1
     },
     {
       "id": 7,
@@ -375,8 +384,8 @@
       "code": "EI",
       "cycle": "Licence Professionnelle",
       "niveau": "LP",
-      "nbEtudiants": 0,
-      "nbEnseignants": 0
+      "nbEtudiants": 1,
+      "nbEnseignants": 1
     },
     {
       "id": 8,
@@ -384,8 +393,8 @@
       "code": "GI",
       "cycle": "Licence Professionnelle",
       "niveau": "LP",
-      "nbEtudiants": 0,
-      "nbEnseignants": 0
+      "nbEtudiants": 2,
+      "nbEnseignants": 1
     },
     {
       "id": 9,
@@ -393,8 +402,8 @@
       "code": "RH",
       "cycle": "Licence Professionnelle",
       "niveau": "LP",
-      "nbEtudiants": 0,
-      "nbEnseignants": 0
+      "nbEtudiants": 1,
+      "nbEnseignants": 1
     },
     {
       "id": 10,
@@ -402,8 +411,8 @@
       "code": "SD",
       "cycle": "Licence Professionnelle",
       "niveau": "LP",
-      "nbEtudiants": 0,
-      "nbEnseignants": 0
+      "nbEtudiants": 1,
+      "nbEnseignants": 1
     },
     {
       "id": 11,
@@ -411,8 +420,8 @@
       "code": "MAC",
       "cycle": "Licence Professionnelle",
       "niveau": "LP",
-      "nbEtudiants": 0,
-      "nbEnseignants": 0
+      "nbEtudiants": 1,
+      "nbEnseignants": 1
     },
     {
       "id": 12,
@@ -420,8 +429,8 @@
       "code": "GC",
       "cycle": "Licence Professionnelle",
       "niveau": "LP",
-      "nbEtudiants": 0,
-      "nbEnseignants": 0
+      "nbEtudiants": 1,
+      "nbEnseignants": 1
     },
     {
       "id": 13,
@@ -429,8 +438,8 @@
       "code": "SI",
       "cycle": "Licence Professionnelle",
       "niveau": "LP",
-      "nbEtudiants": 0,
-      "nbEnseignants": 0
+      "nbEtudiants": 1,
+      "nbEnseignants": 1
     },
     {
       "id": 14,
@@ -438,8 +447,8 @@
       "code": "ACT",
       "cycle": "Licence Professionnelle",
       "niveau": "LP",
-      "nbEtudiants": 0,
-      "nbEnseignants": 0
+      "nbEtudiants": 1,
+      "nbEnseignants": 1
     },
     {
       "id": 15,
@@ -447,8 +456,8 @@
       "code": "DS",
       "cycle": "Licence Professionnelle",
       "niveau": "LP",
-      "nbEtudiants": 0,
-      "nbEnseignants": 0
+      "nbEtudiants": 2,
+      "nbEnseignants": 1
     },
     {
       "id": 16,
@@ -456,8 +465,8 @@
       "code": "GCL",
       "cycle": "Licence +1",
       "niveau": "L+1",
-      "nbEtudiants": 0,
-      "nbEnseignants": 0
+      "nbEtudiants": 1,
+      "nbEnseignants": 1
     },
     {
       "id": 17,
@@ -465,8 +474,8 @@
       "code": "DC",
       "cycle": "Licence +1",
       "niveau": "L+1",
-      "nbEtudiants": 0,
-      "nbEnseignants": 0
+      "nbEtudiants": 1,
+      "nbEnseignants": 1
     },
     {
       "id": 18,
@@ -475,7 +484,7 @@
       "cycle": "Licence +1",
       "niveau": "L+1",
       "nbEtudiants": 0,
-      "nbEnseignants": 0
+      "nbEnseignants": 1
     },
     {
       "id": 19,
@@ -483,8 +492,8 @@
       "code": "PP",
       "cycle": "Licence +1",
       "niveau": "L+1",
-      "nbEtudiants": 0,
-      "nbEnseignants": 0
+      "nbEtudiants": 1,
+      "nbEnseignants": 1
     },
     {
       "id": 20,
@@ -492,8 +501,8 @@
       "code": "FP",
       "cycle": "Licence +1",
       "niveau": "L+1",
-      "nbEtudiants": 0,
-      "nbEnseignants": 0
+      "nbEtudiants": 1,
+      "nbEnseignants": 1
     },
     {
       "id": 21,
@@ -501,8 +510,8 @@
       "code": "SECINFO",
       "cycle": "Master",
       "niveau": "M",
-      "nbEtudiants": 0,
-      "nbEnseignants": 0
+      "nbEtudiants": 1,
+      "nbEnseignants": 1
     },
     {
       "id": 22,
@@ -510,8 +519,8 @@
       "code": "MRH",
       "cycle": "Master",
       "niveau": "M",
-      "nbEtudiants": 0,
-      "nbEnseignants": 0
+      "nbEtudiants": 1,
+      "nbEnseignants": 1
     },
     {
       "id": 23,
@@ -520,7 +529,7 @@
       "cycle": "Master",
       "niveau": "M",
       "nbEtudiants": 0,
-      "nbEnseignants": 0
+      "nbEnseignants": 1
     },
     {
       "id": 24,
@@ -528,8 +537,8 @@
       "code": "QHSE",
       "cycle": "Master",
       "niveau": "M",
-      "nbEtudiants": 0,
-      "nbEnseignants": 0
+      "nbEtudiants": 1,
+      "nbEnseignants": 1
     },
     {
       "id": 25,
@@ -537,8 +546,8 @@
       "code": "ACF",
       "cycle": "Master",
       "niveau": "M",
-      "nbEtudiants": 0,
-      "nbEnseignants": 0
+      "nbEtudiants": 1,
+      "nbEnseignants": 1
     }
   ],
   "etudiants": [

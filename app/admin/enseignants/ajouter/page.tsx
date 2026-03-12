@@ -49,7 +49,7 @@ export default function AjouterEnseignantPage() {
     <div className="space-y-6">
       <nav className="flex text-sm text-slate-500 font-medium">
         <Link href="/enseignants" className="hover:text-blue-600 transition-colors">Enseignants</Link>
-        <ChevronRight className="w-4 h-4 mx-2 flex-shrink-0" />
+        <ChevronRight className="w-4 h-4 mx-2 shrink-0" />
         <span className="text-slate-900">Ajouter un enseignant</span>
       </nav>
 
@@ -64,11 +64,10 @@ export default function AjouterEnseignantPage() {
         {/* Left Column - Live Preview */}
         <div className="lg:col-span-1 sticky top-8">
           <div className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-            <div className="h-24 bg-gradient-to-r from-blue-900 to-blue-700"></div>
+            <div className="h-24 bg-linear-to-r from-blue-900 to-blue-700"></div>
             <div className="px-6 pb-6 relative">
               <div 
-                className="w-20 h-20 rounded-2xl flex items-center justify-center text-white font-title font-bold text-2xl border-4 border-white shadow-sm absolute -top-10"
-                style={{ backgroundColor: avatarColor }}
+                className="w-20 h-20 rounded-2xl flex items-center justify-center text-white font-title font-bold text-2xl border-4 border-white shadow-sm absolute -top-10 bg-blue-500"
               >
                 {initials || '?'}
               </div>
@@ -95,7 +94,7 @@ export default function AjouterEnseignantPage() {
                 <div className="mt-8 pt-6 border-t border-slate-100 flex flex-col gap-3">
                   <button 
                     type="submit"
-                    className="w-full flex items-center justify-center px-4 py-2 bg-gradient-to-r from-blue-900 to-blue-700 hover:from-blue-800 hover:to-blue-600 text-white text-sm font-medium rounded-xl transition-all shadow-sm"
+                    className="w-full flex items-center justify-center px-4 py-2 bg-linear-to-r from-blue-900 to-blue-700 hover:from-blue-800 hover:to-blue-600 text-white text-sm font-medium rounded-xl transition-all shadow-sm"
                   >
                     Ajouter l&apos;enseignant
                   </button>
@@ -231,6 +230,7 @@ export default function AjouterEnseignantPage() {
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-1.5">Statut</label>
                 <select 
+                  title="Statut"
                   name="statut"
                   value={formData.statut}
                   onChange={handleChange}
