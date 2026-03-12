@@ -1,0 +1,2282 @@
+{
+  "admin": {
+    "nom": "Admin Principal",
+    "email": "admin@ecole.fr",
+    "motDePasse": "admin123"
+  },
+  "enseignants": [
+    {
+      "id": 1,
+      "nom": "Dupont",
+      "prenom": "Marie",
+      "email": "marie.dupont@ecole.fr",
+      "motDePasse": "prof123",
+      "telephone": "+33 6 12 34 56 78",
+      "matieres": ["Mathématiques", "Physique"],
+      "filieres": ["Sciences", "Informatique"],
+      "statut": "Actif",
+      "dateEmbauche": "2019-09-01",
+      "avatar": "MD",
+      "couleur": "#3B82F6"
+    },
+    {
+      "id": 2,
+      "nom": "Martin",
+      "prenom": "Jean",
+      "email": "jean.martin@ecole.fr",
+      "motDePasse": "prof123",
+      "telephone": "+33 6 23 45 67 89",
+      "matieres": ["Physique", "Chimie"],
+      "filieres": ["Sciences"],
+      "statut": "Actif",
+      "dateEmbauche": "2020-09-01",
+      "avatar": "JM",
+      "couleur": "#10B981"
+    },
+    {
+      "id": 3,
+      "nom": "Bernard",
+      "prenom": "Sophie",
+      "email": "sophie.bernard@ecole.fr",
+      "motDePasse": "prof123",
+      "telephone": "+33 6 34 56 78 90",
+      "matieres": ["Littérature", "Philosophie"],
+      "filieres": ["Lettres", "Humanités"],
+      "statut": "Actif",
+      "dateEmbauche": "2018-09-01",
+      "avatar": "SB",
+      "couleur": "#F59E0B"
+    },
+    {
+      "id": 4,
+      "nom": "Leroy",
+      "prenom": "Paul",
+      "email": "paul.leroy@ecole.fr",
+      "motDePasse": "prof123",
+      "telephone": "+33 6 45 67 89 01",
+      "matieres": ["Histoire", "Géographie"],
+      "filieres": ["Humanités"],
+      "statut": "Inactif",
+      "dateEmbauche": "2021-09-01",
+      "avatar": "PL",
+      "couleur": "#EF4444"
+    },
+    {
+      "id": 5,
+      "nom": "Moreau",
+      "prenom": "Claire",
+      "email": "claire.moreau@ecole.fr",
+      "motDePasse": "prof123",
+      "telephone": "+33 6 56 78 90 12",
+      "matieres": ["Chimie"],
+      "filieres": ["Sciences"],
+      "statut": "Actif",
+      "dateEmbauche": "2017-09-01",
+      "avatar": "CM",
+      "couleur": "#8B5CF6"
+    }
+  ],
+  "sousAdmins": [
+    {
+      "id": 1,
+      "nom": "Garcia",
+      "prenom": "Lucas",
+      "email": "lucas.garcia@ecole.fr",
+      "motDePasse": "admin123",
+      "telephone": "+33 6 11 22 33 44",
+      "role": "Sous-Admin Scolarité",
+      "droits": ["Gestion Étudiants", "Gestion Filieres"],
+      "statut": "Actif",
+      "dateCreation": "2022-01-15",
+      "avatar": "LG",
+      "couleur": "#3B82F6"
+    },
+    {
+      "id": 2,
+      "nom": "Petit",
+      "prenom": "Emma",
+      "email": "emma.petit@ecole.fr",
+      "motDePasse": "admin123",
+      "telephone": "+33 6 22 33 44 55",
+      "role": "Sous-Admin RH",
+      "droits": ["Gestion Enseignants", "Rapports"],
+      "statut": "Actif",
+      "dateCreation": "2022-03-20",
+      "avatar": "EP",
+      "couleur": "#10B981"
+    },
+    {
+      "id": 3,
+      "nom": "Rousseau",
+      "prenom": "Hugo",
+      "email": "hugo.rousseau@ecole.fr",
+      "motDePasse": "admin123",
+      "telephone": "+33 6 33 44 55 66",
+      "role": "Sous-Admin Finances",
+      "droits": ["Rapports", "Statistiques"],
+      "statut": "Inactif",
+      "dateCreation": "2022-06-10",
+      "avatar": "HR",
+      "couleur": "#EF4444"
+    }
+  ],
+  "filieres": [
+    {
+      "id": 1,
+      "nom": "Langues et Affaires",
+      "code": "LA",
+      "cycle": "Licence Professionnelle",
+      "niveau": "LP",
+      "nbEtudiants": 0,
+      "nbEnseignants": 0
+    },
+    {
+      "id": 2,
+      "nom": "Management QSE",
+      "code": "MQSE",
+      "cycle": "Licence Professionnelle",
+      "niveau": "LP",
+      "nbEtudiants": 0,
+      "nbEnseignants": 0
+    },
+    {
+      "id": 3,
+      "nom": "Banque, Finances et Assurances",
+      "code": "BFA",
+      "cycle": "Licence Professionnelle",
+      "niveau": "LP",
+      "nbEtudiants": 0,
+      "nbEnseignants": 0
+    },
+    {
+      "id": 4,
+      "nom": "Comptabilité et Gestion d'Entreprise",
+      "code": "CGE",
+      "cycle": "Licence Professionnelle",
+      "niveau": "LP",
+      "nbEtudiants": 0,
+      "nbEnseignants": 0
+    },
+    {
+      "id": 5,
+      "nom": "Transport et Logistique",
+      "code": "TL",
+      "cycle": "Licence Professionnelle",
+      "niveau": "LP",
+      "nbEtudiants": 0,
+      "nbEnseignants": 0
+    },
+    {
+      "id": 6,
+      "nom": "Maintenance Industrielle",
+      "code": "MI",
+      "cycle": "Licence Professionnelle",
+      "niveau": "LP",
+      "nbEtudiants": 0,
+      "nbEnseignants": 0
+    },
+    {
+      "id": 7,
+      "nom": "Électricité Industrielle",
+      "code": "EI",
+      "cycle": "Licence Professionnelle",
+      "niveau": "LP",
+      "nbEtudiants": 0,
+      "nbEnseignants": 0
+    },
+    {
+      "id": 8,
+      "nom": "Génie Informatique",
+      "code": "GI",
+      "cycle": "Licence Professionnelle",
+      "niveau": "LP",
+      "nbEtudiants": 0,
+      "nbEnseignants": 0
+    },
+    {
+      "id": 9,
+      "nom": "Ressources Humaines",
+      "code": "RH",
+      "cycle": "Licence Professionnelle",
+      "niveau": "LP",
+      "nbEtudiants": 0,
+      "nbEnseignants": 0
+    },
+    {
+      "id": 10,
+      "nom": "Secrétariat de Direction",
+      "code": "SD",
+      "cycle": "Licence Professionnelle",
+      "niveau": "LP",
+      "nbEtudiants": 0,
+      "nbEnseignants": 0
+    },
+    {
+      "id": 11,
+      "nom": "Marketing et Action Commerciale",
+      "code": "MAC",
+      "cycle": "Licence Professionnelle",
+      "niveau": "LP",
+      "nbEtudiants": 0,
+      "nbEnseignants": 0
+    },
+    {
+      "id": 12,
+      "nom": "Génie Civil",
+      "code": "GC",
+      "cycle": "Licence Professionnelle",
+      "niveau": "LP",
+      "nbEtudiants": 0,
+      "nbEnseignants": 0
+    },
+    {
+      "id": 13,
+      "nom": "Sciences Infirmières",
+      "code": "SI",
+      "cycle": "Licence Professionnelle",
+      "niveau": "LP",
+      "nbEtudiants": 0,
+      "nbEnseignants": 0
+    },
+    {
+      "id": 14,
+      "nom": "Actuariat",
+      "code": "ACT",
+      "cycle": "Licence Professionnelle",
+      "niveau": "LP",
+      "nbEtudiants": 0,
+      "nbEnseignants": 0
+    },
+    {
+      "id": 15,
+      "nom": "Data Science",
+      "code": "DS",
+      "cycle": "Licence Professionnelle",
+      "niveau": "LP",
+      "nbEtudiants": 0,
+      "nbEnseignants": 0
+    },
+    {
+      "id": 16,
+      "nom": "Gestion des Collectivités Locales",
+      "code": "GCL",
+      "cycle": "Licence +1",
+      "niveau": "L+1",
+      "nbEtudiants": 0,
+      "nbEnseignants": 0
+    },
+    {
+      "id": 17,
+      "nom": "Diplomatie Contemporaine",
+      "code": "DC",
+      "cycle": "Licence +1",
+      "niveau": "L+1",
+      "nbEtudiants": 0,
+      "nbEnseignants": 0
+    },
+    {
+      "id": 18,
+      "nom": "Droit et Techniques Fonciers Domaniaux",
+      "code": "DTFD",
+      "cycle": "Licence +1",
+      "niveau": "L+1",
+      "nbEtudiants": 0,
+      "nbEnseignants": 0
+    },
+    {
+      "id": 19,
+      "nom": "Prospective et Planification",
+      "code": "PP",
+      "cycle": "Licence +1",
+      "niveau": "L+1",
+      "nbEtudiants": 0,
+      "nbEnseignants": 0
+    },
+    {
+      "id": 20,
+      "nom": "Finances Publiques",
+      "code": "FP",
+      "cycle": "Licence +1",
+      "niveau": "L+1",
+      "nbEtudiants": 0,
+      "nbEnseignants": 0
+    },
+    {
+      "id": 21,
+      "nom": "Sécurité Informatique",
+      "code": "SECINFO",
+      "cycle": "Master",
+      "niveau": "M",
+      "nbEtudiants": 0,
+      "nbEnseignants": 0
+    },
+    {
+      "id": 22,
+      "nom": "Management des Ressources Humaines",
+      "code": "MRH",
+      "cycle": "Master",
+      "niveau": "M",
+      "nbEtudiants": 0,
+      "nbEnseignants": 0
+    },
+    {
+      "id": 23,
+      "nom": "Chaîne de la Logistique",
+      "code": "CL",
+      "cycle": "Master",
+      "niveau": "M",
+      "nbEtudiants": 0,
+      "nbEnseignants": 0
+    },
+    {
+      "id": 24,
+      "nom": "Qualité, Hygiène, Sécurité et Environnement",
+      "code": "QHSE",
+      "cycle": "Master",
+      "niveau": "M",
+      "nbEtudiants": 0,
+      "nbEnseignants": 0
+    },
+    {
+      "id": 25,
+      "nom": "Audit Comptable et Financier",
+      "code": "ACF",
+      "cycle": "Master",
+      "niveau": "M",
+      "nbEtudiants": 0,
+      "nbEnseignants": 0
+    }
+  ],
+  "etudiants": [
+    {
+      "id": 1,
+      "matricule": "GI-2024-001",
+      "nom": "Nguyen",
+      "prenom": "Anh",
+      "filiere": "Génie Informatique",
+      "niveau": "L2",
+      "statut": "Actif",
+      "avatar": "NA",
+      "couleur": "#3B82F6",
+      "notes": [
+        {
+          "matiere": "Algorithmique et Programmation",
+          "noteDevoir": 15.5,
+          "noteSession": 14
+        },
+        {
+          "matiere": "Développement Web et Mobile",
+          "noteDevoir": 14,
+          "noteSession": 13.5
+        },
+        {
+          "matiere": "Architecture des Ordinateurs",
+          "noteDevoir": 13,
+          "noteSession": 12.5
+        }
+      ],
+      "moyenne": 13.75,
+      "appreciation": "Bien",
+      "paiements": [
+        {
+          "id": 1,
+          "etudiantId": 1,
+          "date": "2025-10-06",
+          "montant": 35000,
+          "statut": "Payé",
+          "description": "Frais d'inscription",
+          "mode": "Virement"
+        },
+        {
+          "id": 2,
+          "etudiantId": 1,
+          "date": "2025-11-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 1",
+          "mode": "Mobile Money"
+        },
+        {
+          "id": 3,
+          "etudiantId": 1,
+          "date": "2025-12-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 2",
+          "mode": "Chèque"
+        },
+        {
+          "id": 4,
+          "etudiantId": 1,
+          "date": "2026-01-05",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 3",
+          "mode": "Espèces"
+        },
+        {
+          "id": 5,
+          "etudiantId": 1,
+          "date": "2026-02-03",
+          "montant": 25000,
+          "statut": "En attente",
+          "description": "Frais de scolarité - Tranche 4",
+          "mode": "Virement"
+        }
+      ],
+      "code": "GI",
+      "cycle": "Licence Professionnelle"
+    },
+    {
+      "id": 2,
+      "matricule": "DS-2024-002",
+      "nom": "Diallo",
+      "prenom": "Mamadou",
+      "filiere": "Data Science",
+      "niveau": "L3",
+      "statut": "Actif",
+      "avatar": "DM",
+      "couleur": "#10B981",
+      "notes": [
+        {
+          "matiere": "Introduction à la Data Science",
+          "noteDevoir": 17,
+          "noteSession": 16.5
+        },
+        {
+          "matiere": "Statistiques Descriptives",
+          "noteDevoir": 16,
+          "noteSession": 15.5
+        },
+        {
+          "matiere": "Programmation Python",
+          "noteDevoir": 18,
+          "noteSession": 17
+        }
+      ],
+      "moyenne": 16.67,
+      "appreciation": "Excellent",
+      "paiements": [
+        {
+          "id": 6,
+          "etudiantId": 2,
+          "date": "2025-10-06",
+          "montant": 35000,
+          "statut": "Payé",
+          "description": "Frais d'inscription",
+          "mode": "Mobile Money"
+        },
+        {
+          "id": 7,
+          "etudiantId": 2,
+          "date": "2025-11-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 1",
+          "mode": "Chèque"
+        },
+        {
+          "id": 8,
+          "etudiantId": 2,
+          "date": "2025-12-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 2",
+          "mode": "Espèces"
+        },
+        {
+          "id": 9,
+          "etudiantId": 2,
+          "date": "2026-01-05",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 3",
+          "mode": "Virement"
+        },
+        {
+          "id": 10,
+          "etudiantId": 2,
+          "date": "2026-02-03",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 4",
+          "mode": "Mobile Money"
+        }
+      ],
+      "code": "DS",
+      "cycle": "Licence Professionnelle"
+    },
+    {
+      "id": 3,
+      "matricule": "LA-2024-003",
+      "nom": "Koné",
+      "prenom": "Fatoumata",
+      "filiere": "Langues et Affaires",
+      "niveau": "L1",
+      "statut": "Actif",
+      "avatar": "KF",
+      "couleur": "#F59E0B",
+      "notes": [
+        {
+          "matiere": "Communication Professionnelle en Anglais",
+          "noteDevoir": 13,
+          "noteSession": 12.5
+        },
+        {
+          "matiere": "Négociation Commerciale Internationale",
+          "noteDevoir": 12,
+          "noteSession": 11
+        }
+      ],
+      "moyenne": 12.12,
+      "appreciation": "Assez Bien",
+      "paiements": [
+        {
+          "id": 11,
+          "etudiantId": 3,
+          "date": "2025-10-06",
+          "montant": 35000,
+          "statut": "Payé",
+          "description": "Frais d'inscription",
+          "mode": "Chèque"
+        },
+        {
+          "id": 12,
+          "etudiantId": 3,
+          "date": "2025-11-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 1",
+          "mode": "Espèces"
+        },
+        {
+          "id": 13,
+          "etudiantId": 3,
+          "date": "2025-12-01",
+          "montant": 25000,
+          "statut": "En attente",
+          "description": "Frais de scolarité - Tranche 2",
+          "mode": "Virement"
+        },
+        {
+          "id": 14,
+          "etudiantId": 3,
+          "date": "2026-01-05",
+          "montant": 25000,
+          "statut": "En attente",
+          "description": "Frais de scolarité - Tranche 3",
+          "mode": "Mobile Money"
+        },
+        {
+          "id": 15,
+          "etudiantId": 3,
+          "date": "2026-02-03",
+          "montant": 0,
+          "statut": "Non payé",
+          "description": "Frais de scolarité - Tranche 4",
+          "mode": null
+        }
+      ],
+      "code": "LA",
+      "cycle": "Licence Professionnelle"
+    },
+    {
+      "id": 4,
+      "matricule": "TL-2024-004",
+      "nom": "Traoré",
+      "prenom": "Ibrahim",
+      "filiere": "Transport et Logistique",
+      "niveau": "L2",
+      "statut": "Actif",
+      "avatar": "TI",
+      "couleur": "#EF4444",
+      "notes": [
+        {
+          "matiere": "Introduction à la Logistique",
+          "noteDevoir": 11,
+          "noteSession": 10.5
+        },
+        {
+          "matiere": "Économie des Transports",
+          "noteDevoir": 13,
+          "noteSession": 12
+        },
+        {
+          "matiere": "Droit des Transports",
+          "noteDevoir": 10,
+          "noteSession": 9.5
+        }
+      ],
+      "moyenne": 11,
+      "appreciation": "Passable",
+      "paiements": [
+        {
+          "id": 16,
+          "etudiantId": 4,
+          "date": "2025-10-06",
+          "montant": 35000,
+          "statut": "Payé",
+          "description": "Frais d'inscription",
+          "mode": "Espèces"
+        },
+        {
+          "id": 17,
+          "etudiantId": 4,
+          "date": "2025-11-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 1",
+          "mode": "Virement"
+        },
+        {
+          "id": 18,
+          "etudiantId": 4,
+          "date": "2025-12-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 2",
+          "mode": "Mobile Money"
+        },
+        {
+          "id": 19,
+          "etudiantId": 4,
+          "date": "2026-01-05",
+          "montant": 25000,
+          "statut": "En attente",
+          "description": "Frais de scolarité - Tranche 3",
+          "mode": "Chèque"
+        },
+        {
+          "id": 20,
+          "etudiantId": 4,
+          "date": "2026-02-03",
+          "montant": 25000,
+          "statut": "En attente",
+          "description": "Frais de scolarité - Tranche 4",
+          "mode": "Espèces"
+        }
+      ],
+      "code": "TL",
+      "cycle": "Licence Professionnelle"
+    },
+    {
+      "id": 5,
+      "matricule": "CGE-2024-005",
+      "nom": "Lefebvre",
+      "prenom": "Camille",
+      "filiere": "Comptabilité et Gestion d'Entreprise",
+      "niveau": "L3",
+      "statut": "Actif",
+      "avatar": "LC",
+      "couleur": "#8B5CF6",
+      "notes": [
+        {
+          "matiere": "Comptabilité Générale",
+          "noteDevoir": 15,
+          "noteSession": 14.5
+        },
+        {
+          "matiere": "Droit des Affaires",
+          "noteDevoir": 14,
+          "noteSession": 13
+        },
+        {
+          "matiere": "Mathématiques Financières",
+          "noteDevoir": 13.5,
+          "noteSession": 12.5
+        }
+      ],
+      "moyenne": 13.75,
+      "appreciation": "Bien",
+      "paiements": [
+        {
+          "id": 21,
+          "etudiantId": 5,
+          "date": "2025-10-06",
+          "montant": 35000,
+          "statut": "Payé",
+          "description": "Frais d'inscription",
+          "mode": "Virement"
+        },
+        {
+          "id": 22,
+          "etudiantId": 5,
+          "date": "2025-11-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 1",
+          "mode": "Mobile Money"
+        },
+        {
+          "id": 23,
+          "etudiantId": 5,
+          "date": "2025-12-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 2",
+          "mode": "Chèque"
+        },
+        {
+          "id": 24,
+          "etudiantId": 5,
+          "date": "2026-01-05",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 3",
+          "mode": "Espèces"
+        },
+        {
+          "id": 25,
+          "etudiantId": 5,
+          "date": "2026-02-03",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 4",
+          "mode": "Virement"
+        }
+      ],
+      "code": "CGE",
+      "cycle": "Licence Professionnelle"
+    },
+    {
+      "id": 6,
+      "matricule": "GI-2024-006",
+      "nom": "Okafor",
+      "prenom": "Chidi",
+      "filiere": "Génie Informatique",
+      "niveau": "L1",
+      "statut": "Actif",
+      "avatar": "OC",
+      "couleur": "#06B6D4",
+      "notes": [
+        {
+          "matiere": "Algorithmique et Programmation",
+          "noteDevoir": 15.5,
+          "noteSession": 14
+        },
+        {
+          "matiere": "Développement Web et Mobile",
+          "noteDevoir": 14,
+          "noteSession": 13.5
+        },
+        {
+          "matiere": "Architecture des Ordinateurs",
+          "noteDevoir": 13,
+          "noteSession": 12.5
+        }
+      ],
+      "moyenne": 13.75,
+      "appreciation": "Bien",
+      "paiements": [
+        {
+          "id": 26,
+          "etudiantId": 6,
+          "date": "2025-10-06",
+          "montant": 35000,
+          "statut": "Payé",
+          "description": "Frais d'inscription",
+          "mode": "Mobile Money"
+        },
+        {
+          "id": 27,
+          "etudiantId": 6,
+          "date": "2025-11-01",
+          "montant": 25000,
+          "statut": "En attente",
+          "description": "Frais de scolarité - Tranche 1",
+          "mode": "Chèque"
+        },
+        {
+          "id": 28,
+          "etudiantId": 6,
+          "date": "2025-12-01",
+          "montant": 25000,
+          "statut": "En attente",
+          "description": "Frais de scolarité - Tranche 2",
+          "mode": "Espèces"
+        },
+        {
+          "id": 29,
+          "etudiantId": 6,
+          "date": "2026-01-05",
+          "montant": 0,
+          "statut": "Non payé",
+          "description": "Frais de scolarité - Tranche 3",
+          "mode": null
+        },
+        {
+          "id": 30,
+          "etudiantId": 6,
+          "date": "2026-02-03",
+          "montant": 0,
+          "statut": "Non payé",
+          "description": "Frais de scolarité - Tranche 4",
+          "mode": null
+        }
+      ],
+      "code": "GI",
+      "cycle": "Licence Professionnelle"
+    },
+    {
+      "id": 7,
+      "matricule": "RH-2024-007",
+      "nom": "Mercier",
+      "prenom": "Élise",
+      "filiere": "Ressources Humaines",
+      "niveau": "L2",
+      "statut": "Actif",
+      "avatar": "ME",
+      "couleur": "#EC4899",
+      "notes": [
+        {
+          "matiere": "Fondamentaux des Ressources Humaines",
+          "noteDevoir": 17,
+          "noteSession": 16.5
+        },
+        {
+          "matiere": "Droit du Travail",
+          "noteDevoir": 16,
+          "noteSession": 15.5
+        },
+        {
+          "matiere": "Psychologie du Travail",
+          "noteDevoir": 15,
+          "noteSession": 14.5
+        }
+      ],
+      "moyenne": 15.75,
+      "appreciation": "Très Bien",
+      "paiements": [
+        {
+          "id": 31,
+          "etudiantId": 7,
+          "date": "2025-10-06",
+          "montant": 35000,
+          "statut": "Payé",
+          "description": "Frais d'inscription",
+          "mode": "Chèque"
+        },
+        {
+          "id": 32,
+          "etudiantId": 7,
+          "date": "2025-11-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 1",
+          "mode": "Espèces"
+        },
+        {
+          "id": 33,
+          "etudiantId": 7,
+          "date": "2025-12-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 2",
+          "mode": "Virement"
+        },
+        {
+          "id": 34,
+          "etudiantId": 7,
+          "date": "2026-01-05",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 3",
+          "mode": "Mobile Money"
+        },
+        {
+          "id": 35,
+          "etudiantId": 7,
+          "date": "2026-02-03",
+          "montant": 25000,
+          "statut": "En attente",
+          "description": "Frais de scolarité - Tranche 4",
+          "mode": "Chèque"
+        }
+      ],
+      "code": "RH",
+      "cycle": "Licence Professionnelle"
+    },
+    {
+      "id": 8,
+      "matricule": "SI-2024-008",
+      "nom": "Soumaré",
+      "prenom": "Aminata",
+      "filiere": "Sciences Infirmières",
+      "niveau": "L3",
+      "statut": "Actif",
+      "avatar": "SA",
+      "couleur": "#84CC16",
+      "notes": [
+        {
+          "matiere": "Anatomie et Physiologie Humaine",
+          "noteDevoir": 14,
+          "noteSession": 15
+        },
+        {
+          "matiere": "Soins Infirmiers Fondamentaux",
+          "noteDevoir": 13,
+          "noteSession": 12.5
+        }
+      ],
+      "moyenne": 13.62,
+      "appreciation": "Bien",
+      "paiements": [
+        {
+          "id": 36,
+          "etudiantId": 8,
+          "date": "2025-10-06",
+          "montant": 35000,
+          "statut": "Payé",
+          "description": "Frais d'inscription",
+          "mode": "Espèces"
+        },
+        {
+          "id": 37,
+          "etudiantId": 8,
+          "date": "2025-11-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 1",
+          "mode": "Virement"
+        },
+        {
+          "id": 38,
+          "etudiantId": 8,
+          "date": "2025-12-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 2",
+          "mode": "Mobile Money"
+        },
+        {
+          "id": 39,
+          "etudiantId": 8,
+          "date": "2026-01-05",
+          "montant": 25000,
+          "statut": "En attente",
+          "description": "Frais de scolarité - Tranche 3",
+          "mode": "Chèque"
+        },
+        {
+          "id": 40,
+          "etudiantId": 8,
+          "date": "2026-02-03",
+          "montant": 0,
+          "statut": "Non payé",
+          "description": "Frais de scolarité - Tranche 4",
+          "mode": null
+        }
+      ],
+      "code": "SI",
+      "cycle": "Licence Professionnelle"
+    },
+    {
+      "id": 9,
+      "matricule": "MI-2024-009",
+      "nom": "Fontaine",
+      "prenom": "Théo",
+      "filiere": "Maintenance Industrielle",
+      "niveau": "L1",
+      "statut": "Actif",
+      "avatar": "FT",
+      "couleur": "#F97316",
+      "notes": [
+        {
+          "matiere": "Mécanique Industrielle Appliquée",
+          "noteDevoir": 8,
+          "noteSession": 7.5
+        },
+        {
+          "matiere": "Maintenance Préventive et Corrective",
+          "noteDevoir": 7.5,
+          "noteSession": 6
+        }
+      ],
+      "moyenne": 7.25,
+      "appreciation": "Insuffisant",
+      "paiements": [
+        {
+          "id": 41,
+          "etudiantId": 9,
+          "date": "2025-10-06",
+          "montant": 35000,
+          "statut": "Payé",
+          "description": "Frais d'inscription",
+          "mode": "Virement"
+        },
+        {
+          "id": 42,
+          "etudiantId": 9,
+          "date": "2025-11-01",
+          "montant": 25000,
+          "statut": "En attente",
+          "description": "Frais de scolarité - Tranche 1",
+          "mode": "Mobile Money"
+        },
+        {
+          "id": 43,
+          "etudiantId": 9,
+          "date": "2025-12-01",
+          "montant": 0,
+          "statut": "Non payé",
+          "description": "Frais de scolarité - Tranche 2",
+          "mode": null
+        },
+        {
+          "id": 44,
+          "etudiantId": 9,
+          "date": "2026-01-05",
+          "montant": 0,
+          "statut": "Non payé",
+          "description": "Frais de scolarité - Tranche 3",
+          "mode": null
+        },
+        {
+          "id": 45,
+          "etudiantId": 9,
+          "date": "2026-02-03",
+          "montant": 0,
+          "statut": "Non payé",
+          "description": "Frais de scolarité - Tranche 4",
+          "mode": null
+        }
+      ],
+      "code": "MI",
+      "cycle": "Licence Professionnelle"
+    },
+    {
+      "id": 10,
+      "matricule": "BFA-2024-010",
+      "nom": "Bah",
+      "prenom": "Kadiatou",
+      "filiere": "Banque, Finances et Assurances",
+      "niveau": "L2",
+      "statut": "Actif",
+      "avatar": "BK",
+      "couleur": "#6366F1",
+      "notes": [
+        {
+          "matiere": "Fondamentaux de la Banque",
+          "noteDevoir": 15.5,
+          "noteSession": 14.5
+        },
+        {
+          "matiere": "Mathématiques Financières",
+          "noteDevoir": 14,
+          "noteSession": 13.5
+        },
+        {
+          "matiere": "Droit Bancaire",
+          "noteDevoir": 13.5,
+          "noteSession": 12
+        }
+      ],
+      "moyenne": 13.83,
+      "appreciation": "Bien",
+      "paiements": [
+        {
+          "id": 46,
+          "etudiantId": 10,
+          "date": "2025-10-06",
+          "montant": 35000,
+          "statut": "Payé",
+          "description": "Frais d'inscription",
+          "mode": "Mobile Money"
+        },
+        {
+          "id": 47,
+          "etudiantId": 10,
+          "date": "2025-11-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 1",
+          "mode": "Chèque"
+        },
+        {
+          "id": 48,
+          "etudiantId": 10,
+          "date": "2025-12-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 2",
+          "mode": "Espèces"
+        },
+        {
+          "id": 49,
+          "etudiantId": 10,
+          "date": "2026-01-05",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 3",
+          "mode": "Virement"
+        },
+        {
+          "id": 50,
+          "etudiantId": 10,
+          "date": "2026-02-03",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 4",
+          "mode": "Mobile Money"
+        }
+      ],
+      "code": "BFA",
+      "cycle": "Licence Professionnelle"
+    },
+    {
+      "id": 11,
+      "matricule": "MAC-2024-011",
+      "nom": "Perrin",
+      "prenom": "Antoine",
+      "filiere": "Marketing et Action Commerciale",
+      "niveau": "L3",
+      "statut": "Actif",
+      "avatar": "PA",
+      "couleur": "#14B8A6",
+      "notes": [
+        {
+          "matiere": "Principes du Marketing",
+          "noteDevoir": 12,
+          "noteSession": 11.5
+        },
+        {
+          "matiere": "Techniques de Vente",
+          "noteDevoir": 13.5,
+          "noteSession": 13
+        },
+        {
+          "matiere": "Marketing Digital et Réseaux Sociaux",
+          "noteDevoir": 11,
+          "noteSession": 10.5
+        }
+      ],
+      "moyenne": 11.92,
+      "appreciation": "Passable",
+      "paiements": [
+        {
+          "id": 51,
+          "etudiantId": 11,
+          "date": "2025-10-06",
+          "montant": 35000,
+          "statut": "Payé",
+          "description": "Frais d'inscription",
+          "mode": "Chèque"
+        },
+        {
+          "id": 52,
+          "etudiantId": 11,
+          "date": "2025-11-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 1",
+          "mode": "Espèces"
+        },
+        {
+          "id": 53,
+          "etudiantId": 11,
+          "date": "2025-12-01",
+          "montant": 25000,
+          "statut": "En attente",
+          "description": "Frais de scolarité - Tranche 2",
+          "mode": "Virement"
+        },
+        {
+          "id": 54,
+          "etudiantId": 11,
+          "date": "2026-01-05",
+          "montant": 25000,
+          "statut": "En attente",
+          "description": "Frais de scolarité - Tranche 3",
+          "mode": "Mobile Money"
+        },
+        {
+          "id": 55,
+          "etudiantId": 11,
+          "date": "2026-02-03",
+          "montant": 0,
+          "statut": "Non payé",
+          "description": "Frais de scolarité - Tranche 4",
+          "mode": null
+        }
+      ],
+      "code": "MAC",
+      "cycle": "Licence Professionnelle"
+    },
+    {
+      "id": 12,
+      "matricule": "GC-2024-012",
+      "nom": "Camara",
+      "prenom": "Ousmane",
+      "filiere": "Génie Civil",
+      "niveau": "L1",
+      "statut": "Actif",
+      "avatar": "CO",
+      "couleur": "#D97706",
+      "notes": [
+        {
+          "matiere": "Topographie et Métrologie",
+          "noteDevoir": 15,
+          "noteSession": 14
+        },
+        {
+          "matiere": "Résistance des Matériaux",
+          "noteDevoir": 16.5,
+          "noteSession": 15.5
+        },
+        {
+          "matiere": "Conduite et Gestion de Chantier",
+          "noteDevoir": 14,
+          "noteSession": 13.5
+        }
+      ],
+      "moyenne": 14.75,
+      "appreciation": "Très Bien",
+      "paiements": [
+        {
+          "id": 56,
+          "etudiantId": 12,
+          "date": "2025-10-06",
+          "montant": 35000,
+          "statut": "Payé",
+          "description": "Frais d'inscription",
+          "mode": "Espèces"
+        },
+        {
+          "id": 57,
+          "etudiantId": 12,
+          "date": "2025-11-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 1",
+          "mode": "Virement"
+        },
+        {
+          "id": 58,
+          "etudiantId": 12,
+          "date": "2025-12-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 2",
+          "mode": "Mobile Money"
+        },
+        {
+          "id": 59,
+          "etudiantId": 12,
+          "date": "2026-01-05",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 3",
+          "mode": "Chèque"
+        },
+        {
+          "id": 60,
+          "etudiantId": 12,
+          "date": "2026-02-03",
+          "montant": 25000,
+          "statut": "En attente",
+          "description": "Frais de scolarité - Tranche 4",
+          "mode": "Espèces"
+        }
+      ],
+      "code": "GC",
+      "cycle": "Licence Professionnelle"
+    },
+    {
+      "id": 13,
+      "matricule": "EI-2024-013",
+      "nom": "Renard",
+      "prenom": "Julie",
+      "filiere": "Électricité Industrielle",
+      "niveau": "L2",
+      "statut": "Actif",
+      "avatar": "RJ",
+      "couleur": "#7C3AED",
+      "notes": [
+        {
+          "matiere": "Électrotechnique Fondamentale",
+          "noteDevoir": 13,
+          "noteSession": 12
+        },
+        {
+          "matiere": "Machines Électriques et Automatismes",
+          "noteDevoir": 14.5,
+          "noteSession": 13.5
+        }
+      ],
+      "moyenne": 13.25,
+      "appreciation": "Bien",
+      "paiements": [
+        {
+          "id": 61,
+          "etudiantId": 13,
+          "date": "2025-10-06",
+          "montant": 35000,
+          "statut": "Payé",
+          "description": "Frais d'inscription",
+          "mode": "Virement"
+        },
+        {
+          "id": 62,
+          "etudiantId": 13,
+          "date": "2025-11-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 1",
+          "mode": "Mobile Money"
+        },
+        {
+          "id": 63,
+          "etudiantId": 13,
+          "date": "2025-12-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 2",
+          "mode": "Chèque"
+        },
+        {
+          "id": 64,
+          "etudiantId": 13,
+          "date": "2026-01-05",
+          "montant": 25000,
+          "statut": "En attente",
+          "description": "Frais de scolarité - Tranche 3",
+          "mode": "Espèces"
+        },
+        {
+          "id": 65,
+          "etudiantId": 13,
+          "date": "2026-02-03",
+          "montant": 25000,
+          "statut": "En attente",
+          "description": "Frais de scolarité - Tranche 4",
+          "mode": "Virement"
+        }
+      ],
+      "code": "EI",
+      "cycle": "Licence Professionnelle"
+    },
+    {
+      "id": 14,
+      "matricule": "DS-2024-014",
+      "nom": "Sidibé",
+      "prenom": "Seydou",
+      "filiere": "Data Science",
+      "niveau": "L3",
+      "statut": "Actif",
+      "avatar": "SS",
+      "couleur": "#DC2626",
+      "notes": [
+        {
+          "matiere": "Introduction à la Data Science",
+          "noteDevoir": 17,
+          "noteSession": 16.5
+        },
+        {
+          "matiere": "Statistiques Descriptives",
+          "noteDevoir": 16,
+          "noteSession": 15.5
+        },
+        {
+          "matiere": "Programmation Python",
+          "noteDevoir": 18,
+          "noteSession": 17
+        }
+      ],
+      "moyenne": 16.67,
+      "appreciation": "Excellent",
+      "paiements": [
+        {
+          "id": 66,
+          "etudiantId": 14,
+          "date": "2025-10-06",
+          "montant": 35000,
+          "statut": "Payé",
+          "description": "Frais d'inscription",
+          "mode": "Mobile Money"
+        },
+        {
+          "id": 67,
+          "etudiantId": 14,
+          "date": "2025-11-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 1",
+          "mode": "Chèque"
+        },
+        {
+          "id": 68,
+          "etudiantId": 14,
+          "date": "2025-12-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 2",
+          "mode": "Espèces"
+        },
+        {
+          "id": 69,
+          "etudiantId": 14,
+          "date": "2026-01-05",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 3",
+          "mode": "Virement"
+        },
+        {
+          "id": 70,
+          "etudiantId": 14,
+          "date": "2026-02-03",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 4",
+          "mode": "Mobile Money"
+        }
+      ],
+      "code": "DS",
+      "cycle": "Licence Professionnelle"
+    },
+    {
+      "id": 15,
+      "matricule": "SD-2024-015",
+      "nom": "Girard",
+      "prenom": "Lucie",
+      "filiere": "Secrétariat de Direction",
+      "niveau": "L1",
+      "statut": "Inactif",
+      "avatar": "GL",
+      "couleur": "#059669",
+      "notes": [
+        {
+          "matiere": "Techniques de Secrétariat",
+          "noteDevoir": 8.5,
+          "noteSession": 7
+        },
+        {
+          "matiere": "Bureautique et Gestion Documentaire",
+          "noteDevoir": 9,
+          "noteSession": 8
+        }
+      ],
+      "moyenne": 8.12,
+      "appreciation": "Insuffisant",
+      "paiements": [
+        {
+          "id": 71,
+          "etudiantId": 15,
+          "date": "2025-10-06",
+          "montant": 35000,
+          "statut": "Payé",
+          "description": "Frais d'inscription",
+          "mode": "Chèque"
+        },
+        {
+          "id": 72,
+          "etudiantId": 15,
+          "date": "2025-11-01",
+          "montant": 0,
+          "statut": "Non payé",
+          "description": "Frais de scolarité - Tranche 1",
+          "mode": null
+        },
+        {
+          "id": 73,
+          "etudiantId": 15,
+          "date": "2025-12-01",
+          "montant": 0,
+          "statut": "Non payé",
+          "description": "Frais de scolarité - Tranche 2",
+          "mode": null
+        },
+        {
+          "id": 74,
+          "etudiantId": 15,
+          "date": "2026-01-05",
+          "montant": 0,
+          "statut": "Non payé",
+          "description": "Frais de scolarité - Tranche 3",
+          "mode": null
+        },
+        {
+          "id": 75,
+          "etudiantId": 15,
+          "date": "2026-02-03",
+          "montant": 0,
+          "statut": "Non payé",
+          "description": "Frais de scolarité - Tranche 4",
+          "mode": null
+        }
+      ],
+      "code": "SD",
+      "cycle": "Licence Professionnelle"
+    },
+    {
+      "id": 16,
+      "matricule": "GCL-2024-016",
+      "nom": "Keïta",
+      "prenom": "Mariam",
+      "filiere": "Gestion des Collectivités Locales",
+      "niveau": "L+1",
+      "statut": "Actif",
+      "avatar": "KM",
+      "couleur": "#0EA5E9",
+      "notes": [
+        {
+          "matiere": "Administration Publique Locale",
+          "noteDevoir": 16,
+          "noteSession": 17
+        },
+        {
+          "matiere": "Finances et Budget des Collectivités",
+          "noteDevoir": 15.5,
+          "noteSession": 14.5
+        },
+        {
+          "matiere": "Droit Administratif",
+          "noteDevoir": 13,
+          "noteSession": 12.5
+        }
+      ],
+      "moyenne": 14.75,
+      "appreciation": "Très Bien",
+      "paiements": [
+        {
+          "id": 76,
+          "etudiantId": 16,
+          "date": "2025-10-06",
+          "montant": 35000,
+          "statut": "Payé",
+          "description": "Frais d'inscription",
+          "mode": "Espèces"
+        },
+        {
+          "id": 77,
+          "etudiantId": 16,
+          "date": "2025-11-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 1",
+          "mode": "Virement"
+        },
+        {
+          "id": 78,
+          "etudiantId": 16,
+          "date": "2025-12-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 2",
+          "mode": "Mobile Money"
+        },
+        {
+          "id": 79,
+          "etudiantId": 16,
+          "date": "2026-01-05",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 3",
+          "mode": "Chèque"
+        },
+        {
+          "id": 80,
+          "etudiantId": 16,
+          "date": "2026-02-03",
+          "montant": 25000,
+          "statut": "En attente",
+          "description": "Frais de scolarité - Tranche 4",
+          "mode": "Espèces"
+        }
+      ],
+      "code": "GCL",
+      "cycle": "Licence +1"
+    },
+    {
+      "id": 17,
+      "matricule": "FP-2024-017",
+      "nom": "Simon",
+      "prenom": "Victor",
+      "filiere": "Finances Publiques",
+      "niveau": "L+1",
+      "statut": "Actif",
+      "avatar": "SV",
+      "couleur": "#A16207",
+      "notes": [
+        {
+          "matiere": "Finances Publiques et Fiscalité",
+          "noteDevoir": 11.5,
+          "noteSession": 10
+        },
+        {
+          "matiere": "Contrôle de Gestion Publique",
+          "noteDevoir": 12,
+          "noteSession": 11
+        }
+      ],
+      "moyenne": 11.12,
+      "appreciation": "Passable",
+      "paiements": [
+        {
+          "id": 81,
+          "etudiantId": 17,
+          "date": "2025-10-06",
+          "montant": 35000,
+          "statut": "Payé",
+          "description": "Frais d'inscription",
+          "mode": "Virement"
+        },
+        {
+          "id": 82,
+          "etudiantId": 17,
+          "date": "2025-11-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 1",
+          "mode": "Mobile Money"
+        },
+        {
+          "id": 83,
+          "etudiantId": 17,
+          "date": "2025-12-01",
+          "montant": 25000,
+          "statut": "En attente",
+          "description": "Frais de scolarité - Tranche 2",
+          "mode": "Chèque"
+        },
+        {
+          "id": 84,
+          "etudiantId": 17,
+          "date": "2026-01-05",
+          "montant": 0,
+          "statut": "Non payé",
+          "description": "Frais de scolarité - Tranche 3",
+          "mode": null
+        },
+        {
+          "id": 85,
+          "etudiantId": 17,
+          "date": "2026-02-03",
+          "montant": 0,
+          "statut": "Non payé",
+          "description": "Frais de scolarité - Tranche 4",
+          "mode": null
+        }
+      ],
+      "code": "FP",
+      "cycle": "Licence +1"
+    },
+    {
+      "id": 18,
+      "matricule": "CGE-2024-018",
+      "nom": "Coulibaly",
+      "prenom": "Drissa",
+      "filiere": "Comptabilité et Gestion d'Entreprise",
+      "niveau": "L1",
+      "statut": "Actif",
+      "avatar": "CD",
+      "couleur": "#BE185D",
+      "notes": [
+        {
+          "matiere": "Comptabilité Générale",
+          "noteDevoir": 15,
+          "noteSession": 14.5
+        },
+        {
+          "matiere": "Droit des Affaires",
+          "noteDevoir": 14,
+          "noteSession": 13
+        },
+        {
+          "matiere": "Mathématiques Financières",
+          "noteDevoir": 13.5,
+          "noteSession": 12.5
+        }
+      ],
+      "moyenne": 13.75,
+      "appreciation": "Bien",
+      "paiements": [
+        {
+          "id": 86,
+          "etudiantId": 18,
+          "date": "2025-10-06",
+          "montant": 35000,
+          "statut": "Payé",
+          "description": "Frais d'inscription",
+          "mode": "Mobile Money"
+        },
+        {
+          "id": 87,
+          "etudiantId": 18,
+          "date": "2025-11-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 1",
+          "mode": "Chèque"
+        },
+        {
+          "id": 88,
+          "etudiantId": 18,
+          "date": "2025-12-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 2",
+          "mode": "Espèces"
+        },
+        {
+          "id": 89,
+          "etudiantId": 18,
+          "date": "2026-01-05",
+          "montant": 25000,
+          "statut": "En attente",
+          "description": "Frais de scolarité - Tranche 3",
+          "mode": "Virement"
+        },
+        {
+          "id": 90,
+          "etudiantId": 18,
+          "date": "2026-02-03",
+          "montant": 25000,
+          "statut": "En attente",
+          "description": "Frais de scolarité - Tranche 4",
+          "mode": "Mobile Money"
+        }
+      ],
+      "code": "CGE",
+      "cycle": "Licence Professionnelle"
+    },
+    {
+      "id": 19,
+      "matricule": "MRH-2024-019",
+      "nom": "Laurent",
+      "prenom": "Margaux",
+      "filiere": "Management des Ressources Humaines",
+      "niveau": "M1",
+      "statut": "Actif",
+      "avatar": "LM",
+      "couleur": "#4F46E5",
+      "notes": [
+        {
+          "matiere": "Stratégie et Développement RH",
+          "noteDevoir": 19,
+          "noteSession": 18.5
+        },
+        {
+          "matiere": "Leadership et Gestion du Changement",
+          "noteDevoir": 17.5,
+          "noteSession": 18
+        },
+        {
+          "matiere": "Droit Social Avancé",
+          "noteDevoir": 16,
+          "noteSession": 15.5
+        }
+      ],
+      "moyenne": 17.42,
+      "appreciation": "Excellent",
+      "paiements": [
+        {
+          "id": 91,
+          "etudiantId": 19,
+          "date": "2025-10-06",
+          "montant": 35000,
+          "statut": "Payé",
+          "description": "Frais d'inscription",
+          "mode": "Chèque"
+        },
+        {
+          "id": 92,
+          "etudiantId": 19,
+          "date": "2025-11-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 1",
+          "mode": "Espèces"
+        },
+        {
+          "id": 93,
+          "etudiantId": 19,
+          "date": "2025-12-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 2",
+          "mode": "Virement"
+        },
+        {
+          "id": 94,
+          "etudiantId": 19,
+          "date": "2026-01-05",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 3",
+          "mode": "Mobile Money"
+        },
+        {
+          "id": 95,
+          "etudiantId": 19,
+          "date": "2026-02-03",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 4",
+          "mode": "Chèque"
+        }
+      ],
+      "code": "MRH",
+      "cycle": "Master"
+    },
+    {
+      "id": 20,
+      "matricule": "DC-2024-020",
+      "nom": "Touré",
+      "prenom": "Bakary",
+      "filiere": "Diplomatie Contemporaine",
+      "niveau": "L+1",
+      "statut": "Actif",
+      "avatar": "TB",
+      "couleur": "#2563EB",
+      "notes": [
+        {
+          "matiere": "Relations Internationales et Droit Diplomatique",
+          "noteDevoir": 12,
+          "noteSession": 11.5
+        },
+        {
+          "matiere": "Géopolitique et Enjeux Mondiaux",
+          "noteDevoir": 13.5,
+          "noteSession": 12.5
+        }
+      ],
+      "moyenne": 12.38,
+      "appreciation": "Assez Bien",
+      "paiements": [
+        {
+          "id": 96,
+          "etudiantId": 20,
+          "date": "2025-10-06",
+          "montant": 35000,
+          "statut": "Payé",
+          "description": "Frais d'inscription",
+          "mode": "Espèces"
+        },
+        {
+          "id": 97,
+          "etudiantId": 20,
+          "date": "2025-11-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 1",
+          "mode": "Virement"
+        },
+        {
+          "id": 98,
+          "etudiantId": 20,
+          "date": "2025-12-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 2",
+          "mode": "Mobile Money"
+        },
+        {
+          "id": 99,
+          "etudiantId": 20,
+          "date": "2026-01-05",
+          "montant": 25000,
+          "statut": "En attente",
+          "description": "Frais de scolarité - Tranche 3",
+          "mode": "Chèque"
+        },
+        {
+          "id": 100,
+          "etudiantId": 20,
+          "date": "2026-02-03",
+          "montant": 0,
+          "statut": "Non payé",
+          "description": "Frais de scolarité - Tranche 4",
+          "mode": null
+        }
+      ],
+      "code": "DC",
+      "cycle": "Licence +1"
+    },
+    {
+      "id": 21,
+      "matricule": "ACT-2024-021",
+      "nom": "Blanc",
+      "prenom": "Romain",
+      "filiere": "Actuariat",
+      "niveau": "L1",
+      "statut": "Actif",
+      "avatar": "BR",
+      "couleur": "#16A34A",
+      "notes": [
+        {
+          "matiere": "Mathématiques Actuarielles",
+          "noteDevoir": 16,
+          "noteSession": 15
+        },
+        {
+          "matiere": "Probabilités et Modèles de Risque",
+          "noteDevoir": 17.5,
+          "noteSession": 16.5
+        },
+        {
+          "matiere": "Tarification et Provisionnement",
+          "noteDevoir": 15,
+          "noteSession": 14.5
+        }
+      ],
+      "moyenne": 15.75,
+      "appreciation": "Très Bien",
+      "paiements": [
+        {
+          "id": 101,
+          "etudiantId": 21,
+          "date": "2025-10-06",
+          "montant": 35000,
+          "statut": "Payé",
+          "description": "Frais d'inscription",
+          "mode": "Virement"
+        },
+        {
+          "id": 102,
+          "etudiantId": 21,
+          "date": "2025-11-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 1",
+          "mode": "Mobile Money"
+        },
+        {
+          "id": 103,
+          "etudiantId": 21,
+          "date": "2025-12-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 2",
+          "mode": "Chèque"
+        },
+        {
+          "id": 104,
+          "etudiantId": 21,
+          "date": "2026-01-05",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 3",
+          "mode": "Espèces"
+        },
+        {
+          "id": 105,
+          "etudiantId": 21,
+          "date": "2026-02-03",
+          "montant": 25000,
+          "statut": "En attente",
+          "description": "Frais de scolarité - Tranche 4",
+          "mode": "Virement"
+        }
+      ],
+      "code": "ACT",
+      "cycle": "Licence Professionnelle"
+    },
+    {
+      "id": 22,
+      "matricule": "SECINFO-2024-022",
+      "nom": "Sangaré",
+      "prenom": "Rokiatou",
+      "filiere": "Sécurité Informatique",
+      "niveau": "M1",
+      "statut": "Actif",
+      "avatar": "SR",
+      "couleur": "#9333EA",
+      "notes": [
+        {
+          "matiere": "Cryptographie et Sécurité des Réseaux",
+          "noteDevoir": 13.5,
+          "noteSession": 12.5
+        },
+        {
+          "matiere": "Cybersécurité et Gestion des Incidents",
+          "noteDevoir": 15,
+          "noteSession": 14
+        },
+        {
+          "matiere": "Audit de Sécurité Informatique",
+          "noteDevoir": 11,
+          "noteSession": 10.5
+        }
+      ],
+      "moyenne": 12.75,
+      "appreciation": "Assez Bien",
+      "paiements": [
+        {
+          "id": 106,
+          "etudiantId": 22,
+          "date": "2025-10-06",
+          "montant": 35000,
+          "statut": "Payé",
+          "description": "Frais d'inscription",
+          "mode": "Mobile Money"
+        },
+        {
+          "id": 107,
+          "etudiantId": 22,
+          "date": "2025-11-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 1",
+          "mode": "Chèque"
+        },
+        {
+          "id": 108,
+          "etudiantId": 22,
+          "date": "2025-12-01",
+          "montant": 25000,
+          "statut": "En attente",
+          "description": "Frais de scolarité - Tranche 2",
+          "mode": "Espèces"
+        },
+        {
+          "id": 109,
+          "etudiantId": 22,
+          "date": "2026-01-05",
+          "montant": 25000,
+          "statut": "En attente",
+          "description": "Frais de scolarité - Tranche 3",
+          "mode": "Virement"
+        },
+        {
+          "id": 110,
+          "etudiantId": 22,
+          "date": "2026-02-03",
+          "montant": 0,
+          "statut": "Non payé",
+          "description": "Frais de scolarité - Tranche 4",
+          "mode": null
+        }
+      ],
+      "code": "SECINFO",
+      "cycle": "Master"
+    },
+    {
+      "id": 23,
+      "matricule": "PP-2024-023",
+      "nom": "Chevalier",
+      "prenom": "Nicolas",
+      "filiere": "Prospective et Planification",
+      "niveau": "L+1",
+      "statut": "Actif",
+      "avatar": "CN",
+      "couleur": "#0891B2",
+      "notes": [
+        {
+          "matiere": "Méthodes de Prospective Stratégique",
+          "noteDevoir": 12.5,
+          "noteSession": 11.5
+        },
+        {
+          "matiere": "Planification du Développement",
+          "noteDevoir": 14,
+          "noteSession": 13
+        }
+      ],
+      "moyenne": 12.75,
+      "appreciation": "Assez Bien",
+      "paiements": [
+        {
+          "id": 111,
+          "etudiantId": 23,
+          "date": "2025-10-06",
+          "montant": 35000,
+          "statut": "Payé",
+          "description": "Frais d'inscription",
+          "mode": "Chèque"
+        },
+        {
+          "id": 112,
+          "etudiantId": 23,
+          "date": "2025-11-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 1",
+          "mode": "Espèces"
+        },
+        {
+          "id": 113,
+          "etudiantId": 23,
+          "date": "2025-12-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 2",
+          "mode": "Virement"
+        },
+        {
+          "id": 114,
+          "etudiantId": 23,
+          "date": "2026-01-05",
+          "montant": 25000,
+          "statut": "En attente",
+          "description": "Frais de scolarité - Tranche 3",
+          "mode": "Mobile Money"
+        },
+        {
+          "id": 115,
+          "etudiantId": 23,
+          "date": "2026-02-03",
+          "montant": 25000,
+          "statut": "En attente",
+          "description": "Frais de scolarité - Tranche 4",
+          "mode": "Chèque"
+        }
+      ],
+      "code": "PP",
+      "cycle": "Licence +1"
+    },
+    {
+      "id": 24,
+      "matricule": "QHSE-2024-024",
+      "nom": "Diabaté",
+      "prenom": "Salimata",
+      "filiere": "Qualité, Hygiène, Sécurité et Environnement",
+      "niveau": "M2",
+      "statut": "Actif",
+      "avatar": "DS",
+      "couleur": "#EA580C",
+      "notes": [
+        {
+          "matiere": "Management QHSE en Entreprise",
+          "noteDevoir": 9.5,
+          "noteSession": 8.5
+        },
+        {
+          "matiere": "Audit Environnemental et RSE",
+          "noteDevoir": 10,
+          "noteSession": 9
+        }
+      ],
+      "moyenne": 9.25,
+      "appreciation": "Insuffisant",
+      "paiements": [
+        {
+          "id": 116,
+          "etudiantId": 24,
+          "date": "2025-10-06",
+          "montant": 35000,
+          "statut": "Payé",
+          "description": "Frais d'inscription",
+          "mode": "Espèces"
+        },
+        {
+          "id": 117,
+          "etudiantId": 24,
+          "date": "2025-11-01",
+          "montant": 25000,
+          "statut": "En attente",
+          "description": "Frais de scolarité - Tranche 1",
+          "mode": "Virement"
+        },
+        {
+          "id": 118,
+          "etudiantId": 24,
+          "date": "2025-12-01",
+          "montant": 0,
+          "statut": "Non payé",
+          "description": "Frais de scolarité - Tranche 2",
+          "mode": null
+        },
+        {
+          "id": 119,
+          "etudiantId": 24,
+          "date": "2026-01-05",
+          "montant": 0,
+          "statut": "Non payé",
+          "description": "Frais de scolarité - Tranche 3",
+          "mode": null
+        },
+        {
+          "id": 120,
+          "etudiantId": 24,
+          "date": "2026-02-03",
+          "montant": 0,
+          "statut": "Non payé",
+          "description": "Frais de scolarité - Tranche 4",
+          "mode": null
+        }
+      ],
+      "code": "QHSE",
+      "cycle": "Master"
+    },
+    {
+      "id": 25,
+      "matricule": "ACF-2024-025",
+      "nom": "Garnier",
+      "prenom": "Anaïs",
+      "filiere": "Audit Comptable et Financier",
+      "niveau": "M2",
+      "statut": "Actif",
+      "avatar": "GA",
+      "couleur": "#7C3AED",
+      "notes": [
+        {
+          "matiere": "Audit Financier et Contrôle Interne",
+          "noteDevoir": 14.5,
+          "noteSession": 15
+        },
+        {
+          "matiere": "Normes IFRS et Comptabilité Internationale",
+          "noteDevoir": 13,
+          "noteSession": 14
+        },
+        {
+          "matiere": "Consolidation des Comptes",
+          "noteDevoir": 16,
+          "noteSession": 15.5
+        }
+      ],
+      "moyenne": 14.67,
+      "appreciation": "Très Bien",
+      "paiements": [
+        {
+          "id": 121,
+          "etudiantId": 25,
+          "date": "2025-10-06",
+          "montant": 35000,
+          "statut": "Payé",
+          "description": "Frais d'inscription",
+          "mode": "Virement"
+        },
+        {
+          "id": 122,
+          "etudiantId": 25,
+          "date": "2025-11-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 1",
+          "mode": "Mobile Money"
+        },
+        {
+          "id": 123,
+          "etudiantId": 25,
+          "date": "2025-12-01",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 2",
+          "mode": "Chèque"
+        },
+        {
+          "id": 124,
+          "etudiantId": 25,
+          "date": "2026-01-05",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 3",
+          "mode": "Espèces"
+        },
+        {
+          "id": 125,
+          "etudiantId": 25,
+          "date": "2026-02-03",
+          "montant": 25000,
+          "statut": "Payé",
+          "description": "Frais de scolarité - Tranche 4",
+          "mode": "Virement"
+        }
+      ],
+      "code": "ACF",
+      "cycle": "Master"
+    }
+  ]
+}
