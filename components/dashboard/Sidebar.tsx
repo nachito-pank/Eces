@@ -51,7 +51,6 @@ const MENU_ITEMS: Record<Role, MenuItem[]> = {
     { name: 'Messages',   icon: <MessageSquare className="h-5 w-5" />, path: '/sous-admin/messages', badge: 7 },
   ],
   enseignant: [
-    { name: 'Mon Profil',  icon: <UserRound className="h-5 w-5" />, path: '/enseignant/profil' },
     { name: 'Mes Cours',  icon: <BookOpen      className="h-5 w-5" />, path: '/enseignant/cours' },
     { name: 'Mes étudiants',  icon: <Users         className="h-5 w-5" />, path: '/enseignant/etudiants' },
     { name: 'Notes devoirs',      icon: <Award         className="h-5 w-5" />, path: '/enseignant/notes' },
