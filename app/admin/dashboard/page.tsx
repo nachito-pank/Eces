@@ -31,28 +31,28 @@ export default function DashboardPage() {
       value: stats.enseignants, 
       icon: Users, 
       color: 'bg-blue-500', 
-      href: '/enseignants' 
+      href: '/admin/enseignants' 
     },
     { 
       title: 'Sous-Admins', 
       value: stats.sousAdmins, 
       icon: UserCog, 
       color: 'bg-emerald-500', 
-      href: '/sous-admins' 
+      href: '/admin/sous-admins' 
     },
     { 
       title: 'Filières', 
       value: stats.filieres, 
       icon: BookOpen, 
       color: 'bg-amber-500', 
-      href: '/filieres' 
+      href: '/admin/filieres' 
     },
     { 
       title: 'Étudiants', 
       value: stats.etudiants, 
       icon: GraduationCap, 
       color: 'bg-purple-500', 
-      href: '/filieres' 
+      href: '/admin/etudiants' 
     },
   ];
 
@@ -92,7 +92,7 @@ export default function DashboardPage() {
         <div className="lg:col-span-2 bg-white rounded-2xl shadow-sm p-6">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-lg font-title font-semibold text-slate-900">Enseignants récents</h2>
-            <Link href="/enseignants" className="text-sm text-blue-600 hover:text-blue-700 font-medium flex items-center">
+            <Link href="/admin/enseignants" className="text-sm text-blue-600 hover:text-blue-700 font-medium flex items-center">
               Voir tout <ArrowRight className="w-4 h-4 ml-1" />
             </Link>
           </div>

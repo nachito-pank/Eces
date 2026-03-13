@@ -1,12 +1,7 @@
-// import Navbar from "@/components/etudiant/Navbar";
-// import Sidebar from "@/components/etudiant/Sidebar";
 import etudiantData from "../../../data/etudiant.json";
-// import { Cours } from "@/types/etudiant";
 
 const EdtPage = () => {
   return (<>
-      {/* <Sidebar/>
-      <Navbar/> */}
       <div className="place-items-center bg-[rgb(232,232,232)] dark:bg-gray-900 overflow-scroll overflow-x-hidden fixed right-0 bottom-0 h-[89%] w-[75%]">
         <div className="p-8 h-full w-full flex flex-col gap-6">
           <div className="flex items-center justify-between">

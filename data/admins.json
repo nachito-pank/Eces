@@ -1,11 +1,13 @@
 {
   "admin": {
+    "role": "admin",
     "nom": "Admin Principal",
     "email": "admin@ecole.fr",
     "motDePasse": "admin123"
   },
   "enseignants": [
     {
+      "role": "enseignant",
       "id": 1,
       "nom": "Dupont",
       "prenom": "Marie",
@@ -33,6 +35,7 @@
       "couleur": "#3B82F6"
     },
     {
+      "role": "enseignant",
       "id": 2,
       "nom": "Martin",
       "prenom": "Jean",
@@ -62,6 +65,7 @@
       "couleur": "#10B981"
     },
     {
+      "role": "enseignant",
       "id": 3,
       "nom": "Bernard",
       "prenom": "Sophie",
@@ -88,6 +92,7 @@
       "couleur": "#F59E0B"
     },
     {
+      "role": "enseignant",
       "id": 4,
       "nom": "Leroy",
       "prenom": "Paul",
@@ -113,6 +118,7 @@
       "couleur": "#EF4444"
     },
     {
+      "role": "enseignant",
       "id": 5,
       "nom": "Moreau",
       "prenom": "Claire",
@@ -141,6 +147,7 @@
       "couleur": "#8B5CF6"
     },
     {
+      "role": "enseignant",
       "id": 6,
       "nom": "Diop",
       "prenom": "Ibrahima",
@@ -168,6 +175,7 @@
       "couleur": "#06B6D4"
     },
     {
+      "role": "enseignant",
       "id": 7,
       "nom": "Ndiaye",
       "prenom": "Aïssatou",
@@ -196,6 +204,7 @@
       "couleur": "#EC4899"
     },
     {
+      "role": "enseignant",
       "id": 8,
       "nom": "Konaté",
       "prenom": "Moussa",
@@ -220,6 +229,7 @@
       "couleur": "#84CC16"
     },
     {
+      "role": "enseignant",
       "id": 9,
       "nom": "Traoré",
       "prenom": "Aminata",
@@ -244,6 +254,7 @@
       "couleur": "#F97316"
     },
     {
+      "role": "enseignant",
       "id": 10,
       "nom": "Fontaine",
       "prenom": "Marc",
@@ -272,13 +283,14 @@
   ],
   "sousAdmins": [
     {
+      "role": "sous-admin",
       "id": 1,
       "nom": "Garcia",
       "prenom": "Lucas",
       "email": "lucas.garcia@ecole.fr",
       "motDePasse": "admin123",
       "telephone": "+33 6 11 22 33 44",
-      "role": "Sous-Admin Scolarité",
+      "fonction": "Sous-Admin Scolarité",
       "droits": [
         "Gestion Étudiants",
         "Gestion Filieres"
@@ -289,13 +301,14 @@
       "couleur": "#3B82F6"
     },
     {
+      "role": "sous-admin",
       "id": 2,
       "nom": "Petit",
       "prenom": "Emma",
       "email": "emma.petit@ecole.fr",
       "motDePasse": "admin123",
       "telephone": "+33 6 22 33 44 55",
-      "role": "Sous-Admin RH",
+      "fonction": "Sous-Admin RH",
       "droits": [
         "Gestion Enseignants",
         "Rapports"
@@ -306,13 +319,14 @@
       "couleur": "#10B981"
     },
     {
+      "role": "sous-admin",
       "id": 3,
       "nom": "Rousseau",
       "prenom": "Hugo",
       "email": "hugo.rousseau@ecole.fr",
       "motDePasse": "admin123",
       "telephone": "+33 6 33 44 55 66",
-      "role": "Sous-Admin Finances",
+      "fonction": "Sous-Admin Finances",
       "droits": [
         "Rapports",
         "Statistiques"
@@ -552,6 +566,7 @@
   ],
   "etudiants": [
     {
+      "role": "etudiant",
       "id": 1,
       "matricule": "GI-2024-001",
       "nom": "Nguyen",
@@ -631,6 +646,7 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "role": "etudiant",
       "id": 2,
       "matricule": "DS-2024-002",
       "nom": "Diallo",
@@ -710,6 +726,7 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "role": "etudiant",
       "id": 3,
       "matricule": "LA-2024-003",
       "nom": "Koné",
@@ -784,6 +801,7 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "role": "etudiant",
       "id": 4,
       "matricule": "TL-2024-004",
       "nom": "Traoré",
@@ -863,6 +881,7 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "role": "etudiant",
       "id": 5,
       "matricule": "CGE-2024-005",
       "nom": "Lefebvre",
@@ -942,6 +961,7 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "role": "etudiant",
       "id": 6,
       "matricule": "GI-2024-006",
       "nom": "Okafor",
@@ -1021,6 +1041,7 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "role": "etudiant",
       "id": 7,
       "matricule": "RH-2024-007",
       "nom": "Mercier",
@@ -1100,6 +1121,7 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "role": "etudiant",
       "id": 8,
       "matricule": "SI-2024-008",
       "nom": "Soumaré",
@@ -1174,6 +1196,7 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "role": "etudiant",
       "id": 9,
       "matricule": "MI-2024-009",
       "nom": "Fontaine",
@@ -1248,6 +1271,7 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "role": "etudiant",
       "id": 10,
       "matricule": "BFA-2024-010",
       "nom": "Bah",
@@ -1327,6 +1351,7 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "role": "etudiant",
       "id": 11,
       "matricule": "MAC-2024-011",
       "nom": "Perrin",
@@ -1406,6 +1431,7 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "role": "etudiant",
       "id": 12,
       "matricule": "GC-2024-012",
       "nom": "Camara",
@@ -1485,6 +1511,7 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "role": "etudiant",
       "id": 13,
       "matricule": "EI-2024-013",
       "nom": "Renard",
@@ -1559,6 +1586,7 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "role": "etudiant",
       "id": 14,
       "matricule": "DS-2024-014",
       "nom": "Sidibé",
@@ -1638,6 +1666,7 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "role": "etudiant",
       "id": 15,
       "matricule": "SD-2024-015",
       "nom": "Girard",
@@ -1712,6 +1741,7 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "role": "etudiant",
       "id": 16,
       "matricule": "GCL-2024-016",
       "nom": "Keïta",
@@ -1791,6 +1821,7 @@
       "cycle": "Licence +1"
     },
     {
+      "role": "etudiant",
       "id": 17,
       "matricule": "FP-2024-017",
       "nom": "Simon",
@@ -1865,6 +1896,7 @@
       "cycle": "Licence +1"
     },
     {
+      "role": "etudiant",
       "id": 18,
       "matricule": "CGE-2024-018",
       "nom": "Coulibaly",
@@ -1944,6 +1976,7 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "role": "etudiant",
       "id": 19,
       "matricule": "MRH-2024-019",
       "nom": "Laurent",
@@ -2023,6 +2056,7 @@
       "cycle": "Master"
     },
     {
+      "role": "etudiant",
       "id": 20,
       "matricule": "DC-2024-020",
       "nom": "Touré",
@@ -2097,6 +2131,7 @@
       "cycle": "Licence +1"
     },
     {
+      "role": "etudiant",
       "id": 21,
       "matricule": "ACT-2024-021",
       "nom": "Blanc",
@@ -2176,6 +2211,7 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "role": "etudiant",
       "id": 22,
       "matricule": "SECINFO-2024-022",
       "nom": "Sangaré",
@@ -2255,6 +2291,7 @@
       "cycle": "Master"
     },
     {
+      "role": "etudiant",
       "id": 23,
       "matricule": "PP-2024-023",
       "nom": "Chevalier",
@@ -2329,6 +2366,7 @@
       "cycle": "Licence +1"
     },
     {
+      "role": "etudiant",
       "id": 24,
       "matricule": "QHSE-2024-024",
       "nom": "Diabaté",
@@ -2403,6 +2441,7 @@
       "cycle": "Master"
     },
     {
+      "role": "etudiant",
       "id": 25,
       "matricule": "ACF-2024-025",
       "nom": "Garnier",

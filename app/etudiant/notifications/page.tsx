@@ -1,7 +1,5 @@
-import Navbar from "@/components/etudiant/Navbar";
-import Sidebar from "@/components/etudiant/Sidebar";
 import etudiantData from "../../../data/etudiant.json";
-import { Notification } from "../../../components/dashboard/types/etudiant";
+import { Notification } from "@/types/etudiant";
 
 export default function NotificationsPage() {
   const data = etudiantData as { notifications?: Notification[] };
@@ -9,8 +7,6 @@ export default function NotificationsPage() {
 
   return (
     <>
-      <Sidebar />
-      <Navbar />
       <div className="place-items-center dark:text-black bg-[rgb(232,232,232)] dark:bg-gray-900 overflow-scroll overflow-x-hidden fixed right-0 bottom-0 h-[89%] w-[75%]">
         <div className="p-8 h-full w-full flex flex-col gap-6">
           <div className="flex items-center justify-between">

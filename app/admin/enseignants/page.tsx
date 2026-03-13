@@ -27,7 +27,7 @@ export default function EnseignantsPage() {
         </div>
         <Link 
           href="/admin/enseignants/ajouter"
-          className="inline-flex items-center px-4 py-2.5 bg-linear-to-r from-blue-900 to-blue-700 hover:from-blue-800 hover:to-blue-600 text-white text-sm font-medium rounded-xl shadow-sm transition-all"
+          className="inline-flex items-center px-4 py-2.5 bg-gradient-to-r from-blue-900 to-blue-700 hover:from-blue-800 hover:to-blue-600 text-white text-sm font-medium rounded-xl shadow-sm transition-all"
         >
           <Plus className="w-4 h-4 mr-2" />
           Ajouter un enseignant

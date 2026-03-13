@@ -20,6 +20,7 @@ interface NavbarProps {
   userAvatar?: string;
   onMenuClick?: () => void;
   onLogout?: () => void;
+  showLogo?: boolean;
 }
 
 const Navbar: React.FC<NavbarProps> = ({ 
@@ -27,7 +28,8 @@ const Navbar: React.FC<NavbarProps> = ({
   userName = 'Utilisateur',
   userAvatar,
   onMenuClick,
-  onLogout 
+  onLogout,
+  showLogo = true 
 }) => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
@@ -57,18 +59,18 @@ const Navbar: React.FC<NavbarProps> = ({
           <div className="flex items-center justify-between h-16">
             {/* Partie gauche : Logo et menu burger */}
             <div className="flex items-center">
-           
-            <Link href="/" className="flex items-center ml-2 lg:ml-0">
-            {/* Remplacer l'emoji par une image */}
-            <img 
-                src="/images/logo-eces.jpeg" 
-                alt="ECES Logo" 
-                className="h-8 w-auto"  // Ajustez la hauteur selon besoin
-            />
-            <span className="ml-2 text-xl font-semibold text-gray-800 dark:text-white">
-                ECES
-            </span>
-            </Link>
+              {showLogo && (
+                <Link href="/" className="flex items-center ml-2 lg:ml-0">
+                  <img 
+                    src="/images/logo-eces.jpeg" 
+                    alt="ECES Logo" 
+                    className="h-8 w-auto"
+                  />
+                  <span className="ml-2 text-xl font-semibold text-gray-800 dark:text-white">
+                    ECES
+                  </span>
+                </Link>
+              )}
             </div>
 
             {/* Barre de recherche (desktop) */}
