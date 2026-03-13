@@ -7,15 +7,15 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { CalendarDays, Download, Plus, Eye, BookOpen, Clock, MapPin, User } from 'lucide-react';
-import sousAdminsData from '@/data/sous-admins.json';
-import type { EmploiDuTempsCours, EmploiDuTempsSession } from '@/components/dashboard/types/sousadmin';
+import adminsData from '@/data/admins.json';
+import type { EmploiDuTempsCours, EmploiDuTempsSession } from '@/types/sousadmin';
 
 export default function EmploiDuTempsPage() {
   const [activeTab, setActiveTab] = useState('cours');
   const [selectedEdt, setSelectedEdt] = useState<EmploiDuTempsCours | null>(null);
 
-  const edtCours: EmploiDuTempsCours[] = sousAdminsData.emploiDuTemps || [];
-  const edtSessions: EmploiDuTempsSession[] = sousAdminsData.emploiDuTempsSessions || [];
+  const edtCours: EmploiDuTempsCours[] = adminsData.emploiDuTemps || [];
+  const edtSessions: EmploiDuTempsSession[] = adminsData.emploiDuTempsSessions || [];
 
   // Group sessions by filière and niveau
   const sessionsGrouped = edtSessions.reduce((acc, session) => {

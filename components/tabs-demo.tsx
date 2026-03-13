@@ -1,11 +1,11 @@
 "use client";
 
-import { Tabs } from "@/components/ui/tabs";
+import { AnimatedTabsImpl as Tabs } from "@/components/ui/tabs";
 import Image from "next/image";
 
 import React from "react";
-import { Cours, Notification, Paiement, Note } from "../components/dashboard/types/etudiant";
-import etudiantData from "../data/etudiant.json";
+import type { Cours, Notification, Paiement, Note } from "@/types/etudiant";
+import adminsData from "../data/admins.json";
 
 type RawCourse = {
   id: number;
@@ -27,7 +27,7 @@ type RawSession = {
 };
 
 export default function TabsDemo() {
-  const data = etudiantData as {
+  const data = (adminsData as any)?.espaceEtudiantDemo as {
     emploiDuTempsCours?: RawCourse[];
     emploiDuTempsSessions?: RawSession[];
   };
@@ -208,7 +208,7 @@ export const DashboardEdtContent = ({
 };
 
 export const DashboardMessagetContent = () => {
-  const data = etudiantData as { notifications?: Notification[] };
+  const data = (adminsData as any)?.espaceEtudiantDemo as { notifications?: Notification[] };
   const notifications: Notification[] = data.notifications || [];
 
   return (
@@ -230,7 +230,7 @@ export const DashboardMessagetContent = () => {
 };
 
 export const DashboardCoursContent = ()=> {
-  const data = etudiantData as { emploiDuTempsCours?: RawCourse[] };
+  const data = (adminsData as any)?.espaceEtudiantDemo as { emploiDuTempsCours?: RawCourse[] };
   const rawCourses: RawCourse[] = data.emploiDuTempsCours || [];
 
   const cours: Cours[] = rawCourses.map((c: RawCourse) => ({
@@ -262,7 +262,7 @@ export const DashboardCoursContent = ()=> {
 }
 
 export const DashboardPaiementContent = ()=> {
-  const data = etudiantData as { paiements?: Paiement[] };
+  const data = (adminsData as any)?.espaceEtudiantDemo as { paiements?: Paiement[] };
   const paiements: Paiement[] = data.paiements || [];
 
   return (
@@ -286,7 +286,7 @@ export const DashboardPaiementContent = ()=> {
 }
 
 export const DashboardMoyenneContent = ()=> {
-  const data = etudiantData as { notes?: Note[] };
+  const data = (adminsData as any)?.espaceEtudiantDemo as { notes?: Note[] };
   const notes: Note[] = data.notes || [];
 
   const subjectsWithAvg = notes.map((n: Note) => ({

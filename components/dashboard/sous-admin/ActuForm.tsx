@@ -7,7 +7,7 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
 import { Image, Newspaper } from 'lucide-react';
-import type { FormActu } from '@/components/dashboard/types/sousadmin';
+import type { FormActu } from '@/types/sousadmin';
 
 interface ActuFormProps {
   onSubmit: (data: FormActu) => void;

@@ -7,7 +7,7 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Label } from '@/components/ui/label';
 import { MessageSquare, Send } from 'lucide-react';
-import type { FormMessage } from '@/components/dashboard/types/sousadmin';
+import type { FormMessage } from '@/types/sousadmin';
 
 interface MessageFormProps {
   onSend: (data: FormMessage) => void;

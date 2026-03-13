@@ -566,6 +566,11 @@
   ],
   "etudiants": [
     {
+      "email": "anh.nguyen@eces.edu",
+      "telephone": "+242 06 000 00 00",
+      "adresse": "Brazzaville, Congo",
+      "dateNaissance": "2004-01-01",
+      "nationalite": "Congolaise",
       "role": "etudiant",
       "id": 1,
       "matricule": "GI-2024-001",
@@ -646,6 +651,11 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "email": "mamadou.diallo@eces.edu",
+      "telephone": "+242 06 000 00 00",
+      "adresse": "Brazzaville, Congo",
+      "dateNaissance": "2004-01-01",
+      "nationalite": "Congolaise",
       "role": "etudiant",
       "id": 2,
       "matricule": "DS-2024-002",
@@ -726,6 +736,11 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "email": "fatoumata.koné@eces.edu",
+      "telephone": "+242 06 000 00 00",
+      "adresse": "Brazzaville, Congo",
+      "dateNaissance": "2004-01-01",
+      "nationalite": "Congolaise",
       "role": "etudiant",
       "id": 3,
       "matricule": "LA-2024-003",
@@ -801,6 +816,11 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "email": "ibrahim.traoré@eces.edu",
+      "telephone": "+242 06 000 00 00",
+      "adresse": "Brazzaville, Congo",
+      "dateNaissance": "2004-01-01",
+      "nationalite": "Congolaise",
       "role": "etudiant",
       "id": 4,
       "matricule": "TL-2024-004",
@@ -881,6 +901,11 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "email": "camille.lefebvre@eces.edu",
+      "telephone": "+242 06 000 00 00",
+      "adresse": "Brazzaville, Congo",
+      "dateNaissance": "2004-01-01",
+      "nationalite": "Congolaise",
       "role": "etudiant",
       "id": 5,
       "matricule": "CGE-2024-005",
@@ -961,6 +986,11 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "email": "chidi.okafor@eces.edu",
+      "telephone": "+242 06 000 00 00",
+      "adresse": "Brazzaville, Congo",
+      "dateNaissance": "2004-01-01",
+      "nationalite": "Congolaise",
       "role": "etudiant",
       "id": 6,
       "matricule": "GI-2024-006",
@@ -1041,6 +1071,11 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "email": "élise.mercier@eces.edu",
+      "telephone": "+242 06 000 00 00",
+      "adresse": "Brazzaville, Congo",
+      "dateNaissance": "2004-01-01",
+      "nationalite": "Congolaise",
       "role": "etudiant",
       "id": 7,
       "matricule": "RH-2024-007",
@@ -1121,6 +1156,11 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "email": "aminata.soumaré@eces.edu",
+      "telephone": "+242 06 000 00 00",
+      "adresse": "Brazzaville, Congo",
+      "dateNaissance": "2004-01-01",
+      "nationalite": "Congolaise",
       "role": "etudiant",
       "id": 8,
       "matricule": "SI-2024-008",
@@ -1196,6 +1236,11 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "email": "théo.fontaine@eces.edu",
+      "telephone": "+242 06 000 00 00",
+      "adresse": "Brazzaville, Congo",
+      "dateNaissance": "2004-01-01",
+      "nationalite": "Congolaise",
       "role": "etudiant",
       "id": 9,
       "matricule": "MI-2024-009",
@@ -1271,6 +1316,11 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "email": "kadiatou.bah@eces.edu",
+      "telephone": "+242 06 000 00 00",
+      "adresse": "Brazzaville, Congo",
+      "dateNaissance": "2004-01-01",
+      "nationalite": "Congolaise",
       "role": "etudiant",
       "id": 10,
       "matricule": "BFA-2024-010",
@@ -1351,6 +1401,11 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "email": "antoine.perrin@eces.edu",
+      "telephone": "+242 06 000 00 00",
+      "adresse": "Brazzaville, Congo",
+      "dateNaissance": "2004-01-01",
+      "nationalite": "Congolaise",
       "role": "etudiant",
       "id": 11,
       "matricule": "MAC-2024-011",
@@ -1431,6 +1486,11 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "email": "ousmane.camara@eces.edu",
+      "telephone": "+242 06 000 00 00",
+      "adresse": "Brazzaville, Congo",
+      "dateNaissance": "2004-01-01",
+      "nationalite": "Congolaise",
       "role": "etudiant",
       "id": 12,
       "matricule": "GC-2024-012",
@@ -1511,6 +1571,11 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "email": "julie.renard@eces.edu",
+      "telephone": "+242 06 000 00 00",
+      "adresse": "Brazzaville, Congo",
+      "dateNaissance": "2004-01-01",
+      "nationalite": "Congolaise",
       "role": "etudiant",
       "id": 13,
       "matricule": "EI-2024-013",
@@ -1586,6 +1651,11 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "email": "seydou.sidibé@eces.edu",
+      "telephone": "+242 06 000 00 00",
+      "adresse": "Brazzaville, Congo",
+      "dateNaissance": "2004-01-01",
+      "nationalite": "Congolaise",
       "role": "etudiant",
       "id": 14,
       "matricule": "DS-2024-014",
@@ -1666,6 +1736,11 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "email": "lucie.girard@eces.edu",
+      "telephone": "+242 06 000 00 00",
+      "adresse": "Brazzaville, Congo",
+      "dateNaissance": "2004-01-01",
+      "nationalite": "Congolaise",
       "role": "etudiant",
       "id": 15,
       "matricule": "SD-2024-015",
@@ -1741,6 +1816,11 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "email": "mariam.keïta@eces.edu",
+      "telephone": "+242 06 000 00 00",
+      "adresse": "Brazzaville, Congo",
+      "dateNaissance": "2004-01-01",
+      "nationalite": "Congolaise",
       "role": "etudiant",
       "id": 16,
       "matricule": "GCL-2024-016",
@@ -1821,6 +1901,11 @@
       "cycle": "Licence +1"
     },
     {
+      "email": "victor.simon@eces.edu",
+      "telephone": "+242 06 000 00 00",
+      "adresse": "Brazzaville, Congo",
+      "dateNaissance": "2004-01-01",
+      "nationalite": "Congolaise",
       "role": "etudiant",
       "id": 17,
       "matricule": "FP-2024-017",
@@ -1896,6 +1981,11 @@
       "cycle": "Licence +1"
     },
     {
+      "email": "drissa.coulibaly@eces.edu",
+      "telephone": "+242 06 000 00 00",
+      "adresse": "Brazzaville, Congo",
+      "dateNaissance": "2004-01-01",
+      "nationalite": "Congolaise",
       "role": "etudiant",
       "id": 18,
       "matricule": "CGE-2024-018",
@@ -1976,6 +2066,11 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "email": "margaux.laurent@eces.edu",
+      "telephone": "+242 06 000 00 00",
+      "adresse": "Brazzaville, Congo",
+      "dateNaissance": "2004-01-01",
+      "nationalite": "Congolaise",
       "role": "etudiant",
       "id": 19,
       "matricule": "MRH-2024-019",
@@ -2056,6 +2151,11 @@
       "cycle": "Master"
     },
     {
+      "email": "bakary.touré@eces.edu",
+      "telephone": "+242 06 000 00 00",
+      "adresse": "Brazzaville, Congo",
+      "dateNaissance": "2004-01-01",
+      "nationalite": "Congolaise",
       "role": "etudiant",
       "id": 20,
       "matricule": "DC-2024-020",
@@ -2131,6 +2231,11 @@
       "cycle": "Licence +1"
     },
     {
+      "email": "romain.blanc@eces.edu",
+      "telephone": "+242 06 000 00 00",
+      "adresse": "Brazzaville, Congo",
+      "dateNaissance": "2004-01-01",
+      "nationalite": "Congolaise",
       "role": "etudiant",
       "id": 21,
       "matricule": "ACT-2024-021",
@@ -2211,6 +2316,11 @@
       "cycle": "Licence Professionnelle"
     },
     {
+      "email": "rokiatou.sangaré@eces.edu",
+      "telephone": "+242 06 000 00 00",
+      "adresse": "Brazzaville, Congo",
+      "dateNaissance": "2004-01-01",
+      "nationalite": "Congolaise",
       "role": "etudiant",
       "id": 22,
       "matricule": "SECINFO-2024-022",
@@ -2291,6 +2401,11 @@
       "cycle": "Master"
     },
     {
+      "email": "nicolas.chevalier@eces.edu",
+      "telephone": "+242 06 000 00 00",
+      "adresse": "Brazzaville, Congo",
+      "dateNaissance": "2004-01-01",
+      "nationalite": "Congolaise",
       "role": "etudiant",
       "id": 23,
       "matricule": "PP-2024-023",
@@ -2366,6 +2481,11 @@
       "cycle": "Licence +1"
     },
     {
+      "email": "salimata.diabaté@eces.edu",
+      "telephone": "+242 06 000 00 00",
+      "adresse": "Brazzaville, Congo",
+      "dateNaissance": "2004-01-01",
+      "nationalite": "Congolaise",
       "role": "etudiant",
       "id": 24,
       "matricule": "QHSE-2024-024",
@@ -2441,6 +2561,11 @@
       "cycle": "Master"
     },
     {
+      "email": "anaïs.garnier@eces.edu",
+      "telephone": "+242 06 000 00 00",
+      "adresse": "Brazzaville, Congo",
+      "dateNaissance": "2004-01-01",
+      "nationalite": "Congolaise",
       "role": "etudiant",
       "id": 25,
       "matricule": "ACF-2024-025",
@@ -2520,5 +2645,2104 @@
       "code": "ACF",
       "cycle": "Master"
     }
-  ]
+  ],
+  "cours": [
+    {
+      "id": 1,
+      "title": "Introduction aux Langues des Affaires",
+      "filiere": "Langues et Affaires",
+      "level": "L1",
+      "volume": "35 pages",
+      "url": "",
+      "enseignant": "Sophie Bernard"
+    },
+    {
+      "id": 2,
+      "title": "Communication Professionnelle en Anglais",
+      "filiere": "Langues et Affaires",
+      "level": "L2",
+      "volume": "40 pages",
+      "url": "",
+      "enseignant": "Sophie Bernard"
+    },
+    {
+      "id": 3,
+      "title": "Négociation Commerciale Internationale",
+      "filiere": "Langues et Affaires",
+      "level": "L3",
+      "volume": "50 pages",
+      "url": "",
+      "enseignant": "Sophie Bernard"
+    },
+    {
+      "id": 4,
+      "title": "Introduction au Management QSE",
+      "filiere": "Management QSE",
+      "level": "L1",
+      "volume": "38 pages",
+      "url": "",
+      "enseignant": "Claire Moreau"
+    },
+    {
+      "id": 5,
+      "title": "Systèmes de Management de la Qualité",
+      "filiere": "Management QSE",
+      "level": "L2",
+      "volume": "52 pages",
+      "url": "",
+      "enseignant": "Claire Moreau"
+    },
+    {
+      "id": 6,
+      "title": "Audit et Certification ISO",
+      "filiere": "Management QSE",
+      "level": "L3",
+      "volume": "60 pages",
+      "url": "",
+      "enseignant": "Claire Moreau"
+    },
+    {
+      "id": 7,
+      "title": "Fondamentaux de la Banque",
+      "filiere": "Banque, Finances et Assurances",
+      "level": "L1",
+      "volume": "42 pages",
+      "url": "",
+      "enseignant": "Jean Martin"
+    },
+    {
+      "id": 8,
+      "title": "Gestion de Portefeuille et Marchés Financiers",
+      "filiere": "Banque, Finances et Assurances",
+      "level": "L2",
+      "volume": "58 pages",
+      "url": "",
+      "enseignant": "Jean Martin"
+    },
+    {
+      "id": 9,
+      "title": "Techniques d'Assurance et Réassurance",
+      "filiere": "Banque, Finances et Assurances",
+      "level": "L3",
+      "volume": "65 pages",
+      "url": "",
+      "enseignant": "Jean Martin"
+    },
+    {
+      "id": 10,
+      "title": "Comptabilité Générale",
+      "filiere": "Comptabilité et Gestion d'Entreprise",
+      "level": "L1",
+      "volume": "48 pages",
+      "url": "",
+      "enseignant": "Jean Martin"
+    },
+    {
+      "id": 11,
+      "title": "Comptabilité Analytique",
+      "filiere": "Comptabilité et Gestion d'Entreprise",
+      "level": "L2",
+      "volume": "55 pages",
+      "url": "",
+      "enseignant": "Jean Martin"
+    },
+    {
+      "id": 12,
+      "title": "Gestion Financière d'Entreprise",
+      "filiere": "Comptabilité et Gestion d'Entreprise",
+      "level": "L3",
+      "volume": "62 pages",
+      "url": "",
+      "enseignant": "Jean Martin"
+    },
+    {
+      "id": 13,
+      "title": "Introduction à la Logistique",
+      "filiere": "Transport et Logistique",
+      "level": "L1",
+      "volume": "36 pages",
+      "url": "",
+      "enseignant": "Ibrahima Diop"
+    },
+    {
+      "id": 14,
+      "title": "Gestion de la Chaîne d'Approvisionnement",
+      "filiere": "Transport et Logistique",
+      "level": "L2",
+      "volume": "50 pages",
+      "url": "",
+      "enseignant": "Ibrahima Diop"
+    },
+    {
+      "id": 15,
+      "title": "Transport Multimodal et Commerce International",
+      "filiere": "Transport et Logistique",
+      "level": "L3",
+      "volume": "58 pages",
+      "url": "",
+      "enseignant": "Ibrahima Diop"
+    },
+    {
+      "id": 16,
+      "title": "Mécanique Industrielle Appliquée",
+      "filiere": "Maintenance Industrielle",
+      "level": "L1",
+      "volume": "44 pages",
+      "url": "",
+      "enseignant": "Claire Moreau"
+    },
+    {
+      "id": 17,
+      "title": "Maintenance Préventive et Corrective",
+      "filiere": "Maintenance Industrielle",
+      "level": "L2",
+      "volume": "56 pages",
+      "url": "",
+      "enseignant": "Claire Moreau"
+    },
+    {
+      "id": 18,
+      "title": "Gestion de la Maintenance Assistée par Ordinateur",
+      "filiere": "Maintenance Industrielle",
+      "level": "L3",
+      "volume": "68 pages",
+      "url": "",
+      "enseignant": "Claire Moreau"
+    },
+    {
+      "id": 19,
+      "title": "Électrotechnique Fondamentale",
+      "filiere": "Électricité Industrielle",
+      "level": "L1",
+      "volume": "46 pages",
+      "url": "",
+      "enseignant": "Marc Fontaine"
+    },
+    {
+      "id": 20,
+      "title": "Machines Électriques et Automatismes",
+      "filiere": "Électricité Industrielle",
+      "level": "L2",
+      "volume": "60 pages",
+      "url": "",
+      "enseignant": "Marc Fontaine"
+    },
+    {
+      "id": 21,
+      "title": "Installations Électriques Industrielles",
+      "filiere": "Électricité Industrielle",
+      "level": "L3",
+      "volume": "72 pages",
+      "url": "",
+      "enseignant": "Marc Fontaine"
+    },
+    {
+      "id": 22,
+      "title": "Algorithmique et Programmation",
+      "filiere": "Génie Informatique",
+      "level": "L1",
+      "volume": "50 pages",
+      "url": "",
+      "enseignant": "Marie Dupont"
+    },
+    {
+      "id": 23,
+      "title": "Développement Web et Mobile",
+      "filiere": "Génie Informatique",
+      "level": "L2",
+      "volume": "65 pages",
+      "url": "",
+      "enseignant": "Marie Dupont"
+    },
+    {
+      "id": 24,
+      "title": "Architecture des Systèmes Informatiques",
+      "filiere": "Génie Informatique",
+      "level": "L3",
+      "volume": "75 pages",
+      "url": "",
+      "enseignant": "Marie Dupont"
+    },
+    {
+      "id": 25,
+      "title": "Fondamentaux des Ressources Humaines",
+      "filiere": "Ressources Humaines",
+      "level": "L1",
+      "volume": "38 pages",
+      "url": "",
+      "enseignant": "Aïssatou Ndiaye"
+    },
+    {
+      "id": 26,
+      "title": "Droit du Travail et Relations Sociales",
+      "filiere": "Ressources Humaines",
+      "level": "L2",
+      "volume": "52 pages",
+      "url": "",
+      "enseignant": "Aïssatou Ndiaye"
+    },
+    {
+      "id": 27,
+      "title": "Gestion des Talents et Formation",
+      "filiere": "Ressources Humaines",
+      "level": "L3",
+      "volume": "60 pages",
+      "url": "",
+      "enseignant": "Aïssatou Ndiaye"
+    },
+    {
+      "id": 28,
+      "title": "Techniques de Secrétariat",
+      "filiere": "Secrétariat de Direction",
+      "level": "L1",
+      "volume": "32 pages",
+      "url": "",
+      "enseignant": "Sophie Bernard"
+    },
+    {
+      "id": 29,
+      "title": "Bureautique et Gestion Documentaire",
+      "filiere": "Secrétariat de Direction",
+      "level": "L2",
+      "volume": "44 pages",
+      "url": "",
+      "enseignant": "Sophie Bernard"
+    },
+    {
+      "id": 30,
+      "title": "Assistance à la Direction et Protocole",
+      "filiere": "Secrétariat de Direction",
+      "level": "L3",
+      "volume": "48 pages",
+      "url": "",
+      "enseignant": "Sophie Bernard"
+    },
+    {
+      "id": 31,
+      "title": "Principes du Marketing",
+      "filiere": "Marketing et Action Commerciale",
+      "level": "L1",
+      "volume": "40 pages",
+      "url": "",
+      "enseignant": "Sophie Bernard"
+    },
+    {
+      "id": 32,
+      "title": "Marketing Digital et Réseaux Sociaux",
+      "filiere": "Marketing et Action Commerciale",
+      "level": "L2",
+      "volume": "55 pages",
+      "url": "",
+      "enseignant": "Sophie Bernard"
+    },
+    {
+      "id": 33,
+      "title": "Stratégie Commerciale et Vente",
+      "filiere": "Marketing et Action Commerciale",
+      "level": "L3",
+      "volume": "62 pages",
+      "url": "",
+      "enseignant": "Sophie Bernard"
+    },
+    {
+      "id": 34,
+      "title": "Topographie et Métrologie",
+      "filiere": "Génie Civil",
+      "level": "L1",
+      "volume": "45 pages",
+      "url": "",
+      "enseignant": "Marc Fontaine"
+    },
+    {
+      "id": 35,
+      "title": "Résistance des Matériaux",
+      "filiere": "Génie Civil",
+      "level": "L2",
+      "volume": "58 pages",
+      "url": "",
+      "enseignant": "Marc Fontaine"
+    },
+    {
+      "id": 36,
+      "title": "Conduite et Gestion de Chantier",
+      "filiere": "Génie Civil",
+      "level": "L3",
+      "volume": "70 pages",
+      "url": "",
+      "enseignant": "Marc Fontaine"
+    },
+    {
+      "id": 37,
+      "title": "Anatomie et Physiologie Humaine",
+      "filiere": "Sciences Infirmières",
+      "level": "L1",
+      "volume": "55 pages",
+      "url": "",
+      "enseignant": "Aminata Traoré"
+    },
+    {
+      "id": 38,
+      "title": "Soins Infirmiers et Pharmacologie",
+      "filiere": "Sciences Infirmières",
+      "level": "L2",
+      "volume": "65 pages",
+      "url": "",
+      "enseignant": "Aminata Traoré"
+    },
+    {
+      "id": 39,
+      "title": "Santé Publique et Épidémiologie",
+      "filiere": "Sciences Infirmières",
+      "level": "L3",
+      "volume": "72 pages",
+      "url": "",
+      "enseignant": "Aminata Traoré"
+    },
+    {
+      "id": 40,
+      "title": "Mathématiques Actuarielles",
+      "filiere": "Actuariat",
+      "level": "L1",
+      "volume": "60 pages",
+      "url": "",
+      "enseignant": "Jean Martin"
+    },
+    {
+      "id": 41,
+      "title": "Probabilités et Modèles de Risque",
+      "filiere": "Actuariat",
+      "level": "L2",
+      "volume": "68 pages",
+      "url": "",
+      "enseignant": "Jean Martin"
+    },
+    {
+      "id": 42,
+      "title": "Tarification et Provisionnement",
+      "filiere": "Actuariat",
+      "level": "L3",
+      "volume": "75 pages",
+      "url": "",
+      "enseignant": "Jean Martin"
+    },
+    {
+      "id": 43,
+      "title": "Introduction à la Data Science",
+      "filiere": "Data Science",
+      "level": "L1",
+      "volume": "50 pages",
+      "url": "",
+      "enseignant": "Marie Dupont"
+    },
+    {
+      "id": 44,
+      "title": "Machine Learning et Analyse de Données",
+      "filiere": "Data Science",
+      "level": "L2",
+      "volume": "70 pages",
+      "url": "",
+      "enseignant": "Marie Dupont"
+    },
+    {
+      "id": 45,
+      "title": "Big Data et Visualisation",
+      "filiere": "Data Science",
+      "level": "L3",
+      "volume": "80 pages",
+      "url": "",
+      "enseignant": "Marie Dupont"
+    },
+    {
+      "id": 46,
+      "title": "Administration Publique Locale",
+      "filiere": "Gestion des Collectivités Locales",
+      "level": "L+1",
+      "volume": "45 pages",
+      "url": "",
+      "enseignant": "Paul Leroy"
+    },
+    {
+      "id": 47,
+      "title": "Finances et Budget des Collectivités",
+      "filiere": "Gestion des Collectivités Locales",
+      "level": "L+1",
+      "volume": "52 pages",
+      "url": "",
+      "enseignant": "Paul Leroy"
+    },
+    {
+      "id": 48,
+      "title": "Relations Internationales et Droit Diplomatique",
+      "filiere": "Diplomatie Contemporaine",
+      "level": "L+1",
+      "volume": "48 pages",
+      "url": "",
+      "enseignant": "Moussa Konaté"
+    },
+    {
+      "id": 49,
+      "title": "Géopolitique et Enjeux Mondiaux",
+      "filiere": "Diplomatie Contemporaine",
+      "level": "L+1",
+      "volume": "55 pages",
+      "url": "",
+      "enseignant": "Moussa Konaté"
+    },
+    {
+      "id": 50,
+      "title": "Droit Foncier et Cadastre",
+      "filiere": "Droit et Techniques Fonciers Domaniaux",
+      "level": "L+1",
+      "volume": "50 pages",
+      "url": "",
+      "enseignant": "Paul Leroy"
+    },
+    {
+      "id": 51,
+      "title": "Gestion du Domaine de l'État",
+      "filiere": "Droit et Techniques Fonciers Domaniaux",
+      "level": "L+1",
+      "volume": "58 pages",
+      "url": "",
+      "enseignant": "Paul Leroy"
+    },
+    {
+      "id": 52,
+      "title": "Méthodes de Prospective Stratégique",
+      "filiere": "Prospective et Planification",
+      "level": "L+1",
+      "volume": "46 pages",
+      "url": "",
+      "enseignant": "Moussa Konaté"
+    },
+    {
+      "id": 53,
+      "title": "Planification du Développement",
+      "filiere": "Prospective et Planification",
+      "level": "L+1",
+      "volume": "54 pages",
+      "url": "",
+      "enseignant": "Moussa Konaté"
+    },
+    {
+      "id": 54,
+      "title": "Finances Publiques et Fiscalité",
+      "filiere": "Finances Publiques",
+      "level": "L+1",
+      "volume": "50 pages",
+      "url": "",
+      "enseignant": "Paul Leroy"
+    },
+    {
+      "id": 55,
+      "title": "Contrôle de Gestion Publique",
+      "filiere": "Finances Publiques",
+      "level": "L+1",
+      "volume": "56 pages",
+      "url": "",
+      "enseignant": "Paul Leroy"
+    },
+    {
+      "id": 56,
+      "title": "Cryptographie et Sécurité des Réseaux",
+      "filiere": "Sécurité Informatique",
+      "level": "M1",
+      "volume": "75 pages",
+      "url": "",
+      "enseignant": "Marie Dupont"
+    },
+    {
+      "id": 57,
+      "title": "Cybersécurité et Gestion des Incidents",
+      "filiere": "Sécurité Informatique",
+      "level": "M2",
+      "volume": "85 pages",
+      "url": "",
+      "enseignant": "Marie Dupont"
+    },
+    {
+      "id": 58,
+      "title": "Stratégie et Développement RH",
+      "filiere": "Management des Ressources Humaines",
+      "level": "M1",
+      "volume": "70 pages",
+      "url": "",
+      "enseignant": "Aïssatou Ndiaye"
+    },
+    {
+      "id": 59,
+      "title": "Leadership et Gestion du Changement",
+      "filiere": "Management des Ressources Humaines",
+      "level": "M2",
+      "volume": "78 pages",
+      "url": "",
+      "enseignant": "Aïssatou Ndiaye"
+    },
+    {
+      "id": 60,
+      "title": "Optimisation de la Chaîne Logistique",
+      "filiere": "Chaîne de la Logistique",
+      "level": "M1",
+      "volume": "72 pages",
+      "url": "",
+      "enseignant": "Ibrahima Diop"
+    },
+    {
+      "id": 61,
+      "title": "Systèmes d'Information Logistiques",
+      "filiere": "Chaîne de la Logistique",
+      "level": "M2",
+      "volume": "80 pages",
+      "url": "",
+      "enseignant": "Ibrahima Diop"
+    },
+    {
+      "id": 62,
+      "title": "Management QHSE en Entreprise",
+      "filiere": "Qualité, Hygiène, Sécurité et Environnement",
+      "level": "M1",
+      "volume": "68 pages",
+      "url": "",
+      "enseignant": "Claire Moreau"
+    },
+    {
+      "id": 63,
+      "title": "Audit Environnemental et RSE",
+      "filiere": "Qualité, Hygiène, Sécurité et Environnement",
+      "level": "M2",
+      "volume": "76 pages",
+      "url": "",
+      "enseignant": "Claire Moreau"
+    },
+    {
+      "id": 64,
+      "title": "Audit Financier et Contrôle Interne",
+      "filiere": "Audit Comptable et Financier",
+      "level": "M1",
+      "volume": "74 pages",
+      "url": "",
+      "enseignant": "Jean Martin"
+    },
+    {
+      "id": 65,
+      "title": "Consolidation des Comptes et Normes IFRS",
+      "filiere": "Audit Comptable et Financier",
+      "level": "M2",
+      "volume": "82 pages",
+      "url": "",
+      "enseignant": "Jean Martin"
+    }
+  ],
+  "actualites": [
+    {
+      "id": "act_001",
+      "titre": "Rentrée Académique 2025-2026",
+      "contenu": "La rentrée académique 2025-2026 est officiellement fixée au lundi 06 octobre 2025. Les inscriptions sont ouvertes dans toutes les filières. Munissez-vous de votre dernier diplôme (BAC), d'une photocopie de l'acte de naissance en couleur et d'une enveloppe kaki A4.",
+      "datePublication": "2025-09-01T08:00:00Z",
+      "auteur": "Administration ECES",
+      "statut": "publie"
+    },
+    {
+      "id": "act_002",
+      "titre": "Journées Portes Ouvertes ECES",
+      "contenu": "L'ECES ouvre ses portes les 20 et 21 septembre 2025 de 8h à 16h. Venez découvrir nos filières, rencontrer les enseignants et obtenir des informations sur les conditions d'inscription et les frais de formation.",
+      "datePublication": "2025-09-05T10:00:00Z",
+      "auteur": "Direction ECES",
+      "statut": "publie"
+    },
+    {
+      "id": "act_003",
+      "titre": "Remise des Diplômes Promotion 2024",
+      "contenu": "La cérémonie de remise des diplômes de la promotion 2024 se tiendra le 28 septembre 2025 à partir de 10h. Tous les lauréats sont priés de confirmer leur présence auprès du secrétariat avant le 15 septembre.",
+      "datePublication": "2025-09-03T09:00:00Z",
+      "auteur": "Secrétariat Général",
+      "statut": "publie"
+    },
+    {
+      "id": "act_004",
+      "titre": "Nouveau Programme : Data Science",
+      "contenu": "L'ECES est fière d'annoncer l'ouverture de la filière Data Science pour la rentrée 2025-2026. Cette formation de pointe prépare les étudiants aux métiers du numérique et de l'analyse de données. Places limitées, inscrivez-vous rapidement.",
+      "datePublication": "2025-08-20T14:00:00Z",
+      "auteur": "Direction Pédagogique",
+      "statut": "publie"
+    },
+    {
+      "id": "act_005",
+      "titre": "Partenariat avec des Entreprises du Congo",
+      "contenu": "L'ECES a signé des conventions de stage et d'emploi avec 12 nouvelles entreprises partenaires à Brazzaville. Les étudiants des filières Comptabilité, RH, Marketing et Génie Informatique bénéficieront en priorité de ces opportunités professionnelles.",
+      "datePublication": "2025-08-15T11:00:00Z",
+      "auteur": "Service des Relations Entreprises",
+      "statut": "publie"
+    },
+    {
+      "id": "act_006",
+      "titre": "Calendrier des Examens Semestriels - Session 1",
+      "contenu": "Le calendrier des examens de la première session est disponible au secrétariat et affiché dans chaque département. Les étudiants sont invités à vérifier leurs salles et horaires. Toute réclamation doit être déposée 48h avant le début des examens.",
+      "datePublication": "2025-11-10T08:30:00Z",
+      "auteur": "Service de Scolarité",
+      "statut": "publie"
+    },
+    {
+      "id": "act_007",
+      "titre": "Séminaire sur l'Entrepreneuriat Jeune",
+      "contenu": "Un séminaire sur l'entrepreneuriat sera organisé le 15 novembre 2025 dans la grande salle de l'ECES. Intervenant principal : M. Ibouanga, directeur général d'une PME de référence à Brazzaville. Ouvert à tous les étudiants, participation gratuite.",
+      "datePublication": "2025-10-25T09:00:00Z",
+      "auteur": "Club Entrepreneuriat ECES",
+      "statut": "publie"
+    },
+    {
+      "id": "act_008",
+      "titre": "Résultats du Concours d'Excellence 2025",
+      "contenu": "Félicitations aux lauréats du concours d'excellence ECES 2025 ! Les 10 meilleurs étudiants toutes filières confondues bénéficieront d'une réduction de 50% sur les frais de scolarité du prochain semestre. La liste complète est affichée au tableau d'honneur.",
+      "datePublication": "2025-10-01T12:00:00Z",
+      "auteur": "Direction ECES",
+      "statut": "publie"
+    },
+    {
+      "id": "act_009",
+      "titre": "Atelier de Préparation aux Stages",
+      "contenu": "Le service des stages organise un atelier de rédaction de CV et de préparation aux entretiens professionnels le 5 novembre 2025. Cet atelier s'adresse particulièrement aux étudiants de L3, L+1 et Master. Inscription obligatoire avant le 1er novembre.",
+      "datePublication": "2025-10-20T10:00:00Z",
+      "auteur": "Service des Stages",
+      "statut": "publie"
+    },
+    {
+      "id": "act_010",
+      "titre": "Fermeture Exceptionnelle - Fête Nationale",
+      "contenu": "L'établissement sera fermé le 15 août 2025 à l'occasion de la Fête Nationale. Les cours reprendront normalement le lundi 18 août. Les étudiants ayant des soutenances prévues ce jour sont priés de contacter le secrétariat pour reporter leur date.",
+      "datePublication": "2025-08-10T08:00:00Z",
+      "auteur": "Administration ECES",
+      "statut": "publie"
+    }
+  ],
+  "emploiDuTemps": [
+    {
+      "id": "edt_001",
+      "niveau": "Licence 1",
+      "filiere": "Génie Informatique",
+      "code": "GI",
+      "cours": [
+        {
+          "jour": "Lundi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Algorithmique et Programmation",
+          "salle": "Salle A1",
+          "professeur": "M. Mabiala"
+        },
+        {
+          "jour": "Lundi",
+          "heureDebut": "10:00",
+          "heureFin": "12:00",
+          "matiere": "Mathématiques pour l'Informatique",
+          "salle": "Salle A1",
+          "professeur": "Mme Bouanga"
+        },
+        {
+          "jour": "Mardi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Architecture des Ordinateurs",
+          "salle": "Labo Info",
+          "professeur": "M. Ngoma"
+        },
+        {
+          "jour": "Mardi",
+          "heureDebut": "10:00",
+          "heureFin": "12:00",
+          "matiere": "Introduction aux Réseaux",
+          "salle": "Labo Info",
+          "professeur": "M. Mboua"
+        },
+        {
+          "jour": "Mercredi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Logique et Structures Discrètes",
+          "salle": "Salle A2",
+          "professeur": "Mme Kiminou"
+        },
+        {
+          "jour": "Jeudi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Algorithmique et Programmation (TP)",
+          "salle": "Labo Info",
+          "professeur": "M. Mabiala"
+        },
+        {
+          "jour": "Vendredi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Expression Écrite et Orale",
+          "salle": "Salle A3",
+          "professeur": "Mme Ondongo"
+        }
+      ]
+    },
+    {
+      "id": "edt_002",
+      "niveau": "Licence 2",
+      "filiere": "Génie Informatique",
+      "code": "GI",
+      "cours": [
+        {
+          "jour": "Lundi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Développement Web et Mobile",
+          "salle": "Labo Info",
+          "professeur": "M. Ngoma"
+        },
+        {
+          "jour": "Mardi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Bases de Données",
+          "salle": "Labo Info",
+          "professeur": "Mme Bouanga"
+        },
+        {
+          "jour": "Mercredi",
+          "heureDebut": "10:00",
+          "heureFin": "12:00",
+          "matiere": "Programmation Orientée Objet",
+          "salle": "Labo Info",
+          "professeur": "M. Mabiala"
+        },
+        {
+          "jour": "Jeudi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Systèmes d'Exploitation",
+          "salle": "Salle B1",
+          "professeur": "M. Mboua"
+        },
+        {
+          "jour": "Vendredi",
+          "heureDebut": "10:00",
+          "heureFin": "12:00",
+          "matiere": "Probabilités et Statistiques",
+          "salle": "Salle B2",
+          "professeur": "Mme Kiminou"
+        }
+      ]
+    },
+    {
+      "id": "edt_003",
+      "niveau": "Licence 3",
+      "filiere": "Génie Informatique",
+      "code": "GI",
+      "cours": [
+        {
+          "jour": "Lundi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Architecture des Systèmes Informatiques",
+          "salle": "Labo Info",
+          "professeur": "M. Mboua"
+        },
+        {
+          "jour": "Mardi",
+          "heureDebut": "10:00",
+          "heureFin": "12:00",
+          "matiere": "Sécurité des Systèmes",
+          "salle": "Labo Info",
+          "professeur": "M. Ngoma"
+        },
+        {
+          "jour": "Mercredi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Projet de Fin d'Études (Encadrement)",
+          "salle": "Salle B3",
+          "professeur": "Mme Bouanga"
+        },
+        {
+          "jour": "Jeudi",
+          "heureDebut": "10:00",
+          "heureFin": "12:00",
+          "matiere": "Intelligence Artificielle Appliquée",
+          "salle": "Labo Info",
+          "professeur": "M. Mabiala"
+        }
+      ]
+    },
+    {
+      "id": "edt_004",
+      "niveau": "Licence 1",
+      "filiere": "Comptabilité et Gestion d'Entreprise",
+      "code": "CGE",
+      "cours": [
+        {
+          "jour": "Lundi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Comptabilité Générale",
+          "salle": "Salle C1",
+          "professeur": "M. Loemba"
+        },
+        {
+          "jour": "Lundi",
+          "heureDebut": "10:00",
+          "heureFin": "12:00",
+          "matiere": "Droit des Affaires",
+          "salle": "Salle C1",
+          "professeur": "Mme Sassou"
+        },
+        {
+          "jour": "Mardi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Mathématiques Financières",
+          "salle": "Salle C2",
+          "professeur": "M. Ngouabi"
+        },
+        {
+          "jour": "Mercredi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Économie Générale",
+          "salle": "Salle C1",
+          "professeur": "Mme Moukala"
+        },
+        {
+          "jour": "Vendredi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Introduction à la Gestion",
+          "salle": "Salle C2",
+          "professeur": "M. Loemba"
+        }
+      ]
+    },
+    {
+      "id": "edt_005",
+      "niveau": "Licence 2",
+      "filiere": "Comptabilité et Gestion d'Entreprise",
+      "code": "CGE",
+      "cours": [
+        {
+          "jour": "Lundi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Comptabilité Analytique",
+          "salle": "Salle C3",
+          "professeur": "M. Loemba"
+        },
+        {
+          "jour": "Mardi",
+          "heureDebut": "10:00",
+          "heureFin": "12:00",
+          "matiere": "Fiscalité des Entreprises",
+          "salle": "Salle C3",
+          "professeur": "Mme Sassou"
+        },
+        {
+          "jour": "Jeudi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Gestion des Ressources Humaines",
+          "salle": "Salle C2",
+          "professeur": "M. Ngouabi"
+        },
+        {
+          "jour": "Vendredi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Marketing Fondamental",
+          "salle": "Salle C1",
+          "professeur": "Mme Moukala"
+        }
+      ]
+    },
+    {
+      "id": "edt_006",
+      "niveau": "Licence 1",
+      "filiere": "Banque, Finances et Assurances",
+      "code": "BFA",
+      "cours": [
+        {
+          "jour": "Lundi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Fondamentaux de la Banque",
+          "salle": "Salle D1",
+          "professeur": "M. Ikiemi"
+        },
+        {
+          "jour": "Mardi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Mathématiques Financières",
+          "salle": "Salle D1",
+          "professeur": "Mme Moukala"
+        },
+        {
+          "jour": "Mercredi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Droit Bancaire",
+          "salle": "Salle D2",
+          "professeur": "M. Loemba"
+        },
+        {
+          "jour": "Vendredi",
+          "heureDebut": "10:00",
+          "heureFin": "12:00",
+          "matiere": "Économie Monétaire",
+          "salle": "Salle D1",
+          "professeur": "Mme Sassou"
+        }
+      ]
+    },
+    {
+      "id": "edt_007",
+      "niveau": "Licence 1",
+      "filiere": "Transport et Logistique",
+      "code": "TL",
+      "cours": [
+        {
+          "jour": "Lundi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Introduction à la Logistique",
+          "salle": "Salle E1",
+          "professeur": "M. Mbemba"
+        },
+        {
+          "jour": "Mardi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Géographie des Transports",
+          "salle": "Salle E1",
+          "professeur": "Mme Nzinga"
+        },
+        {
+          "jour": "Mercredi",
+          "heureDebut": "10:00",
+          "heureFin": "12:00",
+          "matiere": "Économie des Transports",
+          "salle": "Salle E2",
+          "professeur": "M. Ngouabi"
+        },
+        {
+          "jour": "Jeudi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Droit des Transports",
+          "salle": "Salle E1",
+          "professeur": "M. Loemba"
+        }
+      ]
+    },
+    {
+      "id": "edt_008",
+      "niveau": "Licence 1",
+      "filiere": "Ressources Humaines",
+      "code": "RH",
+      "cours": [
+        {
+          "jour": "Lundi",
+          "heureDebut": "10:00",
+          "heureFin": "12:00",
+          "matiere": "Fondamentaux des Ressources Humaines",
+          "salle": "Salle F1",
+          "professeur": "Mme Massamba"
+        },
+        {
+          "jour": "Mardi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Psychologie du Travail",
+          "salle": "Salle F1",
+          "professeur": "M. Itoua"
+        },
+        {
+          "jour": "Mercredi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Droit du Travail",
+          "salle": "Salle F2",
+          "professeur": "Mme Sassou"
+        },
+        {
+          "jour": "Vendredi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Communication en Entreprise",
+          "salle": "Salle F1",
+          "professeur": "M. Itoua"
+        }
+      ]
+    },
+    {
+      "id": "edt_009",
+      "niveau": "Licence 2",
+      "filiere": "Ressources Humaines",
+      "code": "RH",
+      "cours": [
+        {
+          "jour": "Lundi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Gestion de la Paie",
+          "salle": "Salle F2",
+          "professeur": "Mme Massamba"
+        },
+        {
+          "jour": "Mardi",
+          "heureDebut": "10:00",
+          "heureFin": "12:00",
+          "matiere": "Recrutement et Sélection",
+          "salle": "Salle F2",
+          "professeur": "M. Itoua"
+        },
+        {
+          "jour": "Jeudi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Formation et Développement des Compétences",
+          "salle": "Salle F1",
+          "professeur": "Mme Moukala"
+        }
+      ]
+    },
+    {
+      "id": "edt_010",
+      "niveau": "Licence 1",
+      "filiere": "Marketing et Action Commerciale",
+      "code": "MAC",
+      "cours": [
+        {
+          "jour": "Lundi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Principes du Marketing",
+          "salle": "Salle G1",
+          "professeur": "Mme Nguimbi"
+        },
+        {
+          "jour": "Mardi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Comportement du Consommateur",
+          "salle": "Salle G1",
+          "professeur": "M. Elenga"
+        },
+        {
+          "jour": "Mercredi",
+          "heureDebut": "10:00",
+          "heureFin": "12:00",
+          "matiere": "Techniques de Vente",
+          "salle": "Salle G2",
+          "professeur": "Mme Nguimbi"
+        },
+        {
+          "jour": "Vendredi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Économie Générale",
+          "salle": "Salle G1",
+          "professeur": "M. Ngouabi"
+        }
+      ]
+    },
+    {
+      "id": "edt_011",
+      "niveau": "Licence 1",
+      "filiere": "Sciences Infirmières",
+      "code": "SI",
+      "cours": [
+        {
+          "jour": "Lundi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Anatomie et Physiologie Humaine",
+          "salle": "Salle H1",
+          "professeur": "Dr. Bitsindou"
+        },
+        {
+          "jour": "Mardi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Microbiologie et Hygiène",
+          "salle": "Labo Sciences",
+          "professeur": "Mme Loubota"
+        },
+        {
+          "jour": "Mercredi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Soins Infirmiers Fondamentaux",
+          "salle": "Salle H2",
+          "professeur": "Dr. Bitsindou"
+        },
+        {
+          "jour": "Jeudi",
+          "heureDebut": "10:00",
+          "heureFin": "12:00",
+          "matiere": "Éthique Médicale",
+          "salle": "Salle H1",
+          "professeur": "Mme Loubota"
+        },
+        {
+          "jour": "Vendredi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Premiers Secours (TP)",
+          "salle": "Labo Soins",
+          "professeur": "Dr. Bitsindou"
+        }
+      ]
+    },
+    {
+      "id": "edt_012",
+      "niveau": "Licence 1",
+      "filiere": "Data Science",
+      "code": "DS",
+      "cours": [
+        {
+          "jour": "Lundi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Introduction à la Data Science",
+          "salle": "Labo Info",
+          "professeur": "M. Ngoma"
+        },
+        {
+          "jour": "Mardi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Statistiques Descriptives",
+          "salle": "Salle A2",
+          "professeur": "Mme Kiminou"
+        },
+        {
+          "jour": "Mercredi",
+          "heureDebut": "10:00",
+          "heureFin": "12:00",
+          "matiere": "Programmation Python",
+          "salle": "Labo Info",
+          "professeur": "M. Mabiala"
+        },
+        {
+          "jour": "Jeudi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Algèbre Linéaire Appliquée",
+          "salle": "Salle A1",
+          "professeur": "Mme Bouanga"
+        }
+      ]
+    },
+    {
+      "id": "edt_013",
+      "niveau": "L+1",
+      "filiere": "Gestion des Collectivités Locales",
+      "code": "GCL",
+      "cours": [
+        {
+          "jour": "Samedi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Administration Publique Locale",
+          "salle": "Salle I1",
+          "professeur": "M. Malonga"
+        },
+        {
+          "jour": "Samedi",
+          "heureDebut": "10:00",
+          "heureFin": "12:00",
+          "matiere": "Finances et Budget des Collectivités",
+          "salle": "Salle I1",
+          "professeur": "Mme Nzouzi"
+        },
+        {
+          "jour": "Dimanche",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Droit Administratif",
+          "salle": "Salle I2",
+          "professeur": "M. Malonga"
+        }
+      ]
+    },
+    {
+      "id": "edt_014",
+      "niveau": "L+1",
+      "filiere": "Finances Publiques",
+      "code": "FP",
+      "cours": [
+        {
+          "jour": "Samedi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Finances Publiques et Fiscalité",
+          "salle": "Salle J1",
+          "professeur": "M. Ikiemi"
+        },
+        {
+          "jour": "Samedi",
+          "heureDebut": "10:00",
+          "heureFin": "12:00",
+          "matiere": "Contrôle de Gestion Publique",
+          "salle": "Salle J1",
+          "professeur": "Mme Nzouzi"
+        },
+        {
+          "jour": "Dimanche",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Comptabilité Publique",
+          "salle": "Salle J2",
+          "professeur": "M. Loemba"
+        }
+      ]
+    },
+    {
+      "id": "edt_015",
+      "niveau": "M1",
+      "filiere": "Sécurité Informatique",
+      "code": "SECINFO",
+      "cours": [
+        {
+          "jour": "Samedi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Cryptographie et Sécurité des Réseaux",
+          "salle": "Labo Info",
+          "professeur": "M. Ngoma"
+        },
+        {
+          "jour": "Samedi",
+          "heureDebut": "10:00",
+          "heureFin": "13:00",
+          "matiere": "Audit de Sécurité Informatique",
+          "salle": "Labo Info",
+          "professeur": "M. Mboua"
+        },
+        {
+          "jour": "Dimanche",
+          "heureDebut": "08:00",
+          "heureFin": "11:00",
+          "matiere": "Cybersécurité et Gestion des Incidents",
+          "salle": "Labo Info",
+          "professeur": "M. Mabiala"
+        }
+      ]
+    },
+    {
+      "id": "edt_016",
+      "niveau": "M1",
+      "filiere": "Audit Comptable et Financier",
+      "code": "ACF",
+      "cours": [
+        {
+          "jour": "Samedi",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Audit Financier et Contrôle Interne",
+          "salle": "Salle K1",
+          "professeur": "M. Ikiemi"
+        },
+        {
+          "jour": "Samedi",
+          "heureDebut": "10:00",
+          "heureFin": "12:00",
+          "matiere": "Normes IFRS et Comptabilité Internationale",
+          "salle": "Salle K1",
+          "professeur": "Mme Nzouzi"
+        },
+        {
+          "jour": "Dimanche",
+          "heureDebut": "08:00",
+          "heureFin": "10:00",
+          "matiere": "Consolidation des Comptes",
+          "salle": "Salle K2",
+          "professeur": "M. Loemba"
+        }
+      ]
+    }
+  ],
+  "messages": [
+    {
+      "id": "msg_001",
+      "expediteur": "admin_001",
+      "nomExpediteur": "Direction ECES",
+      "destinataire": "tous",
+      "contenu": "Bonjour à tous. Veuillez noter que la rentrée académique 2025-2026 est fixée au lundi 06 octobre. Merci de compléter vos dossiers d'inscription avant cette date.",
+      "dateEnvoi": "2025-09-15T08:00:00Z",
+      "type": "envoye"
+    },
+    {
+      "id": "msg_002",
+      "expediteur": "sousadmin_001",
+      "nomExpediteur": "Secrétariat Scolarité",
+      "destinataire": "etudiants_GI",
+      "contenu": "Bonjour aux étudiants de Génie Informatique. Vos emplois du temps pour le premier semestre sont disponibles au secrétariat. Merci de vous présenter pour récupérer vos fiches.",
+      "dateEnvoi": "2025-09-20T09:00:00Z",
+      "type": "envoye"
+    },
+    {
+      "id": "msg_003",
+      "expediteur": "sousadmin_001",
+      "nomExpediteur": "Secrétariat Scolarité",
+      "destinataire": "etudiants_CGE",
+      "contenu": "Bonjour aux étudiants de CGE. Le cours de Droit des Affaires du mardi 7 octobre est annulé. Un rattrapage sera programmé ultérieurement. Veuillez en prendre note.",
+      "dateEnvoi": "2025-10-05T14:00:00Z",
+      "type": "envoye"
+    },
+    {
+      "id": "msg_004",
+      "expediteur": "prof_001",
+      "nomExpediteur": "M. Mabiala",
+      "destinataire": "etudiants_GI_L2",
+      "contenu": "Bonjour à tous. Le TP de Programmation Orientée Objet de mercredi sera déplacé en salle Labo Info 2 en raison de travaux. Merci de vous adapter.",
+      "dateEnvoi": "2025-10-06T07:30:00Z",
+      "type": "envoye"
+    },
+    {
+      "id": "msg_005",
+      "expediteur": "sousadmin_002",
+      "nomExpediteur": "Service des Stages",
+      "destinataire": "etudiants_L3",
+      "contenu": "Rappel important : Les étudiants en Licence 3 sont priés de soumettre leur convention de stage avant le 15 novembre. Passé ce délai, aucune convention ne sera traitée pour ce semestre.",
+      "dateEnvoi": "2025-10-30T10:00:00Z",
+      "type": "envoye"
+    },
+    {
+      "id": "msg_006",
+      "expediteur": "admin_001",
+      "nomExpediteur": "Direction ECES",
+      "destinataire": "etudiants_Master",
+      "contenu": "Bonjour aux étudiants de Master. Une réunion d'information sur les soutenances de mémoire se tiendra le samedi 8 novembre à 10h dans la grande salle. La présence est obligatoire.",
+      "dateEnvoi": "2025-11-01T09:00:00Z",
+      "type": "envoye"
+    },
+    {
+      "id": "msg_007",
+      "expediteur": "prof_002",
+      "nomExpediteur": "Mme Massamba",
+      "destinataire": "etudiants_RH",
+      "contenu": "Bonjour à tous les étudiants RH. Pour le cours de vendredi, préparez une synthèse d'une page sur la gestion de la diversité en entreprise. Ce travail sera noté.",
+      "dateEnvoi": "2025-10-28T16:00:00Z",
+      "type": "envoye"
+    },
+    {
+      "id": "msg_008",
+      "expediteur": "sousadmin_001",
+      "nomExpediteur": "Secrétariat Scolarité",
+      "destinataire": "etudiants_SI",
+      "contenu": "Attention aux étudiants de Sciences Infirmières : les TP en Labo Soins du vendredi nécessitent obligatoirement une blouse blanche. Tout étudiant sans équipement ne pourra pas accéder au laboratoire.",
+      "dateEnvoi": "2025-10-03T11:00:00Z",
+      "type": "envoye"
+    },
+    {
+      "id": "msg_009",
+      "expediteur": "prof_003",
+      "nomExpediteur": "Dr. Bitsindou",
+      "destinataire": "etudiants_SI_L1",
+      "contenu": "Bonjour. Je vous rappelle que l'examen de mi-semestre en Anatomie et Physiologie Humaine se tiendra le lundi 20 octobre de 8h à 10h. Révisez les chapitres 1 à 5 du polycopié.",
+      "dateEnvoi": "2025-10-10T08:00:00Z",
+      "type": "envoye"
+    },
+    {
+      "id": "msg_010",
+      "expediteur": "admin_001",
+      "nomExpediteur": "Direction ECES",
+      "destinataire": "tous_enseignants",
+      "contenu": "Chers enseignants, nous vous rappelons que les notes de la session 1 doivent être remises au secrétariat pédagogique avant le 10 janvier 2026. Merci de votre ponctualité.",
+      "dateEnvoi": "2025-12-01T09:00:00Z",
+      "type": "envoye"
+    }
+  ],
+  "emploiDuTempsSessions": [
+    {
+      "id": 1,
+      "filiere": "Génie Informatique",
+      "code": "GI",
+      "niveau": "Licence 1",
+      "session": "Session 1",
+      "data": "Lundi 08 juin 2026",
+      "matiere": "Algorithmique et Programmation",
+      "date": "2026-06-08",
+      "heure": "08:00",
+      "duree": "2h",
+      "salle": "Amphi A",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 2,
+      "filiere": "Génie Informatique",
+      "code": "GI",
+      "niveau": "Licence 1",
+      "session": "Session 1",
+      "data": "Mercredi 10 juin 2026",
+      "matiere": "Mathématiques pour l'Informatique",
+      "date": "2026-06-10",
+      "heure": "08:00",
+      "duree": "2h",
+      "salle": "Amphi A",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 3,
+      "filiere": "Génie Informatique",
+      "code": "GI",
+      "niveau": "Licence 1",
+      "session": "Session 1",
+      "data": "Vendredi 12 juin 2026",
+      "matiere": "Architecture des Ordinateurs",
+      "date": "2026-06-12",
+      "heure": "08:00",
+      "duree": "2h",
+      "salle": "Salle A1",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 4,
+      "filiere": "Génie Informatique",
+      "code": "GI",
+      "niveau": "Licence 1",
+      "session": "Session 1",
+      "data": "Lundi 15 juin 2026",
+      "matiere": "Introduction aux Réseaux",
+      "date": "2026-06-15",
+      "heure": "10:00",
+      "duree": "2h",
+      "salle": "Labo Info",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 5,
+      "filiere": "Génie Informatique",
+      "code": "GI",
+      "niveau": "Licence 2",
+      "session": "Session 1",
+      "data": "Mardi 09 juin 2026",
+      "matiere": "Développement Web et Mobile",
+      "date": "2026-06-09",
+      "heure": "08:00",
+      "duree": "2h",
+      "salle": "Labo Info",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 6,
+      "filiere": "Génie Informatique",
+      "code": "GI",
+      "niveau": "Licence 2",
+      "session": "Session 1",
+      "data": "Jeudi 11 juin 2026",
+      "matiere": "Bases de Données",
+      "date": "2026-06-11",
+      "heure": "08:00",
+      "duree": "2h",
+      "salle": "Labo Info",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 7,
+      "filiere": "Génie Informatique",
+      "code": "GI",
+      "niveau": "Licence 2",
+      "session": "Session 1",
+      "data": "Samedi 13 juin 2026",
+      "matiere": "Programmation Orientée Objet",
+      "date": "2026-06-13",
+      "heure": "08:00",
+      "duree": "2h",
+      "salle": "Labo Info",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 8,
+      "filiere": "Génie Informatique",
+      "code": "GI",
+      "niveau": "Licence 3",
+      "session": "Session 1",
+      "data": "Lundi 08 juin 2026",
+      "matiere": "Architecture des Systèmes Informatiques",
+      "date": "2026-06-08",
+      "heure": "10:00",
+      "duree": "2h",
+      "salle": "Amphi B",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 9,
+      "filiere": "Génie Informatique",
+      "code": "GI",
+      "niveau": "Licence 3",
+      "session": "Session 1",
+      "data": "Mercredi 10 juin 2026",
+      "matiere": "Intelligence Artificielle Appliquée",
+      "date": "2026-06-10",
+      "heure": "10:00",
+      "duree": "2h",
+      "salle": "Labo Info",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 10,
+      "filiere": "Comptabilité et Gestion d'Entreprise",
+      "code": "CGE",
+      "niveau": "Licence 1",
+      "session": "Session 1",
+      "data": "Mardi 09 juin 2026",
+      "matiere": "Comptabilité Générale",
+      "date": "2026-06-09",
+      "heure": "08:00",
+      "duree": "2h",
+      "salle": "Amphi C",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 11,
+      "filiere": "Comptabilité et Gestion d'Entreprise",
+      "code": "CGE",
+      "niveau": "Licence 1",
+      "session": "Session 1",
+      "data": "Jeudi 11 juin 2026",
+      "matiere": "Droit des Affaires",
+      "date": "2026-06-11",
+      "heure": "08:00",
+      "duree": "2h",
+      "salle": "Salle C1",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 12,
+      "filiere": "Comptabilité et Gestion d'Entreprise",
+      "code": "CGE",
+      "niveau": "Licence 1",
+      "session": "Session 1",
+      "data": "Samedi 13 juin 2026",
+      "matiere": "Mathématiques Financières",
+      "date": "2026-06-13",
+      "heure": "08:00",
+      "duree": "2h",
+      "salle": "Salle C2",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 13,
+      "filiere": "Comptabilité et Gestion d'Entreprise",
+      "code": "CGE",
+      "niveau": "Licence 2",
+      "session": "Session 1",
+      "data": "Lundi 08 juin 2026",
+      "matiere": "Comptabilité Analytique",
+      "date": "2026-06-08",
+      "heure": "08:00",
+      "duree": "2h",
+      "salle": "Salle C3",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 14,
+      "filiere": "Comptabilité et Gestion d'Entreprise",
+      "code": "CGE",
+      "niveau": "Licence 2",
+      "session": "Session 1",
+      "data": "Mercredi 10 juin 2026",
+      "matiere": "Fiscalité des Entreprises",
+      "date": "2026-06-10",
+      "heure": "08:00",
+      "duree": "2h",
+      "salle": "Salle C1",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 15,
+      "filiere": "Banque, Finances et Assurances",
+      "code": "BFA",
+      "niveau": "Licence 1",
+      "session": "Session 1",
+      "data": "Mardi 09 juin 2026",
+      "matiere": "Fondamentaux de la Banque",
+      "date": "2026-06-09",
+      "heure": "10:00",
+      "duree": "2h",
+      "salle": "Salle D1",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 16,
+      "filiere": "Banque, Finances et Assurances",
+      "code": "BFA",
+      "niveau": "Licence 1",
+      "session": "Session 1",
+      "data": "Jeudi 11 juin 2026",
+      "matiere": "Économie Monétaire",
+      "date": "2026-06-11",
+      "heure": "10:00",
+      "duree": "2h",
+      "salle": "Salle D2",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 17,
+      "filiere": "Ressources Humaines",
+      "code": "RH",
+      "niveau": "Licence 1",
+      "session": "Session 1",
+      "data": "Lundi 08 juin 2026",
+      "matiere": "Fondamentaux des Ressources Humaines",
+      "date": "2026-06-08",
+      "heure": "08:00",
+      "duree": "2h",
+      "salle": "Salle F1",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 18,
+      "filiere": "Ressources Humaines",
+      "code": "RH",
+      "niveau": "Licence 1",
+      "session": "Session 1",
+      "data": "Mercredi 10 juin 2026",
+      "matiere": "Droit du Travail",
+      "date": "2026-06-10",
+      "heure": "08:00",
+      "duree": "2h",
+      "salle": "Salle F2",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 19,
+      "filiere": "Ressources Humaines",
+      "code": "RH",
+      "niveau": "Licence 2",
+      "session": "Session 1",
+      "data": "Vendredi 12 juin 2026",
+      "matiere": "Gestion de la Paie",
+      "date": "2026-06-12",
+      "heure": "10:00",
+      "duree": "2h",
+      "salle": "Salle F1",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 20,
+      "filiere": "Ressources Humaines",
+      "code": "RH",
+      "niveau": "Licence 2",
+      "session": "Session 1",
+      "data": "Lundi 15 juin 2026",
+      "matiere": "Recrutement et Sélection",
+      "date": "2026-06-15",
+      "heure": "08:00",
+      "duree": "2h",
+      "salle": "Salle F2",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 21,
+      "filiere": "Marketing et Action Commerciale",
+      "code": "MAC",
+      "niveau": "Licence 1",
+      "session": "Session 1",
+      "data": "Mardi 09 juin 2026",
+      "matiere": "Principes du Marketing",
+      "date": "2026-06-09",
+      "heure": "08:00",
+      "duree": "2h",
+      "salle": "Salle G1",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 22,
+      "filiere": "Marketing et Action Commerciale",
+      "code": "MAC",
+      "niveau": "Licence 1",
+      "session": "Session 1",
+      "data": "Jeudi 11 juin 2026",
+      "matiere": "Techniques de Vente",
+      "date": "2026-06-11",
+      "heure": "08:00",
+      "duree": "2h",
+      "salle": "Salle G2",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 23,
+      "filiere": "Transport et Logistique",
+      "code": "TL",
+      "niveau": "Licence 1",
+      "session": "Session 1",
+      "data": "Lundi 08 juin 2026",
+      "matiere": "Introduction à la Logistique",
+      "date": "2026-06-08",
+      "heure": "10:00",
+      "duree": "2h",
+      "salle": "Salle E1",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 24,
+      "filiere": "Transport et Logistique",
+      "code": "TL",
+      "niveau": "Licence 1",
+      "session": "Session 1",
+      "data": "Mercredi 10 juin 2026",
+      "matiere": "Économie des Transports",
+      "date": "2026-06-10",
+      "heure": "10:00",
+      "duree": "2h",
+      "salle": "Salle E2",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 25,
+      "filiere": "Sciences Infirmières",
+      "code": "SI",
+      "niveau": "Licence 1",
+      "session": "Session 1",
+      "data": "Vendredi 12 juin 2026",
+      "matiere": "Anatomie et Physiologie Humaine",
+      "date": "2026-06-12",
+      "heure": "08:00",
+      "duree": "2h",
+      "salle": "Amphi A",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 26,
+      "filiere": "Sciences Infirmières",
+      "code": "SI",
+      "niveau": "Licence 1",
+      "session": "Session 1",
+      "data": "Lundi 15 juin 2026",
+      "matiere": "Soins Infirmiers Fondamentaux",
+      "date": "2026-06-15",
+      "heure": "08:00",
+      "duree": "2h",
+      "salle": "Labo Soins",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 27,
+      "filiere": "Data Science",
+      "code": "DS",
+      "niveau": "Licence 1",
+      "session": "Session 1",
+      "data": "Mardi 09 juin 2026",
+      "matiere": "Introduction à la Data Science",
+      "date": "2026-06-09",
+      "heure": "08:00",
+      "duree": "2h",
+      "salle": "Labo Info",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 28,
+      "filiere": "Data Science",
+      "code": "DS",
+      "niveau": "Licence 1",
+      "session": "Session 1",
+      "data": "Jeudi 11 juin 2026",
+      "matiere": "Statistiques Descriptives",
+      "date": "2026-06-11",
+      "heure": "10:00",
+      "duree": "2h",
+      "salle": "Salle A2",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 29,
+      "filiere": "Gestion des Collectivités Locales",
+      "code": "GCL",
+      "niveau": "L+1",
+      "session": "Session 1",
+      "data": "Samedi 13 juin 2026",
+      "matiere": "Administration Publique Locale",
+      "date": "2026-06-13",
+      "heure": "08:00",
+      "duree": "3h",
+      "salle": "Salle I1",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 30,
+      "filiere": "Gestion des Collectivités Locales",
+      "code": "GCL",
+      "niveau": "L+1",
+      "session": "Session 1",
+      "data": "Dimanche 14 juin 2026",
+      "matiere": "Finances et Budget des Collectivités",
+      "date": "2026-06-14",
+      "heure": "08:00",
+      "duree": "3h",
+      "salle": "Salle I2",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 31,
+      "filiere": "Finances Publiques",
+      "code": "FP",
+      "niveau": "L+1",
+      "session": "Session 1",
+      "data": "Samedi 13 juin 2026",
+      "matiere": "Finances Publiques et Fiscalité",
+      "date": "2026-06-13",
+      "heure": "10:00",
+      "duree": "3h",
+      "salle": "Salle J1",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 32,
+      "filiere": "Finances Publiques",
+      "code": "FP",
+      "niveau": "L+1",
+      "session": "Session 1",
+      "data": "Dimanche 14 juin 2026",
+      "matiere": "Contrôle de Gestion Publique",
+      "date": "2026-06-14",
+      "heure": "08:00",
+      "duree": "3h",
+      "salle": "Salle J2",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 33,
+      "filiere": "Sécurité Informatique",
+      "code": "SECINFO",
+      "niveau": "M1",
+      "session": "Session 1",
+      "data": "Samedi 20 juin 2026",
+      "matiere": "Cryptographie et Sécurité des Réseaux",
+      "date": "2026-06-20",
+      "heure": "08:00",
+      "duree": "3h",
+      "salle": "Labo Info",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 34,
+      "filiere": "Sécurité Informatique",
+      "code": "SECINFO",
+      "niveau": "M1",
+      "session": "Session 1",
+      "data": "Dimanche 21 juin 2026",
+      "matiere": "Cybersécurité et Gestion des Incidents",
+      "date": "2026-06-21",
+      "heure": "08:00",
+      "duree": "3h",
+      "salle": "Amphi B",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 35,
+      "filiere": "Audit Comptable et Financier",
+      "code": "ACF",
+      "niveau": "M1",
+      "session": "Session 1",
+      "data": "Samedi 20 juin 2026",
+      "matiere": "Audit Financier et Contrôle Interne",
+      "date": "2026-06-20",
+      "heure": "10:00",
+      "duree": "3h",
+      "salle": "Salle K1",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 36,
+      "filiere": "Audit Comptable et Financier",
+      "code": "ACF",
+      "niveau": "M1",
+      "session": "Session 1",
+      "data": "Dimanche 21 juin 2026",
+      "matiere": "Consolidation des Comptes",
+      "date": "2026-06-21",
+      "heure": "08:00",
+      "duree": "3h",
+      "salle": "Salle K2",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 37,
+      "filiere": "Génie Informatique",
+      "code": "GI",
+      "niveau": "Licence 1",
+      "session": "Session 2 (Rattrapage)",
+      "data": "Lundi 07 septembre 2026",
+      "matiere": "Algorithmique et Programmation",
+      "date": "2026-09-07",
+      "heure": "08:00",
+      "duree": "2h",
+      "salle": "Amphi A",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 38,
+      "filiere": "Génie Informatique",
+      "code": "GI",
+      "niveau": "Licence 2",
+      "session": "Session 2 (Rattrapage)",
+      "data": "Mardi 08 septembre 2026",
+      "matiere": "Bases de Données",
+      "date": "2026-09-08",
+      "heure": "08:00",
+      "duree": "2h",
+      "salle": "Labo Info",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 39,
+      "filiere": "Comptabilité et Gestion d'Entreprise",
+      "code": "CGE",
+      "niveau": "Licence 1",
+      "session": "Session 2 (Rattrapage)",
+      "data": "Mercredi 09 septembre 2026",
+      "matiere": "Comptabilité Générale",
+      "date": "2026-09-09",
+      "heure": "08:00",
+      "duree": "2h",
+      "salle": "Salle C1",
+      "site": "Campus Principal"
+    },
+    {
+      "id": 40,
+      "filiere": "Sciences Infirmières",
+      "code": "SI",
+      "niveau": "Licence 1",
+      "session": "Session 2 (Rattrapage)",
+      "data": "Jeudi 10 septembre 2026",
+      "matiere": "Anatomie et Physiologie Humaine",
+      "date": "2026-09-10",
+      "heure": "08:00",
+      "duree": "2h",
+      "salle": "Amphi A",
+      "site": "Campus Principal"
+    }
+  ],
+  "espaceEtudiantDemo": {
+    "profil": {
+      "id": 1,
+      "nom": "Mbemba",
+      "prenom": "Jordan",
+      "email": "jordan.mbemba@eces.edu",
+      "filiere": "Génie Informatique",
+      "niveau": "Licence 1",
+      "photo": "/images/students/jordan.jpg"
+    },
+    "notes": [
+      {
+        "id": 1,
+        "matiere": "Algorithmique",
+        "devoir": 14,
+        "session": 12,
+        "coefficient": 2
+      },
+      {
+        "id": 2,
+        "matiere": "Base de Données",
+        "devoir": 16,
+        "session": 15,
+        "coefficient": 2
+      },
+      {
+        "id": 3,
+        "matiere": "Réseaux Informatiques",
+        "devoir": 13,
+        "session": 14,
+        "coefficient": 1
+      },
+      {
+        "id": 4,
+        "matiere": "Programmation Java",
+        "devoir": 15,
+        "session": 16,
+        "coefficient": 1
+      }
+    ],
+    "emploiDuTempsCours": [
+      {
+        "id": 1,
+        "jour": "Lundi",
+        "heureDebut": "08:00",
+        "heureFin": "10:00",
+        "matiere": "Algorithmique",
+        "enseignant": "M. Ndzié",
+        "salle": "B12"
+      },
+      {
+        "id": 2,
+        "jour": "Mardi",
+        "heureDebut": "10:00",
+        "heureFin": "12:00",
+        "matiere": "Base de Données",
+        "enseignant": "Mme Mabiala",
+        "salle": "A05"
+      },
+      {
+        "id": 3,
+        "jour": "Jeudi",
+        "heureDebut": "09:00",
+        "heureFin": "11:00",
+        "matiere": "Programmation Java",
+        "enseignant": "M. Okemba",
+        "salle": "Lab 2"
+      }
+    ],
+    "emploiDuTempsSessions": [
+      {
+        "id": 1,
+        "matiere": "Algorithmique",
+        "date": "2026-06-15",
+        "heure": "09:00",
+        "salle": "Amphi A",
+        "site": "Campus Principal"
+      },
+      {
+        "id": 2,
+        "matiere": "Base de Données",
+        "date": "2026-06-17",
+        "heure": "13:00",
+        "salle": "Amphi B",
+        "site": "Campus Principal"
+      }
+    ],
+    "paiements": [
+      {
+        "id": 1,
+        "date": "2026-01-10",
+        "montant": 250000,
+        "statut": "Payé",
+        "description": "Frais de scolarité - Tranche 1",
+        "mode": "Virement"
+      },
+      {
+        "id": 2,
+        "date": "2026-03-10",
+        "montant": 150000,
+        "statut": "En attente",
+        "description": "Frais de scolarité - Tranche 2",
+        "mode": "Espèces"
+      }
+    ],
+    "notifications": [
+      {
+        "id": 1,
+        "message": "Nouvelle note publiée en Algorithmique",
+        "date": "2026-03-01",
+        "lu": false
+      },
+      {
+        "id": 2,
+        "message": "Rappel : paiement de la tranche 2 bientôt dû",
+        "date": "2026-03-05",
+        "lu": false
+      },
+      {
+        "id": 3,
+        "message": "Nouvelle actualité publiée par l'administration",
+        "date": "2026-02-28",
+        "lu": true
+      }
+    ]
+  }
 }

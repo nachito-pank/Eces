@@ -1,4 +1,4 @@
-import { Note } from "../../../types/etudiant";
+import type { Note } from "@/types/etudiant";
 
 type Props = {
   notes: Note[];

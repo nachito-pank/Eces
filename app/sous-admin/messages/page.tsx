@@ -1,14 +1,14 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { MessageSquare, Send, Search, Trash2 } from 'lucide-react';
-import sousAdminsData from '@/data/sous-admins.json';
+import { MessageSquare, Search, Trash2 } from 'lucide-react';
+import adminsData from '@/data/admins.json';
 import MessageForm from '@/components/dashboard/sous-admin/MessageForm';
-import type { Message } from '@/components/dashboard/types/sousadmin';
+import type { Message } from '@/types/sousadmin';
 
 export default function MessagesPage() {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -16,7 +16,7 @@ export default function MessagesPage() {
   const [filterNiveau, setFilterNiveau] = useState<string>('tous');
 
   useEffect(() => {
-    setMessages((sousAdminsData.messages || []) as Message[]);
+    setMessages((adminsData.messages || []) as Message[]);
   }, []);
 
   // Get unique niveaux from destinataires
@@ -64,7 +64,7 @@ export default function MessagesPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-blue-900 bg-clip-text text-transparent">
+          <h1 className="text-3xl font-bold bg-linear-to-r from-gray-900 to-blue-900 bg-clip-text text-transparent">
             Messages
           </h1>
           <p className="text-gray-600 mt-1">Gérez vos communications avec les étudiants</p>
@@ -137,7 +137,7 @@ export default function MessagesPage() {
             <CardContent className="p-6">
               <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg">
+                  <div className="w-12 h-12 bg-linear-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg">
                     <MessageSquare className="h-6 w-6 text-white" />
                   </div>
                   <div>

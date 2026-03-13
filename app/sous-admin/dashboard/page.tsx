@@ -5,13 +5,13 @@ import { Badge } from '@/components/ui/badge';
 import { LayoutDashboard, MessageSquare, Newspaper, CalendarDays, Users, BookOpen, GraduationCap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import sousAdminsData from '@/data/sous-admins.json';
+import adminsData from '@/data/admins.json';
 
 export default function SousAdminDashboard() {
-  const messagesCount = sousAdminsData.messages?.length || 0;
-  const actualitesCount = sousAdminsData.actualites?.length || 0;
-  const edtCoursCount = sousAdminsData.emploiDuTemps?.length || 0;
-  const edtSessionsCount = sousAdminsData.emploiDuTempsSessions?.length || 0;
+  const messagesCount = adminsData.messages?.length || 0;
+  const actualitesCount = adminsData.actualites?.length || 0;
+  const edtCoursCount = adminsData.emploiDuTemps?.length || 0;
+  const edtSessionsCount = adminsData.emploiDuTempsSessions?.length || 0;
 
   const getIconColor = (color: string) => {
     switch (color) {

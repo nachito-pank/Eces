@@ -1,5 +1,5 @@
 import React from "react";
-import { Etudiant } from "../../../types/etudiant";
+import type { Etudiant } from "@/types/etudiant";
 
 const EtudiantCard= (props:Etudiant) => {
   return (
