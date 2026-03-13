@@ -87,6 +87,24 @@ export default function ActualitesPage() {
         <ActuForm onSubmit={addActualite} actualiteToEdit={actualiteToEdit} />
       </div>
 
+      {/* Statistiques en haut */}
+      <Card>
+        <CardContent className="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="text-center p-6 bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl">
+            <div className="text-3xl font-bold text-green-600 mb-2">{actualites.length}</div>
+            <div className="text-sm text-green-700 font-medium">Total Actualités</div>
+          </div>
+          <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl">
+            <div className="text-3xl font-bold text-blue-600 mb-2">{actualites.filter(a => a.statut === 'publie').length}</div>
+            <div className="text-sm text-blue-700 font-medium">Publiées</div>
+          </div>
+          <div className="text-center p-6 bg-gradient-to-br from-orange-50 to-yellow-100 rounded-2xl">
+            <div className="text-3xl font-bold text-orange-600 mb-2">{filteredActualites.length}</div>
+            <div className="text-sm text-orange-700 font-medium">Résultats actuels</div>
+          </div>
+        </CardContent>
+      </Card>
+
       {/* Filtres */}
       <Card className="border-green-100">
         <CardContent className="p-6">
@@ -281,26 +299,6 @@ export default function ActualitesPage() {
           </CardContent>
         </Card>
       )}
-
-      {/* Stats en bas */}
-      <Card>
-        <CardContent className="p-6 grid grid-cols-1 md:grid-cols-3 gap-6 pt-8">
-          <div className="text-center p-6 bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl">
-            <div className="text-3xl font-bold text-green-600 mb-2">{actualites.length}</div>
-            <div className="text-sm text-green-700 font-medium">Total Actualités</div>
-          </div>
-          <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl">
-            <div className="text-3xl font-bold text-blue-600 mb-2">{actualites.filter(a => a.statut === 'publie').length}</div>
-            <div className="text-sm text-blue-700 font-medium">Publiées</div>
-          </div>
-          <div className="text-center p-6 bg-gradient-to-br from-orange-50 to-yellow-100 rounded-2xl">
-            <div className="text-3xl font-bold text-orange-600 mb-2">{filteredActualites.length}</div>
-            <div className="text-sm text-orange-700 font-medium">Résultats actuels</div>
-          </div>
-        </CardContent>
-      </Card>
-
-      <ActuForm onSubmit={addActualite} actualiteToEdit={actualiteToEdit} triggerText="Nouvelle Actualité" />
     </div>
   );
 }
