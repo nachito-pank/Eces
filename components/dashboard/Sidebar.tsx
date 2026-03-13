@@ -8,6 +8,7 @@ import {
   Settings, LogOut, ChevronLeft, ChevronRight, FileText, Award,
   MessageSquare, HelpCircle, Pencil, School, LetterText,
   ShieldCheck, UserCog, UserRound,
+  CreditCard,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -42,6 +43,7 @@ const MENU_ITEMS: Record<Role, MenuItem[]> = {
     { name: 'Enseignants', icon: <Pencil       className="h-5 w-5" />, path: '/admin/enseignants', badge: 12 },
     { name: 'Sous-admin',  icon: <Users        className="h-5 w-5" />, path: '/admin/sous-admins' },
     { name: 'Filières',    icon: <School       className="h-5 w-5" />, path: '/admin/filieres' },
+    { name: 'Etudiants',    icon: <GraduationCap       className="h-5 w-5" />, path: '/admin/etudiants' },
   ],
   'sous-admin': [
 { name: 'Emploi du temps', icon: <GraduationCap className="h-5 w-5" />, path: '/sous-admin/emploi-du-temps' },
@@ -61,12 +63,13 @@ const MENU_ITEMS: Record<Role, MenuItem[]> = {
     { name: 'Notes',           icon: <Award         className="h-5 w-5" />, path: '/etudiant/mes-notes' },
     { name: 'Emploi du temps', icon: <Calendar      className="h-5 w-5" />, path: '/etudiant/emploi-temps' },
     { name: 'Messages',        icon: <MessageSquare className="h-5 w-5" />, path: '/etudiant/messages' },
+    { name: 'Paiement',        icon: <CreditCard className="h-5 w-5" />, path: '/etudiant/paiements' },
   ],
 };
 
-const BOTTOM_ITEMS: MenuItem[] = [
-  { name: 'Aide', icon: <HelpCircle className="h-5 w-5" />, path: '/aide' },
-];
+// const BOTTOM_ITEMS: MenuItem[] = [
+//   { name: 'Aide', icon: <HelpCircle className="h-5 w-5" />, path: '/aide' },
+// ];
 
 function NavItem({ item, isActive, collapsed }: { item: MenuItem; isActive: boolean; collapsed: boolean }) {
   const content = (
@@ -76,7 +79,7 @@ function NavItem({ item, isActive, collapsed }: { item: MenuItem; isActive: bool
         'flex items-center p-3 rounded-xl transition-all duration-200 relative group w-full',
         collapsed ? 'justify-center' : 'justify-between',
         isActive
-          ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-md shadow-blue-200 dark:shadow-blue-900/30'
+          ? 'bg-linear-to-r from-blue-500 to-blue-600 text-white shadow-md shadow-blue-200 dark:shadow-blue-900/30'
           : 'text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400'
       )}
     >
@@ -141,7 +144,7 @@ export default function Sidebar({ role, collapsed: initialCollapsed = false, onT
     <TooltipProvider>
       <aside
         className={cn(
-          'bg-gradient-to-b from-white to-blue-50 dark:from-gray-900 dark:to-gray-800',
+          'bg-linear-to-b from-white to-blue-50 dark:from-gray-900 dark:to-gray-800',
           'border-r border-blue-100 dark:border-gray-700',
           'h-screen fixed left-0 top-16 transition-all duration-300 z-20 shadow-lg',
           collapsed ? 'w-20' : 'w-64'
@@ -160,7 +163,7 @@ export default function Sidebar({ role, collapsed: initialCollapsed = false, onT
         {/* Header */}
         <div className="p-4 border-b border-blue-100 dark:border-gray-700">
           <div className={cn('flex items-center', collapsed ? 'justify-center' : 'space-x-3')}>
-            <div className="h-12 w-12 shrink-0 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-md">
+            <div className="h-12 w-12 shrink-0 rounded-xl bg-linear-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-md">
               {roleIcon}
             </div>
             {!collapsed && (
@@ -186,7 +189,7 @@ export default function Sidebar({ role, collapsed: initialCollapsed = false, onT
         </nav>
 
         {/* Bottom */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-blue-100 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm">
+        {/* <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-blue-100 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm">
           <ul className="space-y-1">
             {BOTTOM_ITEMS.map((item) => (
               <li key={item.path}>
@@ -216,7 +219,7 @@ export default function Sidebar({ role, collapsed: initialCollapsed = false, onT
               Version 2.0.0
             </p>
           )}
-        </div>
+        </div> */}
       </aside>
     </TooltipProvider>
   );

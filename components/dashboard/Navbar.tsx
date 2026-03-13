@@ -86,7 +86,7 @@ const Navbar: React.FC<NavbarProps> = ({
             </div>
 
             {/* Barre de recherche (desktop) */}
-            {userRole !== 'etudiant' && userRole !== 'admin' && (
+            
               <div className="hidden md:flex flex-1 max-w-md mx-8">
                 <form onSubmit={handleSearch} className="w-full">
                   <div className="relative">
@@ -101,7 +101,7 @@ const Navbar: React.FC<NavbarProps> = ({
                   </div>
                 </form>
               </div>
-            )}
+            
 
             {/* Icônes de droite */}
             <div className="flex items-center space-x-2">

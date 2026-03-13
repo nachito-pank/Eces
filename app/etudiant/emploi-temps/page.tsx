@@ -5,6 +5,8 @@ const EdtPage = () => {
   const edtCours = (adminsData as any).emploiDuTemps?.[0] || {}
   const edtSessions = etudiant.emploiDuTempsSessions || [];
 
+  console.log(edtCours)
+
   return (
     <main className="w-full p-6">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -25,7 +27,7 @@ const EdtPage = () => {
                   {edtCours.length > 0 ? (
                     edtCours.map((c: any) => (
                       <div key={c.id} className="p-3 rounded-lg bg-gray-100">
-                        <span className="font-medium">{c.cours.jour}</span> — {c.heureDebut}–{c.heureFin} • {c.matiere} • Salle {c.salle}{c.enseignant ? ` • ${c.enseignant}` : ''}
+                        <span className="font-medium">{c.jour}</span> — {c.heureDebut}–{c.heureFin} • {c.matiere} • Salle {c.salle}{c.enseignant ? ` • ${c.enseignant}` : ''}
                       </div>
                     ))
                   ) : (
