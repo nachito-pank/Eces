@@ -1,11 +1,9 @@
-import Navbar from "@/components/dashboard/Navbar";
-import Sidebar from "@/components/dashboard/Sidebar";
+import DashboardLayout from '@/components/dashboard/layout';
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div>
-      <main className="p-4">{children}</main>
-    </div>
-  
+    <DashboardLayout userRole="admin">
+      {children}
+    </DashboardLayout>
   );
 }
