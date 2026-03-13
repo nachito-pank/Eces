@@ -12,7 +12,8 @@ import {
   ChevronDown,
   X
 } from 'lucide-react';
-import { UserRole } from './types';
+import type { UserRole } from '@/types';
+import { AnimatedThemeToggler } from '@/components/ui/animated-theme-toggler';
 
 interface NavbarProps {
   userRole?: UserRole;
@@ -36,6 +37,17 @@ const Navbar: React.FC<NavbarProps> = ({
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const router = useRouter();
+
+  const roleToBasePath: Record<UserRole, string> = {
+    admin: '/admin',
+    'sous-admin': '/sous-admin',
+    enseignant: '/enseignant',
+    etudiant: '/etudiant',
+    visitor: '',
+  };
+
+  const profileHref =
+    userRole === 'visitor' ? '/login' : `${roleToBasePath[userRole]}/profile`;
 
   const notifications = [
     { id: 1, title: 'Nouveau cours disponible', time: 'Il y a 5 min', read: false },
@@ -100,6 +112,12 @@ const Navbar: React.FC<NavbarProps> = ({
               >
                 <Search className="h-5 w-5" />
               </button>
+
+              {/* Toggle thème */}
+              <AnimatedThemeToggler
+                className="hidden md:inline-flex p-2 rounded-lg text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+                aria-label="Changer de thème"
+              />
 
               {/* Notifications */}
               <div className="relative">
@@ -175,7 +193,7 @@ const Navbar: React.FC<NavbarProps> = ({
                       <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 capitalize">{userRole}</p>
                     </div>
                     <Link
-                      href="/profil"
+                      href={profileHref}
                       className="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
                       onClick={() => setIsUserMenuOpen(false)}
                     >

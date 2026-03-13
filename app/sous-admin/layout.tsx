@@ -1,16 +1,10 @@
-import Navbar from "@/components/dashboard/Navbar";
-import Sidebar from "@/components/dashboard/Sidebar";
+import DashboardLayout from '@/components/dashboard/layout';
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function SousAdminLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div>
-      <Sidebar role="sous-admin"/>
-      <div>
-        <Navbar showLogo={false} />
-        <main className="container mx-auto p-4">
-          {children}
-        </main>
-      </div>
-    </div>
-  )
+    <DashboardLayout userRole="sous-admin">
+      {children}
+    </DashboardLayout>
+  );
 }
+

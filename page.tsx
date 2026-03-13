@@ -188,11 +188,17 @@ export default function HomePage() {
                   overflow: 'hidden', border: '1px solid var(--border)',
                   boxShadow: 'var(--shadow-sm)', transition: 'transform 0.3s ease, box-shadow 0.3s ease'
                 }} data-aos="fade-up" data-aos-delay={index * 200} className="news-card">
-                  {a.image_url && <img src={a.image_url} alt={a.title} style={{ width: '100%', height: 160, objectFit: 'cover' }} />}
+                  {a.image_url && <img src={a.image_url} alt={a.title ?? a.titre ?? 'Actualité'} style={{ width: '100%', height: 160, objectFit: 'cover' }} />}
                   <div style={{ padding: 20 }}>
-                    <div style={{ fontSize: 11, color: 'var(--gray-400)', marginBottom: 8, fontWeight: 600 }}>{new Date(a.created_at).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' })}</div>
-                    <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 16, color: 'var(--gray-900)', marginBottom: 8, lineHeight: 1.3 }}>{a.title}</h3>
-                    <p style={{ fontSize: 13, color: 'var(--gray-500)', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{a.content}</p>
+                    <div style={{ fontSize: 11, color: 'var(--gray-400)', marginBottom: 8, fontWeight: 600 }}>
+                      {new Date(a.created_at ?? a.datePublication ?? new Date().toISOString()).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' })}
+                    </div>
+                    <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 16, color: 'var(--gray-900)', marginBottom: 8, lineHeight: 1.3 }}>
+                      {a.title ?? a.titre}
+                    </h3>
+                    <p style={{ fontSize: 13, color: 'var(--gray-500)', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                      {a.content ?? a.contenu}
+                    </p>
                   </div>
                 </div>
               ))}

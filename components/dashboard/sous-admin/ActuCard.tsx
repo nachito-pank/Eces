@@ -3,7 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Clock, User } from 'lucide-react';
-import type { Actualite } from '@/components/dashboard/types/sousadmin';
+import type { Actualite } from '@/types/sousadmin';
 import { format, parseISO } from 'date-fns';
 import { fr } from 'date-fns/locale';
 

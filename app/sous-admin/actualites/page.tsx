@@ -6,10 +6,10 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Search, Calendar, Newspaper } from 'lucide-react';
-import sousAdminsData from '@/data/sous-admins.json';
+import adminsData from '@/data/admins.json';
 import ActuCard from '@/components/dashboard/sous-admin/ActuCard';
 import ActuForm from '@/components/dashboard/sous-admin/ActuForm';
-import type { Actualite } from '@/components/dashboard/types/sousadmin';
+import type { Actualite } from '@/types/sousadmin';
 
 export default function ActualitesPage() {
   const [actualites, setActualites] = useState<Actualite[]>([]);
@@ -18,7 +18,7 @@ export default function ActualitesPage() {
   const [filterStatus, setFilterStatus] = useState<'tous' | 'publie' | 'brouillon'>('tous');
 
   useEffect(() => {
-    setActualites(sousAdminsData.actualites || []);
+    setActualites((((adminsData as any).actualites || []) as Actualite[]));
   }, []);
 
   const addActualite = (newActuData: any) => {

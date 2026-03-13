@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 
-import { UserRole } from './types';
+import { UserRole } from '@/types/index';
 
 interface LayoutProps {
   children: React.ReactNode;
