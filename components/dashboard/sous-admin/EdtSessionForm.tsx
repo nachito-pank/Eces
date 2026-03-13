@@ -67,15 +67,14 @@ export default function EdtSessionForm({ onSubmit, sessionToEdit, triggerText = 
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger>
-        <Button 
-          data-edt-session-form-trigger
-          className="bg-orange-600 hover:bg-orange-700 flex items-center gap-2 shadow-lg"
-        >
-          {sessionToEdit ? <Edit className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
-          <span>{sessionToEdit ? 'Modifier Session' : triggerText}</span>
-        </Button>
-      </DialogTrigger>
+      <Button 
+        data-edt-session-form-trigger
+        onClick={() => setOpen(true)}
+        className="bg-orange-600 hover:bg-orange-700 flex items-center gap-2 shadow-lg"
+      >
+        {sessionToEdit ? <Edit className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
+        <span>{sessionToEdit ? 'Modifier Session' : triggerText}</span>
+      </Button>
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl p-6">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-gray-900 flex items-center gap-2">

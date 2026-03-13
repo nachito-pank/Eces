@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
@@ -22,8 +22,19 @@ export default function EdtCoursForm({ onSubmit, edtToEdit, triggerText = 'Ajout
     niveau: edtToEdit?.niveau || '',
     filiere: edtToEdit?.filiere || '',
     code: edtToEdit?.code || '',
-    cours: edtToEdit?.cours || []
+    cours: edtToEdit?.cours?.map(cours => ({ ...cours, classe: cours.classe || '' })) || []
   });
+
+  useEffect(() => {
+    if (edtToEdit) {
+      setFormData({
+        niveau: edtToEdit.niveau || '',
+        filiere: edtToEdit.filiere || '',
+        code: edtToEdit.code || '',
+        cours: edtToEdit.cours?.map(cours => ({ ...cours, classe: cours.classe || '' })) || []
+      });
+    }
+  }, [edtToEdit]);
 
   const jours = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
   const creneaux = [
@@ -37,12 +48,26 @@ export default function EdtCoursForm({ onSubmit, edtToEdit, triggerText = 'Ajout
   const filieres = adminsData.filieres || [];
   const enseignants = adminsData.enseignants || [];
 
-  const filieresGrouped = filieres.reduce((acc, filiere) => {
-    const key = filiere.niveau || 'LP';
-    if (!acc[key]) acc[key] = [];
-    acc[key].push(filiere);
+  // Extraire tous les niveaux uniques depuis les enseignants et les filières
+  const niveauxFromEnseignants = Array.from(new Set(
+    enseignants.flatMap((enseignant: any) => enseignant.niveaux || [])
+  ));
+  const niveauxFromFilieres = Array.from(new Set(
+    filieres.map((filiere: any) => filiere.niveau).filter(Boolean)
+  ));
+  const niveauxDisponibles = Array.from(new Set([...niveauxFromEnseignants, ...niveauxFromFilieres]));
+  
+  // Créer une structure pour les filières par niveau
+  const filieresGrouped = niveauxDisponibles.reduce((acc: Record<string, Array<{ id: string; nom: string; niveau: string }>>, niveau: string) => {
+    acc[niveau] = filieres
+      .filter((filiere: any) => filiere.niveau === niveau)
+      .map((filiere: any) => ({
+        id: filiere.id.toString(),
+        nom: filiere.nom,
+        niveau: filiere.niveau
+      }));
     return acc;
-  }, {} as Record<string, typeof filieres>);
+  }, {} as Record<string, Array<{ id: string; nom: string; niveau: string }>>);
 
   const addCours = () => {
     setFormData(prev => ({
@@ -54,7 +79,7 @@ export default function EdtCoursForm({ onSubmit, edtToEdit, triggerText = 'Ajout
         matiere: '',
         salle: '',
         professeur: '',
-        classe: undefined
+        classe: ''
       }]
     }));
   };
@@ -66,7 +91,7 @@ export default function EdtCoursForm({ onSubmit, edtToEdit, triggerText = 'Ajout
     }));
   };
 
-  const updateCours = (index: number, field: string, value: string) => {
+  const updateCours = (index: number, field: keyof typeof formData.cours[0], value: string) => {
     setFormData(prev => ({
       ...prev,
       cours: prev.cours.map((cours, i) => 
@@ -102,15 +127,14 @@ export default function EdtCoursForm({ onSubmit, edtToEdit, triggerText = 'Ajout
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger>
-        <Button 
-          data-edt-cours-form-trigger
-          className="bg-purple-600 hover:bg-purple-700 flex items-center gap-2 shadow-lg"
-        >
-          {edtToEdit ? <Edit className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
-          <span>{edtToEdit ? 'Modifier EDT' : triggerText}</span>
-        </Button>
-      </DialogTrigger>
+      <Button 
+        data-edt-cours-form-trigger
+        onClick={() => setOpen(true)}
+        className="bg-purple-600 hover:bg-purple-700 flex items-center gap-2 shadow-lg"
+      >
+        {edtToEdit ? <Edit className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
+        <span>{edtToEdit ? 'Modifier EDT' : triggerText}</span>
+      </Button>
       <DialogContent className="max-w-7xl max-h-[90vh] overflow-y-auto rounded-2xl p-8">
         <DialogHeader className="pb-6">
           <DialogTitle className="text-2xl font-bold text-gray-900 flex items-center gap-2">
@@ -131,12 +155,12 @@ export default function EdtCoursForm({ onSubmit, edtToEdit, triggerText = 'Ajout
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-gray-700 block">Niveau <span className="text-red-500">*</span></label>
-                <Select value={formData.niveau} onValueChange={(value) => setFormData(prev => ({ ...prev, niveau: value }))}>
+                <Select value={formData.niveau} onValueChange={(value: string | null) => setFormData(prev => ({ ...prev, niveau: value || '' }))}>
                   <SelectTrigger className="h-12">
                     <SelectValue placeholder="Sélectionner un niveau" />
                   </SelectTrigger>
                   <SelectContent>
-                    {Object.keys(filieresGrouped).map(niveau => (
+                    {niveauxDisponibles.map((niveau: string) => (
                       <SelectItem key={niveau} value={niveau}>{niveau}</SelectItem>
                     ))}
                   </SelectContent>
@@ -146,16 +170,19 @@ export default function EdtCoursForm({ onSubmit, edtToEdit, triggerText = 'Ajout
                 <label className="text-sm font-semibold text-gray-700 block">Filière <span className="text-red-500">*</span></label>
                 <Select 
                   value={formData.filiere} 
-                  onValueChange={(value) => setFormData(prev => ({ ...prev, filiere: value }))}
+                  onValueChange={(value: string | null) => setFormData(prev => ({ ...prev, filiere: value || '' }))}
                   disabled={!formData.niveau}
                 >
                   <SelectTrigger className="h-12">
                     <SelectValue placeholder="Sélectionner une filière" />
                   </SelectTrigger>
                   <SelectContent>
-                    {formData.niveau && filieresGrouped[formData.niveau]?.map(filiere => (
-                      <SelectItem key={filiere.id} value={filiere.nom}>{filiere.nom}</SelectItem>
-                    ))}
+                    {formData.niveau && filieresGrouped[formData.niveau] ? 
+                      filieresGrouped[formData.niveau].map((filiere: { id: string; nom: string; niveau: string }) => (
+                        <SelectItem key={filiere.id} value={filiere.nom}>{filiere.nom}</SelectItem>
+                      )) : 
+                      <SelectItem value="" disabled>Aucune filière disponible</SelectItem>
+                    }
                   </SelectContent>
                 </Select>
               </div>
@@ -163,7 +190,7 @@ export default function EdtCoursForm({ onSubmit, edtToEdit, triggerText = 'Ajout
                 <label className="text-sm font-semibold text-gray-700 block">Code</label>
                 <Input
                   value={formData.code}
-                  onChange={(e) => setFormData(prev => ({ ...prev, code: e.target.value }))}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData(prev => ({ ...prev, code: e.target.value }))}
                   placeholder="Ex: GI-L1"
                   className="h-12"
                 />
@@ -215,7 +242,7 @@ export default function EdtCoursForm({ onSubmit, edtToEdit, triggerText = 'Ajout
                             <CalendarDays className="h-4 w-4 text-purple-600" />
                             Jour
                           </label>
-                          <Select value={cours.jour} onValueChange={(value) => updateCours(index, 'jour', value)}>
+                          <Select value={cours.jour} onValueChange={(value: string | null) => updateCours(index, 'jour', value || '')}>
                             <SelectTrigger className="h-12">
                               <SelectValue />
                             </SelectTrigger>
@@ -234,10 +261,12 @@ export default function EdtCoursForm({ onSubmit, edtToEdit, triggerText = 'Ajout
                           </label>
                           <Select 
                             value={`${cours.heureDebut}-${cours.heureFin}`} 
-                            onValueChange={(value) => {
-                              const [debut, fin] = value.split('-');
-                              updateCours(index, 'heureDebut', debut);
-                              updateCours(index, 'heureFin', fin);
+                            onValueChange={(value: string | null) => {
+                              if (value) {
+                                const [debut, fin] = value.split('-');
+                                updateCours(index, 'heureDebut', debut);
+                                updateCours(index, 'heureFin', fin);
+                              }
                             }}
                           >
                             <SelectTrigger className="h-12">
@@ -257,7 +286,7 @@ export default function EdtCoursForm({ onSubmit, edtToEdit, triggerText = 'Ajout
                           <label className="text-sm font-semibold text-gray-700">Matière</label>
                           <Input
                             value={cours.matiere}
-                            onChange={(e) => updateCours(index, 'matiere', e.target.value)}
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateCours(index, 'matiere', e.target.value)}
                             placeholder="Nom de la matière"
                             className="h-12"
                             required
@@ -273,7 +302,7 @@ export default function EdtCoursForm({ onSubmit, edtToEdit, triggerText = 'Ajout
                           </label>
                           <Input
                             value={cours.salle}
-                            onChange={(e) => updateCours(index, 'salle', e.target.value)}
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateCours(index, 'salle', e.target.value)}
                             placeholder="Ex: A101"
                             className="h-12"
                             required
@@ -287,10 +316,10 @@ export default function EdtCoursForm({ onSubmit, edtToEdit, triggerText = 'Ajout
                           </label>
                           <Select 
                             value={cours.professeur || ''} 
-                            onValueChange={(value) => {
-                              if (validateProfesseurLimit(value || '', index)) {
+                            onValueChange={(value: string | null) => {
+                              if (value && validateProfesseurLimit(value, index)) {
                                 updateCours(index, 'professeur', value);
-                              } else {
+                              } else if (value) {
                                 alert('Ce professeur a déjà atteint la limite de 3 cours par jour.');
                               }
                             }}
@@ -299,11 +328,14 @@ export default function EdtCoursForm({ onSubmit, edtToEdit, triggerText = 'Ajout
                               <SelectValue placeholder="Sélectionner un professeur" />
                             </SelectTrigger>
                             <SelectContent>
-                              {enseignants.map(enseignant => (
-                                <SelectItem key={enseignant.id} value={`${enseignant.prenom} ${enseignant.nom}`}>
-                                  {enseignant.prenom} {enseignant.nom}
-                                </SelectItem>
-                              ))}
+                              {enseignants && enseignants.length > 0 ? 
+                                enseignants.map(enseignant => (
+                                  <SelectItem key={enseignant.id} value={`${enseignant.prenom} ${enseignant.nom}`}>
+                                    {enseignant.prenom} {enseignant.nom}
+                                  </SelectItem>
+                                )) : 
+                                <SelectItem value="" disabled>Aucun enseignant disponible</SelectItem>
+                              }
                             </SelectContent>
                           </Select>
                           {cours.professeur && (
@@ -317,7 +349,7 @@ export default function EdtCoursForm({ onSubmit, edtToEdit, triggerText = 'Ajout
                           <label className="text-sm font-semibold text-gray-700">Classe</label>
                           <Input
                             value={cours.classe || ''}
-                            onChange={(e) => updateCours(index, 'classe', e.target.value)}
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateCours(index, 'classe', e.target.value)}
                             placeholder="Optionnel"
                             className="h-12"
                           />
