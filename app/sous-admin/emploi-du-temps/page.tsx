@@ -568,8 +568,6 @@ export default function EmploiDuTempsPage() {
       </Tabs>
 
       <EdtDetailsModal />
-      <EdtCoursForm onSubmit={handleEdtSubmit} edtToEdit={edtToEdit} triggerText="Ajouter un EDT" data-edt-cours-form-trigger />
-      <EdtSessionForm onSubmit={handleSessionSubmit} sessionToEdit={sessionToEdit} triggerText="Nouvelle Session" data-edt-session-form-trigger />
     </div>
   );
 }
