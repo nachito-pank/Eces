@@ -132,3 +132,54 @@
     animation: none;
     mix-blend-mode: normal;
 }
+
+/* Glass shard + light beam overlays (used on landing hero) */
+.shards-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.shard {
+  position: absolute;
+  background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(148,197,253,0.04) 50%, rgba(255,255,255,0.02) 100%);
+  border: 1px solid rgba(148,197,253,0.12);
+  backdrop-filter: blur(2px);
+  clip-path: polygon(var(--p));
+  transform-origin: center;
+  animation: shard-float var(--dur, 8s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes shard-float {
+  0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)) scale(1); opacity: var(--op, 0.6); }
+  33%       { transform: translateY(-12px) rotate(calc(var(--rot, 0deg) + 1deg)) scale(1.01); opacity: calc(var(--op, 0.6) * 1.3); }
+  66%       { transform: translateY(6px) rotate(calc(var(--rot, 0deg) - 0.5deg)) scale(0.99); opacity: calc(var(--op, 0.6) * 0.8); }
+}
+
+.light-beam {
+  position: absolute;
+  z-index: 9;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: beam-pulse var(--dur, 6s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes beam-pulse {
+  0%, 100% { opacity: var(--op, 0.15); transform: scale(1); }
+  50%       { opacity: calc(var(--op, 0.15) * 1.6); transform: scale(1.08); }
+}
+
+/* Decorative footer dots (optional usage) */
+.dot-pulse {
+  animation: dot-pulse 2s ease-in-out infinite;
+}
+
+@keyframes dot-pulse {
+  0%,100%{opacity:0.3;transform:scale(0.8)}
+  50%{opacity:1;transform:scale(1.2)}
+}
