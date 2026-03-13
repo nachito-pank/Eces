@@ -130,7 +130,7 @@ export default function EdtCoursForm({ onSubmit, edtToEdit, triggerText = 'Ajout
       <Button 
         data-edt-cours-form-trigger
         onClick={() => setOpen(true)}
-        className="bg-purple-600 hover:bg-purple-700 flex items-center gap-2 shadow-lg"
+        className="bg-blue-600 hover:bg-blue-700 flex items-center gap-2 shadow-lg"
       >
         {edtToEdit ? <Edit className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
         <span>{edtToEdit ? 'Modifier EDT' : triggerText}</span>
@@ -138,7 +138,7 @@ export default function EdtCoursForm({ onSubmit, edtToEdit, triggerText = 'Ajout
       <DialogContent className="max-w-7xl max-h-[90vh] overflow-y-auto rounded-2xl p-8">
         <DialogHeader className="pb-6">
           <DialogTitle className="text-2xl font-bold text-gray-900 flex items-center gap-2">
-            <CalendarDays className="h-6 w-6 text-purple-600" />
+            <CalendarDays className="h-6 w-6 text-blue-600" />
             {edtToEdit ? 'Modifier l\'Emploi du Temps' : 'Créer un Emploi du Temps'}
           </DialogTitle>
           <DialogDescription>
@@ -147,52 +147,64 @@ export default function EdtCoursForm({ onSubmit, edtToEdit, triggerText = 'Ajout
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-8">
           {/* Informations générales */}
-          <div className="bg-gray-50 rounded-xl p-6" style={{maxHeight: '180px', overflowY: 'auto'}}>
-            <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-              <CalendarDays className="h-5 w-5 text-purple-600" />
+          <div className="bg-gray-50 rounded-xl p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-6 flex items-center gap-2">
+              <CalendarDays className="h-5 w-5 text-blue-600" />
               Informations générales
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="space-y-2">
-                <label className="text-sm font-semibold text-gray-700 block">Niveau <span className="text-red-500">*</span></label>
-                <Select value={formData.niveau} onValueChange={(value: string | null) => setFormData(prev => ({ ...prev, niveau: value || '' }))}>
-                  <SelectTrigger className="h-12">
-                    <SelectValue placeholder="Sélectionner un niveau" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {niveauxDisponibles.map((niveau: string) => (
-                      <SelectItem key={niveau} value={niveau}>{niveau}</SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="space-y-4">
+                <div>
+                  <label className="text-sm font-semibold text-gray-700 block mb-2">Niveau <span className="text-red-500">*</span></label>
+                  <Select value={formData.niveau} onValueChange={(value: string | null) => setFormData(prev => ({ ...prev, niveau: value || '' }))}>
+                    <SelectTrigger className="h-12 w-full">
+                      <SelectValue placeholder="Sélectionner un niveau" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {niveauxDisponibles.map((niveau: string) => (
+                        <SelectItem key={niveau} value={niveau}>{niveau}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
               </div>
-              <div className="space-y-2">
-                <label className="text-sm font-semibold text-gray-700 block">Filière <span className="text-red-500">*</span></label>
-                <Select 
-                  value={formData.filiere} 
-                  onValueChange={(value: string | null) => setFormData(prev => ({ ...prev, filiere: value || '' }))}
-                  disabled={!formData.niveau}
-                >
-                  <SelectTrigger className="h-12">
-                    <SelectValue placeholder="Sélectionner une filière" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {formData.niveau && filieresGrouped[formData.niveau] ? 
-                      filieresGrouped[formData.niveau].map((filiere: { id: string; nom: string; niveau: string }) => (
-                        <SelectItem key={filiere.id} value={filiere.nom}>{filiere.nom}</SelectItem>
-                      )) : 
-                      <SelectItem value="" disabled>Aucune filière disponible</SelectItem>
-                    }
-                  </SelectContent>
-                </Select>
+              
+              <div className="space-y-4">
+                <div className="space-y-4">
+                <div>
+                  <label className="text-sm font-semibold text-gray-700 block mb-2">Filière <span className="text-red-500">*</span></label>
+                  <div className="relative">
+                    <select
+                      value={formData.filiere}
+                      onChange={(e) => setFormData(prev => ({ ...prev, filiere: e.target.value }))}
+                      className="w-full h-12 px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 appearance-none cursor-pointer"
+                    >
+                      <option value="">Sélectionner une filière</option>
+                      {filieres && filieres.length > 0 && filieres.map((filiere: any) => (
+                        <option key={filiere.id} value={filiere.nom}>
+                          {filiere.nom}
+                        </option>
+                      ))}
+                    </select>
+                    <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                      <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="space-y-2">
-                <label className="text-sm font-semibold text-gray-700 block">Code</label>
+              </div>
+            </div>
+            
+            <div className="mt-6">
+              <div>
+                <label className="text-sm font-semibold text-gray-700 block mb-2">Code EDT</label>
                 <Input
                   value={formData.code}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData(prev => ({ ...prev, code: e.target.value }))}
                   placeholder="Ex: GI-L1"
-                  className="h-12"
+                  className="h-12 w-full"
                 />
               </div>
             </div>
@@ -202,10 +214,10 @@ export default function EdtCoursForm({ onSubmit, edtToEdit, triggerText = 'Ajout
           <div className="bg-blue-50 rounded-xl p-6">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
-                <Clock className="h-5 w-5 text-purple-600" />
+                <Clock className="h-5 w-5 text-blue-600" />
                 Liste des cours ({formData.cours.length})
               </h3>
-              <Button type="button" onClick={addCours} variant="outline" className="border-purple-200 text-purple-600 hover:bg-purple-50">
+              <Button type="button" onClick={addCours} variant="outline" className="border-blue-200 text-blue-600 hover:bg-blue-50">
                 <Plus className="h-4 w-4 mr-2" />
                 Ajouter un cours
               </Button>
@@ -239,7 +251,7 @@ export default function EdtCoursForm({ onSubmit, edtToEdit, triggerText = 'Ajout
                       <div className="space-y-4">
                         <div className="space-y-2">
                           <label className="text-sm font-semibold text-gray-700 flex items-center gap-2">
-                            <CalendarDays className="h-4 w-4 text-purple-600" />
+                            <CalendarDays className="h-4 w-4 text-blue-600" />
                             Jour
                           </label>
                           <Select value={cours.jour} onValueChange={(value: string | null) => updateCours(index, 'jour', value || '')}>
@@ -256,7 +268,7 @@ export default function EdtCoursForm({ onSubmit, edtToEdit, triggerText = 'Ajout
 
                         <div className="space-y-2">
                           <label className="text-sm font-semibold text-gray-700 flex items-center gap-2">
-                            <Clock className="h-4 w-4 text-purple-600" />
+                            <Clock className="h-4 w-4 text-blue-600" />
                             Créneau
                           </label>
                           <Select 
@@ -297,7 +309,7 @@ export default function EdtCoursForm({ onSubmit, edtToEdit, triggerText = 'Ajout
                       <div className="space-y-4">
                         <div className="space-y-2">
                           <label className="text-sm font-semibold text-gray-700 flex items-center gap-2">
-                            <MapPin className="h-4 w-4 text-purple-600" />
+                            <MapPin className="h-4 w-4 text-blue-600" />
                             Salle
                           </label>
                           <Input
@@ -311,7 +323,7 @@ export default function EdtCoursForm({ onSubmit, edtToEdit, triggerText = 'Ajout
 
                         <div className="space-y-2">
                           <label className="text-sm font-semibold text-gray-700 flex items-center gap-2">
-                            <User className="h-4 w-4 text-purple-600" />
+                            <User className="h-4 w-4 text-blue-600" />
                             Professeur
                           </label>
                           <Select 
@@ -367,7 +379,7 @@ export default function EdtCoursForm({ onSubmit, edtToEdit, triggerText = 'Ajout
           <Button type="button" variant="outline" onClick={() => setOpen(false)} className="flex-1">
             Annuler
           </Button>
-          <Button type="submit" className="flex-1 bg-purple-600 hover:bg-purple-700 shadow-lg" disabled={!formData.niveau || !formData.filiere || !formData.code || formData.cours.length === 0}>
+          <Button type="submit" className="flex-1 bg-blue-600 hover:bg-blue-700 shadow-lg" disabled={!formData.niveau || !formData.filiere || !formData.code || formData.cours.length === 0}>
             {edtToEdit ? 'Mettre à jour' : 'Créer l\'emploi du temps'}
           </Button>
         </DialogFooter>

@@ -90,41 +90,42 @@ export default function SousAdminDashboard() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
             Dashboard Sous-Admin
           </h1>
           <p className="text-gray-600 mt-2">Bienvenue dans votre espace de gestion</p>
         </div>
-        <div className="flex gap-3 flex-wrap">
-          <Button variant="outline" size="sm" className="border-blue-200 text-blue-600 hover:bg-blue-50">
-            <LayoutDashboard className="h-4 w-4 mr-2" />
-            Vue rapide
+        <div className="flex gap-2 sm:gap-3">
+          <Button variant="outline" size="sm" className="border-blue-200 text-blue-600 hover:bg-blue-50 text-xs sm:text-sm px-2 sm:px-4">
+            <LayoutDashboard className="h-4 w-4 mr-1 sm:mr-2" />
+            <span className="hidden sm:inline">Vue rapide</span>
+            <span className="sm:hidden">Vue</span>
           </Button>
         </div>
       </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {stats.map((stat, index) => (
           <Link key={index} href={stat.href}>
             <Card className="group hover:shadow-xl hover:shadow-blue-200/50 transition-all duration-300 border-0 bg-gradient-to-br from-white to-blue-50/50 hover:to-blue-50 cursor-pointer">
-              <CardHeader className="pb-3">
+              <CardHeader className="pb-3 px-4 sm:px-6 py-4 sm:py-6">
                 <div className="flex items-center gap-3">
-                  <div className={`p-3 rounded-xl bg-gradient-to-br ${getIconColor(stat.color)} shadow-lg`}>
-                    <stat.icon className="h-6 w-6 text-white" />
+                  <div className={`p-2 sm:p-3 rounded-xl bg-gradient-to-br ${getIconColor(stat.color)} shadow-lg`}>
+                    <stat.icon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                   </div>
-                  <div>
-                    <CardTitle className="text-2xl font-bold text-gray-900">{stat.value}</CardTitle>
-                    <CardDescription>{stat.title}</CardDescription>
+                  <div className="flex-1 min-w-0">
+                    <CardTitle className="text-xl sm:text-2xl font-bold text-gray-900 truncate">{stat.value}</CardTitle>
+                    <CardDescription className="text-sm sm:text-base truncate">{stat.title}</CardDescription>
                   </div>
                 </div>
               </CardHeader>
-              <CardContent>
+              <CardContent className="px-4 sm:px-6 pb-4 sm:pb-6">
                 <div className="flex items-center justify-between">
-                  <Badge className={getBadgeColor(stat.color)}>
+                  <Badge className={`${getBadgeColor(stat.color)} text-xs`}>
                     {stat.change}
                   </Badge>
-                  <Button variant="ghost" size="sm" className="h-8 px-3 text-xs hover:bg-transparent hover:text-blue-600">
+                  <Button variant="ghost" size="sm" className="h-6 sm:h-8 px-2 sm:px-3 text-xs hover:bg-transparent hover:text-blue-600">
                     Voir
                   </Button>
                 </div>
@@ -136,32 +137,38 @@ export default function SousAdminDashboard() {
 
       {/* Quick Actions */}
       <Card className="bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-100">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
+        <CardHeader className="px-4 sm:px-6 py-4 sm:py-6">
+          <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
             Actions Rapides
           </CardTitle>
         </CardHeader>
-        <CardContent className="grid grid-cols-1 md:grid-cols-4 gap-4 p-0">
+        <CardContent className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 p-4 sm:p-6">
           <Link href="/sous-admin/profil">
-            <Button className="justify-start h-16 bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 shadow-md group">
-              <User className="h-5 w-5 mr-3 group-hover:scale-110 transition-transform" />
-              Mon Profil
+            <Button className="justify-start h-12 sm:h-16 bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 shadow-md group text-sm sm:text-base">
+              <User className="h-4 w-4 sm:h-5 sm:w-5 mr-2 sm:mr-3 group-hover:scale-110 transition-transform" />
+              <span className="hidden sm:inline">Mon Profil</span>
+              <span className="sm:hidden">Profil</span>
             </Button>
           </Link>
-          <Button className="justify-start h-16 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 shadow-md group">
-            <MessageSquare className="h-5 w-5 mr-3 group-hover:rotate-12 transition-transform" />
-            Envoyer Message
-          </Button>
+          <Link href="/sous-admin/messages">
+            <Button className="justify-start h-12 sm:h-16 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 shadow-md group text-sm sm:text-base">
+              <MessageSquare className="h-4 w-4 sm:h-5 sm:w-5 mr-2 sm:mr-3 group-hover:rotate-12 transition-transform" />
+              <span className="hidden sm:inline">Envoyer Message</span>
+              <span className="sm:hidden">Message</span>
+            </Button>
+          </Link>
           <Link href="/sous-admin/actualites">
-            <Button className="justify-start h-16 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 shadow-md group">
-              <Newspaper className="h-5 w-5 mr-3 group-hover:scale-110 transition-transform" />
-              Nouvelle Actualité
+            <Button className="justify-start h-12 sm:h-16 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 shadow-md group text-sm sm:text-base">
+              <Newspaper className="h-4 w-4 sm:h-5 sm:w-5 mr-2 sm:mr-3 group-hover:scale-110 transition-transform" />
+              <span className="hidden sm:inline">Nouvelle Actualité</span>
+              <span className="sm:hidden">Actualité</span>
             </Button>
           </Link>
           <Link href="/sous-admin/emploi-du-temps">
-            <Button className="justify-start h-16 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 shadow-md group">
-              <CalendarDays className="h-5 w-5 mr-3 group-hover:scale-110 transition-transform" />
-              Gérer EDT
+            <Button className="justify-start h-12 sm:h-16 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 shadow-md group text-sm sm:text-base">
+              <CalendarDays className="h-4 w-4 sm:h-5 sm:w-5 mr-2 sm:mr-3 group-hover:scale-110 transition-transform" />
+              <span className="hidden sm:inline">Gérer EDT</span>
+              <span className="sm:hidden">EDT</span>
             </Button>
           </Link>
         </CardContent>

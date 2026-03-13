@@ -83,7 +83,7 @@ export default function MessagesPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold bg-linear-to-r from-gray-900 to-blue-900 bg-clip-text text-transparent">
+          <h1 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-gray-900 to-blue-900 bg-clip-text text-transparent">
             Messages
           </h1>
           <p className="text-gray-600 mt-1">Gérez vos communications avec les étudiants</p>
@@ -93,8 +93,8 @@ export default function MessagesPage() {
 
       {/* Filtres et recherche */}
       <Card className="border-blue-100">
-        <CardContent className="p-6">
-          <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-center">
+        <CardContent className="p-4 sm:p-6">
+          <div className="flex flex-col gap-4">
             <div className="flex-1">
               <h3 className="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
                 <Search className="h-4 w-4 text-blue-600" />
@@ -115,21 +115,21 @@ export default function MessagesPage() {
                   <Button 
                     variant="outline" 
                     onClick={() => setSearchDate('')}
-                    className="whitespace-nowrap"
+                    className="whitespace-nowrap text-xs sm:text-sm px-2 sm:px-4"
                   >
                     Réinitialiser
                   </Button>
                 </div>
               </div>
             </div>
-            <div className="flex gap-2 mt-3">
+            <div className="flex flex-col gap-2">
               <span className="text-sm text-gray-600">Filtrer par niveau:</span>
-              <div className="flex gap-2">
+              <div className="flex flex-wrap gap-2">
                 <Button 
                   variant={filterNiveau === 'tous' ? 'default' : 'outline'} 
                   onClick={() => setFilterNiveau('tous')}
                   size="sm"
-                  className="whitespace-nowrap"
+                  className="whitespace-nowrap text-xs sm:text-sm"
                 >
                   Tous
                 </Button>
@@ -139,7 +139,7 @@ export default function MessagesPage() {
                     variant={filterNiveau === niveau ? 'default' : 'outline'} 
                     onClick={() => setFilterNiveau(niveau)}
                     size="sm"
-                    className="whitespace-nowrap"
+                    className="whitespace-nowrap text-xs sm:text-sm"
                   >
                     {niveau}
                   </Button>
@@ -147,7 +147,7 @@ export default function MessagesPage() {
               </div>
             </div>
           {(searchDate || filterNiveau !== 'tous') && (
-            <div className="mt-3 p-2 bg-blue-50 rounded-lg">
+            <div className="p-2 bg-blue-50 rounded-lg">
               <p className="text-sm text-blue-700">
                 Filtres actifs: {searchDate && `Date: ${searchDate}`} {filterNiveau !== 'tous' && `Niveau: ${filterNiveau}`}
               </p>
