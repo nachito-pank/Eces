@@ -46,17 +46,19 @@ export default function ActuForm({ onSubmit, triggerText = 'Nouvelle Actualité'
   };
 
   const handleStatusChange = (value: string) => {
-    setFormData(prev => ({ ...prev, statut: value as 'publie' | 'brouillon' }));
+    setFormData(prev => ({ ...prev, statut: value as 'publie' | 'brouillon' | 'archive' }));
   };
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger data-actu-form-trigger>
-        <Button className="bg-linear-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 flex items-center gap-2 shadow-lg w-full sm:w-auto">
-          <Newspaper className="h-4 w-4" />
-          <span>{triggerText}</span>
-        </Button>
-      </DialogTrigger>
+      <Button 
+        data-actu-form-trigger
+        onClick={() => setOpen(true)}
+        className="bg-linear-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 flex items-center gap-2 shadow-lg w-full sm:w-auto"
+      >
+        <Newspaper className="h-4 w-4" />
+        <span>{triggerText}</span>
+      </Button>
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl p-6">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-gray-900 flex items-center gap-2">
