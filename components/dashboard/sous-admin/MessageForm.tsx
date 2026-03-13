@@ -11,20 +11,24 @@ import type { FormMessage } from '@/types/sousadmin';
 
 interface MessageFormProps {
   onSend: (data: FormMessage) => void;
+  messageToEdit?: any;
+  triggerText?: string;
 }
 
-export default function MessageForm({ onSend }: MessageFormProps) {
+export default function MessageForm({ onSend, messageToEdit, triggerText = 'Nouveau Message' }: MessageFormProps) {
   const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState<FormMessage>({
-    destinataire: 'tous',
-    contenu: '',
+    destinataire: messageToEdit?.destinataire || 'tous',
+    contenu: messageToEdit?.contenu || '',
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.contenu.trim()) {
       onSend(formData);
-      setFormData({ destinataire: 'tous', contenu: '' });
+      if (!messageToEdit) {
+        setFormData({ destinataire: 'tous', contenu: '' });
+      }
       setOpen(false);
     }
   };
@@ -38,16 +42,16 @@ export default function MessageForm({ onSend }: MessageFormProps) {
       <DialogTrigger>
         <Button className="bg-blue-600 hover:bg-blue-700 flex items-center gap-2 shadow-md w-full sm:w-auto">
           <MessageSquare className="h-4 w-4" />
-          <span>Nouveau Message</span>
+          <span>{triggerText}</span>
         </Button>
       </DialogTrigger>
       <DialogContent className="max-w-md sm:max-w-lg mx-auto rounded-2xl p-6">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-gray-900 flex items-center gap-2">
             <MessageSquare className="h-6 w-6 text-blue-600" />
-            Envoyer un Message
+            {messageToEdit ? 'Modifier le Message' : 'Envoyer un Message'}
           </DialogTitle>
-          <DialogDescription>Envoyez un message aux étudiants</DialogDescription>
+          <DialogDescription>{messageToEdit ? 'Modifiez votre message' : 'Envoyez un message aux étudiants'}</DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
@@ -73,7 +77,7 @@ export default function MessageForm({ onSend }: MessageFormProps) {
               value={formData.contenu}
               onChange={(e) => setFormData(prev => ({ ...prev, contenu: e.target.value }))}
               placeholder="Tapez votre message..."
-              className="min-h-[120px]"
+              className="min-h-[120px] w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
             />
           </div>
           <DialogFooter className="gap-2">
@@ -82,7 +86,7 @@ export default function MessageForm({ onSend }: MessageFormProps) {
             </Button>
             <Button type="submit" className="bg-blue-600 hover:bg-blue-700 flex items-center gap-2">
               <Send className="h-4 w-4" />
-              Envoyer
+              {messageToEdit ? 'Mettre à jour' : 'Envoyer'}
             </Button>
           </DialogFooter>
         </form>

@@ -54,7 +54,7 @@ export interface FormActu {
   titre: string;
   contenu: string;
   image: File | null;
-  statut: 'publie' | 'brouillon';
+  statut: 'publie' | 'brouillon' | 'archive';
 }
 
 export interface FormMessage {
