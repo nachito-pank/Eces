@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
-import { Search, Calendar, Newspaper } from 'lucide-react';
+import { Search, Calendar, Newspaper, Trash2, Edit, Eye } from 'lucide-react';
 import adminsData from '@/data/admins.json';
 import ActuCard from '@/components/dashboard/sous-admin/ActuCard';
 import ActuForm from '@/components/dashboard/sous-admin/ActuForm';
@@ -16,22 +16,53 @@ export default function ActualitesPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [dateFilter, setDateFilter] = useState('');
   const [filterStatus, setFilterStatus] = useState<'tous' | 'publie' | 'brouillon'>('tous');
+  const [actualiteToEdit, setActualiteToEdit] = useState<Actualite | null>(null);
 
   useEffect(() => {
     setActualites((((adminsData as any).actualites || []) as Actualite[]));
   }, []);
 
   const addActualite = (newActuData: any) => {
-    const newActualite: Actualite = {
-      id: `act_${Date.now()}`,
-      titre: newActuData.titre,
-      contenu: newActuData.contenu,
-      datePublication: new Date().toISOString(),
-      auteur: 'Sous-Admin',
-      statut: newActuData.statut,
-      ...(newActuData.image && { image: URL.createObjectURL(newActuData.image) })
-    };
-    setActualites(prev => [newActualite, ...prev]);
+    if (actualiteToEdit) {
+      // Mode édition
+      setActualites(prev => prev.map(actu => actu.id === actualiteToEdit.id ? {
+        ...actualiteToEdit,
+        titre: newActuData.titre,
+        contenu: newActuData.contenu,
+        statut: newActuData.statut,
+        ...(newActuData.image && { image: URL.createObjectURL(newActuData.image) })
+      } : actu));
+      setActualiteToEdit(null);
+    } else {
+      // Mode ajout
+      const newActualite: Actualite = {
+        id: `act_${Date.now()}`,
+        titre: newActuData.titre,
+        contenu: newActuData.contenu,
+        datePublication: new Date().toISOString(),
+        auteur: 'Sous-Admin',
+        statut: newActuData.statut,
+        ...(newActuData.image && { image: URL.createObjectURL(newActuData.image) })
+      };
+      setActualites(prev => [newActualite, ...prev]);
+    }
+  };
+
+  const deleteActualite = (id: string) => {
+    if (confirm('Êtes-vous sûr de vouloir supprimer cette actualité ?')) {
+      setActualites(prev => prev.filter(actu => actu.id !== id));
+    }
+  };
+
+  const handleEditActualite = (actualite: Actualite) => {
+    setActualiteToEdit(actualite);
+    // Ouvrir automatiquement le modal
+    setTimeout(() => {
+      const dialogTrigger = document.querySelector('[data-actu-form-trigger]') as HTMLElement;
+      if (dialogTrigger) {
+        dialogTrigger.click();
+      }
+    }, 100);
   };
 
   const filteredActualites = useMemo(() => {
@@ -53,7 +84,7 @@ export default function ActualitesPage() {
           </h1>
           <p className="text-gray-600 mt-1">Publiez et gérez les nouvelles de l'école</p>
         </div>
-        <ActuForm onSubmit={addActualite} />
+        <ActuForm onSubmit={addActualite} actualiteToEdit={actualiteToEdit} />
       </div>
 
       {/* Filtres */}
@@ -95,7 +126,146 @@ export default function ActualitesPage() {
       {/* Grille actualités */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredActualites.map((actualite) => (
-          <ActuCard key={actualite.id} actualite={actualite} />
+          <div key={actualite.id} className="relative group">
+            <div className="h-full flex flex-col">
+              <ActuCard actualite={actualite} />
+              <div className="mt-2 flex gap-2 justify-center sm:justify-start">
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  onClick={() => handleEditActualite(actualite)}
+                  className="h-8 px-3 bg-white/90 hover:bg-white border-gray-200 hover:border-blue-300 text-blue-600 text-xs"
+                >
+                  <Edit className="h-3 w-3 mr-1" />
+                  <span className="hidden sm:inline">Modifier</span>
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  onClick={() => deleteActualite(actualite.id)}
+                  className="h-8 px-3 bg-white/90 hover:bg-white border-gray-200 hover:border-red-300 text-red-600 text-xs"
+                >
+                  <Trash2 className="h-3 w-3 mr-1" />
+                  <span className="hidden sm:inline">Supprimer</span>
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  onClick={() => {
+                    // Créer un modal professionnel pour voir le contenu
+                    const modal = document.createElement('div');
+                    modal.className = 'fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4 backdrop-blur-sm';
+                    modal.innerHTML = `
+                      <div class="bg-white rounded-2xl shadow-2xl max-w-6xl w-full max-h-[90vh] overflow-hidden border border-gray-200">
+                        <div class="flex flex-col h-full">
+                          <!-- En-tête -->
+                          <div class="relative bg-gradient-to-r from-blue-600 to-purple-600 p-6 text-white">
+                            <div class="flex justify-between items-start">
+                              <div class="flex-1">
+                                <h2 class="text-2xl font-bold mb-2">${actualite.titre}</h2>
+                                <div class="flex items-center gap-4 text-blue-100">
+                                  <span class="text-sm font-medium">Par ${actualite.auteur}</span>
+                                  <span class="text-sm">${new Date(actualite.datePublication).toLocaleDateString('fr-FR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                                </div>
+                              </div>
+                              <button onclick="this.closest('.fixed').remove()" class="text-white/80 hover:text-white transition-colors p-2 hover:bg-white/20 rounded-lg">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                              </button>
+                            </div>
+                          </div>
+                          
+                          <!-- Contenu avec image à droite et texte à gauche -->
+                          <div class="flex-1 overflow-y-auto p-6 bg-gray-50">
+                            <div class="max-w-6xl mx-auto">
+                              <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                                <div class="flex flex-col lg:flex-row">
+                                  <!-- Texte à gauche -->
+                                  <div class="flex-1 p-6 lg:p-8">
+                                    <div class="prose prose-lg max-w-none">
+                                      <div class="text-gray-800 leading-relaxed text-base whitespace-pre-wrap">${actualite.contenu.replace(/\n/g, '<br>')}</div>
+                                    </div>
+                                  </div>
+                                  
+                                  <!-- Image à droite -->
+                                  ${actualite.image ? `
+                                    <div class="lg:w-96 w-full lg:border-l border-gray-200 bg-gray-50 p-6">
+                                      <div class="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden">
+                                        <img 
+                                          src="${actualite.image}" 
+                                          alt="${actualite.titre}" 
+                                          class="w-full h-auto max-h-96 object-contain block"
+                                        />
+                                      </div>
+                                    </div>
+                                  ` : `
+                                    <!-- Espace vide quand pas d'image -->
+                                    <div class="lg:w-96"></div>
+                                  `}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <!-- Pied avec statut -->
+                          <div class="bg-white border-t border-gray-200 px-6 py-4">
+                            <div class="max-w-5xl mx-auto flex items-center justify-between">
+                              <span class="text-sm text-gray-600">
+                                Statut: <span class="font-medium ${actualite.statut === 'publie' ? 'text-green-600' : 'text-yellow-600'}">${actualite.statut === 'publie' ? 'Publié' : 'Brouillon'}</span>
+                              </span>
+                              <span class="text-xs text-gray-400">
+                                ID: ${actualite.id}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    `;
+                    
+                    // Styles CSS pour le modal
+                    const style = document.createElement('style');
+                    style.textContent = `
+                      .prose { 
+                        color: #1f2937; 
+                        line-height: 1.75; 
+                        font-size: 16px;
+                        font-family: system-ui, -apple-system, sans-serif;
+                      }
+                      .prose p { margin: 0; }
+                      .backdrop-blur-sm { backdrop-filter: blur(4px); }
+                      .aspect-video { aspect-ratio: 16 / 9; }
+                    `;
+                    document.head.appendChild(style);
+                    
+                    // Gestion du clic pour fermer
+                    modal.onclick = (e) => {
+                      if (e.target === modal) {
+                        modal.remove();
+                        style.remove();
+                      }
+                    };
+                    
+                    // Gestion de la touche Échap
+                    const handleEscape = (e: KeyboardEvent) => {
+                      if (e.key === 'Escape') {
+                        modal.remove();
+                        style.remove();
+                        document.removeEventListener('keydown', handleEscape);
+                      }
+                    };
+                    document.addEventListener('keydown', handleEscape);
+                    
+                    document.body.appendChild(modal);
+                  }}
+                  className="h-8 px-3 bg-white/90 hover:bg-white border-gray-200 hover:border-green-300 text-green-600 text-xs"
+                >
+                  <Eye className="h-3 w-3 mr-1" />
+                  <span className="hidden sm:inline">Voir</span>
+                </Button>
+              </div>
+            </div>
+          </div>
         ))}
       </div>
 
@@ -107,7 +277,7 @@ export default function ActualitesPage() {
             <p className="text-gray-500 mb-8 max-w-md mx-auto">
               Publiez la première actualité pour informer les étudiants des dernières nouvelles de l'école.
             </p>
-            <ActuForm onSubmit={addActualite} triggerText="Publier la première actualité" />
+            <ActuForm onSubmit={addActualite} actualiteToEdit={actualiteToEdit} triggerText="Publier la première actualité" />
           </CardContent>
         </Card>
       )}
@@ -129,6 +299,8 @@ export default function ActualitesPage() {
           </div>
         </CardContent>
       </Card>
+
+      <ActuForm onSubmit={addActualite} actualiteToEdit={actualiteToEdit} triggerText="Nouvelle Actualité" />
     </div>
   );
 }

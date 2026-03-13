@@ -47,7 +47,7 @@ const Navbar: React.FC<NavbarProps> = ({
   };
 
   const profileHref =
-    userRole === 'visitor' ? '/login' : `${roleToBasePath[userRole]}/profile`;
+    userRole === 'visitor' ? '/login' : `${roleToBasePath[userRole]}/profil`;
 
   const notifications = [
     { id: 1, title: 'Nouveau cours disponible', time: 'Il y a 5 min', read: false },

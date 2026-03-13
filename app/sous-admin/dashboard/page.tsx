@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { LayoutDashboard, MessageSquare, Newspaper, CalendarDays, Users, BookOpen, GraduationCap } from 'lucide-react';
+import { LayoutDashboard, MessageSquare, Newspaper, CalendarDays, Users, BookOpen, GraduationCap, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import adminsData from '@/data/admins.json';
@@ -141,19 +141,29 @@ export default function SousAdminDashboard() {
             Actions Rapides
           </CardTitle>
         </CardHeader>
-        <CardContent className="grid grid-cols-1 md:grid-cols-3 gap-4 p-0">
+        <CardContent className="grid grid-cols-1 md:grid-cols-4 gap-4 p-0">
+          <Link href="/sous-admin/profil">
+            <Button className="justify-start h-16 bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 shadow-md group">
+              <User className="h-5 w-5 mr-3 group-hover:scale-110 transition-transform" />
+              Mon Profil
+            </Button>
+          </Link>
           <Button className="justify-start h-16 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 shadow-md group">
             <MessageSquare className="h-5 w-5 mr-3 group-hover:rotate-12 transition-transform" />
             Envoyer Message
           </Button>
-          <Button className="justify-start h-16 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 shadow-md group">
-            <Newspaper className="h-5 w-5 mr-3 group-hover:scale-110 transition-transform" />
-            Nouvelle Actualité
-          </Button>
-          <Button className="justify-start h-16 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 shadow-md group">
-            <CalendarDays className="h-5 w-5 mr-3 group-hover:scale-110 transition-transform" />
-            Gérer EDT
-          </Button>
+          <Link href="/sous-admin/actualites">
+            <Button className="justify-start h-16 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 shadow-md group">
+              <Newspaper className="h-5 w-5 mr-3 group-hover:scale-110 transition-transform" />
+              Nouvelle Actualité
+            </Button>
+          </Link>
+          <Link href="/sous-admin/emploi-du-temps">
+            <Button className="justify-start h-16 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 shadow-md group">
+              <CalendarDays className="h-5 w-5 mr-3 group-hover:scale-110 transition-transform" />
+              Gérer EDT
+            </Button>
+          </Link>
         </CardContent>
       </Card>
 
