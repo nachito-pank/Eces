@@ -49,11 +49,11 @@ const MENU_ITEMS: Record<Role, MenuItem[]> = {
     { name: 'Messages',   icon: <MessageSquare className="h-5 w-5" />, path: '/sous-admin/messages', badge: 7 },
   ],
   enseignant: [
-    { name: 'Mes Cours',  icon: <BookOpen      className="h-5 w-5" />, path: '/enseignant/mes-cours' },
+    { name: 'Mon Profil',  icon: <UserRound className="h-5 w-5" />, path: '/enseignant/profil' },
+    { name: 'Mes Cours',  icon: <BookOpen      className="h-5 w-5" />, path: '/enseignant/cours' },
     { name: 'Mes étudiants',  icon: <Users         className="h-5 w-5" />, path: '/enseignant/etudiants' },
-    { name: 'Notes devoirs',      icon: <Award         className="h-5 w-5" />, path: '/enseignant/notesDevoirs' },
-    { name: 'Notes sessions',  icon: <LetterText      className="h-5 w-5" />, path: '/enseignant/notesSessions' },
-    { name: 'Emploi du temps',   icon: <Calendar className="h-5 w-5" />, path: '/enseignant/emploiDuTemps', badge: 3 },
+    { name: 'Notes devoirs',      icon: <Award         className="h-5 w-5" />, path: '/enseignant/notes' },
+    { name: 'Emploi du temps',   icon: <Calendar className="h-5 w-5" />, path: '/enseignant/emploi-du-temps', badge: 3 },
   ],
   etudiant: [
     { name: 'Mes Cours',       icon: <BookOpen      className="h-5 w-5" />, path: '/etudiant/mes-cours' },
