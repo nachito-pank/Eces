@@ -4,15 +4,14 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
-  LayoutDashboard, BookOpen, Users, GraduationCap, Calendar,
-  Settings, LogOut, ChevronLeft, ChevronRight, FileText, Award,
-  MessageSquare, HelpCircle, Pencil, School, LetterText,
+  LayoutDashboard, BookOpen, Users, GraduationCap, Calendar, ChevronLeft, ChevronRight, FileText, Award,
+  MessageSquare, Pencil, School, LetterText,
   ShieldCheck, UserCog, UserRound,
   CreditCard,
+  Bell,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Separator } from '@/components/ui/separator';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { cn } from '@/lib/utils';
 
@@ -58,11 +57,11 @@ const MENU_ITEMS: Record<Role, MenuItem[]> = {
   ],
   etudiant: [
     { name: 'Mes Cours',       icon: <BookOpen      className="h-5 w-5" />, path: '/etudiant/mes-cours' },
-    { name: 'Devoirs',         icon: <FileText      className="h-5 w-5" />, path: '/etudiant/devoirs', badge: 5 },
     { name: 'Notes',           icon: <Award         className="h-5 w-5" />, path: '/etudiant/mes-notes' },
     { name: 'Emploi du temps', icon: <Calendar      className="h-5 w-5" />, path: '/etudiant/emploi-temps' },
     { name: 'Messages',        icon: <MessageSquare className="h-5 w-5" />, path: '/etudiant/messages' },
     { name: 'Paiement',        icon: <CreditCard className="h-5 w-5" />, path: '/etudiant/paiements' },
+    { name: 'Notifications',        icon: <Bell className="h-5 w-5" />, path: '/etudiant/notifications' },
   ],
 };
 
@@ -146,7 +145,7 @@ export default function Sidebar({ role, collapsed: initialCollapsed = false, onT
           'bg-linear-to-b from-white to-blue-50 dark:from-gray-900 dark:to-gray-800',
           'border-r border-blue-100 dark:border-gray-700',
           'h-screen fixed left-0 top-16 transition-all duration-300 z-20 shadow-lg',
-          collapsed ? 'w-20' : 'w-64'
+          collapsed ? 'max-sm:w-0 w-20' : 'w-64'
         )}
       >
         {/* Toggle */}
@@ -154,14 +153,14 @@ export default function Sidebar({ role, collapsed: initialCollapsed = false, onT
           size="icon"
           onClick={handleToggle}
           aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
-          className="absolute -right-3 top-5 h-7 w-7 rounded-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 border-2 border-white dark:border-gray-900 shadow-md text-white"
+          className={`absolute -right-3 ${collapsed && "max-sm:-right-7"} top-5 h-7 w-7 rounded-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 border-2 border-white dark:border-gray-900 shadow-md text-white`}
         >
           {collapsed ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4" />}
         </Button>
 
         {/* Header */}
         <div className="p-4 border-b border-blue-100 dark:border-gray-700">
-          <div className={cn('flex items-center', collapsed ? 'justify-center' : 'space-x-3')}>
+          <div className={cn('flex items-center', collapsed ? 'justify-center max-sm:hidden' : 'space-x-3')}>
             <div className="h-12 w-12 shrink-0 rounded-xl bg-linear-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-md">
               {roleIcon}
             </div>
@@ -177,7 +176,7 @@ export default function Sidebar({ role, collapsed: initialCollapsed = false, onT
         </div>
 
         {/* Nav */}
-        <nav className="p-4 h-[calc(100vh-180px)] overflow-y-auto scrollbar-thin scrollbar-thumb-blue-200 dark:scrollbar-thumb-gray-600">
+        <nav className={`p-4 h-[calc(100vh-1 80px)] ${collapsed && "max-sm:hidden"} overflow-y-auto scrollbar-thin scrollbar-thumb-blue-200 dark:scrollbar-thumb-gray-600`}>
           <ul className="space-y-1">
             {menuItems.map((item) => (
               <li key={item.path}>

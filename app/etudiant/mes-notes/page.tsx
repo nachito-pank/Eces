@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import adminsData from '@/data/admins.json';
 
 type NoteRow = {
@@ -9,7 +10,7 @@ type NoteRow = {
 };
 
 export default function StudentNotesPage() {
-  const etudiant = (adminsData as any).etudiants?.[0] || { notes: [] };
+  const etudiant = (adminsData as any).etudiants?.[1] || { notes: [] };
   const rawNotes = etudiant.notes || [];
 
   const notes: NoteRow[] = (rawNotes as any[]).map((n: any, idx: number) => ({

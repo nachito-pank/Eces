@@ -1,15 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import adminsData from '@/data/admins.json';
-
 const EdtPage = () => {
-  const etudiant = (adminsData as any).etudiants?.[0] || {};
-  const edtCours = (adminsData as any).emploiDuTemps?.[0] || {}
-  const edtSessions = etudiant.emploiDuTempsSessions || [];
-
-  console.log(edtCours)
+  const data = (adminsData as any).emploiDuTemps || {};
+  console.log(data)
 
   return (
     <main className="w-full p-6">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="">
         <div className="lg:col-span-2">
           <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-6">
             <div className="flex items-center justify-between">
@@ -20,33 +17,25 @@ const EdtPage = () => {
               </div>
             </div>
 
-            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="mt-6 gap-4">
               <article className="p-4 rounded-2xl bg-white shadow">
                 <h3 className="font-semibold">Semaine en cours</h3>
                 <div className="mt-3 space-y-3 text-sm text-gray-700">
-                  {edtCours.length > 0 ? (
-                    edtCours.map((c: any) => (
-                      <div key={c.id} className="p-3 rounded-lg bg-gray-100">
-                        <span className="font-medium">{c.jour}</span> — {c.heureDebut}–{c.heureFin} • {c.matiere} • Salle {c.salle}{c.enseignant ? ` • ${c.enseignant}` : ''}
+                  {data.length > 0 ? (
+                    data.map((d: any) => (
+                      <div key={d.id} className="p-3 rounded-lg bg-gray-100">
+                        <span>{d.filiere} - {d.niveau} / {d.code}</span>
+                            {d.cours.map((c:any) => (
+                              <div key={d.id}>
+                                <span>{c.jour}-{c.heureDebut}:{c.heureFin}-{c.matiere}-{c.salle}-{c.professeur}</span>
+                              </div>
+                            ))}
                       </div>
                     ))
                   ) : (
                     <div className="p-3 rounded-lg bg-gray-100">Aucun cours planifié.</div>
                   )}
                 </div>
-              </article>
-
-              <article className="p-4 rounded-2xl bg-white shadow">
-                <h3 className="font-semibold">Prochaines sessions</h3>
-                <ul className="mt-3 space-y-2 text-sm text-gray-700">
-                  {edtSessions.length > 0 ? (
-                    edtSessions.map((s: any) => (
-                      <li key={s.id} className="p-3 rounded-lg bg-gray-100">{s.date} — {s.matiere} — {s.salle}{s.site ? ` • ${s.site}` : ''}</li>
-                    ))
-                  ) : (
-                    <li className="p-3 rounded-lg bg-gray-100">Aucune session prévue.</li>
-                  )}
-                </ul>
               </article>
             </div>
 
@@ -57,15 +46,7 @@ const EdtPage = () => {
           </div>
         </div>
 
-        <aside className="p-4 rounded-2xl bg-white shadow h-full">
-          <h4 className="font-semibold">Légende & Actions</h4>
-          <div className="mt-3 space-y-3 text-sm text-gray-700">
-            <div className="flex items-center gap-2"><span className="w-3 h-3 rounded bg-blue-500"/> Cours</div>
-            <div className="flex items-center gap-2"><span className="w-3 h-3 rounded bg-green-400"/> Session</div>
-            <button className="mt-4 w-full px-3 py-2 bg-green-600 text-white rounded-lg shadow">Exporter (PDF)</button>
-            <button className="mt-2 w-full px-3 py-2 bg-gray-200 text-gray-800 rounded-lg">Imprimer</button>
-          </div>
-        </aside>
+        
       </div>
     </main>
   );

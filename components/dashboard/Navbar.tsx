@@ -45,6 +45,7 @@ const Navbar: React.FC<NavbarProps> = ({
     etudiant: '/etudiant',
     visitor: '',
   };
+  
 
   const profileHref =
     userRole === 'visitor' ? '/login' : `${roleToBasePath[userRole]}/profil`;
@@ -115,7 +116,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
               {/* Toggle thème */}
               <AnimatedThemeToggler
-                className="hidden md:inline-flex p-2 rounded-lg text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+                className="md:inline-flex p-2 rounded-lg text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
                 aria-label="Changer de thème"
               />
 
@@ -164,7 +165,7 @@ const Navbar: React.FC<NavbarProps> = ({
               {/* Paramètres */}
               <Link
                 href="/parametres"
-                className="p-2 rounded-lg text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+                className="p-2 max-sm:hidden rounded-lg text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
               >
                 <Settings className="h-5 w-5" />
               </Link>

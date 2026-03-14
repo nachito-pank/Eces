@@ -1,16 +1,9 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Sidebar from '@/components/dashboard/Sidebar';
-import Navbar from '@/components/dashboard/Navbar';
-import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import FormField from '@/components/ui/FormField';
 import {
-  BookOpen,
-  GraduationCap,
-  Calendar,
-  ChevronRight,
   User,
   Mail,
   Phone,
@@ -140,7 +133,7 @@ export default function DashboardPage() {
 
             {/* Section Profil */}
             <div className="mb-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg shadow-slate-200/50">
-              <div className="bg-gradient-to-r from-slate-50 to-white px-1 py-1">
+              <div className="bg-linear-to-r from-slate-50 to-white px-1 py-1">
                 <div className="flex flex-col lg:flex-row">
                   {/* Photo */}
                   <div className="flex items-center justify-center p-8 lg:p-10 lg:border-r lg:border-slate-200/80 lg:pr-12">
@@ -148,7 +141,7 @@ export default function DashboardPage() {
                       {profileImage ? (
                         <img src={profileImage} alt="Photo de profil" className="w-full h-full object-cover" />
                       ) : (
-                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-500 to-blue-600">
+                        <div className="w-full h-full flex items-center justify-center bg-linear-to-br from-blue-500 to-blue-600">
                           <User className="w-16 h-16 sm:w-20 sm:h-20 text-white/90" />
                         </div>
                       )}

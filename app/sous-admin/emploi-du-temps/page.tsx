@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useState } from 'react';
@@ -73,7 +74,7 @@ export default function EmploiDuTempsPage() {
       <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden border border-gray-200">
         <div class="flex flex-col h-full">
           <!-- En-tête -->
-          <div class="relative bg-gradient-to-r from-orange-500 to-red-600 p-6 text-white">
+          <div class="relative bg-linear-to-r from-orange-500 to-red-600 p-6 text-white">
             <div class="flex justify-between items-start">
               <div class="flex-1">
                 <h2 class="text-2xl font-bold mb-2">Détails de la Session d'Examen</h2>
@@ -266,7 +267,7 @@ export default function EmploiDuTempsPage() {
 
   // Cours Card Component
   const CoursCard = ({ edt }: { edt: EmploiDuTempsCours }) => (
-    <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-white to-purple-50/50 hover:to-purple-50 overflow-hidden">
+    <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-linear-to-br from-white to-purple-50/50 hover:to-purple-50 overflow-hidden">
       <CardHeader className="pb-4">
         <div className="flex items-start justify-between">
           <div className="space-y-2">
@@ -343,7 +344,7 @@ export default function EmploiDuTempsPage() {
   // Sessions Group Component
   const SessionsGroup = ({ group }: { group: { filiere: string; niveau: string; sessions: EmploiDuTempsSession[] } }) => (
     <Card className="overflow-hidden">
-      <CardHeader className="bg-gradient-to-r from-orange-50 to-red-50 border-b border-orange-100">
+      <CardHeader className="bg-linear-to-r from-orange-50 to-red-50 border-b border-orange-100">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="p-2 rounded-lg bg-orange-100">
@@ -433,7 +434,7 @@ export default function EmploiDuTempsPage() {
           <div className="space-y-6">
             {/* Vue grille */}
             <div className="bg-gray-50 rounded-xl p-4 overflow-x-auto">
-              <div className="min-w-[800px]">
+              <div className="min-w-200">
                 <div className="grid grid-cols-8 gap-2">
                   {/* En-têtes */}
                   <div className="font-semibold text-sm text-gray-700 p-2">Heure</div>
@@ -511,22 +512,22 @@ export default function EmploiDuTempsPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-purple-900 bg-clip-text text-transparent">
+          <h1 className="text-3xl font-bold bg-linear-to-r from-gray-900 to-purple-900 bg-clip-text text-transparent">
             Emplois du Temps
           </h1>
-          <p className="text-gray-600 mt-1">Gérez les planning des cours et sessions d'examens</p>
+          <p className="text-gray-600 mt-1">Gérez les planning des cours et sessions d&apos;examens</p>
         </div>
       </div>
 
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-2 bg-gradient-to-r from-purple-50 to-blue-50 border border-purple-200 rounded-2xl p-1">
+        <TabsList className="grid w-full grid-cols-2 bg-linear-to-r from-purple-50 to-blue-50 border border-purple-200 rounded-2xl p-1">
           <TabsTrigger value="cours" className="rounded-xl data-[state=active]:bg-white data-[state=active]:shadow-md">
             <BookOpen className="h-4 w-4 mr-2" />
             Cours Hebdomadaires
           </TabsTrigger>
           <TabsTrigger value="sessions" className="rounded-xl data-[state=active]:bg-white data-[state=active]:shadow-md">
             <CalendarDays className="h-4 w-4 mr-2" />
-            Sessions d'Examens
+            Sessions d&apos;Examens
           </TabsTrigger>
         </TabsList>
         

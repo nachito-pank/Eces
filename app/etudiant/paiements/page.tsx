@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import adminsData from '@/data/admins.json';
 
 export default function PaiementsPage() {

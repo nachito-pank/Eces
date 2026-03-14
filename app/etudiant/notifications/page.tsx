@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import adminsData from '@/data/admins.json';
 
 export default function NotificationsPage() {
-  const etudiant = (adminsData as any).etudiants?.[0] || { notifications: [] };
-  const notifications = etudiant.notifications || [];
+  const data = (adminsData as any).espaceEtudiantDemo || { espaceEtudiantDemo: [] };
+  const notifications = data.notifications
 
   return (
     <main className="w-full p-6">

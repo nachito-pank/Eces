@@ -150,7 +150,7 @@ export default function DashboardPage() {
               </div>
               <span className="font-medium text-sm">Gérer les filières</span>
             </Link>
-            <Link href="/admin/profil" className="flex items-center p-3 rounded-xl bg-slate-500 text-slate-50 hover:bg-slate-100 hover:text-slate-500 transition-colors group">
+            <Link href="/admin/profile" className="flex items-center p-3 rounded-xl bg-slate-500 text-slate-50 hover:bg-slate-100 hover:text-slate-500 transition-colors group">
               <div className="w-8 h-8 rounded-lg bg-slate-500 flex items-center text-slate-50 justify-center mr-3 group-hover:scale-110 transition-transform">
                 <Settings className="w-4 h-4" />
               </div>

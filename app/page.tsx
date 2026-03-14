@@ -467,10 +467,10 @@ export default function HomePage() {
           </div>
 
           {/* Texte */}
-          <div className="hp-overline">École Communautaire de l'Enseignement Supérieur</div>
+          <div className="hp-overline">École Communautaire de l&apos;Enseignement Supérieur</div>
 
           <h1 className="hp-title">
-            Bienvenue à<br /><em>l'ECES</em>
+            Bienvenue à<br /><em>l&apos;ECES</em>
           </h1>
 
           <p className="hp-subtitle">Depuis 2001 · Excellence · Avenir</p>

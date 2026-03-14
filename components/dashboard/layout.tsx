@@ -4,6 +4,7 @@ import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 
 import { UserRole } from '@/types/index';
+import { toast } from 'sonner';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -26,7 +27,8 @@ const Layout: React.FC<LayoutProps> = ({
   };
 
   const handleLogout = () => {
-    console.log('Déconnexion...');
+    // console.log('Déconnexion...');
+    toast.success("déconnexion...")
     // Implémentez votre logique de déconnexion ici
   };
 

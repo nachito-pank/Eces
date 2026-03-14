@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { LayoutDashboard, MessageSquare, Newspaper, CalendarDays, Users, BookOpen, GraduationCap, User } from 'lucide-react';
+import { LayoutDashboard, MessageSquare, Newspaper, CalendarDays, BookOpen, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import adminsData from '@/data/admins.json';
@@ -90,7 +90,7 @@ export default function SousAdminDashboard() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+          <h1 className="text-3xl md:text-4xl font-bold bg-linear-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
             Dashboard Sous-Admin
           </h1>
           <p className="text-gray-600 mt-2">Bienvenue dans votre espace de gestion</p>
@@ -107,10 +107,10 @@ export default function SousAdminDashboard() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {stats.map((stat, index) => (
           <Link key={index} href={stat.href}>
-            <Card className="group hover:shadow-xl hover:shadow-blue-200/50 transition-all duration-300 border-0 bg-gradient-to-br from-white to-blue-50/50 hover:to-blue-50 cursor-pointer">
+            <Card className="group hover:shadow-xl hover:shadow-blue-200/50 transition-all duration-300 border-0 bg-linear-to-br from-white to-blue-50/50 hover:to-blue-50 cursor-pointer">
               <CardHeader className="pb-3">
                 <div className="flex items-center gap-3">
-                  <div className={`p-3 rounded-xl bg-gradient-to-br ${getIconColor(stat.color)} shadow-lg`}>
+                  <div className={`p-3 rounded-xl bg-linear-to-br ${getIconColor(stat.color)} shadow-lg`}>
                     <stat.icon className="h-6 w-6 text-white" />
                   </div>
                   <div>
@@ -135,7 +135,7 @@ export default function SousAdminDashboard() {
       </div>
 
       {/* Quick Actions */}
-      <Card className="bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-100">
+      <Card className="bg-linear-to-r from-blue-50 to-indigo-50 border-blue-100">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             Actions Rapides
@@ -143,23 +143,23 @@ export default function SousAdminDashboard() {
         </CardHeader>
         <CardContent className="grid grid-cols-1 md:grid-cols-4 gap-4 p-0">
           <Link href="/sous-admin/profil">
-            <Button className="justify-start h-16 bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 shadow-md group">
+            <Button className="justify-start h-16 bg-linear-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 shadow-md group">
               <User className="h-5 w-5 mr-3 group-hover:scale-110 transition-transform" />
               Mon Profil
             </Button>
           </Link>
-          <Button className="justify-start h-16 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 shadow-md group">
+          <Button className="justify-start h-16 bg-linear-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 shadow-md group">
             <MessageSquare className="h-5 w-5 mr-3 group-hover:rotate-12 transition-transform" />
             Envoyer Message
           </Button>
           <Link href="/sous-admin/actualites">
-            <Button className="justify-start h-16 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 shadow-md group">
+            <Button className="justify-start h-16 bg-linear-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 shadow-md group">
               <Newspaper className="h-5 w-5 mr-3 group-hover:scale-110 transition-transform" />
               Nouvelle Actualité
             </Button>
           </Link>
           <Link href="/sous-admin/emploi-du-temps">
-            <Button className="justify-start h-16 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 shadow-md group">
+            <Button className="justify-start h-16 bg-linear-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 shadow-md group">
               <CalendarDays className="h-5 w-5 mr-3 group-hover:scale-110 transition-transform" />
               Gérer EDT
             </Button>
