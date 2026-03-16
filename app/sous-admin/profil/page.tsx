@@ -33,7 +33,7 @@ export default function ProfilPage() {
         prenom: sousAdminData.prenom || '',
         email: sousAdminData.email || '',
         telephone: sousAdminData.telephone || '',
-        dateEmbauche: sousAdminData.dateEmbauche || new Date().toISOString().split('T')[0],
+        dateEmbauche: sousAdminData.dateCreation || new Date().toISOString().split('T')[0],
         statut: sousAdminData.statut || 'Actif',
         avatar: sousAdminData.avatar || '#3B82F6'
       });

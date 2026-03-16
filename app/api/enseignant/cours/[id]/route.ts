@@ -7,10 +7,11 @@ const dataPath = path.join(process.cwd(), 'data', 'admins.json');
 // GET /api/enseignant/cours/[id] - Get course details
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const id = parseInt(params.id);
+    const { id: idStr } = await params;
+    const id = parseInt(idStr);
     const data = JSON.parse(fs.readFileSync(dataPath, 'utf-8'));
     
     const cours = data.cours.find((c: any) => c.id === id);
@@ -34,10 +35,11 @@ export async function GET(
 // PUT /api/enseignant/cours/[id] - Modify a course
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const id = parseInt(params.id);
+    const { id: idStr } = await params;
+    const id = parseInt(idStr);
     const body = await request.json();
     const { title, filiere, level, volume, url } = body;
 
@@ -76,10 +78,11 @@ export async function PUT(
 // DELETE /api/enseignant/cours/[id] - Delete a course
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const id = parseInt(params.id);
+    const { id: idStr } = await params;
+    const id = parseInt(idStr);
     const data = JSON.parse(fs.readFileSync(dataPath, 'utf-8'));
     
     const indexToDelete = data.cours.findIndex((c: any) => c.id === id);

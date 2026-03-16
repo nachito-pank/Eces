@@ -28,11 +28,12 @@ function initializeNotesFile() {
 // GET /api/enseignant/notes/[id] - Get note details
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     initializeNotesFile();
-    const id = parseInt(params.id);
+    const { id: idStr } = await params;
+    const id = parseInt(idStr);
     const data = JSON.parse(fs.readFileSync(notesPath, 'utf-8'));
 
     const note = data.notes.find((n: any) => n.id === id);
@@ -56,11 +57,12 @@ export async function GET(
 // PUT /api/enseignant/notes/[id] - Modify noteDevoir or noteSession
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     initializeNotesFile();
-    const id = parseInt(params.id);
+    const { id: idStr } = await params;
+    const id = parseInt(idStr);
     const body = await request.json();
     const { noteDevoir, noteSession } = body;
 
@@ -98,11 +100,12 @@ export async function PUT(
 // DELETE /api/enseignant/notes/[id] - Delete a note
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     initializeNotesFile();
-    const id = parseInt(params.id);
+    const { id: idStr } = await params;
+    const id = parseInt(idStr);
     const data = JSON.parse(fs.readFileSync(notesPath, 'utf-8'));
 
     const indexToDelete = data.notes.findIndex((n: any) => n.id === id);

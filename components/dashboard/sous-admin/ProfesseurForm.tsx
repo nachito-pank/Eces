@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
 import { Plus, Edit, User, Mail, Phone, BookOpen, GraduationCap, X } from 'lucide-react';
@@ -126,12 +126,13 @@ export default function ProfesseurForm({ onSubmit, professeurToEdit, triggerText
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        <Button className="bg-blue-600 hover:bg-blue-700 flex items-center gap-2 shadow-lg">
-          {professeurToEdit ? <Edit className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
-          <span>{professeurToEdit ? 'Modifier Professeur' : triggerText}</span>
-        </Button>
-      </DialogTrigger>
+      <Button 
+        onClick={() => setOpen(true)}
+        className="bg-blue-600 hover:bg-blue-700 flex items-center gap-2 shadow-lg"
+      >
+        {professeurToEdit ? <Edit className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
+        <span>{professeurToEdit ? 'Modifier Professeur' : triggerText}</span>
+      </Button>
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl p-6">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-gray-900 flex items-center gap-2">
@@ -202,7 +203,7 @@ export default function ProfesseurForm({ onSubmit, professeurToEdit, triggerText
             </div>
             <div className="space-y-2">
               <label className="text-sm font-semibold text-gray-700 block">Statut</label>
-              <Select value={formData.statut} onValueChange={(value) => setFormData(prev => ({ ...prev, statut: value }))}>
+              <Select value={formData.statut} onValueChange={(value) => setFormData(prev => ({ ...prev, statut: value ?? 'Actif' }))}>
                 <SelectTrigger>
                   <SelectValue />
                 </SelectTrigger>
@@ -234,7 +235,7 @@ export default function ProfesseurForm({ onSubmit, professeurToEdit, triggerText
               </Button>
             </div>
             <div className="flex flex-wrap gap-2">
-              {formData.matieres.map((matiere, index) => (
+              {formData.matieres.map((matiere: string, index: number) => (
                 <Badge key={index} variant="secondary" className="bg-blue-100 text-blue-800 border-blue-200 flex items-center gap-1">
                   {matiere}
                   <X 
@@ -250,7 +251,7 @@ export default function ProfesseurForm({ onSubmit, professeurToEdit, triggerText
           <div className="space-y-3">
             <label className="text-sm font-semibold text-gray-700 block">Filières</label>
             <div className="flex gap-2">
-              <Select value={newFiliere} onValueChange={setNewFiliere}>
+              <Select value={newFiliere} onValueChange={(value) => setNewFiliere(value ?? '')}>
                 <SelectTrigger className="flex-1">
                   <SelectValue placeholder="Sélectionner une filière" />
                 </SelectTrigger>
@@ -265,7 +266,7 @@ export default function ProfesseurForm({ onSubmit, professeurToEdit, triggerText
               </Button>
             </div>
             <div className="flex flex-wrap gap-2">
-              {formData.filieres.map((filiere, index) => (
+              {formData.filieres.map((filiere: string, index: number) => (
                 <Badge key={index} variant="secondary" className="bg-green-100 text-green-800 border-green-200 flex items-center gap-1">
                   {filiere}
                   <X 
@@ -284,7 +285,7 @@ export default function ProfesseurForm({ onSubmit, professeurToEdit, triggerText
               Niveaux
             </label>
             <div className="flex gap-2">
-              <Select value={newNiveau} onValueChange={setNewNiveau}>
+              <Select value={newNiveau} onValueChange={(value) => setNewNiveau(value ?? '')}>
                 <SelectTrigger className="flex-1">
                   <SelectValue placeholder="Sélectionner un niveau" />
                 </SelectTrigger>
@@ -299,7 +300,7 @@ export default function ProfesseurForm({ onSubmit, professeurToEdit, triggerText
               </Button>
             </div>
             <div className="flex flex-wrap gap-2">
-              {formData.niveaux.map((niveau, index) => (
+              {formData.niveaux.map((niveau: string, index: number) => (
                 <Badge key={index} variant="secondary" className="bg-purple-100 text-purple-800 border-purple-200 flex items-center gap-1">
                   {niveau}
                   <X 
