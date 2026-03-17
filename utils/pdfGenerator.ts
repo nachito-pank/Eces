@@ -90,6 +90,7 @@ export async function generateEdtPdf(options: PdfEdtOptions): Promise<void> {
     // Données du tableau
     pdf.setFont('helvetica', 'normal');
     data.cours?.forEach((cours: any, index: number) => {
+      let currentX: number;
       // Vérifier si on a besoin d'une nouvelle page
       if (currentY > pageHeight - 40) {
         pdf.addPage();
@@ -116,9 +117,9 @@ export async function generateEdtPdf(options: PdfEdtOptions): Promise<void> {
         pdf.setFont('helvetica', 'bold');
         
         currentX = 20;
-        tableHeaders.forEach((header, index) => {
+        tableHeaders.forEach((header, hIdx) => {
           pdf.text(header, currentX + 2, currentY + 8);
-          currentX += columnWidths[index];
+          currentX += columnWidths[hIdx];
         });
         
         currentY += rowHeight;
@@ -132,7 +133,7 @@ export async function generateEdtPdf(options: PdfEdtOptions): Promise<void> {
       }
       
       pdf.setTextColor(0, 0, 0);
-      let currentX = 20;
+      currentX = 20;
       
       const rowData = [
         cours.jour || '',
@@ -178,6 +179,7 @@ export async function generateEdtPdf(options: PdfEdtOptions): Promise<void> {
     // Données du tableau
     pdf.setFont('helvetica', 'normal');
     data.forEach((session: any, index: number) => {
+      let currentX: number;
       // Vérifier si on a besoin d'une nouvelle page
       if (currentY > pageHeight - 40) {
         pdf.addPage();
@@ -204,9 +206,9 @@ export async function generateEdtPdf(options: PdfEdtOptions): Promise<void> {
         pdf.setFont('helvetica', 'bold');
         
         currentX = 20;
-        tableHeaders.forEach((header, index) => {
+        tableHeaders.forEach((header, hIdx) => {
           pdf.text(header, currentX + 2, currentY + 8);
-          currentX += columnWidths[index];
+          currentX += columnWidths[hIdx];
         });
         
         currentY += rowHeight;
@@ -220,7 +222,7 @@ export async function generateEdtPdf(options: PdfEdtOptions): Promise<void> {
       }
       
       pdf.setTextColor(0, 0, 0);
-      let currentX = 20;
+      currentX = 20;
       
       const rowData = [
         session.session || '',

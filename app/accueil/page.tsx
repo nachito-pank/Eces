@@ -167,7 +167,7 @@ export default function Accuel() {
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 1, delay: 0.9 }}
                     >
-                        Dans la plateforme de gestion scolaire d&apos;<span className="text-blue-400">ECES</span>
+                        Dans la platform de gestion scolaire d&apos;<span className="text-blue-400">ECES</span>
                     </motion.div>
                     <motion.div
                         className="mt-6 text-sm md:text-base text-gray-200 max-w-xl text-center"

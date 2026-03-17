@@ -89,7 +89,7 @@ export default function EdtSessionForm({ onSubmit, sessionToEdit, triggerText = 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2">
               <label className="text-sm font-semibold text-gray-700 block">Niveau <span className="text-red-500">*</span></label>
-              <Select value={formData.niveau} onValueChange={(value) => setFormData(prev => ({ ...prev, niveau: value }))}>
+              <Select value={formData.niveau} onValueChange={(value) => setFormData(prev => ({ ...prev, niveau: value ?? '' }))}>
                 <SelectTrigger>
                   <SelectValue placeholder="Sélectionner un niveau" />
                 </SelectTrigger>
@@ -104,7 +104,7 @@ export default function EdtSessionForm({ onSubmit, sessionToEdit, triggerText = 
               <label className="text-sm font-semibold text-gray-700 block">Filière <span className="text-red-500">*</span></label>
               <Select 
                 value={formData.filiere} 
-                onValueChange={(value) => setFormData(prev => ({ ...prev, filiere: value }))}
+                onValueChange={(value) => setFormData(prev => ({ ...prev, filiere: value ?? '' }))}
                 disabled={!formData.niveau}
               >
                 <SelectTrigger>
@@ -128,7 +128,7 @@ export default function EdtSessionForm({ onSubmit, sessionToEdit, triggerText = 
             </div>
             <div className="space-y-2">
               <label className="text-sm font-semibold text-gray-700 block">Session <span className="text-red-500">*</span></label>
-              <Select value={formData.session} onValueChange={(value) => setFormData(prev => ({ ...prev, session: value }))}>
+              <Select value={formData.session} onValueChange={(value) => setFormData(prev => ({ ...prev, session: value ?? '' }))}>
                 <SelectTrigger>
                   <SelectValue placeholder="Sélectionner une session" />
                 </SelectTrigger>
@@ -171,7 +171,7 @@ export default function EdtSessionForm({ onSubmit, sessionToEdit, triggerText = 
             </div>
             <div className="space-y-2">
               <label className="text-sm font-semibold text-gray-700 block">Durée <span className="text-red-500">*</span></label>
-              <Select value={formData.duree} onValueChange={(value) => setFormData(prev => ({ ...prev, duree: value }))}>
+              <Select value={formData.duree} onValueChange={(value) => setFormData(prev => ({ ...prev, duree: value ?? '' }))}>
                 <SelectTrigger>
                   <SelectValue placeholder="Sélectionner une durée" />
                 </SelectTrigger>
@@ -195,7 +195,7 @@ export default function EdtSessionForm({ onSubmit, sessionToEdit, triggerText = 
             </div>
             <div className="space-y-2">
               <label className="text-sm font-semibold text-gray-700 block">Site</label>
-              <Select value={formData.site} onValueChange={(value) => setFormData(prev => ({ ...prev, site: value }))}>
+              <Select value={formData.site} onValueChange={(value) => setFormData(prev => ({ ...prev, site: value ?? '' }))}>
                 <SelectTrigger>
                   <SelectValue placeholder="Sélectionner un site" />
                 </SelectTrigger>
