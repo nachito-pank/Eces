@@ -4,7 +4,7 @@ import Link from "next/link"
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
-import { TrendingUp, Calendar, Award, Clipboard, MessageCircle, BookOpen } from "lucide-react"
+import { TrendingUp, Calendar, Award, Clipboard, MessageCircle, BookOpen, Clock, FileText, Download } from "lucide-react"
 
 function GlassEffects() {
     return (
@@ -33,17 +33,6 @@ function GlassEffects() {
                     0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)) scale(1); opacity: var(--op, 0.6); }
                     33%       { transform: translateY(-12px) rotate(calc(var(--rot, 0deg) + 1deg)) scale(1.01); opacity: calc(var(--op, 0.6) * 1.3); }
                     66%       { transform: translateY(6px) rotate(calc(var(--rot, 0deg) - 0.5deg)) scale(0.99); opacity: calc(var(--op, 0.6) * 0.8); }
-                }
-
-                .shard-small {
-                    position: absolute;
-                    border-radius: 2px;
-                    background: linear-gradient(135deg, rgba(148,197,253,0.2), rgba(255,255,255,0.1));
-                    border: 1px solid rgba(148,197,253,0.25);
-                    animation: shard-float var(--dur, 6s) ease-in-out infinite;
-                    animation-delay: var(--delay, 0s);
-                    transform: rotate(var(--rot, 0deg));
-                    clip-path: polygon(var(--p));
                 }
 
                 .light-beam {
@@ -106,6 +95,7 @@ function GlassEffects() {
 
 export default function Accuel() {
     const [scrolled, setScrolled] = useState(false)
+    const [emploisDuTemps, setEmploisDuTemps] = useState([])
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 20)
@@ -113,11 +103,21 @@ export default function Accuel() {
         return () => window.removeEventListener("scroll", onScroll)
     }, [])
 
+    useEffect(() => {
+        fetch('/api/emploi-du-temps')
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    setEmploisDuTemps(data.data)
+                }
+            })
+            .catch(err => console.error('Erreur:', err))
+    }, [])
+
     return (
         <>
             <GlassEffects />
 
-            {/* Navbar */}
             <nav
                 className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 transition-all duration-300 ${
                     scrolled
@@ -143,7 +143,6 @@ export default function Accuel() {
                 </div>
             </nav>
 
-            {/* Hero Image */}
             <motion.div
                 className="relative h-screen overflow-hidden"
                 initial={{ x: -100, opacity: 0 }}
@@ -177,7 +176,6 @@ export default function Accuel() {
                     >
                         Suivez les notes, gérez les emplois du temps, communiquez avec les familles et restez informé en temps réel.
                     </motion.div>
-                    
                 </div>
                 <div className="pointer-events-none absolute inset-x-0 bottom-0">
                     <svg
@@ -193,7 +191,6 @@ export default function Accuel() {
                 </div>
             </motion.div>
 
-            {/* Statistics Cards */}
             <section className="container mx-auto mt-8 px-4">
                 <h2 className="text-3xl md:text-4xl font-semibold text-center mb-6">Quelques chiffres clés</h2>
                 <div className="grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] gap-6">
@@ -241,7 +238,6 @@ export default function Accuel() {
                 </div>
             </section>
 
-            {/* Features / Professional section */}
             <section className="container mx-auto mt-10 px-4">
                 <h2 className="text-3xl md:text-4xl font-semibold text-center mb-6">Ce que vous pouvez faire</h2>
                 <div className="grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] gap-6">
@@ -295,12 +291,74 @@ export default function Accuel() {
                 </div>
             </section>
 
-            {/* Footer */}
+            {emploisDuTemps.length > 0 && (
+                <section className="container mx-auto mt-10 px-4">
+                    <h2 className="text-3xl md:text-4xl font-semibold text-center mb-6">Emplois du Temps Disponibles</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {emploisDuTemps.map((edt: any) => (
+                            <motion.div
+                                key={edt.id}
+                                className="bg-white/90 backdrop-blur-md border border-gray-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 relative group"
+                                initial={{ y: 20, opacity: 0 }}
+                                whileInView={{ y: 0, opacity: 1 }}
+                                viewport={{ once: true, amount: 0.3 }}
+                            >
+                                <div className="absolute inset-0 bg-linear-to-r from-blue-400/10 to-purple-400/10 h-0 transition-all duration-300 group-hover:h-full rounded-xl"></div>
+                                <div className="relative z-10">
+                                    <div className="flex items-center gap-3 mb-4">
+                                        {edt.type === 'cours' ? (
+                                            <BookOpen className="w-8 h-8 text-blue-600" />
+                                        ) : (
+                                            <Calendar className="w-8 h-8 text-orange-600" />
+                                        )}
+                                        <div>
+                                            <h3 className="text-lg font-semibold text-gray-900">
+                                                {edt.type === 'cours' ? 'Cours' : 'Sessions'}
+                                            </h3>
+                                            <p className="text-sm text-gray-600">
+                                                {edt.filiere} - {edt.niveau}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="mb-4">
+                                        {edt.fileType === 'application/pdf' ? (
+                                            <div className="flex items-center gap-2 text-red-600">
+                                                <FileText className="w-5 h-5" />
+                                                <span className="text-sm font-medium">Document PDF</span>
+                                            </div>
+                                        ) : (
+                                            <div className="flex items-center gap-2 text-blue-600">
+                                                <Clock className="w-5 h-5" />
+                                                <span className="text-sm font-medium">Image</span>
+                                            </div>
+                                        )}
+                                    </div>
+                                    
+                                    <div className="text-sm text-gray-500 mb-4">
+                                        <p>Nom: {edt.name}</p>
+                                        <p>Taille: {(edt.fileSize / 1024 / 1024).toFixed(2)} MB</p>
+                                    </div>
+                                    
+                                    <button
+                                        className="w-full bg-linear-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 flex items-center justify-center gap-2"
+                                        onClick={() => window.open(edt.url, '_blank')}
+                                    >
+                                        <Download className="w-4 h-4" />
+                                        Télécharger
+                                    </button>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </section>
+            )}
+
             <footer className="bg-[rgb(249,250,251)] z-50 dark:bg-gray-800 text-center p-10 mt-12">
                 <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div>
                         <h3 className="text-lg font-semibold mb-2">À propos</h3>
-                        <p className="text-sm text-black     dark:text-gray-300">
+                        <p className="text-sm text-black dark:text-gray-300">
                              Ecole Communautaire de L`Enseignement Superieur référence en gestion scolaire, propose un espace centralisé pour tous les acteurs de l`école.
                             B,P:2852- BRAZZAVILLE/CONGO <br />
                             AGREMENT N°0012 MES-CAB.DGSUP
@@ -308,15 +366,14 @@ export default function Accuel() {
                     </div>
                     <div>
                         <h3 className="text-lg font-semibold mb-2">Contact</h3>
-                        <p className="text-sm text-black     dark:text-gray-300">1399 rue Moukoukoulou Plateau de 15 ans, Brazzaville-Republique du Congo</p>
+                        <p className="text-sm text-black dark:text-gray-300">1399 rue Moukoukoulou Plateau de 15 ans, Brazzaville-Republique du Congo</p>
                         <p className="text-sm text-black dark:text-gray-300">+242 06-951-24-69 / 06-688-65-79</p>
                         <p className="text-sm text-black dark:text-gray-300">info@ecesonline.org</p>
                         <p className="text-sm text-black dark:text-gray-300">www.eces-ecole.org</p>
-
                     </div>
                     <div>
                         <h3 className="text-lg font-semibold mb-2">Liens utiles</h3>
-                        <ul className="text-sm text-black    dark:text-gray-300 space-y-1">
+                        <ul className="text-sm text-black dark:text-gray-300 space-y-1">
                             <li>Connexion</li>
                             <li>Documentation</li>
                             <li>Support</li>
