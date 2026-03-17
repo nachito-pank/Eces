@@ -5,6 +5,7 @@ import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { TrendingUp, Calendar, Award, Clipboard, MessageCircle, BookOpen, Clock, FileText, Download } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
 
 function GlassEffects() {
     return (
@@ -293,15 +294,27 @@ export default function Accuel() {
 
             {emploisDuTemps.length > 0 && (
                 <section className="container mx-auto mt-10 px-4">
-                    <h2 className="text-3xl md:text-4xl font-semibold text-center mb-6">Emplois du Temps Disponibles</h2>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        className="text-center mb-8"
+                    >
+                        <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-2">Emplois du Temps Disponibles</h2>
+                        <p className="text-gray-600">
+                            Consultez et téléchargez les emplois du temps publiés par l'administration
+                        </p>
+                    </motion.div>
+
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {emploisDuTemps.map((edt: any) => (
+                        {emploisDuTemps.map((edt: any, index: number) => (
                             <motion.div
                                 key={edt.id}
                                 className="bg-white/90 backdrop-blur-md border border-gray-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 relative group"
                                 initial={{ y: 20, opacity: 0 }}
                                 whileInView={{ y: 0, opacity: 1 }}
                                 viewport={{ once: true, amount: 0.3 }}
+                                transition={{ delay: index * 0.1 }}
                             >
                                 <div className="absolute inset-0 bg-linear-to-r from-blue-400/10 to-purple-400/10 h-0 transition-all duration-300 group-hover:h-full rounded-xl"></div>
                                 <div className="relative z-10">
@@ -315,9 +328,14 @@ export default function Accuel() {
                                             <h3 className="text-lg font-semibold text-gray-900">
                                                 {edt.type === 'cours' ? 'Cours' : 'Sessions'}
                                             </h3>
-                                            <p className="text-sm text-gray-600">
-                                                {edt.filiere} - {edt.niveau}
-                                            </p>
+                                            <div className="flex gap-2 mt-1">
+                                                <Badge variant="outline" className="text-xs bg-blue-50 text-blue-700 border-blue-200">
+                                                    {edt.filiere}
+                                                </Badge>
+                                                <Badge variant="outline" className="text-xs bg-green-50 text-green-700 border-green-200">
+                                                    {edt.niveau}
+                                                </Badge>
+                                            </div>
                                         </div>
                                     </div>
                                     
@@ -336,7 +354,7 @@ export default function Accuel() {
                                     </div>
                                     
                                     <div className="text-sm text-gray-500 mb-4">
-                                        <p>Nom: {edt.name}</p>
+                                        <p className="font-medium text-gray-900 truncate">{edt.name}</p>
                                         <p>Taille: {(edt.fileSize / 1024 / 1024).toFixed(2)} MB</p>
                                     </div>
                                     

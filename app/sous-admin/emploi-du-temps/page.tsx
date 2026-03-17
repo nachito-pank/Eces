@@ -84,7 +84,7 @@ export default function EmploiDuTempsPage() {
 
       if (response.ok) {
         toast.success('Emploi du temps publié avec succès')
-        handleDeleteFile(file.id)
+        // Garder le fichier dans la liste pour permettre des envois multiples si besoin
       } else {
         throw new Error('Erreur lors de la publication')
       }
@@ -93,7 +93,7 @@ export default function EmploiDuTempsPage() {
     } finally {
       setIsSubmitting(false)
     }
-  }, [handleDeleteFile])
+  }, [])
 
   const formatFileSize = (bytes: number) => {
     const k = 1024
