@@ -1,50 +1,127 @@
-import StatCard from '@/components/dashboard/StatCard';
-import NotificationsList from '@/components/dashboard/NotificationsList';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import TabsDemo from '@/components/tabs-demo';
 import adminsData from '@/data/admins.json';
+import { Card } from '@/components/ui/card';
+import { Award, BookOpen, Calendar, ChevronRight, CreditCard, MessageCircle, MessageSquare } from 'lucide-react';
+import Link from 'next/link';
 
 export default function EtudiantDashboardPage() {
-  const etudiant = (adminsData as any).etudiants?.[0] || null;
 
-  const devoirsCount = etudiant?.notes ? etudiant.notes.length : 0;
-  const moyenne = etudiant?.moyenne ?? '-';
-  const prochainsCours = etudiant?.notes?.slice(0, 3).map((n: any) => n.matiere) || [];
-
+    const cours = (adminsData as any).cours || { notes: [] };
+    const etudiant = (adminsData as any).etudiants[6] || { notes: [] };
+    // const cours = etudiant.cours || []
   return (
     <main className="w-full p-6">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-        <div className="lg:col-span-2">
-          <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-6">
-            <h2 className="text-xl font-bold text-slate-900">Tableau de bord</h2>
-            <p className="mt-2 text-sm text-slate-500">Vue d'ensemble des cours, devoirs et notifications.</p>
-          </div>
+      <TabsDemo/>
+      <div className="grid mt-25 max-sm:mt-0 grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+        <div className="lg:col-span-4">
+          
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-5">
+              <Link href="/etudiant/mes-cours">
+                <Card className="p-6 hover:shadow-lg duration-300 hover:-translate-y-4 shadow-blue-600 transition-all cursor-pointer h-full">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm font-medium text-slate-500 mb-1">Mes Cours</p>
+                      
+                      <p className="text-3xl font-bold text-blue-600">{cours.length}</p>
+                    </div>
+                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                      <BookOpen className="w-6 h-6 text-blue-600" />
+                    </div>
+                  </div>
+                  <div className="mt-4 flex items-center text-blue-600 text-sm font-medium">
+                    Voir les cours <ChevronRight className="w-4 h-4 ml-1" />
+                  </div>
+                </Card>
+              </Link>
 
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <StatCard title="Devoirs cette semaine" value={devoirsCount} hint={`${devoirsCount} à rendre`} />
-            <StatCard title="Moyenne générale" value={moyenne} hint="Dernière mise à jour" />
-          </div>
+              <Link href="/etudiant/mes-notes">
+                <Card className="p-6 hover:shadow-lg duration-300 hover:-translate-y-4 shadow-emerald-600 transition-all cursor-pointer h-full">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm font-medium text-slate-500 mb-1">Ma Moyenne</p>
+                    
+                      <p className="text-3xl font-bold text-emerald-600">{etudiant.moyenne}</p>
+                    </div>
+                    <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <Award className="w-6 h-6 text-emerald-600" />
+                    </div>
+                  </div>
+                  <div className="mt-4 flex items-center text-emerald-600 text-sm font-medium">
+                    Voir mes notes <ChevronRight className="w-4 h-4 ml-1" />
+                  </div>
+                </Card>
+              </Link>
 
-          <div className="mt-6">
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-6">
-              <h3 className="text-lg font-medium">Prochains cours</h3>
-              <ul className="mt-3 space-y-2 text-sm text-slate-600">
-                {prochainsCours.length > 0 ? (
-                  prochainsCours.map((c: string) => <li key={c}>{c}</li>)
-                ) : (
-                  <li>Aucun cours planifié.</li>
-                )}
-              </ul>
+              <Link href="/etudiant/emploi-du-temps">
+                <Card className="p-6 hover:shadow-lg duration-300 hover:-translate-y-4 shadow-amber-600 transition-all cursor-pointer h-full">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm font-medium text-slate-500 mb-1">Emploi du temps</p>
+                      <p className="text-lg font-bold text-amber-600">Voir</p>
+                    </div>
+                    <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center">
+                      <Calendar className="w-6 h-6 text-amber-600" />
+                    </div>
+                  </div>
+                  <div className="mt-4 flex items-center text-amber-600 text-sm font-medium">
+                    Consulter <ChevronRight className="w-4 h-4 ml-1" />
+                  </div>
+                </Card>
+              </Link>
+
+              <Link href="/etudiant/messages">
+                <Card className="p-6 hover:shadow-lg duration-300 hover:-translate-y-4 shadow-purple-600 transition-all cursor-pointer h-full">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm font-medium text-slate-500 mb-1">Messages</p>
+                      <p className="text-lg font-bold text-purple-600">Voir</p>
+                    </div>
+                    <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                      <MessageSquare className="w-6 h-6 text-purple-600" />
+                    </div>
+                  </div>
+                  <div className="mt-4 flex items-center text-purple-600 text-sm font-medium">
+                    Consulter <ChevronRight className="w-4 h-4 ml-1" />
+                  </div>
+                </Card>
+              </Link>
+
+              <Link href="/etudiant/paiements">
+                <Card className="p-6 hover:shadow-lg duration-300 hover:-translate-y-4 shadow-olive-600 transition-all cursor-pointer h-full">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm font-medium text-slate-500 mb-1">Statut de paiement</p>
+                      <p className="text-lg font-bold text-olive-600">Voir</p>
+                    </div>
+                    <div className="w-12 h-12 bg-olive-100 rounded-lg flex items-center justify-center">
+                      <CreditCard className="w-6 h-6 text-olive-600" />
+                    </div>
+                  </div>
+                  <div className="mt-4 flex items-center text-olive-600 text-sm font-medium">
+                    Consulter <ChevronRight className="w-4 h-4 ml-1" />
+                  </div>
+                </Card>
+              </Link>
+
+              <Link href="/etudiant/notifications">
+                <Card className="p-6 hover:shadow-lg duration-300 hover:-translate-y-4 shadow-fuchsia-600 transition-all cursor-pointer h-full">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm font-medium text-slate-500 mb-1">notifications</p>
+                      <p className="text-lg font-bold text-fuchsia-600">Voir</p>
+                    </div>
+                    <div className="w-12 h-12 bg-fuchsia-100 rounded-lg flex items-center justify-center">
+                      <MessageCircle className="w-6 h-6 text-fuchsia-600" />
+                    </div>
+                  </div>
+                  <div className="mt-4 flex items-center text-fuchsia-600 text-sm font-medium">
+                    Consulter <ChevronRight className="w-4 h-4 ml-1" />
+                  </div>
+                </Card>
+              </Link>
             </div>
-          </div>
-        </div>
-
-        <aside className="lg:col-span-1">
-          <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-6">
-            <h3 className="text-lg font-medium">Notifications</h3>
-            <div className="mt-4">
-              <NotificationsList />
-            </div>
-          </div>
-        </aside>
+      </div>
       </div>
     </main>
   );

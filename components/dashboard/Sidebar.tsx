@@ -58,7 +58,7 @@ const MENU_ITEMS: Record<Role, MenuItem[]> = {
   etudiant: [
     { name: 'Mes Cours',       icon: <BookOpen      className="h-5 w-5" />, path: '/etudiant/mes-cours' },
     { name: 'Notes',           icon: <Award         className="h-5 w-5" />, path: '/etudiant/mes-notes' },
-    { name: 'Emploi du temps', icon: <Calendar      className="h-5 w-5" />, path: '/etudiant/emploi-temps' },
+    { name: 'Emploi du temps', icon: <Calendar      className="h-5 w-5" />, path: '/etudiant/emploi-du-temps' },
     { name: 'Messages',        icon: <MessageSquare className="h-5 w-5" />, path: '/etudiant/messages' },
     { name: 'Paiement',        icon: <CreditCard className="h-5 w-5" />, path: '/etudiant/paiements' },
     { name: 'Notifications',        icon: <Bell className="h-5 w-5" />, path: '/etudiant/notifications' },

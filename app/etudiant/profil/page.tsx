@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import adminsData from '@/data/admins.json';
 import { CircleUser } from 'lucide-react';
 
@@ -5,13 +6,11 @@ export default function ProfilPage() {
 	const etudiant = (adminsData as any).etudiants?.[0] || {};
 
 	return (
-		<main className="w-full p-6">
+		<main className="w-full p-6 dark:text-gray-900">
 			<div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-6">
 				<div className="flex items-center justify-between">
 					<h1 className="text-2xl md:text-3xl font-bold text-gray-900">Profil</h1>
-					<div className="flex items-center gap-3">
-						<button className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700">Modifier</button>
-					</div>
+					
 				</div>
 
 				<div className="mt-6">

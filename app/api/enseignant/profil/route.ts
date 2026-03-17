@@ -1,21 +1,20 @@
-import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
+import { NextRequest, NextResponse } from "next/server";
+import fs from "fs";
+import path from "path";
 
-const dataPath = path.join(process.cwd(), 'data', 'admins.json');
+const dataPath = path.join(process.cwd(), "data", "admins.json");
 
-// GET /api/enseignant/profil - Get complete teacher profile
+// GET /api/enseignant/profil
 export async function GET(request: NextRequest) {
   try {
-    const data = JSON.parse(fs.readFileSync(dataPath, 'utf-8'));
-    
-    // In a real scenario, you would get the teacher ID from the authenticated session
-    // For now, we'll return the first teacher as example
-    const enseignant = data.enseignants[0];
-    
+    const data = JSON.parse(fs.readFileSync(dataPath, "utf-8"));
+
+    // Simulation d'un enseignant connecté
+    const enseignant = data.enseignants?.[0];
+
     if (!enseignant) {
       return NextResponse.json(
-        { error: 'Enseignant non trouvé' },
+        { error: "Enseignant non trouvé" },
         { status: 404 }
       );
     }
@@ -30,31 +29,30 @@ export async function GET(request: NextRequest) {
         subjects: enseignant.matieres || [],
       },
     });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
-      { error: 'Erreur lors de la récupération du profil' },
+      { error: "Erreur lors de la récupération du profil" },
       { status: 500 }
     );
   }
 }
 
-// PUT /api/enseignant/profil - Modify email, telephone, password
+// PUT /api/enseignant/profil
 export async function PUT(request: NextRequest) {
   try {
     const body = await request.json();
     const { email, telephone, motDePasse } = body;
 
-    const data = JSON.parse(fs.readFileSync(dataPath, 'utf-8'));
-    const enseignant = data.enseignants[0];
+    const data = JSON.parse(fs.readFileSync(dataPath, "utf-8"));
+    const enseignant = data.enseignants?.[0];
 
     if (!enseignant) {
       return NextResponse.json(
-        { error: 'Enseignant non trouvé' },
+        { error: "Enseignant non trouvé" },
         { status: 404 }
       );
     }
 
-    // Update fields if provided
     if (email) enseignant.email = email;
     if (telephone) enseignant.telephone = telephone;
     if (motDePasse) enseignant.motDePasse = motDePasse;
@@ -63,7 +61,7 @@ export async function PUT(request: NextRequest) {
 
     return NextResponse.json({
       success: true,
-      message: 'Profil mis à jour avec succès',
+      message: "Profil mis à jour avec succès",
       data: {
         firstName: enseignant.prenom,
         name: enseignant.nom,
@@ -72,9 +70,9 @@ export async function PUT(request: NextRequest) {
         subjects: enseignant.matieres || [],
       },
     });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
-      { error: 'Erreur lors de la mise à jour du profil' },
+      { error: "Erreur lors de la mise à jour du profil" },
       { status: 500 }
     );
   }

@@ -106,7 +106,9 @@ export default function LoginEtudiant() {
     }
 
     setIsLoading(false);
-    e.currentTarget.reset();
+    if (e.currentTarget) {
+      e.currentTarget.reset();
+    }
   };
 
   // Image de fond (à remplacer par votre image)

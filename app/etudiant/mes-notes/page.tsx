@@ -26,35 +26,32 @@ export default function StudentNotesPage() {
   };
 
   return (
-    <main className="w-full p-6">
+    <main className="w-full p-6 dark:text-gray-900">
       <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-6">
         <div className="flex items-center justify-between">
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-900">Notes & Moyennes</h1>
-          <div className="flex items-center gap-3">
-            <button className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700">Exporter</button>
-          </div>
+          <h1 className="text-2xl w-full text-center max-sm:text-xl md:text-3xl font-bold text-gray-900">Notes & Moyennes</h1>
         </div>
 
         <div className="mt-6 overflow-auto">
           <div className="p-4 rounded-2xl bg-white shadow">
             <table className="w-full text-sm">
               <thead>
-                <tr className="text-left">
-                  <th className="pb-2">Matière</th>
-                  <th className="pb-2">Devoir</th>
-                  <th className="pb-2">Session</th>
-                  <th className="pb-2">Moyenne</th>
-                  <th className="pb-2">Coef</th>
+                <tr className="text-center">
+                  <th className="p-2">Matière</th>
+                  <th className="p-2">Devoir</th>
+                  <th className="p-2">Session</th>
+                  <th className="p-2">Moyenne</th>
+                  <th className="p-2">Coef</th>
                 </tr>
               </thead>
               <tbody>
                 {notes.map((note: NoteRow) => (
-                  <tr key={note.id} className="border-t">
-                    <td className="py-2">{note.matiere}</td>
-                    <td className="py-2">{note.devoir}</td>
-                    <td className="py-2">{note.session}</td>
-                    <td className="py-2">{calculerMoyenne(note.devoir, note.session)}</td>
-                    <td className="py-2">{note.coefficient ?? 1}</td>
+                  <tr key={note.id} className="border-t text-center">
+                    <td className="p-2">{note.matiere}</td>
+                    <td className="p-2">{note.devoir}</td>
+                    <td className="p-2">{note.session}</td>
+                    <td className="p-2">{calculerMoyenne(note.devoir, note.session)}</td>
+                    <td className="p-2">{note.coefficient ?? 1}</td>
                   </tr>
                 ))}
               </tbody>

@@ -68,7 +68,7 @@ export default function ActualitesPage() {
   const filteredActualites = useMemo(() => {
     return actualites.filter((actu) => {
       const matchesSearch = actu.titre.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           actu.contenu.toLowerCase().includes(searchTerm.toLowerCase());
+                          actu.contenu.toLowerCase().includes(searchTerm.toLowerCase());
       const matchesDate = !dateFilter || actu.datePublication.startsWith(dateFilter);
       const matchesStatus = filterStatus === 'tous' || actu.statut === filterStatus;
       return matchesSearch && matchesDate && matchesStatus;
@@ -79,27 +79,27 @@ export default function ActualitesPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-green-900 bg-clip-text text-transparent">
+          <h1 className="text-2xl sm:text-3xl font-bold bg-linear-to-r from-gray-900 to-green-900 bg-clip-text dark:text-gray-300">
             Actualités
           </h1>
-          <p className="text-gray-600 mt-1">Publiez et gérez les nouvelles de l'école</p>
+          <p className="text-gray-600 dark:text-gray-300 mt-1">Publiez et gérez les nouvelles de l&apos;école</p>
         </div>
         <ActuForm onSubmit={addActualite} actualiteToEdit={actualiteToEdit} />
       </div>
 
       {/* Statistiques en haut */}
       <Card>
-        <CardContent className="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="text-center p-6 bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl">
-            <div className="text-3xl font-bold text-green-600 mb-2">{actualites.length}</div>
+        <CardContent className="p-4 sm:p-6 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+          <div className="text-center p-4 sm:p-6 bg-linear-to-br from-green-50 to-emerald-50 rounded-2xl">
+            <div className="text-2xl sm:text-3xl font-bold text-green-600 mb-2">{actualites.length}</div>
             <div className="text-sm text-green-700 font-medium">Total Actualités</div>
           </div>
-          <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl">
-            <div className="text-3xl font-bold text-blue-600 mb-2">{actualites.filter(a => a.statut === 'publie').length}</div>
+          <div className="text-center p-4 sm:p-6 bg-linear-to-br from-blue-50 to-blue-100 rounded-2xl">
+            <div className="text-2xl sm:text-3xl font-bold text-blue-600 mb-2">{actualites.filter(a => a.statut === 'publie').length}</div>
             <div className="text-sm text-blue-700 font-medium">Publiées</div>
           </div>
-          <div className="text-center p-6 bg-gradient-to-br from-orange-50 to-yellow-100 rounded-2xl">
-            <div className="text-3xl font-bold text-orange-600 mb-2">{filteredActualites.length}</div>
+          <div className="text-center p-4 sm:p-6 bg-linear-to-br from-orange-50 to-yellow-100 rounded-2xl">
+            <div className="text-2xl sm:text-3xl font-bold text-orange-600 mb-2">{filteredActualites.length}</div>
             <div className="text-sm text-orange-700 font-medium">Résultats actuels</div>
           </div>
         </CardContent>
@@ -107,15 +107,15 @@ export default function ActualitesPage() {
 
       {/* Filtres */}
       <Card className="border-green-100">
-        <CardContent className="p-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <CardContent className="p-4 sm:p-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <div className="relative">
               <Search className="h-4 w-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
               <Input
                 placeholder="Rechercher par titre ou contenu..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10"
+                className="pl-10 text-sm dark:bg-gray-600"
               />
             </div>
             <Input
@@ -123,7 +123,7 @@ export default function ActualitesPage() {
               value={dateFilter}
               onChange={(e) => setDateFilter(e.target.value)}
               placeholder="Filtrer par date"
-              className="max-w-sm"
+              className="max-w-sm text-sm dark:bg-gray-600"
             />
             <div className="flex gap-2">
               {(['tous', 'publie', 'brouillon'] as const).map((status) => (
@@ -131,7 +131,7 @@ export default function ActualitesPage() {
                   key={status}
                   variant={filterStatus === status ? 'default' : 'outline'}
                   onClick={() => setFilterStatus(status)}
-                  className="whitespace-nowrap"
+                  className="whitespace-nowrap text-xs sm:text-sm"
                 >
                   {status === 'tous' ? 'Tous' : status.charAt(0).toUpperCase() + status.slice(1)}
                 </Button>
@@ -142,7 +142,7 @@ export default function ActualitesPage() {
       </Card>
 
       {/* Grille actualités */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {filteredActualites.map((actualite) => (
           <div key={actualite.id} className="relative group">
             <div className="h-full flex flex-col">
@@ -156,6 +156,7 @@ export default function ActualitesPage() {
                 >
                   <Edit className="h-3 w-3 mr-1" />
                   <span className="hidden sm:inline">Modifier</span>
+                  <span className="sm:hidden">Modif</span>
                 </Button>
                 <Button 
                   variant="outline" 
@@ -165,6 +166,7 @@ export default function ActualitesPage() {
                 >
                   <Trash2 className="h-3 w-3 mr-1" />
                   <span className="hidden sm:inline">Supprimer</span>
+                  <span className="sm:hidden">Suppr</span>
                 </Button>
                 <Button 
                   variant="outline" 
@@ -177,11 +179,11 @@ export default function ActualitesPage() {
                       <div class="bg-white rounded-2xl shadow-2xl max-w-6xl w-full max-h-[90vh] overflow-hidden border border-gray-200">
                         <div class="flex flex-col h-full">
                           <!-- En-tête -->
-                          <div class="relative bg-gradient-to-r from-blue-600 to-purple-600 p-6 text-white">
+                          <div class="relative bg-linear-to-r from-blue-600 to-purple-600 p-4 sm:p-6 text-white">
                             <div class="flex justify-between items-start">
                               <div class="flex-1">
-                                <h2 class="text-2xl font-bold mb-2">${actualite.titre}</h2>
-                                <div class="flex items-center gap-4 text-blue-100">
+                                <h2 class="text-xl sm:text-2xl font-bold mb-2">${actualite.titre}</h2>
+                                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-blue-100">
                                   <span class="text-sm font-medium">Par ${actualite.auteur}</span>
                                   <span class="text-sm">${new Date(actualite.datePublication).toLocaleDateString('fr-FR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</span>
                                 </div>
@@ -195,20 +197,20 @@ export default function ActualitesPage() {
                           </div>
                           
                           <!-- Contenu avec image à droite et texte à gauche -->
-                          <div class="flex-1 overflow-y-auto p-6 bg-gray-50">
+                          <div class="flex-1 overflow-y-auto p-4 sm:p-6 bg-gray-50">
                             <div class="max-w-6xl mx-auto">
                               <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
                                 <div class="flex flex-col lg:flex-row">
                                   <!-- Texte à gauche -->
-                                  <div class="flex-1 p-6 lg:p-8">
+                                  <div class="flex-1 p-4 sm:p-6 lg:p-8">
                                     <div class="prose prose-lg max-w-none">
-                                      <div class="text-gray-800 leading-relaxed text-base whitespace-pre-wrap">${actualite.contenu.replace(/\n/g, '<br>')}</div>
+                                      <div class="text-gray-800 leading-relaxed text-sm sm:text-base whitespace-pre-wrap">${actualite.contenu.replace(/\n/g, '<br>')}</div>
                                     </div>
                                   </div>
                                   
                                   <!-- Image à droite -->
                                   ${actualite.image ? `
-                                    <div class="lg:w-96 w-full lg:border-l border-gray-200 bg-gray-50 p-6">
+                                    <div class="lg:w-96 w-full lg:border-l border-gray-200 bg-gray-50 p-4 sm:p-6">
                                       <div class="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden">
                                         <img 
                                           src="${actualite.image}" 
@@ -227,8 +229,8 @@ export default function ActualitesPage() {
                           </div>
                           
                           <!-- Pied avec statut -->
-                          <div class="bg-white border-t border-gray-200 px-6 py-4">
-                            <div class="max-w-5xl mx-auto flex items-center justify-between">
+                          <div class="bg-white border-t border-gray-200 px-4 sm:px-6 py-4">
+                            <div class="max-w-5xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                               <span class="text-sm text-gray-600">
                                 Statut: <span class="font-medium ${actualite.statut === 'publie' ? 'text-green-600' : 'text-yellow-600'}">${actualite.statut === 'publie' ? 'Publié' : 'Brouillon'}</span>
                               </span>
@@ -280,6 +282,7 @@ export default function ActualitesPage() {
                 >
                   <Eye className="h-3 w-3 mr-1" />
                   <span className="hidden sm:inline">Voir</span>
+                  <span className="sm:hidden">Voir</span>
                 </Button>
               </div>
             </div>

@@ -33,7 +33,7 @@ export default function ProfilPage() {
         prenom: sousAdminData.prenom || '',
         email: sousAdminData.email || '',
         telephone: sousAdminData.telephone || '',
-        dateEmbauche: sousAdminData.dateEmbauche || new Date().toISOString().split('T')[0],
+        dateEmbauche: /*sousAdminData.dateEmbauche || */new Date().toISOString().split('T')[0],
         statut: sousAdminData.statut || 'Actif',
         avatar: sousAdminData.avatar || '#3B82F6'
       });
@@ -315,32 +315,32 @@ export default function ProfilPage() {
               </CardContent>
 
               <div className="p-6 border-t border-gray-200">
-                <div className="flex justify-end gap-3">
+                <div className="flex flex-col sm:flex-row justify-end gap-3">
                   {!isEditing ? (
                     <Button 
                       onClick={() => setIsEditing(true)}
-                      className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700"
+                      className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 w-full sm:w-auto"
                     >
                       <Edit className="h-4 w-4" />
                       Modifier
                     </Button>
                   ) : (
-                    <>
+                    <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
                       <Button 
                         variant="outline"
                         onClick={handleCancel}
-                        className="flex items-center gap-2"
+                        className="flex items-center gap-2 w-full sm:w-auto"
                       >
                         Annuler
                       </Button>
                       <Button 
                         onClick={handleSave}
-                        className="flex items-center gap-2 bg-green-600 hover:bg-green-700"
+                        className="flex items-center gap-2 bg-green-600 hover:bg-green-700 w-full sm:w-auto"
                       >
                         <Save className="h-4 w-4" />
                         Sauvegarder
                       </Button>
-                    </>
+                    </div>
                   )}
                 </div>
               </div>

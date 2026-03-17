@@ -6,11 +6,11 @@ export default function PaiementsPage() {
   const paiements = etudiant.paiements || [];
 
   return (
-    <main className="w-full p-6">
+    <main className="w-full p-6 dark:text-gray-900">
       <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-6">
         <div className="flex items-center justify-between">
           <h1 className="text-2xl md:text-3xl font-bold text-gray-900">Paiements</h1>
-          <div className="flex items-center gap-3">
+          <div className="flex max-sm:hidden items-center gap-3">
             <button className="px-4 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700">Nouveau paiement</button>
           </div>
         </div>

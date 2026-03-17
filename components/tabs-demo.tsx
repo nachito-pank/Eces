@@ -6,6 +6,7 @@ import Image from "next/image";
 import React from "react";
 import type { Cours, Notification, Paiement, Note } from "@/types/etudiant";
 import adminsData from "../data/admins.json";
+import { Award, BookOpen, Calendar, CreditCard, MessageSquare } from "lucide-react";
 
 type RawCourse = {
   id: number;
@@ -58,14 +59,15 @@ export default function TabsDemo() {
       title: "Cours",
       value: "Cours",
       content: (
-        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-linear-to-br from-[rgb(30,39,142)] to-[rgb(67,80,219)]">
+        <div className="w-full overflow-hidden relative h-[90%] rounded-2xl p-7 text-xl md:text-4xl font-bold text-white bg-linear-to-br from-blue-500 to-blue-600">
           <span className="flex gap-5 items-center">
-              <Image 
+              {/* <Image 
                         src="/images/book_8092583.png"
                         alt="cours Logo"
                         width={70}
                         height={70}
-                      />
+                      /> */}
+              <BookOpen/>
               <p className="text-[16px]">Consultation des matières, enseignants et contenus pédagogiques associés</p>
             </span>
           <DashboardCoursContent />
@@ -76,14 +78,15 @@ export default function TabsDemo() {
       title: "Calendrier",
       value: "calendrier",
       content: (
-        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-linear-to-br from-[rgb(30,39,142)] to-[rgb(67,80,219)]">
+        <div className="w-full overflow-hidden relative h-[90%] rounded-2xl p-7 text-xl md:text-4xl font-bold text-white bg-linear-to-br from-blue-500 to-blue-600">
             <span className="flex gap-5 items-center">
-              <Image 
+              {/* <Image 
                         src="/images/calendar_673045.png"
                         alt="calendrier Logo"
                         width={70}
                         height={70}
-                      />
+                      /> */}
+              <Calendar/>
               <p className="text-[16px]">planification et suivi des emplois du temps et événements</p>
             </span>
           <DashboardEdtContent emploiDuTempsCours={emploiDuTempsCours} emploiDuTempsSessions={emploiDuTempsSessions} />
@@ -91,17 +94,18 @@ export default function TabsDemo() {
       ),
     },
     {
-      title: "Moyenne",
-      value: "moyenne",
+      title: "Notes",
+      value: "note",
       content: (
-        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-linear-to-br from-[rgb(30,39,142)] to-[rgb(67,80,219)]">
+        <div className="w-full overflow-hidden relative h-[90%] rounded-2xl p-7 text-xl md:text-4xl font-bold text-white bg-linear-to-br from-blue-500 to-blue-600">
           <span className="flex gap-5 items-center">
-              <Image 
+              {/* <Image 
                         src="/images/clipboard_1070559.png"
                         alt="moyenne Logo"
                         width={70}
                         height={70}
-                      />
+                      /> */}
+              <Award/>
               <p className="text-[16px]">Visualisation rapide de la moyenne générale et de l’évolution des résultats</p>
             </span>
           <DashboardMoyenneContent />
@@ -112,14 +116,15 @@ export default function TabsDemo() {
       title: "Messages",
       value: "messages",
       content: (
-        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-linear-to-br from-[rgb(30,39,142)] to-[rgb(67,80,219)]">
+        <div className="w-full overflow-hidden relative h-[90%] rounded-2xl p-7 text-xl md:text-4xl font-bold text-white bg-linear-to-br from-blue-500 to-blue-600">
           <span className="flex gap-5 items-center">
-              <Image 
+              {/* <Image 
                         src="/images/email_16604698.png"
                         alt="moyenne Logo"
                         width={70}
                         height={70}
-                      />
+                      /> */}
+              <MessageSquare/>
               <p className="text-[16px]">Consultation des annonces importantes et des informations administratives</p>
             </span>
           <DashboardMessagetContent />
@@ -130,14 +135,15 @@ export default function TabsDemo() {
       title: "Statut paiement",
       value: "Statut paiement",
       content: (
-        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-linear-to-br from-[rgb(30,39,142)] to-[rgb(67,80,219)]">
+        <div className="w-full overflow-hidden relative h-[90%] rounded-2xl p-7 text-xl md:text-4xl font-bold text-white bg-linear-to-br from-blue-500 to-blue-600">
           <span className="flex gap-5 items-center">
-              <Image 
+              {/* <Image 
                         src="/images/wallet_3258446.png"
                         alt="moyenne Logo"
                         width={70}
                         height={70}
-                      />
+                      /> */}
+              <CreditCard/>
               <p className="text-[16px]">Gestion et suivi des paiements liés à la scolarité et aux frais académiques</p>
             </span>
           <DashboardPaiementContent />
@@ -147,7 +153,7 @@ export default function TabsDemo() {
   ];
 
   return (
-    <div className="h-80 md:h-110 perspective-[1000px] relative flex flex-col max-w-5xl mx-auto w-full  items-start justify-start font-mono font-semibold">
+    <div className="h-80 md:h-100 max-sm:hidden perspective-[1000px] relative flex flex-col max-w-5xl mx-auto w-full  items-start justify-start font-mono font-semibold">
       <Tabs tabs={tabs} />
     </div>
   );
@@ -176,8 +182,8 @@ export const DashboardEdtContent = ({
   emploiDuTempsSessions: Cours[];
 }) => {
   return (
-          <div className="mt-6 text-xs bg-[rgb(44,55,172)] text-gray-900 grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-[rgb(232,232,232)] dark:bg-gray-900 p-6 rounded-xl shadow">
+          <div className="mt-3 text-xs bg-linear-to-br from-blue-500 to-blue-600 text-gray-900 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="bg-[rgb(232,232,232)] dark:bg-[rgb(72,70,86)] p-3 rounded-xl shadow">
           <h3 className=" font-semibold text-gray-900 dark:text-white mb-4">Cours</h3>
           <ul className="space-y-2">
             {emploiDuTempsCours.slice(0, 2).map((c: Cours) => (
@@ -190,7 +196,7 @@ export const DashboardEdtContent = ({
           </ul>
         </div>
 
-        <div className="bg-[rgb(232,232,232)] dark:bg-gray-900 p-6 rounded-xl shadow">
+        <div className="bg-[rgb(232,232,232)] dark:bg-[rgb(72,70,86)] p-3 rounded-xl shadow">
           <h3 className="text-xs text-gray-900 dark:text-white font-semibold mb-4">Sessions</h3>
           <ul className="space-y-2">
             {emploiDuTempsSessions.slice(0, 2).map((s: Cours) => (
@@ -212,7 +218,7 @@ export const DashboardMessagetContent = () => {
   const notifications: Notification[] = data.notifications || [];
 
   return (
-    <div className="mt-6 text-xs bg-[rgb(232,232,232)] dark:bg-gray-900 text-gray-900 p-4 rounded-xl">
+    <div className="mt-3 text-xs bg-[rgb(232,232,232)] dark:bg-[rgb(72,70,86)] text-gray-900 p-3 rounded-xl">
       <h3 className="font-semibold mb-3 text-gray-900 dark:text-white">Annonces</h3>
       <ul className="space-y-2">
         {notifications.slice(0, 2).map((n: Notification) => (
@@ -243,7 +249,7 @@ export const DashboardCoursContent = ()=> {
   }));
 
   return (
-    <div className="mt-6 text-xs bg-[rgb(232,232,232)] dark:bg-gray-900 text-gray-900 p-4 rounded-xl">
+    <div className="mt-3 text-xs bg-[rgb(232,232,232)] dark:bg-[rgb(72,70,86)] text-gray-900 p-3 rounded-xl">
       <h3 className="font-semibold mb-3 text-gray-900 dark:text-white">Matières</h3>
       <ul className="space-y-2">
         {cours.slice(0, 2).map((c: Cours) => (
@@ -266,7 +272,7 @@ export const DashboardPaiementContent = ()=> {
   const paiements: Paiement[] = data.paiements || [];
 
   return (
-    <div className="mt-6 text-xs bg-[rgb(232,232,232)] dark:bg-gray-900 text-gray-900 p-4 rounded-xl">
+    <div className="mt-3 text-xs bg-[rgb(232,232,232)] dark:bg-[rgb(72,70,86)] text-gray-900 p-3 rounded-xl">
       <h3 className="font-semibold mb-3 text-gray-900 dark:text-white">Paiements</h3>
       <ul className="space-y-2">
         {paiements.slice(0, 2).map((p: Paiement) => (
@@ -303,7 +309,7 @@ export const DashboardMoyenneContent = ()=> {
   const topSubjects = subjectsWithAvg.sort((a, b) => b.avg - a.avg).slice(0, 2);
 
   return (
-    <div className="mt-6 text-xs bg-[rgb(232,232,232)] dark:bg-gray-900 text-gray-900 p-4 rounded-xl">
+    <div className="mt-3 text-xs bg-[rgb(232,232,232)] dark:bg-[rgb(72,70,86)] text-gray-900 p-3 rounded-xl">
       <span className="flex items-center gap-5">
         <h3 className="font-semibold mb-1 text-gray-900 dark:text-white">Moyenne générale :</h3>
         <p className="text-lg font-bold mb-1">{overallAverage}</p>

@@ -1,33 +1,38 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { MessageSquare, Search, Trash2, Edit, Eye } from 'lucide-react';
+import { MessageSquare, Trash2, Edit, Eye } from 'lucide-react';
 import adminsData from '@/data/admins.json';
 import MessageForm from '@/components/dashboard/sous-admin/MessageForm';
 import type { Message } from '@/types/sousadmin';
 
 export default function MessagesPage() {
   const [messages, setMessages] = useState<Message[]>([]);
-  const [searchDate, setSearchDate] = useState<string>('');
-  const [filterNiveau, setFilterNiveau] = useState<string>('tous');
+  const searchDate = '';
+  const filterNiveau = 'tous';
   const [messageToEdit, setMessageToEdit] = useState<Message | null>(null);
 
   useEffect(() => {
-    setMessages((adminsData.messages || []) as Message[]);
+
+    const handleMessage = ()=> {
+      setMessages((adminsData.messages || []) as Message[]);
+    }
+
+    handleMessage()
   }, []);
 
   // Get unique niveaux from destinataires (sans 'tous' pour éviter le doublon)
-  const uniqueNiveaux = [...new Set(messages.map(msg => {
-    if (msg.destinataire.includes('L1')) return 'L1';
-    if (msg.destinataire.includes('L2')) return 'L2';
-    if (msg.destinataire.includes('L3')) return 'L3';
-    if (msg.destinataire.includes('Master')) return 'Master';
-    return 'tous';
-  }))].filter(niveau => niveau !== 'tous');
+  // const uniqueNiveaux = [...new Set(messages.map(msg => {
+  //   if (msg.destinataire.includes('L1')) return 'L1';
+  //   if (msg.destinataire.includes('L2')) return 'L2';
+  //   if (msg.destinataire.includes('L3')) return 'L3';
+  //   if (msg.destinataire.includes('Master')) return 'Master';
+  //   return 'tous';
+  // }))].filter(niveau => niveau !== 'tous');
 
   const filteredMessages = messages.filter(msg => {
     const msgDate = new Date(msg.dateEnvoi).toISOString().split('T')[0];
@@ -83,96 +88,31 @@ export default function MessagesPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold bg-linear-to-r from-gray-900 to-blue-900 bg-clip-text text-transparent">
+          <h1 className="text-3xl font-bold bg-linear-to-r from-gray-900 to-blue-900 bg-clip-text dark:text-gray-300">
             Messages
           </h1>
-          <p className="text-gray-600 mt-1">Gérez vos communications avec les étudiants</p>
+          <p className="text-gray-600 mt-1 dark:text-gray-300">Gérez vos messages et annonces</p>
         </div>
-        <MessageForm onSend={handleSendMessage} messageToEdit={messageToEdit} />
+        {/* <MessageForm onSend={handleSendMessage} messageToEdit={messageToEdit} /> */}
       </div>
-
-      {/* Filtres et recherche */}
-      <Card className="border-blue-100">
-        <CardContent className="p-6">
-          <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-center">
-            <div className="flex-1">
-              <h3 className="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
-                <Search className="h-4 w-4 text-blue-600" />
-                Filtrer les messages
-              </h3>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <div className="flex-1">
-                  <label className="text-xs text-gray-500 mb-1 block">Recherche par date</label>
-                  <Input
-                    type="date"
-                    value={searchDate}
-                    onChange={(e) => setSearchDate(e.target.value)}
-                    className="w-full"
-                    placeholder="Sélectionner une date"
-                  />
-                </div>
-                <div className="flex items-end">
-                  <Button 
-                    variant="outline" 
-                    onClick={() => setSearchDate('')}
-                    className="whitespace-nowrap"
-                  >
-                    Réinitialiser
-                  </Button>
-                </div>
-              </div>
-            </div>
-            <div className="flex gap-2 mt-3">
-              <span className="text-sm text-gray-600">Filtrer par niveau:</span>
-              <div className="flex gap-2">
-                <Button 
-                  variant={filterNiveau === 'tous' ? 'default' : 'outline'} 
-                  onClick={() => setFilterNiveau('tous')}
-                  size="sm"
-                  className="whitespace-nowrap"
-                >
-                  Tous
-                </Button>
-                {uniqueNiveaux.map(niveau => (
-                  <Button 
-                    key={niveau}
-                    variant={filterNiveau === niveau ? 'default' : 'outline'} 
-                    onClick={() => setFilterNiveau(niveau)}
-                    size="sm"
-                    className="whitespace-nowrap"
-                  >
-                    {niveau}
-                  </Button>
-                ))}
-              </div>
-            </div>
-          {(searchDate || filterNiveau !== 'tous') && (
-            <div className="mt-3 p-2 bg-blue-50 rounded-lg">
-              <p className="text-sm text-blue-700">
-                Filtres actifs: {searchDate && `Date: ${searchDate}`} {filterNiveau !== 'tous' && `Niveau: ${filterNiveau}`}
-              </p>
-            </div>
-          )}
-        </div>
-      </CardContent>
-    </Card>
+      
 
       {/* Liste des messages */}
       <div className="grid gap-4">
         {filteredMessages.map((message) => (
-          <Card key={message.id} className="hover:shadow-md hover:shadow-blue-100 transition-all border-blue-50 hover:border-blue-200">
-            <CardContent className="p-6">
+          <Card key={message.id} className="hover:shadow-md dark:text-white hover:shadow-blue-100 transition-all border-blue-50 hover:border-blue-200">
+            <CardContent className="p-6 dark:text-white">
               <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-linear-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg">
                   <MessageSquare className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900">{message.nomExpediteur}</h3>
-                  <p className="text-sm text-gray-500">{message.destinataire}</p>
+                  <h3 className="font-semibold text-gray-900 dark:text-gray-300">{message.nomExpediteur}</h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-300">{message.destinataire}</p>
                 </div>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 dark:text-white">
                 <Badge variant={message.type === 'envoye' ? 'default' : 'secondary'}>
                   {message.type.toUpperCase()}
                 </Badge>
@@ -188,8 +128,8 @@ export default function MessagesPage() {
                 )}
               </div>
               </div>
-              <p className="text-gray-700 mb-4 leading-relaxed">{message.contenu}</p>
-              <div className="flex items-center gap-2 text-xs text-gray-500">
+              <p className="text-gray-700 mb-4 leading-relaxed dark:text-white">{message.contenu}</p>
+              <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-300">
                 <span>{new Date(message.dateEnvoi).toLocaleString('fr-FR')}</span>
                 <div className="flex gap-1 ml-auto">
                   {message.type !== 'envoye' && (

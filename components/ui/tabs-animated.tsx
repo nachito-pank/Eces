@@ -40,7 +40,7 @@ export const Tabs = ({
     <>
       <div
         className={cn(
-          "flex flex-row items-center justify-center gap-10 perspective-[1000px] relative overflow-auto sm:overflow-visible no-visible-scrollbar max-w-full w-full",
+          "flex items-center mb-2 justify-center gap-10 perspective-[1000px] relative overflow-auto sm:overflow-visible no-visible-scrollbar max-w-full w-full",
           containerClassName
         )}
       >
@@ -59,7 +59,7 @@ export const Tabs = ({
                 layoutId="clickedbutton"
                 transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
                 className={cn(
-                  "absolute inset-0 bg-[rgb(30,39,142)] dark:bg-[rgb(30,39,142)] rounded-full ",
+                  "absolute inset-0 bg-linear-to-br from-blue-500 to-blue-600 dark:bg-500 rounded-full ",
                   activeTabClassName
                 )}
               />
