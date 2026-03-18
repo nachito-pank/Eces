@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
@@ -125,6 +125,20 @@ function NavItem({ item, isActive, collapsed }: { item: MenuItem; isActive: bool
 export default function Sidebar({ role, collapsed: initialCollapsed = false, onToggle }: SidebarProps) {
   const [collapsed, setCollapsed] = useState(initialCollapsed);
   const pathname = usePathname();
+  const sidebarRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target as Node)) {
+        if (!collapsed) {
+          setCollapsed(true);
+          onToggle?.();
+        }
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [collapsed, onToggle]);
 
   const { label, icon: roleIcon } = ROLE_CONFIG[role];
 
@@ -140,7 +154,14 @@ export default function Sidebar({ role, collapsed: initialCollapsed = false, onT
 
   return (
     <TooltipProvider>
+      {/* Effet visuel flouté uniquement sur mobile */}
+      {!collapsed && (
+        <div 
+          className="fixed inset-0 top-16 bg-slate-900/20 dark:bg-slate-900/60 z-10 sm:hidden backdrop-blur-sm pointer-events-none"
+        />
+      )}
       <aside
+        ref={sidebarRef}
         className={cn(
           'bg-linear-to-b from-white to-blue-50 dark:from-gray-900 dark:to-gray-800',
           'border-r border-blue-100 dark:border-gray-700',

@@ -71,13 +71,19 @@ const Navbar: React.FC<NavbarProps> = ({
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Partie gauche : Logo et menu burger */}
-            <div className="flex items-center">
+            <div className="flex items-center gap-2">
+              <button 
+                onClick={onMenuClick}
+                className="p-2 lg:hidden hidden rounded-lg text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+              >
+                <Menu className="w-6 h-6" />
+              </button>
               {showLogo && (
                 <Link href="/" className="flex items-center ml-2 lg:ml-0">
                   <img 
                     src="/images/logo-eces.jpeg" 
                     alt="ECES Logo" 
-                    className="h-8 w-auto"
+                    className="h-8 w-auto rounded-full"
                   />
                   <span className="ml-2 text-xl font-semibold text-gray-800 dark:text-white">
                     ECES
@@ -164,7 +170,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
               {/* Paramètres */}
               <Link
-                href="/parametres"
+                href={`${roleToBasePath[userRole]}/parametres`}
                 className="p-2 max-sm:hidden rounded-lg text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
               >
                 <Settings className="h-5 w-5" />
@@ -202,7 +208,7 @@ const Navbar: React.FC<NavbarProps> = ({
                       Mon Profil
                     </Link>
                     <Link
-                      href="/parametres"
+                      href={`${roleToBasePath[userRole]}/parametres`}
                       className="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
                       onClick={() => setIsUserMenuOpen(false)}
                     >
@@ -226,7 +232,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
       {/* Modal de recherche mobile */}
       {isSearchOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 md:hidden">
+        <div className="fixed inset-0 bg-white dark:bg-gray-900 z-50 md:hidden">
           <div className="bg-white dark:bg-gray-900 p-4">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Rechercher</h3>

@@ -4,11 +4,22 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { motion } from 'framer-motion';
 import {
   Users, UserCog, BookOpen, GraduationCap,
   Plus, ArrowRight, Settings
 } from 'lucide-react';
 import { etudiantsApi, enseignantsApi, filieresApi, sousAdminsApi } from '@/lib/api';
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } }
+};
 
 export default function DashboardPage() {
   const router = useRouter();
@@ -42,77 +53,82 @@ export default function DashboardPage() {
   }, []);
 
   const statCards = [
-    { title: 'Enseignants', value: stats.enseignants, icon: Users,         bg: 'bg-blue-500',    iconBg: 'bg-blue-100 dark:bg-blue-900/40',    iconColor: 'text-blue-500',    href: '/admin/enseignants' },
-    { title: 'Sous-Admins', value: stats.sousAdmins,  icon: UserCog,       bg: 'bg-emerald-500', iconBg: 'bg-emerald-100 dark:bg-emerald-900/40', iconColor: 'text-emerald-500', href: '/admin/sous-admins' },
-    { title: 'Filières',    value: stats.filieres,    icon: BookOpen,      bg: 'bg-amber-500',   iconBg: 'bg-amber-100 dark:bg-amber-900/40',   iconColor: 'text-amber-500',   href: '/admin/filieres' },
-    { title: 'Étudiants',   value: stats.etudiants,   icon: GraduationCap, bg: 'bg-purple-500',  iconBg: 'bg-purple-100 dark:bg-purple-900/40', iconColor: 'text-purple-500',  href: '/admin/etudiants' },
+    { title: 'Enseignants', value: stats.enseignants, icon: Users,         bg: 'bg-blue-500',    iconBg: 'bg-blue-100 dark:bg-blue-900/40',    iconColor: 'text-blue-600 dark:text-blue-400',    href: '/admin/enseignants' },
+    { title: 'Sous-Admins', value: stats.sousAdmins,  icon: UserCog,       bg: 'bg-emerald-500', iconBg: 'bg-emerald-100 dark:bg-emerald-900/40', iconColor: 'text-emerald-600 dark:text-emerald-400', href: '/admin/sous-admins' },
+    { title: 'Filières',    value: stats.filieres,    icon: BookOpen,      bg: 'bg-amber-500',   iconBg: 'bg-amber-100 dark:bg-amber-900/40',   iconColor: 'text-amber-600 dark:text-amber-400',   href: '/admin/filieres' },
+    { title: 'Étudiants',   value: stats.etudiants,   icon: GraduationCap, bg: 'bg-purple-500',  iconBg: 'bg-purple-100 dark:bg-purple-900/40', iconColor: 'text-purple-600 dark:text-purple-400',  href: '/admin/etudiants' },
   ];
 
   return (
-    <div className="space-y-8 p-3 sm:p-0">
-      <div>
-        <h1 className="text-2xl font-title font-bold text-slate-900 dark:text-slate-100">Tableau de bord</h1>
-        <p className="text-slate-500 dark:text-slate-400 mt-1">Vue d&apos;ensemble de votre établissement</p>
-      </div>
+    <motion.div 
+      variants={containerVariants} 
+      initial="hidden" 
+      animate="visible" 
+      className="space-y-8 p-3 sm:p-0"
+    >
+      <motion.div variants={itemVariants} className="space-y-1">
+        <h1 className="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Tableau de bord</h1>
+        <p className="text-slate-500 dark:text-slate-400 font-medium">Vue d'ensemble de l'établissement</p>
+      </motion.div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      <motion.div variants={itemVariants} className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {statCards.map((card) => (
           <div key={card.title} onClick={() => router.push(card.href)}
-            className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer overflow-hidden group hover:-translate-y-1 relative border border-transparent dark:border-slate-700">
+            className="bg-white dark:bg-slate-900/50 rounded-2xl shadow-sm hover:shadow-xl dark:shadow-none transition-all duration-300 cursor-pointer overflow-hidden group hover:-translate-y-1 relative border border-slate-200/50 dark:border-slate-800/60">
             <div className={`absolute left-0 top-0 bottom-0 w-1.5 ${card.bg}`} />
-            <div className="p-4 sm:p-6 pl-5 sm:pl-8">
+            <div className="p-5 sm:p-6 pl-6 sm:pl-8">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">{card.title}</p>
+                  <p className="text-sm font-semibold text-slate-500 dark:text-slate-400 mb-2">{card.title}</p>
                   {loading ? (
-                    <div className="h-8 w-12 bg-slate-100 dark:bg-slate-700 rounded animate-pulse" />
+                    <div className="h-8 w-12 bg-slate-100 dark:bg-slate-800 rounded animate-pulse" />
                   ) : (
-                    <p className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-slate-100">{card.value}</p>
+                    <p className="text-3xl font-extrabold text-slate-900 dark:text-white">{card.value}</p>
                   )}
                 </div>
-                <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center ${card.iconBg}`}>
-                  <card.icon className={`w-5 h-5 sm:w-6 sm:h-6 ${card.iconColor}`} />
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${card.iconBg} group-hover:scale-110 transition-transform`}>
+                  <card.icon className={`w-6 h-6 ${card.iconColor}`} />
                 </div>
               </div>
             </div>
           </div>
         ))}
-      </div>
+      </motion.div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
         {/* Recent Teachers */}
-        <div className="lg:col-span-2 bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-transparent dark:border-slate-700 p-5 sm:p-6">
-          <div className="flex items-center justify-between mb-5">
-            <h2 className="text-lg font-title font-semibold text-slate-900 dark:text-slate-100">Enseignants récents</h2>
-            <Link href="/admin/enseignants" className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium flex items-center">
-              Voir tout <ArrowRight className="w-4 h-4 ml-1" />
+        <motion.div variants={itemVariants} className="lg:col-span-2 bg-white dark:bg-slate-900/50 rounded-[2rem] shadow-sm border border-slate-200/50 dark:border-slate-800/60 p-6 sm:p-8">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">Enseignants récents</h2>
+            <Link href="/admin/enseignants" className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-bold flex items-center group">
+              Voir tout <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
           {loading ? (
-            <div className="space-y-3">
+            <div className="space-y-4">
               {[...Array(3)].map((_, i) => (
-                <div key={i} className="h-14 bg-slate-100 dark:bg-slate-700 rounded-xl animate-pulse" />
+                <div key={i} className="h-16 bg-slate-100 dark:bg-slate-800 rounded-2xl animate-pulse" />
               ))}
             </div>
           ) : (
-            <div className="space-y-2">
+            <div className="space-y-3">
               {recentEnseignants.map((enseignant) => (
                 <div key={enseignant.id}
-                  className="flex items-center p-3 sm:p-4 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/60 transition-colors border border-transparent hover:border-slate-100 dark:hover:border-slate-600 cursor-pointer"
+                  className="flex items-center p-4 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/80 transition-all duration-200 border border-transparent hover:border-slate-200 dark:hover:border-slate-700 cursor-pointer"
                   onClick={() => router.push(`/admin/enseignants/${enseignant.id}`)}>
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center text-white font-medium text-sm shrink-0"
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg shrink-0 shadow-sm"
                     style={{ backgroundColor: enseignant.couleur || '#3B82F6' }}>
                     {enseignant.avatar}
                   </div>
-                  <div className="ml-3 flex-1 min-w-0">
-                    <p className="text-sm font-medium text-slate-900 dark:text-slate-100 truncate">{enseignant.prenom} {enseignant.nom}</p>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 truncate">{enseignant.matieres?.join(', ')}</p>
+                  <div className="ml-4 flex-1 min-w-0">
+                    <p className="text-base font-bold text-slate-900 dark:text-white truncate">{enseignant.prenom} {enseignant.nom}</p>
+                    <p className="text-sm font-medium text-slate-500 dark:text-slate-400 truncate">{enseignant.matieres?.join(', ')}</p>
                   </div>
-                  <span className={`ml-2 shrink-0 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                  <span className={`ml-3 shrink-0 inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
                     enseignant.statut === 'Actif'
-                      ? 'bg-green-100 dark:bg-green-900/40 text-green-800 dark:text-green-400'
-                      : 'bg-red-100 dark:bg-red-900/40 text-red-800 dark:text-red-400'
+                      ? 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/60'
+                      : 'bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-400 border border-red-200 dark:border-red-800/60'
                   }`}>
                     {enseignant.statut}
                   </span>
@@ -120,30 +136,29 @@ export default function DashboardPage() {
               ))}
             </div>
           )}
-        </div>
+        </motion.div>
 
         {/* Quick Actions */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-transparent dark:border-slate-700 p-5 sm:p-6">
-          <h2 className="text-lg font-title font-semibold text-slate-900 dark:text-slate-100 mb-5">Raccourcis</h2>
-          <div className="space-y-3">
-
+        <motion.div variants={itemVariants} className="bg-white dark:bg-slate-900/50 rounded-[2rem] shadow-sm border border-slate-200/50 dark:border-slate-800/60 p-6 sm:p-8">
+          <h2 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight mb-6">Raccourcis Rapides</h2>
+          <div className="space-y-4">
             {[
-              { href: '/admin/enseignants/ajouter', label: 'Ajouter un enseignant', color: 'bg-blue-800',    icon: Plus },
-              { href: '/admin/sous-admins/ajouter', label: 'Ajouter un sous-admin', color: 'bg-emerald-600', icon: Plus },
-              { href: '/admin/filieres',            label: 'Gérer les filières',    color: 'bg-amber-600',   icon: BookOpen },
-              { href: '/admin/profile',             label: 'Paramètres compte',     color: 'bg-slate-500',   icon: Settings },
-            ].map(({ href, label, color, icon: Icon }) => (
+              { href: '/admin/enseignants/ajouter', label: 'Ajouter un enseignant', color: 'bg-blue-600 hover:bg-blue-700', shadow: 'shadow-blue-600/20', icon: Plus },
+              { href: '/admin/sous-admins/ajouter', label: 'Ajouter un sous-admin', color: 'bg-emerald-600 hover:bg-emerald-700', shadow: 'shadow-emerald-600/20', icon: Plus },
+              { href: '/admin/filieres',            label: 'Gestion des filières',  color: 'bg-amber-600 hover:bg-amber-700', shadow: 'shadow-amber-600/20', icon: BookOpen },
+              { href: '/admin/profile',             label: 'Configuration & Profil',color: 'bg-slate-600 hover:bg-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700', shadow: 'shadow-slate-600/20', icon: Settings },
+            ].map(({ href, label, color, shadow, icon: Icon }) => (
               <Link key={href} href={href}
-                className={`flex items-center p-3 rounded-xl ${color} text-white hover:opacity-90 transition-opacity group`}>
-                <div className="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center mr-3 group-hover:scale-110 transition-transform">
-                  <Icon className="w-4 h-4" />
+                className={`flex items-center p-4 rounded-2xl ${color} text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${shadow} group`}>
+                <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                  <Icon className="w-5 h-5 text-white" />
                 </div>
-                <span className="font-medium text-sm">{label}</span>
+                <span className="font-bold text-sm tracking-wide">{label}</span>
               </Link>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }

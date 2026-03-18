@@ -1,332 +1,445 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler"
-import { motion } from "framer-motion"
-import { useEffect, useState } from "react"
-import { TrendingUp, Calendar, Award, Clipboard, MessageCircle, BookOpen } from "lucide-react"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
+import { 
+  TrendingUp, Calendar, Award, BookOpen, Users, ShieldCheck, 
+  ArrowRight, GraduationCap, ChevronRight, CheckCircle2,
+  Phone, Mail, MapPin, Newspaper, CalendarDays, ArrowUpRight
+} from "lucide-react";
 
-function GlassEffects() {
-    return (
-        <>
-            <style jsx global>{`
-                .shards-layer {
-                    position: fixed;
-                    inset: 0;
-                    z-index: 10;
-                    pointer-events: none;
-                    overflow: hidden;
-                }
+const fadeIn = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+};
 
-                .shard {
-                    position: absolute;
-                    background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(148,197,253,0.04) 50%, rgba(255,255,255,0.02) 100%);
-                    border: 1px solid rgba(148,197,253,0.12);
-                    backdrop-filter: blur(2px);
-                    clip-path: polygon(var(--p));
-                    transform-origin: center;
-                    animation: shard-float var(--dur, 8s) ease-in-out infinite;
-                    animation-delay: var(--delay, 0s);
-                }
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 }
+  }
+};
 
-                @keyframes shard-float {
-                    0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)) scale(1); opacity: var(--op, 0.6); }
-                    33%       { transform: translateY(-12px) rotate(calc(var(--rot, 0deg) + 1deg)) scale(1.01); opacity: calc(var(--op, 0.6) * 1.3); }
-                    66%       { transform: translateY(6px) rotate(calc(var(--rot, 0deg) - 0.5deg)) scale(0.99); opacity: calc(var(--op, 0.6) * 0.8); }
-                }
+const actualites = [
+  {
+    id: 1,
+    titre: "Cérémonie de Remise des Diplômes",
+    date: "15 Juin 2026",
+    type: "Événement",
+    image: "/bg.jpeg",
+    description: "Rejoignez-nous au grand amphithéâtre pour célébrer la réussite académique impressionnante de notre majestueuse promotion sortante.",
+    link: "#"
+  },
+  {
+    id: 2,
+    titre: "Nouveauté : Pôle Intelligence Artificielle",
+    date: "02 Mai 2026",
+    type: "Innovation Académique",
+    image: "/logo.jpeg",
+    description: "L'ECES annonce officiellement l'accréditation et l'ouverture de sa toute nouvelle filière d'ingénierie spécialisée en Informatique, Data Science et IA.",
+    link: "#"
+  },
+  {
+    id: 3,
+    titre: "Tournoi Sportif Universitaire",
+    date: "28 Avril 2026",
+    type: "Vie Étudiante",
+    image: "/bg.jpeg",
+    description: "L'équipe du campus s'affrontera pour la finale de basketball inter-filières ce grand weekend. Venez nombreux les acclamer et les soutenir !",
+    link: "#"
+  }
+];
 
-                .shard-small {
-                    position: absolute;
-                    border-radius: 2px;
-                    background: linear-gradient(135deg, rgba(148,197,253,0.2), rgba(255,255,255,0.1));
-                    border: 1px solid rgba(148,197,253,0.25);
-                    animation: shard-float var(--dur, 6s) ease-in-out infinite;
-                    animation-delay: var(--delay, 0s);
-                    transform: rotate(var(--rot, 0deg));
-                    clip-path: polygon(var(--p));
-                }
+export default function Accueil() {
+  const [scrolled, setScrolled] = useState(false);
 
-                .light-beam {
-                    position: fixed;
-                    z-index: 8;
-                    pointer-events: none;
-                    border-radius: 50%;
-                    filter: blur(60px);
-                    animation: beam-pulse var(--dur, 6s) ease-in-out infinite;
-                    animation-delay: var(--delay, 0s);
-                }
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-                @keyframes beam-pulse {
-                    0%, 100% { opacity: var(--op, 0.15); transform: scale(1); }
-                    50%       { opacity: calc(var(--op, 0.15) * 1.6); transform: scale(1.08); }
-                }
-
-                .s1  { --p:0% 20%,40% 0%,55% 30%,20% 50%;  --rot:-8deg;  --dur:9s;  --delay:0s;   --op:0.7; width:320px; height:280px; top:5%;  left:-5%;  }
-                .s2  { --p:0% 0%,100% 10%,80% 100%,15% 85%; --rot:5deg;   --dur:11s; --delay:1.5s; --op:0.5; width:260px; height:340px; top:8%;  right:-3%; }
-                .s3  { --p:20% 0%,100% 25%,70% 100%,0% 60%; --rot:-3deg;  --dur:13s; --delay:3s;   --op:0.4; width:200px; height:250px; top:45%; left:2%;  }
-                .s4  { --p:0% 30%,60% 0%,100% 50%,40% 100%; --rot:12deg;  --dur:10s; --delay:0.8s; --op:0.55;width:240px; height:200px; top:60%; right:1%; }
-                .s5  { --p:15% 0%,85% 5%,100% 70%,50% 100%,0% 80%; --rot:-6deg; --dur:14s; --delay:2s; --op:0.35; width:300px; height:280px; bottom:-5%; left:20%; }
-                .s6  { --p:0% 15%,50% 0%,80% 40%,60% 100%,10% 90%; --rot:4deg; --dur:12s; --delay:4s; --op:0.45; width:220px; height:260px; top:30%; right:-2%; }
-                .s7  { --p:10% 0%,90% 20%,100% 80%,20% 100%; --rot:-10deg; --dur:16s; --delay:1s; --op:0.3; width:180px; height:200px; bottom:10%; right:8%; }
-                .s8  { --p:0% 40%,40% 0%,100% 30%,80% 100%; --rot:7deg; --dur:10s; --delay:5s; --op:0.5; width:150px; height:180px; top:70%; left:35%; }
-
-                .ss1 { --p:0% 0%,100% 20%,80% 100%,5% 90%; --rot:25deg; --dur:7s;  --delay:0.5s; width:60px;  height:70px;  top:15%; left:40%; --op:0.8; }
-                .ss2 { --p:10% 0%,100% 0%,90% 100%,0% 80%; --rot:-15deg;--dur:9s;  --delay:2.5s; width:45px;  height:55px;  top:55%; left:55%; --op:0.7; }
-                .ss3 { --p:0% 20%,80% 0%,100% 70%,30% 100%;--rot:40deg; --dur:8s;  --delay:1s;   width:80px;  height:65px;  top:35%; right:15%;--op:0.6; }
-                .ss4 { --p:20% 0%,100% 10%,80% 100%,0% 85%;--rot:-30deg;--dur:11s; --delay:3.5s; width:50px;  height:60px;  bottom:20%;left:45%;--op:0.9; }
-                .ss5 { --p:0% 0%,100% 30%,70% 100%,10% 80%;--rot:18deg; --dur:6s;  --delay:0s;   width:35px;  height:42px;  top:80%; right:30%;--op:0.7; }
-
-                .lb1 { width:500px; height:400px; background:radial-gradient(ellipse, rgba(96,168,232,0.2), transparent 70%); top:-100px; left:-100px; --dur:7s; --op:0.8; }
-                .lb2 { width:400px; height:500px; background:radial-gradient(ellipse, rgba(31,78,121,0.25), transparent 70%); bottom:-80px; right:-80px; --dur:9s; --delay:3s; --op:0.8; }
-                .lb3 { width:300px; height:300px; background:radial-gradient(ellipse, rgba(148,197,253,0.12), transparent 70%); top:40%; left:30%; --dur:11s; --delay:1.5s; --op:0.6; }
-            `}</style>
-
-            <div className="light-beam lb1" />
-            <div className="light-beam lb2" />
-            <div className="light-beam lb3" />
-
-            <div className="shards-layer">
-                <div className="shard s1" />
-                <div className="shard s2" />
-                <div className="shard s3" />
-                <div className="shard s4" />
-                <div className="shard s5" />
-                <div className="shard s6" />
-                <div className="shard s7" />
-                <div className="shard s8" />
-                <div className="shard-small ss1" />
-                <div className="shard-small ss2" />
-                <div className="shard-small ss3" />
-                <div className="shard-small ss4" />
-                <div className="shard-small ss5" />
+  return (
+    <div className="min-h-screen bg-slate-50 dark:bg-[#0a0f1c] font-sans overflow-x-hidden selection:bg-blue-500/30">
+      
+      {/* ---------------- NAVBAR ---------------- */}
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          scrolled
+            ? "bg-white/80 dark:bg-[#0a0f1c]/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-800/50 shadow-sm py-4"
+            : "bg-transparent py-6"
+        }`}
+      >
+        <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-xl flex items-center justify-center p-1 shadow-md border border-slate-100/50 dark:border-white/10 overflow-hidden transition-transform group-hover:scale-105">
+               <Image src="/logo.jpeg" alt="ECES Logo" width={48} height={48} className="object-contain rounded-full" />
             </div>
-        </>
-    )
+            <span className={`text-xl md:text-2xl font-extrabold tracking-tight transition-colors ${scrolled ? 'text-slate-900 dark:text-white' : 'text-white drop-shadow-md'}`}>
+               ECES
+            </span>
+          </Link>
+
+          {/* Actions */}
+          <div className="flex items-center gap-4 md:gap-6">
+            <div className={scrolled ? 'text-slate-900 dark:text-white' : 'text-white'}>
+              <AnimatedThemeToggler />
+            </div>
+            <Link 
+              href="/login"
+              className={`hidden sm:flex items-center gap-2 px-6 py-2.5 rounded-full font-bold transition-all hover:scale-105 hover:shadow-lg ${
+                scrolled 
+                  ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-blue-600/20' 
+                  : 'bg-white text-blue-900 hover:bg-white/90 shadow-black/10'
+              }`}
+            >
+              Se connecter <ArrowRight className="w-4 h-4" />
+            </Link>
+            {/* Mobile login button */}
+            <Link 
+              href="/login"
+              className={`sm:hidden flex items-center justify-center w-10 h-10 rounded-full transition-all ${
+                scrolled ? 'bg-blue-600 text-white' : 'bg-white text-blue-900'
+              }`}
+            >
+              <UserRoundIcon className="w-5 h-5" />
+            </Link>
+          </div>
+        </div>
+      </nav>
+
+      {/* ---------------- HERO SECTION ---------------- */}
+      <section className="relative min-h-[100svh] flex items-center justify-center pt-28 pb-10 overflow-hidden">
+        {/* Background Image & Overlay */}
+        <div className="absolute inset-0 z-0">
+          <Image 
+            src="/bg.jpeg" 
+            alt="Campus Background" 
+            fill 
+            className="object-cover scale-105 animate-slow-pan"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-indigo-950/90 via-slate-900/80 to-slate-50 dark:to-[#0a0f1c] mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-50 dark:from-[#0a0f1c] via-transparent to-transparent h-56 bottom-0 top-auto z-10" />
+        </div>
+
+        {/* Note la classe pb-32 ou mb-10 ajoutée ici sur le container pour élever le contenu afin qu'il ne chevauche pas les cartes statistiques ! */}
+        <div className="container relative z-10 mx-auto px-6 md:px-12 flex flex-col items-center text-center pb-24 md:pb-36 mt-16 md:mt-10">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white/90 text-sm font-semibold shadow-2xl"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            Plateforme académique 2025-2026
+          </motion.div>
+
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white tracking-tight leading-[1.1] mb-6 drop-shadow-xl max-w-5xl"
+          >
+            L'excellence éducative <br className="hidden md:block"/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">
+              au cœur de l'innovation.
+            </span>
+          </motion.h1>
+
+          <motion.p 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            className="text-lg md:text-xl text-slate-200 max-w-2xl mb-12 font-medium leading-relaxed drop-shadow-md"
+          >
+            L'École Communautaire de l'Enseignement Supérieur (ECES) vous offre un espace numérique performant liant campus, cursus et administration en temps réel.
+          </motion.p>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+            className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center"
+          >
+            <Link 
+              href="/login"
+              className="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold text-lg transition-all hover:scale-105 shadow-xl shadow-blue-600/30 flex items-center justify-center gap-2"
+            >
+              Accéder à l'Espace <ArrowRight className="w-5 h-5" />
+            </Link>
+            <a 
+              href="#decouvrir"
+              className="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 rounded-full font-bold text-lg transition-all hover:scale-105 flex items-center justify-center gap-2"
+            >
+              Découvrir ECES
+            </a>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ---------------- STATS SECTION ---------------- */}
+      <section className="relative z-20 -mt-24 md:-mt-32 px-6 md:px-12 max-w-7xl mx-auto">
+        <motion.div 
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+        >
+          <motion.div variants={fadeIn} className="bg-white dark:bg-slate-900 rounded-3xl p-8 shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800 transition-transform hover:-translate-y-2 group">
+            <div className="w-14 h-14 bg-indigo-50 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <TrendingUp className="w-7 h-7" />
+            </div>
+            <h3 className="text-4xl font-extrabold text-slate-900 dark:text-white mb-2">95%</h3>
+            <p className="text-slate-500 dark:text-slate-400 font-medium leading-relaxed">Taux de réussite record aux examens nationaux et concours internationaux.</p>
+          </motion.div>
+
+          <motion.div variants={fadeIn} className="bg-white dark:bg-slate-900 rounded-3xl p-8 shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800 transition-transform hover:-translate-y-2 group">
+            <div className="w-14 h-14 bg-emerald-50 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <Calendar className="w-7 h-7" />
+            </div>
+            <h3 className="text-4xl font-extrabold text-slate-900 dark:text-white mb-2">2001</h3>
+            <p className="text-slate-500 dark:text-slate-400 font-medium leading-relaxed">Année de création et d'agrément officiel par le ministère public.</p>
+          </motion.div>
+
+          <motion.div variants={fadeIn} className="bg-white dark:bg-slate-900 rounded-3xl p-8 shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800 transition-transform hover:-translate-y-2 group">
+            <div className="w-14 h-14 bg-amber-50 dark:bg-amber-900/40 text-amber-600 dark:text-amber-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <Award className="w-7 h-7" />
+            </div>
+            <h3 className="text-4xl font-extrabold text-slate-900 dark:text-white mb-2">+25 ans</h3>
+            <p className="text-slate-500 dark:text-slate-400 font-medium leading-relaxed">D'expertise inébranlable et d'expérience dans l'enseignement universitaire.</p>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* ---------------- ACTUALITÉS / NEWS SECTION ---------------- */}
+      <section className="py-24 px-6 md:px-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div className="max-w-2xl">
+              <h2 className="text-blue-600 dark:text-blue-500 font-bold tracking-widest uppercase mb-3 text-sm flex items-center gap-2">
+                <Newspaper className="w-4 h-4" /> Vie au Campus
+              </h2>
+              <h3 className="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white leading-tight">Dernières Actualités</h3>
+              <p className="text-lg text-slate-500 dark:text-slate-400 mt-4 font-medium">Restez informé de tout ce qui se passe publiquement autour de notre belle institution.</p>
+            </div>
+            <Link href="#" className="inline-flex items-center gap-2 px-6 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-full font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors shrink-0">
+              Toute l'actualité <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {actualites.map((news) => (
+              <motion.article 
+                key={news.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="group flex flex-col bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/60 dark:border-slate-800/60 overflow-hidden shadow-sm hover:shadow-xl dark:shadow-none transition-all duration-300 hover:-translate-y-1"
+              >
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100 dark:bg-slate-800">
+                  <Image 
+                    src={news.image} 
+                    alt={news.titre} 
+                    fill 
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1.5 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-lg text-xs font-bold text-blue-600 dark:text-blue-400 border border-white/20 dark:border-slate-700/50 shadow-sm uppercase tracking-wider">
+                      {news.type}
+                    </span>
+                  </div>
+                </div>
+                
+                <div className="p-6 md:p-8 flex flex-col flex-1">
+                  <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm font-semibold mb-3">
+                    <CalendarDays className="w-4 h-4" />
+                    <span>{news.date}</span>
+                  </div>
+                  <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug">
+                    {news.titre}
+                  </h4>
+                  <p className="text-slate-600 dark:text-slate-400 font-medium leading-relaxed mb-6 flex-1">
+                    {news.description}
+                  </p>
+                  <Link href={news.link} className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 font-bold hover:underline mt-auto">
+                    Lire la suite <ArrowUpRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------- FEATURES SECTION ---------------- */}
+      <section id="decouvrir" className="py-24 px-6 md:px-12 bg-slate-100/50 dark:bg-[#0a0f1c] border-t border-slate-200/50 dark:border-slate-800/50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <h2 className="text-blue-600 dark:text-blue-500 font-bold tracking-widest uppercase mb-3 text-sm">Notre Écosystème</h2>
+            <h3 className="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-6">Un portail pensé pour l'excellence.</h3>
+            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
+              Découvrez des espaces dédiés et sécurisés pour chaque acteur de l'établissement, avec des outils métiers hautement structurés pour vous assister.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <FeatureCard 
+              icon={<GraduationCap className="w-8 h-8"/>}
+              title="Espace Étudiant"
+              desc="Accédez à vos cours, consultez vos emplois du temps hebdomadaires, suivez l'évolution de vos notes et interagissez avec votre promotion."
+              colorClass="from-blue-600 to-indigo-600"
+              bgClass="bg-blue-50 dark:bg-blue-900/20"
+              iconColor="text-blue-600 dark:text-blue-400"
+              bullets={["Support de cours (PDF)", "Relevés de notes dynamiques", "Messagerie interactive", "Suivi des paiements officiels"]}
+            />
+            
+            <FeatureCard 
+              icon={<BookOpen className="w-8 h-8"/>}
+              title="Espace Enseignant"
+              desc="Gérez vos classes d'une main de maître. Uploadez des ressources pédagogiques, saisissez les évaluations et suivez l'assiduité."
+              colorClass="from-emerald-500 to-teal-600"
+              bgClass="bg-emerald-50 dark:bg-emerald-900/20"
+              iconColor="text-emerald-600 dark:text-emerald-400"
+              bullets={["Saisie des pondérations", "Partage de documents (Word, XL)", "Listes des étudiants et majeurs", "Consultation d'emploi du temps"]}
+            />
+
+            <FeatureCard 
+              icon={<ShieldCheck className="w-8 h-8"/>}
+              title="Administration"
+              desc="Pilotez l'établissement en temps réel. Gérez les filières, les enseignants, les inscriptions massives et la facturation globale."
+              colorClass="from-purple-600 to-fuchsia-600"
+              bgClass="bg-purple-50 dark:bg-purple-900/20"
+              iconColor="text-purple-600 dark:text-purple-400"
+              bullets={["Gestion des cohortes et filières", "Tableau de bord financier", "Génération unifiée des bulletins", "Déploiement central des Annonces"]}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------- CALL TO ACTION ---------------- */}
+      <section className="py-24 px-6 md:px-12 bg-white dark:bg-[#0a0f1c] border-y border-slate-100 dark:border-slate-800">
+        <div className="max-w-5xl mx-auto bg-gradient-to-br from-indigo-900 to-[#0A2540] rounded-[3rem] p-10 md:p-16 text-center text-white relative overflow-hidden shadow-2xl">
+          {/* Decals */}
+          <div className="absolute -top-24 -right-24 w-64 h-64 bg-blue-500/20 blur-3xl rounded-full" />
+          <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-indigo-500/20 blur-3xl rounded-full" />
+          
+          <div className="relative z-10 max-w-2xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-6">Prêt à commencer ?</h2>
+            <p className="text-lg md:text-xl text-indigo-200 mb-10 leading-relaxed font-medium">Rejoignez votre espace dès maintenant pour profiter sans attente de tous les services numériques intelligents que propose ECES.</p>
+            <Link 
+              href="/login"
+              className="inline-flex items-center gap-2 px-10 py-5 bg-white text-indigo-950 hover:bg-slate-50 rounded-full font-bold text-lg transition-transform hover:scale-105 shadow-xl"
+            >
+              Se Connecter au Portail <ChevronRight className="w-5 h-5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------- FOOTER ---------------- */}
+      <footer className="bg-slate-50 dark:bg-[#0a0f1c] pt-20 pb-10 px-6 md:px-12 border-t border-slate-200/60 dark:border-slate-800/60">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          <div className="space-y-6 lg:col-span-2">
+            <Link href="/" className="flex items-center gap-3">
+              <Image src="/logo.jpeg" alt="ECES Logo" width={44} height={44} className="rounded-xl shadow-md border border-slate-200 dark:border-slate-700" />
+              <span className="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">ECES</span>
+            </Link>
+            <p className="text-slate-500 dark:text-slate-400 font-medium max-w-md leading-relaxed">
+              École Communautaire de l'Enseignement Supérieur, la référence avérée en excellence académique et en accompagnement personnalisé et technologique vers votre accomplissement au Congo.
+            </p>
+            <div className="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-100 dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-700 text-sm font-bold text-slate-700 dark:text-slate-300">
+              <ShieldCheck className="w-4 h-4 text-emerald-500" />
+              Agrément N°0012 MES-CAB.DGSUP
+            </div>
+          </div>
+
+          <div>
+            <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-6">Secrétariat Administratif</h4>
+            <ul className="space-y-4 text-slate-600 dark:text-slate-400 font-medium">
+              <li className="flex items-start gap-4">
+                <MapPin className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" />
+                <span className="leading-snug">1399 rue Moukoukoulou<br/>Plateau des 15 ans,<br/>Brazzaville, Rép. du Congo</span>
+              </li>
+              <li className="flex items-center gap-4">
+                <Phone className="w-5 h-5 text-blue-500 shrink-0" />
+                <span className="leading-snug">+242 06-951-24-69<br/>+242 06-688-65-79</span>
+              </li>
+              <li className="flex items-center gap-4">
+                <Mail className="w-5 h-5 text-blue-500 shrink-0" />
+                <span>info@ecesonline.org</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-6">Liens Rapides & Outils</h4>
+            <ul className="space-y-3 font-medium">
+              <li><Link href="/login" className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Se Connecter (Portail Web)</Link></li>
+              <li><Link href="#" className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Notre équipe et histoire</Link></li>
+              <li><Link href="#" className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Mentions légales</Link></li>
+              <li><Link href="#" className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Politique de confidentialité relative</Link></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto pt-8 border-t border-slate-200/60 dark:border-slate-800/60 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-slate-500 dark:text-slate-400 text-sm font-medium">
+            © {new Date().getFullYear()} ECES. Tous droits réservés.
+          </p>
+          <p className="text-slate-400 dark:text-slate-500 text-sm font-semibold">
+            Développé avec excellence.
+          </p>
+        </div>
+      </footer>
+    </div>
+  );
 }
 
-export default function Accuel() {
-    const [scrolled, setScrolled] = useState(false)
+// Composant interne pour les cartes "Features"
+const FeatureCard = ({ icon, title, desc, colorClass, bgClass, iconColor, bullets }: any) => {
+  return (
+    <motion.div 
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      className="bg-white dark:bg-slate-900 rounded-3xl p-8 shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800 hover:-translate-y-2 transition-transform duration-300 group flex flex-col"
+    >
+      <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 ${bgClass}`}>
+        {icon}
+      </div>
+      <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">{title}</h3>
+      <p className="text-slate-600 dark:text-slate-400 font-medium mb-8 leading-relaxed">
+        {desc}
+      </p>
+      
+      <div className="space-y-3 mt-auto">
+        {bullets.map((b: string, i: number) => (
+          <div key={i} className="flex items-start gap-3">
+            <CheckCircle2 className={`w-5 h-5 shrink-0 py-0.5 ${iconColor}`} />
+            <span className="text-sm font-semibold text-slate-700 dark:text-slate-300 leading-tight">{b}</span>
+          </div>
+        ))}
+      </div>
+    </motion.div>
+  );
+}
 
-    useEffect(() => {
-        const onScroll = () => setScrolled(window.scrollY > 20)
-        window.addEventListener("scroll", onScroll, { passive: true })
-        return () => window.removeEventListener("scroll", onScroll)
-    }, [])
-
-    return (
-        <>
-            <GlassEffects />
-
-            {/* Navbar */}
-            <nav
-                className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 transition-all duration-300 ${
-                    scrolled
-                        ? "bg-white/20 dark:bg-black/50 backdrop-blur-md border border-white/10 dark:border-white/20 shadow-lg"
-                        : "bg-white/10 dark:bg-black/40 backdrop-blur-md"
-                }`}
-            >
-                <Link href="/" className="flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-blue-400">
-                    <span className="w-8 h-8 rounded-full border border-blue-200/30 bg-[rgba(31,78,121,0.35)] overflow-hidden flex items-center justify-center">
-                        <img src="/logo.jpeg" alt="ECES" className="w-full h-full object-cover" />
-                    </span>
-                    ECES
-                </Link>
-
-                <div className="flex items-center gap-3">
-                    <AnimatedThemeToggler />
-                    <button
-                        className="bg-blue-500 text-white px-4 py-2 rounded shadow-sm hover:bg-blue-600 transition"
-                        onClick={() => window.location.href = "/login"}
-                    >
-                        Se connecter
-                    </button>
-                </div>
-            </nav>
-
-            {/* Hero Image */}
-            <motion.div
-                className="relative h-screen overflow-hidden"
-                initial={{ x: -100, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 1 }}
-            >
-                <img src="/bg.jpeg" alt="Hero" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-linear-to-b from-black/30 via-black/40 to-black/70" />
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-white px-4 pt-24 z-20">
-                    <motion.div
-                        className="text-7xl md:text-8xl font-bold mb-4 tracking-tight"
-                        initial={{ x: 120, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 1, delay: 0.4 }}
-                    >
-                        BIENVENUE
-                    </motion.div>
-                    <motion.div
-                        className="text-4xl md:text-5xl font-semibold text-center max-w-3xl leading-snug"
-                        initial={{ x: 120, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 1, delay: 0.9 }}
-                    >
-                        Dans la platform de gestion scolaire d&apos;<span className="text-blue-400">ECES</span>
-                    </motion.div>
-                    <motion.div
-                        className="mt-6 text-sm md:text-base text-gray-200 max-w-xl text-center"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 1, delay: 1.4 }}
-                    >
-                        Suivez les notes, gérez les emplois du temps, communiquez avec les familles et restez informé en temps réel.
-                    </motion.div>
-                    
-                </div>
-                <div className="pointer-events-none absolute inset-x-0 bottom-0">
-                    <svg
-                        viewBox="0 0 1440 120"
-                        className="w-full h-24 md:h-32"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            fill="rgba(255,255,255,0.15)"
-                            d="M0,32L80,42.7C160,53,320,75,480,90.7C640,107,800,117,960,117.3C1120,117,1280,107,1360,101.3L1440,96L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"
-                        />
-                    </svg>
-                </div>
-            </motion.div>
-
-            {/* Statistics Cards */}
-            <section className="container mx-auto mt-8 px-4">
-                <h2 className="text-3xl md:text-4xl font-semibold text-center mb-6">Quelques chiffres clés</h2>
-                <div className="grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] gap-6">
-                    <motion.div
-                        className="bg-gray-400/20 backdrop-blur-md border border-white/30 rounded-xl p-6 text-center shadow-lg transition-transform hover:scale-105 hover:z-20 relative group"
-                        initial={{ y: 20, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        viewport={{ once: true, amount: 0.3 }}
-                    >
-                        <div className="absolute inset-0 bg-blue-400/20 h-0 transition-all duration-300 group-hover:h-full rounded-xl"></div>
-                        <div className="relative z-10">
-                            <TrendingUp className="mx-auto mb-3 w-14 h-14 text-blue-400" />
-                            <h3 className="text-xl font-semibold text-black dark:text-gray-200">Taux de Réussite</h3>
-                            <p className="text-3xl font-bold text-black dark:text-gray-200 mt-2">95%</p>
-                        </div>
-                    </motion.div>
-                    <motion.div
-                        className="bg-gray-400/20 backdrop-blur-md border border-white/30 rounded-xl p-6 text-center shadow-lg transition-transform hover:scale-105 hover:z-20 relative group"
-                        initial={{ y: 20, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        viewport={{ once: true, amount: 0.3 }}
-                        transition={{ delay: 0.1 }}
-                    >
-                        <div className="absolute inset-0 bg-green-400/20 h-0 transition-all duration-300 group-hover:h-full rounded-xl"></div>
-                        <div className="relative z-10">
-                            <Calendar className="mx-auto mb-3 w-14 h-14 text-green-400" />
-                            <h3 className="text-xl font-semibold text-black dark:text-gray-200">Année d'Agrément</h3>
-                            <p className="text-3xl font-bold text-black dark:text-gray-200 mt-2">2001</p>
-                        </div>
-                    </motion.div>
-                    <motion.div
-                        className="bg-gray-400/20 backdrop-blur-md border border-white/30 rounded-xl p-6 text-center shadow-lg transition-transform hover:scale-105 hover:z-20 relative group"
-                        initial={{ y: 20, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        viewport={{ once: true, amount: 0.3 }}
-                        transition={{ delay: 0.2 }}
-                    >
-                        <div className="absolute inset-0 bg-yellow-400/20 h-0 transition-all duration-300 group-hover:h-full rounded-xl"></div>
-                        <div className="relative z-10">
-                            <Award className="mx-auto mb-3 w-14 h-14 text-yellow-400" />
-                            <h3 className="text-xl font-semibold text-black dark:text-gray-200">Expérience Annuelle</h3>
-                            <p className="text-3xl font-bold text-black dark:text-gray-200 mt-2">Plus de 25 ans</p>
-                        </div>
-                    </motion.div>
-                </div>
-            </section>
-
-            {/* Features / Professional section */}
-            <section className="container mx-auto mt-10 px-4">
-                <h2 className="text-3xl md:text-4xl font-semibold text-center mb-6">Ce que vous pouvez faire</h2>
-                <div className="grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] gap-6">
-                    <motion.div
-                        className="bg-gray-400/15 backdrop-blur-md border border-white/20 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow relative group"
-                        initial={{ y: 20, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        viewport={{ once: true, amount: 0.3 }}
-                    >
-                        <div className="absolute inset-0 bg-blue-400/15 h-0 transition-all duration-300 group-hover:h-full rounded-xl"></div>
-                        <div className="relative z-10">
-                            <BookOpen className="mx-auto mb-3 w-12 h-12 text-blue-400" />
-                            <h3 className="text-xl font-semibold mb-2 text-black dark:text-gray-200">Gestion des cours</h3>
-                            <p className="text-sm text-black dark:text-gray-200">
-                                Créez et planifiez les cours, gérez les emplois du temps et suivez la présence des élèves en quelques clics.
-                            </p>
-                        </div>
-                    </motion.div>
-                    <motion.div
-                        className="bg-gray-400/15 backdrop-blur-md border border-white/20 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow relative group"
-                        initial={{ y: 20, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        viewport={{ once: true, amount: 0.3 }}
-                        transition={{ delay: 0.1 }}
-                    >
-                        <div className="absolute inset-0 bg-green-400/15 h-0 transition-all duration-300 group-hover:h-full rounded-xl"></div>
-                        <div className="relative z-10">
-                            <Clipboard className="mx-auto mb-3 w-12 h-12 text-green-400" />
-                            <h3 className="text-xl font-semibold mb-2 text-black dark:text-gray-200">Suivi des notes</h3>
-                            <p className="text-sm text-black dark:text-gray-200">
-                                Enregistrez les évaluations, générez des bulletins et visualisez les performances de chaque élève.
-                            </p>
-                        </div>
-                    </motion.div>
-                    <motion.div
-                        className="bg-gray-400/15 backdrop-blur-md border border-white/20 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow relative group"
-                        initial={{ y: 20, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        viewport={{ once: true, amount: 0.3 }}
-                        transition={{ delay: 0.2 }}
-                    >
-                        <div className="absolute inset-0 bg-yellow-400/15 h-0 transition-all duration-300 group-hover:h-full rounded-xl"></div>
-                        <div className="relative z-10">
-                            <MessageCircle className="mx-auto mb-3 w-12 h-12 text-yellow-400" />
-                            <h3 className="text-xl font-semibold mb-2 text-black dark:text-gray-200">Communication</h3>
-                            <p className="text-sm text-black dark:text-gray-200">
-                                Envoyez des annonces, gérez les messages et partagez les informations importantes avec les familles.
-                            </p>
-                        </div>
-                    </motion.div>
-                </div>
-            </section>
-
-            {/* Footer */}
-            <footer className="bg-[rgb(249,250,251)] z-50 dark:bg-gray-800 text-center p-10 mt-12">
-                <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div>
-                        <h3 className="text-lg font-semibold mb-2">À propos</h3>
-                        <p className="text-sm text-black     dark:text-gray-300">
-                             Ecole Communautaire de L`Enseignement Superieur référence en gestion scolaire, propose un espace centralisé pour tous les acteurs de l`école.
-                            B,P:2852- BRAZZAVILLE/CONGO <br />
-                            AGREMENT N°0012 MES-CAB.DGSUP
-                        </p>
-                    </div>
-                    <div>
-                        <h3 className="text-lg font-semibold mb-2">Contact</h3>
-                        <p className="text-sm text-black     dark:text-gray-300">1399 rue Moukoukoulou Plateau de 15 ans, Brazzaville-Republique du Congo</p>
-                        <p className="text-sm text-black dark:text-gray-300">+242 06-951-24-69 / 06-688-65-79</p>
-                        <p className="text-sm text-black dark:text-gray-300">info@ecesonline.org</p>
-                        <p className="text-sm text-black dark:text-gray-300">www.eces-ecole.org</p>
-
-                    </div>
-                    <div>
-                        <h3 className="text-lg font-semibold mb-2">Liens utiles</h3>
-                        <ul className="text-sm text-black    dark:text-gray-300 space-y-1">
-                            <li>Connexion</li>
-                            <li>Documentation</li>
-                            <li>Support</li>
-                        </ul>
-                    </div>
-                </div>
-                <div className="mt-8 text-xs text-gray-500 dark:text-gray-400">
-                    © {new Date().getFullYear()} ECES. Tous droits réservés.
-                </div>
-            </footer>
-        </>
-    )
+function UserRoundIcon(props: any) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/>
+    </svg>
+  );
 }

@@ -18,7 +18,7 @@ export default function EtudiantDashboardPage() {
           
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-5">
               <Link href="/etudiant/mes-cours">
-                <Card className="p-6 hover:shadow-lg duration-300 hover:-translate-y-4 shadow-blue-600 transition-all cursor-pointer h-full">
+                <Card className="p-6 hover:shadow-md duration-300 hover:-translate-y-2 shadow-blue-600 transition-all cursor-pointer h-full">
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-sm font-medium text-slate-500 mb-1">Mes Cours</p>
@@ -36,7 +36,7 @@ export default function EtudiantDashboardPage() {
               </Link>
 
               <Link href="/etudiant/mes-notes">
-                <Card className="p-6 hover:shadow-lg duration-300 hover:-translate-y-4 shadow-emerald-600 transition-all cursor-pointer h-full">
+                <Card className="p-6 hover:shadow-md duration-300 hover:-translate-y-2 shadow-emerald-600 transition-all cursor-pointer h-full">
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-sm font-medium text-slate-500 mb-1">Ma Moyenne</p>
@@ -54,7 +54,7 @@ export default function EtudiantDashboardPage() {
               </Link>
 
               <Link href="/etudiant/emploi-du-temps">
-                <Card className="p-6 hover:shadow-lg duration-300 hover:-translate-y-4 shadow-amber-600 transition-all cursor-pointer h-full">
+                <Card className="p-6 hover:shadow-md duration-300 hover:-translate-y-2 shadow-amber-600 transition-all cursor-pointer h-full">
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-sm font-medium text-slate-500 mb-1">Emploi du temps</p>
@@ -71,7 +71,7 @@ export default function EtudiantDashboardPage() {
               </Link>
 
               <Link href="/etudiant/messages">
-                <Card className="p-6 hover:shadow-lg duration-300 hover:-translate-y-4 shadow-purple-600 transition-all cursor-pointer h-full">
+                <Card className="p-6 hover:shadow-md duration-300 hover:-translate-y-2 shadow-purple-600 transition-all cursor-pointer h-full">
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-sm font-medium text-slate-500 mb-1">Messages</p>
@@ -88,7 +88,7 @@ export default function EtudiantDashboardPage() {
               </Link>
 
               <Link href="/etudiant/paiements">
-                <Card className="p-6 hover:shadow-lg duration-300 hover:-translate-y-4 shadow-olive-600 transition-all cursor-pointer h-full">
+                <Card className="p-6 hover:shadow-md duration-300 hover:-translate-y-2 shadow-olive-600 transition-all cursor-pointer h-full">
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-sm font-medium text-slate-500 mb-1">Statut de paiement</p>
@@ -105,7 +105,7 @@ export default function EtudiantDashboardPage() {
               </Link>
 
               <Link href="/etudiant/notifications">
-                <Card className="p-6 hover:shadow-lg duration-300 hover:-translate-y-4 shadow-fuchsia-600 transition-all cursor-pointer h-full">
+                <Card className="p-6 hover:shadow-md duration-300 hover:-translate-y-2 shadow-fuchsia-600 transition-all cursor-pointer h-full">
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-sm font-medium text-slate-500 mb-1">notifications</p>

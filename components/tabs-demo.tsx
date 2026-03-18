@@ -1,76 +1,44 @@
 "use client";
 
 import { AnimatedTabsImpl as Tabs } from "@/components/ui/tabs";
-import Image from "next/image";
-
 import React from "react";
-import type { Cours, Notification, Paiement, Note } from "@/types/etudiant";
-import adminsData from "../data/admins.json";
-import { Award, BookOpen, Calendar, CreditCard, MessageSquare } from "lucide-react";
+import { Award, BookOpen, Calendar, CreditCard, MessageSquare, Download, Presentation, Filter, Activity, BarChart3, TrendingUp, History, ShieldCheck, PieChart, Users, BellRing, Bell } from "lucide-react";
 
-type RawCourse = {
-  id: number;
-  jour: string;
-  heureDebut: string;
-  heureFin: string;
-  matiere: string;
-  enseignant?: string;
-  salle: string;
-};
-
-type RawSession = {
-  id: number;
-  matiere: string;
-  date: string;
-  heure: string;
-  salle: string;
-  site?: string;
-};
+// Sous-composant pour afficher les puces textuelles avec icône
+const FeaturePoint = ({ icon, text }: { icon: React.ReactNode, text: string }) => (
+  <div className="flex items-center gap-3 p-4 bg-white/10 dark:bg-slate-900/40 rounded-xl backdrop-blur-md border border-white/10 hover:bg-white/20 transition-colors">
+    <div className="p-2 bg-white/10 rounded-lg text-white">
+      {icon}
+    </div>
+    <span className="text-sm font-semibold text-blue-50 leading-snug">{text}</span>
+  </div>
+);
 
 export default function TabsDemo() {
-  const data = (adminsData as any)?.espaceEtudiantDemo as {
-    emploiDuTempsCours?: RawCourse[];
-    emploiDuTempsSessions?: RawSession[];
-  };
-
-  const rawCourses: RawCourse[] = data.emploiDuTempsCours || [];
-  const rawSessions: RawSession[] = data.emploiDuTempsSessions || [];
-
-  const emploiDuTempsCours: Cours[] = rawCourses.map((c: RawCourse) => ({
-    id: c.id,
-    jour: c.jour,
-    heureDebut: c.heureDebut,
-    heureFin: c.heureFin,
-    matiere: c.matiere,
-    salle: c.salle,
-  }));
-
-  const emploiDuTempsSessions: Cours[] = rawSessions.map((s: RawSession) => ({
-    id: s.id,
-    jour: s.date,
-    heureDebut: s.heure,
-    heureFin: s.heure,
-    matiere: s.matiere,
-    salle: s.salle,
-  }));
-
   const tabs = [
     {
-      title: "Cours",
-      value: "Cours",
+      title: "Mes Cours",
+      value: "cours",
       content: (
-        <div className="w-full overflow-hidden relative h-[90%] rounded-2xl p-7 text-xl md:text-4xl font-bold text-white bg-linear-to-br from-blue-500 to-blue-600">
-          <span className="flex gap-5 items-center">
-              {/* <Image 
-                        src="/images/book_8092583.png"
-                        alt="cours Logo"
-                        width={70}
-                        height={70}
-                      /> */}
-              <BookOpen/>
-              <p className="text-[16px]">Consultation des matières, enseignants et contenus pédagogiques associés</p>
-            </span>
-          <DashboardCoursContent />
+        <div className="w-full relative h-[90%] rounded-[2rem] p-8 md:p-12 text-white bg-gradient-to-br from-[#033481] to-blue-700 shadow-xl overflow-hidden flex flex-col justify-center border border-blue-400/20">
+          <BookOpen className="w-64 h-64 absolute -bottom-10 -right-10 text-white opacity-[0.03] pointer-events-none transform -rotate-12" />
+          
+          <div className="relative z-10 max-w-2xl">
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-3 flex items-center gap-3">
+              <BookOpen className="w-8 h-8 text-blue-300" />
+              Module d'Apprentissage
+            </h2>
+            <p className="text-blue-100 font-medium mb-8 text-sm md:text-base leading-relaxed">
+              Consultez vos matières, retrouvez vos enseignants et parcourez tous les supports pédagogiques associés (PDF, TP, Td).
+            </p>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+               <FeaturePoint icon={<Download className="w-5 h-5"/>} text="Téléchargement des PDF sécurisés" />
+               <FeaturePoint icon={<Filter className="w-5 h-5"/>} text="Filtres par matière et enseignant" />
+               <FeaturePoint icon={<Presentation className="w-5 h-5"/>} text="Aperçu rapide document A4" />
+               <FeaturePoint icon={<Activity className="w-5 h-5"/>} text="Tri automatisé et intelligent" />
+            </div>
+          </div>
         </div>
       ),
     },
@@ -78,18 +46,25 @@ export default function TabsDemo() {
       title: "Calendrier",
       value: "calendrier",
       content: (
-        <div className="w-full overflow-hidden relative h-[90%] rounded-2xl p-7 text-xl md:text-4xl font-bold text-white bg-linear-to-br from-blue-500 to-blue-600">
-            <span className="flex gap-5 items-center">
-              {/* <Image 
-                        src="/images/calendar_673045.png"
-                        alt="calendrier Logo"
-                        width={70}
-                        height={70}
-                      /> */}
-              <Calendar/>
-              <p className="text-[16px]">planification et suivi des emplois du temps et événements</p>
-            </span>
-          <DashboardEdtContent emploiDuTempsCours={emploiDuTempsCours} emploiDuTempsSessions={emploiDuTempsSessions} />
+        <div className="w-full relative h-[90%] rounded-[2rem] p-8 md:p-12 text-white bg-gradient-to-br from-indigo-700 to-[#0A2540] shadow-xl overflow-hidden flex flex-col justify-center border border-indigo-500/20">
+          <Calendar className="w-64 h-64 absolute -bottom-10 -right-10 text-white opacity-[0.03] pointer-events-none transform -rotate-12" />
+          
+          <div className="relative z-10 max-w-2xl">
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-3 flex items-center gap-3">
+              <Calendar className="w-8 h-8 text-indigo-300" />
+              Emplois du Temps
+            </h2>
+            <p className="text-indigo-100 font-medium mb-8 text-sm md:text-base leading-relaxed">
+              Une planification simplifiée. Récupérez les plannings PDF de chaque semaine pour votre filière et votre niveau en un simple clic.
+            </p>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+               <FeaturePoint icon={<History className="w-5 h-5"/>} text="Historique des semaines passées" />
+               <FeaturePoint icon={<BarChart3 className="w-5 h-5"/>} text="Indicateur d'heures dynamiques" />
+               <FeaturePoint icon={<Download className="w-5 h-5"/>} text="Exportation et aperçu Paysage" />
+               <FeaturePoint icon={<Users className="w-5 h-5"/>} text="Groupé par Major et Niveau" />
+            </div>
+          </div>
         </div>
       ),
     },
@@ -97,18 +72,25 @@ export default function TabsDemo() {
       title: "Notes",
       value: "note",
       content: (
-        <div className="w-full overflow-hidden relative h-[90%] rounded-2xl p-7 text-xl md:text-4xl font-bold text-white bg-linear-to-br from-blue-500 to-blue-600">
-          <span className="flex gap-5 items-center">
-              {/* <Image 
-                        src="/images/clipboard_1070559.png"
-                        alt="moyenne Logo"
-                        width={70}
-                        height={70}
-                      /> */}
-              <Award/>
-              <p className="text-[16px]">Visualisation rapide de la moyenne générale et de l’évolution des résultats</p>
-            </span>
-          <DashboardMoyenneContent />
+        <div className="w-full relative h-[90%] rounded-[2rem] p-8 md:p-12 text-white bg-gradient-to-br from-emerald-600 to-teal-900 shadow-xl overflow-hidden flex flex-col justify-center border border-emerald-400/20">
+          <Award className="w-64 h-64 absolute -bottom-10 -right-10 text-white opacity-[0.03] pointer-events-none transform -rotate-12" />
+          
+          <div className="relative z-10 max-w-2xl">
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-3 flex items-center gap-3">
+              <Award className="w-8 h-8 text-emerald-300" />
+              Performances & Résultats
+            </h2>
+            <p className="text-emerald-100 font-medium mb-8 text-sm md:text-base leading-relaxed">
+              Visualisation complète de votre dossier académique avec calcul en temps réel de votre moyenne générale et des statistiques par matière.
+            </p>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+               <FeaturePoint icon={<TrendingUp className="w-5 h-5"/>} text="Suivi de moyenne avec animations" />
+               <FeaturePoint icon={<ShieldCheck className="w-5 h-5"/>} text="Calcul pondéré Devoir/Session" />
+               <FeaturePoint icon={<PieChart className="w-5 h-5"/>} text="Lettres de performances (A+, B)" />
+               <FeaturePoint icon={<Award className="w-5 h-5"/>} text="Rendu du tableau élégant" />
+            </div>
+          </div>
         </div>
       ),
     },
@@ -116,219 +98,59 @@ export default function TabsDemo() {
       title: "Messages",
       value: "messages",
       content: (
-        <div className="w-full overflow-hidden relative h-[90%] rounded-2xl p-7 text-xl md:text-4xl font-bold text-white bg-linear-to-br from-blue-500 to-blue-600">
-          <span className="flex gap-5 items-center">
-              {/* <Image 
-                        src="/images/email_16604698.png"
-                        alt="moyenne Logo"
-                        width={70}
-                        height={70}
-                      /> */}
-              <MessageSquare/>
-              <p className="text-[16px]">Consultation des annonces importantes et des informations administratives</p>
-            </span>
-          <DashboardMessagetContent />
+        <div className="w-full relative h-[90%] rounded-[2rem] p-8 md:p-12 text-white bg-gradient-to-br from-fuchsia-700 to-purple-900 shadow-xl overflow-hidden flex flex-col justify-center border border-purple-500/20">
+          <MessageSquare className="w-64 h-64 absolute -bottom-10 -right-10 text-white opacity-[0.03] pointer-events-none transform -rotate-12" />
+          
+          <div className="relative z-10 max-w-2xl">
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-3 flex items-center gap-3">
+              <MessageSquare className="w-8 h-8 text-purple-300" />
+              Espace Discussion
+            </h2>
+            <p className="text-purple-100 font-medium mb-8 text-sm md:text-base leading-relaxed">
+              Un espace d'échange fluide interactif comme votre application de messagerie préférée. Restez connecté avec le groupe de votre filière.
+            </p>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+               <FeaturePoint icon={<Users className="w-5 h-5"/>} text="Salon organisé par filière" />
+               <FeaturePoint icon={<BellRing className="w-5 h-5"/>} text="Avatars intelligents générés" />
+               <FeaturePoint icon={<History className="w-5 h-5"/>} text="Défilement de lecture continu" />
+               <FeaturePoint icon={<MessageSquare className="w-5 h-5"/>} text="Bulles d'envoi et de réception" />
+            </div>
+          </div>
         </div>
       ),
     },
     {
-      title: "Statut paiement",
+      title: "Paiements",
       value: "Statut paiement",
       content: (
-        <div className="w-full overflow-hidden relative h-[90%] rounded-2xl p-7 text-xl md:text-4xl font-bold text-white bg-linear-to-br from-blue-500 to-blue-600">
-          <span className="flex gap-5 items-center">
-              {/* <Image 
-                        src="/images/wallet_3258446.png"
-                        alt="moyenne Logo"
-                        width={70}
-                        height={70}
-                      /> */}
-              <CreditCard/>
-              <p className="text-[16px]">Gestion et suivi des paiements liés à la scolarité et aux frais académiques</p>
-            </span>
-          <DashboardPaiementContent />
+        <div className="w-full relative h-[90%] rounded-[2rem] p-8 md:p-12 text-white bg-gradient-to-br from-slate-700 to-slate-900 shadow-xl overflow-hidden flex flex-col justify-center border border-slate-600/30">
+          <CreditCard className="w-64 h-64 absolute -bottom-10 -right-10 text-white opacity-[0.03] pointer-events-none transform -rotate-12" />
+          
+          <div className="relative z-10 max-w-2xl">
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-3 flex items-center gap-3">
+              <CreditCard className="w-8 h-8 text-slate-300" />
+              Statuts Financiers
+            </h2>
+            <p className="text-slate-100 font-medium mb-8 text-sm md:text-base leading-relaxed">
+              L'historique détaillé de votre scolarité. Retrouvez vos reçus de versement dans une vue digne d'un relevé bancaire professionnel.
+            </p>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+               <FeaturePoint icon={<ShieldCheck className="w-5 h-5"/>} text="KPI: Total payé et en l'attente" />
+               <FeaturePoint icon={<Download className="w-5 h-5"/>} text="Extraction des PDF de relevé" />
+               <FeaturePoint icon={<Activity className="w-5 h-5"/>} text="Factures avec indicateur couleur" />
+               <FeaturePoint icon={<Bell className="w-5 h-5"/>} text="Connexion pôle financier" />
+            </div>
+          </div>
         </div>
       ),
     },
   ];
 
   return (
-    <div className="h-80 md:h-100 max-sm:hidden perspective-[1000px] relative flex flex-col max-w-5xl mx-auto w-full  items-start justify-start font-mono font-semibold">
+    <div className="h-[450px] md:h-[30rem] max-sm:hidden perspective-[1000px] relative flex flex-col max-w-5xl mx-auto w-full items-start justify-start font-mono font-semibold">
       <Tabs tabs={tabs} />
     </div>
   );
-}
-
-// const DummyContent = () => {
-//   return (
-//           <div>
-//             Contenu
-//           </div>
-//     <img
-//       src="/linear.webp"
-//       alt="dummy image"
-//       width="1000"
-//       height="1000"
-//       className="object-cover object-left-top h-[60%]  md:h-[90%] absolute -bottom-10 inset-x-0 w-[90%] rounded-xl mx-auto"
-//     />
-    
-//   );
-// };
-export const DashboardEdtContent = ({
-  emploiDuTempsCours,
-  emploiDuTempsSessions,
-}: {
-  emploiDuTempsCours: Cours[];
-  emploiDuTempsSessions: Cours[];
-}) => {
-  return (
-          <div className="mt-3 text-xs bg-linear-to-br from-blue-500 to-blue-600 text-gray-900 grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-[rgb(232,232,232)] dark:bg-[rgb(72,70,86)] p-3 rounded-xl shadow">
-          <h3 className=" font-semibold text-gray-900 dark:text-white mb-4">Cours</h3>
-          <ul className="space-y-2">
-            {emploiDuTempsCours.slice(0, 2).map((c: Cours) => (
-              <li key={c.id} className="p-3 rounded-lg shadow-sm bg-gray-50">
-                <p className="font-semibold">{c.matiere}</p>
-                <p>{c.jour} {c.heureDebut} - {c.heureFin}</p>
-                <p>Salle {c.salle}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="bg-[rgb(232,232,232)] dark:bg-[rgb(72,70,86)] p-3 rounded-xl shadow">
-          <h3 className="text-xs text-gray-900 dark:text-white font-semibold mb-4">Sessions</h3>
-          <ul className="space-y-2">
-            {emploiDuTempsSessions.slice(0, 2).map((s: Cours) => (
-              <li key={s.id} className="p-3 rounded-lg shadow-sm bg-gray-50">
-                <p className="font-semibold">{s.matiere}</p>
-                <p>{s.jour} {s.heureDebut} - {s.heureFin}</p>
-                <p>Salle {s.salle}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    
-  );
-};
-
-export const DashboardMessagetContent = () => {
-  const data = (adminsData as any)?.espaceEtudiantDemo as { notifications?: Notification[] };
-  const notifications: Notification[] = data.notifications || [];
-
-  return (
-    <div className="mt-3 text-xs bg-[rgb(232,232,232)] dark:bg-[rgb(72,70,86)] text-gray-900 p-3 rounded-xl">
-      <h3 className="font-semibold mb-3 text-gray-900 dark:text-white">Annonces</h3>
-      <ul className="space-y-2">
-        {notifications.slice(0, 2).map((n: Notification) => (
-          <li key={n.id} className="p-3 rounded-lg shadow-sm bg-gray-50">
-            <p className="font-semibold">{n.message}</p>
-            <p className="text-xs text-gray-500">{n.date}</p>
-          </li>
-        ))}
-        {notifications.length === 0 && (
-          <li className="p-3 rounded-lg bg-gray-50">Aucune annonce.</li>
-        )}
-      </ul>
-    </div>
-  );
-};
-
-export const DashboardCoursContent = ()=> {
-  const data = (adminsData as any)?.espaceEtudiantDemo as { emploiDuTempsCours?: RawCourse[] };
-  const rawCourses: RawCourse[] = data.emploiDuTempsCours || [];
-
-  const cours: Cours[] = rawCourses.map((c: RawCourse) => ({
-    id: c.id,
-    jour: c.jour,
-    heureDebut: c.heureDebut,
-    heureFin: c.heureFin,
-    matiere: c.matiere,
-    salle: c.salle,
-  }));
-
-  return (
-    <div className="mt-3 text-xs bg-[rgb(232,232,232)] dark:bg-[rgb(72,70,86)] text-gray-900 p-3 rounded-xl">
-      <h3 className="font-semibold mb-3 text-gray-900 dark:text-white">Matières</h3>
-      <ul className="space-y-2">
-        {cours.slice(0, 2).map((c: Cours) => (
-          <li key={c.id} className="p-3 rounded-lg shadow-sm bg-gray-50">
-            <p className="font-semibold">{c.matiere}</p>
-            <p className="text-sm">{c.jour} {c.heureDebut} - {c.heureFin}</p>
-            <p className="text-sm">Salle {c.salle}</p>
-          </li>
-        ))}
-        {cours.length === 0 && (
-          <li className="p-3 rounded-lg bg-gray-50">Aucun cours disponible.</li>
-        )}
-      </ul>
-    </div>
-  )
-}
-
-export const DashboardPaiementContent = ()=> {
-  const data = (adminsData as any)?.espaceEtudiantDemo as { paiements?: Paiement[] };
-  const paiements: Paiement[] = data.paiements || [];
-
-  return (
-    <div className="mt-3 text-xs bg-[rgb(232,232,232)] dark:bg-[rgb(72,70,86)] text-gray-900 p-3 rounded-xl">
-      <h3 className="font-semibold mb-3 text-gray-900 dark:text-white">Paiements</h3>
-      <ul className="space-y-2">
-        {paiements.slice(0, 2).map((p: Paiement) => (
-          <li key={p.id} className="p-3 grid grid-cols-2 rounded-lg shadow-sm bg-gray-50">
-            <p className="font-semibold">{p.description}</p>
-            <p className="text-sm">{p.date} — {p.statut}</p>
-            {p.mode && <p className="text-sm">Mode: {p.mode}</p>}
-            <p className="text-sm">Montant: {p.montant.toLocaleString()}</p>
-          </li>
-        ))}
-        {paiements.length === 0 && (
-          <li className="p-3 rounded-lg bg-gray-50">Aucun paiement enregistré.</li>
-        )}
-      </ul>
-    </div>
-  )
-}
-
-export const DashboardMoyenneContent = ()=> {
-  const data = (adminsData as any)?.espaceEtudiantDemo as { notes?: Note[] };
-  const notes: Note[] = data.notes || [];
-
-  const subjectsWithAvg = notes.map((n: Note) => ({
-    ...n,
-    avg: (n.devoir + n.session) / 2,
-    coefficient: n.coefficient ?? 1,
-  }));
-
-  const totalWeight = subjectsWithAvg.reduce((s, n) => s + (n.coefficient || 1), 0);
-  const overallAverage = notes.length
-    ? Math.round((subjectsWithAvg.reduce((s, n) => s + n.avg * (n.coefficient || 1), 0) / (totalWeight || 1)) * 10) / 10
-    : 0;
-
-  const topSubjects = subjectsWithAvg.sort((a, b) => b.avg - a.avg).slice(0, 2);
-
-  return (
-    <div className="mt-3 text-xs bg-[rgb(232,232,232)] dark:bg-[rgb(72,70,86)] text-gray-900 p-3 rounded-xl">
-      <span className="flex items-center gap-5">
-        <h3 className="font-semibold mb-1 text-gray-900 dark:text-white">Moyenne générale :</h3>
-        <p className="text-lg font-bold mb-1">{overallAverage}</p>
-      </span>
-
-      <h4 className="font-semibold mb-1">Notes & Moyenne</h4>
-      <ul className="space-y-2">
-        {topSubjects.map((s) => (
-          <li key={s.id} className="p-3 grid grid-cols-2 rounded-lg shadow-sm bg-gray-50">
-            <p className="font-semibold">{s.matiere}</p>
-            <p className="text-sm">Coef: {s.coefficient}</p>
-            <p className="text-sm">Devoir: {s.devoir} — Session: {s.session}</p>
-            <p className="text-sm">Moyenne: {Math.round(s.avg * 10) / 10}</p>
-          </li>
-        ))}
-        {notes.length === 0 && (
-          <li className="p-3 rounded-lg bg-gray-50">Aucune note disponible.</li>
-        )}
-      </ul>
-    </div>
-  )
 }

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
+import { useRouter } from 'next/navigation';
 
 import { UserRole } from '@/types/index';
 import { toast } from 'sonner';
@@ -19,53 +20,34 @@ const Layout: React.FC<LayoutProps> = ({
   userName = 'Utilisateur',
   userAvatar 
 }) => {
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const handleMenuClick = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
+  const router = useRouter();
+  // Par défaut, la sidebar est masquée (collapsed) sur mobile, mais développée sur Desktop via le composant Sidebar
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(true);
 
   const handleLogout = () => {
-    // console.log('Déconnexion...');
-    toast.success("déconnexion...")
-    // Implémentez votre logique de déconnexion ici
+    toast.success("Déconnexion effectuée avec succès.");
+    router.push('/login');
   };
 
   const showSidebar = userRole !== 'visitor';
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#0a0f1c]">
       <Navbar  
-        userRole ={userRole}
+        userRole={userRole}
         userName={userName}
         userAvatar={userAvatar}
-        onMenuClick={handleMenuClick}
+        onMenuClick={() => setSidebarCollapsed(!sidebarCollapsed)}
         onLogout={handleLogout}
       />
       
-      {/* Sidebar pour desktop */}
+      {/* Sidebar Unifiée (Desktop + Mobile) */}
       {showSidebar && (
         <Sidebar 
           role={userRole} 
           collapsed={sidebarCollapsed}
           onToggle={() => setSidebarCollapsed(!sidebarCollapsed)}
         />
-      )}
-
-      {/* Overlay pour mobile */}
-      {mobileMenuOpen && showSidebar && (
-        <div 
-          className="fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden"
-          onClick={() => setMobileMenuOpen(false)}
-        />
-      )}
-
-      {/* Sidebar pour mobile */}
-      {mobileMenuOpen && showSidebar && (
-        <div className="fixed inset-y-0 left-0 w-64 bg-white dark:bg-gray-900 z-40 lg:hidden">
-          <Sidebar role={userRole} />
-        </div>
       )}
 
       {/* Contenu principal */}

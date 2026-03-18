@@ -39,11 +39,9 @@ export default function MessageForm({ onSend, messageToEdit, triggerText = 'Nouv
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger>
-        <Button className="bg-blue-600 hover:bg-blue-700 flex items-center gap-2 shadow-md w-full sm:w-auto">
+      <DialogTrigger className="bg-blue-600 rounded-md text-white p-1 hover:bg-blue-700 flex items-center gap-2 shadow-md w-full max-sm:w-auto sm:w-auto">
           <MessageSquare className="h-4 w-4" />
           <span>{triggerText}</span>
-        </Button>
       </DialogTrigger>
       <DialogContent className="max-w-md sm:max-w-lg mx-auto rounded-2xl p-6">
         <DialogHeader>

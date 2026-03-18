@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/sonner";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -19,7 +20,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "ECES",
   description: "École communautaire de l'enseignement supérieur",
+  icons: {
+    icon: "/logo.jpeg",
+  },
 };
+
 
 
 export default function RootLayout({
@@ -29,13 +34,14 @@ export default function RootLayout({
 }>) {
 
   return (
-    <html lang="fr" className={cn("font-sans", inter.variable)}>
+    <html lang="fr" className={cn("font-sans", inter.variable)} suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
           <Toaster/>
+        </ThemeProvider>
       </body>
     </html>
   );
