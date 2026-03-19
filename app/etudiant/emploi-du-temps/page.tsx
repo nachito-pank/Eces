@@ -4,7 +4,7 @@
 import React, { useState } from 'react';
 import adminsData from '@/data/admins.json';
 import { Download, Printer, Calendar as CalendarIcon, Clock, MapPin, Eye, FileText, X, GraduationCap, Search, Layers } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { toast } from 'sonner';
 
 export default function EdtPage() {
@@ -36,10 +36,18 @@ export default function EdtPage() {
     visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
   };
 
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1, transition: { type: "spring", stiffness: 300, damping: 24 } }
-  };
+  const itemVariants: Variants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: { 
+    y: 0, 
+    opacity: 1, 
+    transition: { 
+      type: "spring", 
+      stiffness: 300, 
+      damping: 24 
+    } 
+  }
+};
 
   return (
     <main className="w-full min-h-screen bg-[#F8FAFC] dark:bg-[#0B1120] p-4 md:p-8 font-sans">

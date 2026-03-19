@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from "framer-motion";
 import {
   BookOpen,
   GraduationCap,
@@ -17,9 +17,16 @@ const containerVariants = {
   visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } }
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut" as const
+    }
+  }
 };
 
 export default function EnseignantDashboardPage() {

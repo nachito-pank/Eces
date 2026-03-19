@@ -4,7 +4,7 @@ import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { 
@@ -119,11 +119,25 @@ export default function LoginEtudiant() {
 
   const currentRoleData = roleOptions.find(r => r.id === selectedRole);
 
-  const variants = {
-    initial: { opacity: 0, x: 15 },
-    animate: { opacity: 1, x: 0, transition: { duration: 0.3, ease: "easeOut" } },
-    exit: { opacity: 0, x: -15, transition: { duration: 0.2, ease: "easeIn" } }
-  };
+  const variants: Variants = {
+  initial: { opacity: 0, x: -20 },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut" as const
+    }
+  },
+  exit: {
+    opacity: 0,
+    x: 20,
+    transition: {
+      duration: 0.5,
+      ease: "easeIn" as const
+    }
+  }
+};
 
   return (
     <div className="flex min-h-screen bg-slate-50 dark:bg-[#0a0f1c]">

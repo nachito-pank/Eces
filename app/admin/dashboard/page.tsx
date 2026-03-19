@@ -2,9 +2,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { motion, type Variants } from "framer-motion";
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { motion } from 'framer-motion';
 import {
   Users, UserCog, BookOpen, GraduationCap,
   Plus, ArrowRight, Settings
@@ -16,9 +16,16 @@ const containerVariants = {
   visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } }
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut" as const
+    }
+  }
 };
 
 export default function DashboardPage() {

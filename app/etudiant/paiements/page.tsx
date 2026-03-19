@@ -4,7 +4,7 @@
 import React, { useMemo } from 'react';
 import adminsData from '@/data/admins.json';
 import { CreditCard, Download, ExternalLink, Filter, Plus, Printer, Search, Wallet, CheckCircle2, Clock, AlertCircle } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 
 export default function PaiementsPage() {
   const etudiant = (adminsData as any).etudiants?.[1] || (adminsData as any).etudiants?.[0] || { paiements: [] };
@@ -15,10 +15,17 @@ export default function PaiementsPage() {
     visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
   };
 
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1, transition: { type: "spring", stiffness: 300, damping: 24 } }
-  };
+  const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut" as const
+    }
+  }
+};
 
   const stats = useMemo(() => {
     let totalPaye = 0;

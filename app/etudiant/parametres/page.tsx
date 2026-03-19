@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import { 
   Settings, Bell, Shield, Palette, 
   HelpCircle, ChevronRight, Moon, Sun, MonitorSmartphone 
@@ -19,10 +19,17 @@ export default function ParametresPage() {
     visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
   };
 
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1, transition: { type: "spring", stiffness: 300, damping: 24 } }
-  };
+  const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut" as const
+    }
+  }
+};
 
   const handleAction = (message: string) => {
     toast.success(message);

@@ -4,7 +4,7 @@
 import React, { useMemo } from 'react';
 import adminsData from '@/data/admins.json';
 import { BookOpen, GraduationCap, TrendingUp, Award, AlertCircle } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 
 type NoteRow = {
   id: number;
@@ -67,14 +67,17 @@ export default function StudentNotesPage() {
     }
   };
 
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: { 
-      y: 0, 
-      opacity: 1, 
-      transition: { type: "spring", stiffness: 300, damping: 24 } 
+  const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut" as const
     }
-  };
+  }
+};
 
   return (
     <main className="w-full p-4 md:p-8 min-h-[calc(100vh-4rem)] bg-slate-50/50 dark:bg-[#0a0f1c] font-sans">
