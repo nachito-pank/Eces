@@ -74,16 +74,21 @@ export default function ProfilPage() {
 
   const handleLogout = () => {
     if (confirm('Etes-vous sur de vouloir vous deconnecter ?')) {
-      window.location.href = '/sous-admin/login';
+      // Effacer les données de session/localStorage si nécessaire
+      localStorage.removeItem('sousAdminToken');
+      sessionStorage.removeItem('sousAdminData');
+      
+      // Rediriger vers la page d'accueil du site
+      window.location.href = '/';
     }
   };
 
   if (!sousAdmin) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
         <Card className="w-full max-w-md">
           <CardContent className="text-center py-12">
-            <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-20 h-20 bg-linear-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
               <User className="h-10 w-10 text-white" />
             </div>
             <h2 className="text-2xl font-bold text-gray-900 mb-2">Chargement...</h2>
@@ -95,12 +100,12 @@ export default function ProfilPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100">
       <div className="bg-white shadow-sm border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center">
+              <div className="w-10 h-10 bg-linear-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center">
                 <User className="h-5 w-5 text-white" />
               </div>
               <div>
@@ -136,7 +141,7 @@ export default function ProfilPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-1">
             <Card className="bg-white shadow-lg border border-gray-200 overflow-hidden">
-              <div className="bg-gradient-to-r from-blue-500 to-indigo-600 p-6 text-white">
+              <div className="bg-linear-to-r from-blue-500 to-indigo-600 p-6 text-white">
                 <div className="flex items-center gap-4">
                   <div className="relative">
                     <Avatar className="w-20 h-20 border-4 border-white/30">

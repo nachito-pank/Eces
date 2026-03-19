@@ -1,15 +1,17 @@
 "use client";
 
+
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 import { 
-  TrendingUp, Calendar, Award, BookOpen, Users, ShieldCheck, 
+  TrendingUp, Calendar, Award, BookOpen, ShieldCheck, 
   ArrowRight, GraduationCap, ChevronRight, CheckCircle2,
   Phone, Mail, MapPin, Newspaper, CalendarDays, ArrowUpRight
 } from "lucide-react";
+
 
 const fadeIn = {
   hidden: { opacity: 0, y: 30 },
@@ -64,6 +66,7 @@ export default function Accueil() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#0a0f1c] font-sans overflow-x-hidden selection:bg-blue-500/30">
@@ -443,3 +446,4 @@ function UserRoundIcon(props: any) {
     </svg>
   );
 }
+

@@ -3,14 +3,15 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
-  Settings, User, Bell, Shield, Palette, 
-  HelpCircle, ChevronRight, LogOut, Moon, Sun, MonitorSmartphone 
+  Settings, Bell, Shield, Palette, 
+  HelpCircle, ChevronRight, Moon, Sun, MonitorSmartphone 
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { useTheme } from 'next-themes';
 
 export default function ParametresPage() {
   const { theme, setTheme } = useTheme();
+  if (!theme) return null
   const [notificationsEnabled, setNotificationsEnabled] = useState(true);
 
   const containerVariants = {
@@ -26,6 +27,8 @@ export default function ParametresPage() {
   const handleAction = (message: string) => {
     toast.success(message);
   };
+
+  
 
   return (
     <main className="w-full min-h-screen bg-[#F8FAFC] dark:bg-[#0B1120] p-4 md:p-8 font-sans">
@@ -131,7 +134,7 @@ export default function ParametresPage() {
             
             <div className="space-y-3">
               <button onClick={() => handleAction('Redirection vers le centre d\'aide...')} className="w-full flex items-center justify-between p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
-                <span className="font-bold text-sm text-slate-700 dark:text-slate-300">Centre d'aide et Support</span>
+                <span className="font-bold text-sm text-slate-700 dark:text-slate-300">Centre d&apos;aide et Support</span>
                 <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-[#033481] transition-colors" />
               </button>
             </div>
