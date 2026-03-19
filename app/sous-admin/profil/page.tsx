@@ -102,63 +102,73 @@ export default function ProfilPage() {
   return (
     <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100">
       <div className="bg-white shadow-sm border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-linear-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center">
-                <User className="h-5 w-5 text-white" />
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center py-3 sm:py-4 gap-3">
+            <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-linear-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center flex-shrink-0">
+                <User className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
               </div>
-              <div>
-                <h1 className="text-2xl font-bold text-gray-900">Mon Profil</h1>
-                <p className="text-sm text-gray-500">Gerez vos informations personnelles</p>
+              <div className="min-w-0 flex-1">
+                <h1 className="text-lg sm:text-2xl font-bold text-gray-900 truncate">Mon Profil</h1>
+                <p className="text-xs sm:text-sm text-gray-500 hidden sm:block">Gerez vos informations personnelles</p>
               </div>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 w-full sm:w-auto">
               <Button 
                 variant="outline" 
                 size="sm"
                 onClick={() => window.location.href = '/sous-admin/dashboard'}
-                className="flex items-center gap-2"
+                className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm px-2 sm:px-3 flex-1 sm:flex-none justify-center"
               >
-                <Shield className="h-4 w-4" />
-                Retour
+                <Shield className="h-3 w-3 sm:h-4 sm:w-4" />
+                <span className="hidden sm:inline">Retour</span>
+                <span className="sm:hidden">←</span>
               </Button>
               <Button 
                 variant="outline" 
                 size="sm"
                 onClick={handleLogout}
-                className="flex items-center gap-2 text-red-600 hover:text-red-700 hover:bg-red-50"
+                className="flex items-center gap-1 sm:gap-2 text-red-600 hover:text-red-700 hover:bg-red-50 text-xs sm:text-sm px-2 sm:px-3 flex-1 sm:flex-none justify-center"
               >
-                <LogOut className="h-4 w-4" />
-                Deconnexion
+                <LogOut className="h-3 w-3 sm:h-4 sm:w-4" />
+                <span className="hidden sm:inline">Déconnexion</span>
+                <span className="sm:hidden">⎋</span>
               </Button>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8 py-6 sm:py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
           <div className="lg:col-span-1">
             <Card className="bg-white shadow-lg border border-gray-200 overflow-hidden">
-              <div className="bg-linear-to-r from-blue-500 to-indigo-600 p-6 text-white">
-                <div className="flex items-center gap-4">
-                  <div className="relative">
-                    <Avatar className="w-20 h-20 border-4 border-white/30">
-                      <AvatarFallback className="text-2xl font-bold bg-white/20 text-blue-600">
-                        {sousAdmin.prenom?.charAt(0)}{sousAdmin.nom?.charAt(0)}
-                      </AvatarFallback>
+              <div className="bg-linear-to-r from-blue-500 to-indigo-600 p-4 sm:p-6 text-white">
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <div className="relative shrink-0">
+                    <Avatar className="w-16 h-16 sm:w-20 sm:h-20 border-4 border-white/30">
+                      {formData.avatar && formData.avatar.startsWith('data:') ? (
+                        <img 
+                          src={formData.avatar} 
+                          alt="Avatar" 
+                          className="w-full h-full object-cover rounded-full"
+                        />
+                      ) : (
+                        <AvatarFallback className="text-xl sm:text-2xl font-bold bg-white/20 text-blue-600">
+                          {sousAdmin.prenom?.charAt(0)}{sousAdmin.nom?.charAt(0)}
+                        </AvatarFallback>
+                      )}
                     </Avatar>
                     <button 
-                      className="absolute bottom-0 right-0 bg-white/20 hover:bg-white/30 rounded-full p-2 transition-colors"
+                      className="absolute bottom-0 right-0 bg-white/20 hover:bg-white/30 rounded-full p-1.5 sm:p-2 transition-colors"
                       onClick={() => document.getElementById('avatar-input')?.click()}
                     >
-                      <Camera className="h-4 w-4 text-white" />
+                      <Camera className="h-3 w-3 sm:h-4 sm:w-4 text-white" />
                     </button>
                   </div>
-                  <div>
-                    <h2 className="text-xl font-bold">{sousAdmin.prenom} {sousAdmin.nom}</h2>
-                    <p className="text-blue-100 text-sm">Sous-Administrateur</p>
+                  <div className="min-w-0 flex-1">
+                    <h2 className="text-lg sm:text-xl font-bold truncate">{sousAdmin.prenom} {sousAdmin.nom}</h2>
+                    <p className="text-blue-100 text-xs sm:text-sm">Sous-Administrateur</p>
                   </div>
                 </div>
               </div>
@@ -293,10 +303,18 @@ export default function ProfilPage() {
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-gray-700">Avatar</label>
                       <div className="flex items-center gap-4">
-                        <div 
-                          className="w-12 h-12 rounded-full border-2 border-gray-300"
-                          style={{ backgroundColor: formData.avatar }}
-                        ></div>
+                        {formData.avatar && formData.avatar.startsWith('data:') ? (
+                          <img 
+                            src={formData.avatar} 
+                            alt="Avatar preview" 
+                            className="w-12 h-12 rounded-full border-2 border-gray-300 object-cover"
+                          />
+                        ) : (
+                          <div 
+                            className="w-12 h-12 rounded-full border-2 border-gray-300"
+                            style={{ backgroundColor: formData.avatar }}
+                          ></div>
+                        )}
                         <input
                           id="avatar-input"
                           type="file"
@@ -315,6 +333,11 @@ export default function ProfilPage() {
                           <Camera className="h-4 w-4" />
                         </Button>
                       </div>
+                      {formData.avatar && formData.avatar.startsWith('data:') && (
+                        <p className="text-xs text-gray-500 mt-1">
+                          Photo de profil uploadée avec succès
+                        </p>
+                      )}
                     </div>
                   </TabsContent>
                 </Tabs>

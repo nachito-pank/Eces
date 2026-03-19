@@ -1,4 +1,3 @@
-"use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation'; 
@@ -142,11 +141,11 @@ const Navbar: React.FC<NavbarProps> = ({
 
                 {/* Dropdown notifications */}
                 {isNotificationsOpen && (
-                  <div className="absolute right-0 mt-2 w-80 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 py-2 z-50">
+                  <div className="absolute right-0 mt-2 w-80 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 py-2 z-[60] sm:right-0 sm:mt-2 max-sm:fixed max-sm:top-16 max-sm:left-0 max-sm:right-0 max-sm:w-full max-sm:rounded-none max-sm:rounded-t-lg">
                     <div className="px-4 py-2 border-b border-gray-200 dark:border-gray-700">
                       <h3 className="font-semibold text-gray-900 dark:text-white">Notifications</h3>
                     </div>
-                    <div className="max-h-96 overflow-y-auto">
+                    <div className="max-h-96 overflow-y-auto max-sm:max-h-[calc(100vh-8rem)]">
                       {notifications.map((notif) => (
                         <div
                           key={notif.id}
@@ -167,14 +166,6 @@ const Navbar: React.FC<NavbarProps> = ({
                   </div>
                 )}
               </div>
-
-              {/* Paramètres */}
-              <Link
-                href={`${roleToBasePath[userRole]}/parametres`}
-                className="p-2 max-sm:hidden rounded-lg text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
-              >
-                <Settings className="h-5 w-5" />
-              </Link>
 
               {/* Profil utilisateur */}
               <div className="relative">

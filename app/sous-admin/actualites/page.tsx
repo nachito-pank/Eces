@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
-import { Search, Calendar, Newspaper, Trash2, Edit, Eye } from 'lucide-react';
+import { Search, Calendar, Newspaper, Trash2, Edit, Eye, Plus } from 'lucide-react';
 import adminsData from '@/data/admins.json';
 import ActuCard from '@/components/dashboard/sous-admin/ActuCard';
 import ActuForm from '@/components/dashboard/sous-admin/ActuForm';
@@ -17,9 +17,21 @@ export default function ActualitesPage() {
   const [dateFilter, setDateFilter] = useState('');
   const [filterStatus, setFilterStatus] = useState<'tous' | 'publie' | 'brouillon'>('tous');
   const [actualiteToEdit, setActualiteToEdit] = useState<Actualite | null>(null);
+  const [showFloatingButton, setShowFloatingButton] = useState(false);
+  const [showActuForm, setShowActuForm] = useState(false);
 
   useEffect(() => {
     setActualites((((adminsData as any).actualites || []) as Actualite[]));
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      setShowFloatingButton(scrollY > 200);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const addActualite = (newActuData: any) => {
@@ -33,6 +45,7 @@ export default function ActualitesPage() {
         ...(newActuData.image && { image: URL.createObjectURL(newActuData.image) })
       } : actu));
       setActualiteToEdit(null);
+      setShowActuForm(false);
     } else {
       // Mode ajout
       const newActualite: Actualite = {
@@ -45,6 +58,7 @@ export default function ActualitesPage() {
         ...(newActuData.image && { image: URL.createObjectURL(newActuData.image) })
       };
       setActualites(prev => [newActualite, ...prev]);
+      setShowActuForm(false);
     }
   };
 
@@ -76,7 +90,41 @@ export default function ActualitesPage() {
   }, [actualites, searchTerm, dateFilter, filterStatus]);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 relative">
+      {/* Bouton flottant pour créer une actualité */}
+      {showFloatingButton && (
+        <button
+          onClick={() => setShowActuForm(true)}
+          className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50 bg-green-600 hover:bg-green-700 text-white rounded-full p-3 sm:p-4 shadow-lg transition-all duration-300 hover:scale-110 flex items-center gap-1 sm:gap-2"
+        >
+          <Plus className="h-4 w-4 sm:h-5 sm:w-5" />
+          <span className="hidden sm:inline text-xs sm:text-sm">Nouvelle actualité</span>
+        </button>
+      )}
+
+      {/* Modal pour le formulaire d'actualité */}
+      {showActuForm && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-40 flex items-center justify-center p-2 sm:p-4">
+          <div className="bg-white dark:bg-gray-800 rounded-lg p-4 sm:p-6 w-full max-w-2xl max-h-[85vh] sm:max-h-[90vh] overflow-y-auto">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">
+                {actualiteToEdit ? 'Modifier l\'actualité' : 'Nouvelle actualité'}
+              </h3>
+              <button
+                onClick={() => {
+                  setShowActuForm(false);
+                  setActualiteToEdit(null);
+                }}
+                className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 text-xl sm:text-base p-1"
+              >
+                ✕
+              </button>
+            </div>
+            <ActuForm onSubmit={addActualite} actualiteToEdit={actualiteToEdit} />
+          </div>
+        </div>
+      )}
+
       <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
         <div>
           <h1 className="text-2xl sm:text-3xl font-bold bg-linear-to-r from-gray-900 to-green-900 bg-clip-text dark:text-gray-300">

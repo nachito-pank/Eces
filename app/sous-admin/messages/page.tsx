@@ -5,7 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { MessageSquare, Search, Trash2, Edit, Eye } from 'lucide-react';
+import { MessageSquare, Search, Trash2, Edit, Eye, PenSquare } from 'lucide-react';
 import adminsData from '@/data/admins.json';
 import MessageForm from '@/components/dashboard/sous-admin/MessageForm';
 import type { Message } from '@/types/sousadmin';
@@ -15,9 +15,21 @@ export default function MessagesPage() {
   const [searchDate, setSearchDate] = useState<string>('');
   const [filterNiveau, setFilterNiveau] = useState<string>('tous');
   const [messageToEdit, setMessageToEdit] = useState<Message | null>(null);
+  const [showFloatingButton, setShowFloatingButton] = useState(false);
+  const [showMessageForm, setShowMessageForm] = useState(false);
 
   useEffect(() => {
     setMessages((adminsData.messages || []) as Message[]);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      setShowFloatingButton(scrollY > 200);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Get unique niveaux from destinataires (sans 'tous' pour éviter le doublon)
@@ -54,6 +66,7 @@ export default function MessagesPage() {
         dateEnvoi: new Date().toISOString()
       } : msg));
       setMessageToEdit(null);
+      setShowMessageForm(false);
     } else {
       // Mode ajout
       const newMessage = {
@@ -66,6 +79,7 @@ export default function MessagesPage() {
         type: 'envoye' as const
       };
       setMessages(prev => [newMessage, ...prev]);
+      setShowMessageForm(false);
     }
   };
 
@@ -80,7 +94,41 @@ export default function MessagesPage() {
   };
 
   return (
-    <div className="space-y-6 ">
+    <div className="space-y-6 relative">
+      {/* Bouton flottant pour écrire un message */}
+      {showFloatingButton && (
+        <button
+          onClick={() => setShowMessageForm(true)}
+          className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50 bg-blue-600 hover:bg-blue-700 text-white rounded-full p-3 sm:p-4 shadow-lg transition-all duration-300 hover:scale-110 flex items-center gap-1 sm:gap-2"
+        >
+          <PenSquare className="h-4 w-4 sm:h-5 sm:w-5" />
+          <span className="hidden sm:inline text-xs sm:text-sm">Nouveau message</span>
+        </button>
+      )}
+
+      {/* Modal pour le formulaire de message */}
+      {showMessageForm && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-40 flex items-center justify-center p-2 sm:p-4">
+          <div className="bg-white dark:bg-gray-800 rounded-lg p-4 sm:p-6 w-full max-w-md max-h-[85vh] sm:max-h-[90vh] overflow-y-auto">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">
+                {messageToEdit ? 'Modifier le message' : 'Nouveau message'}
+              </h3>
+              <button
+                onClick={() => {
+                  setShowMessageForm(false);
+                  setMessageToEdit(null);
+                }}
+                className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 text-xl sm:text-base p-1"
+              >
+                ✕
+              </button>
+            </div>
+            <MessageForm onSend={handleSendMessage} messageToEdit={messageToEdit} />
+          </div>
+        </div>
+      )}
+
       <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
         <div>
           <h1 className="text-2xl sm:text-3xl font-bold bg-linear-to-r from-gray-900 to-blue-900 bg-clip-text dark:text-gray-300">
