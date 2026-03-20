@@ -2,9 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import React from 'react';
-import { Card } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { GraduationCap, Search, ArrowUpDown, User, BookOpen, Award } from 'lucide-react';
+import { motion, type Variants } from "framer-motion";
 
 interface Student {
   id: string;
@@ -18,6 +17,23 @@ interface Student {
   moyenne: number;
   appreciation: string;
 }
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut" as const
+    }
+  }
+};
 
 export default function MesEtudiants() {
   const [students, setStudents] = useState<Student[]>([]);
@@ -69,22 +85,22 @@ export default function MesEtudiants() {
 
   const getAppreciationColor = (appreciation: string) => {
     switch (appreciation) {
-      case 'Excellent': return 'bg-emerald-100 text-emerald-700';
-      case 'Très Bien': return 'bg-blue-100 text-blue-700';
-      case 'Bien': return 'bg-sky-100 text-sky-700';
-      case 'Assez Bien': return 'bg-yellow-100 text-yellow-700';
-      case 'Passable': return 'bg-orange-100 text-orange-700';
-      case 'Insuffisant': return 'bg-red-100 text-red-700';
-      default: return 'bg-slate-100 text-slate-600';
+      case 'Excellent': return 'bg-emerald-50 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-400';
+      case 'Très Bien': return 'bg-blue-50 dark:bg-blue-900/40 text-blue-700 dark:text-blue-400';
+      case 'Bien': return 'bg-sky-50 dark:bg-sky-900/40 text-sky-700 dark:text-sky-400';
+      case 'Assez Bien': return 'bg-yellow-50 dark:bg-yellow-900/40 text-yellow-700 dark:text-yellow-400';
+      case 'Passable': return 'bg-orange-50 dark:bg-orange-900/40 text-orange-700 dark:text-orange-400';
+      case 'Insuffisant': return 'bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400';
+      default: return 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300';
     }
   };
 
   const getMoyenneColor = (moyenne: number) => {
-    if (moyenne >= 16) return 'text-emerald-600';
-    if (moyenne >= 14) return 'text-blue-600';
-    if (moyenne >= 12) return 'text-sky-600';
-    if (moyenne >= 10) return 'text-orange-500';
-    return 'text-red-500';
+    if (moyenne >= 16) return 'text-emerald-600 dark:text-emerald-400';
+    if (moyenne >= 14) return 'text-blue-600 dark:text-blue-400';
+    if (moyenne >= 12) return 'text-sky-600 dark:text-sky-400';
+    if (moyenne >= 10) return 'text-orange-500 dark:text-orange-400';
+    return 'text-red-500 dark:text-red-400';
   };
 
   const filteredAndSortedStudents = React.useMemo(() => {
@@ -104,37 +120,40 @@ export default function MesEtudiants() {
   }, [students, selectedFiliere, selectedLevel, searchTerm, sortOrder]);
 
   if (loading) return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="text-center text-slate-500">Chargement...</div>
-    </div>
+    <div className="p-20 text-center text-slate-500 dark:text-slate-400">Chargement...</div>
   );
 
   return (
-    <div className="p-4 sm:p-8 bg-slate-50 min-h-screen">
-      <div className="max-w-6xl mr-6 mx-auto space-y-6 sm:space-y-8">
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      className="w-full p-3 sm:p-0 space-y-8"
+    >
+      <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8">
 
         {/* Header */}
-        <div className="flex items-center justify-between gap-4">
-          <div>
-            <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">Mes Étudiants</h1>
-            <p className="text-slate-600 mt-1 text-sm sm:text-base">
+        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="space-y-1">
+            <h1 className="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Mes Étudiants</h1>
+            <p className="text-slate-500 dark:text-slate-400 font-medium">
               Consultez la liste des étudiants par filière et niveau
             </p>
           </div>
-          <div className="w-10 h-10 sm:w-12 sm:h-12 bg-emerald-100 rounded-lg flex items-center justify-center shrink-0">
-            <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-600" />
+          <div className="w-14 h-14 bg-emerald-50 dark:bg-emerald-900/40 rounded-2xl flex items-center justify-center shrink-0">
+            <GraduationCap className="w-7 h-7 text-emerald-600 dark:text-emerald-400" />
           </div>
-        </div>
+        </motion.div>
 
         {/* Filtres */}
-        <Card className="p-4 sm:p-6 bg-white border-slate-200">
+        <motion.div variants={itemVariants} className="bg-white dark:bg-slate-900/50 border border-slate-200/50 dark:border-slate-800/60 rounded-[2rem] p-6 shadow-sm">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">Filière</label>
+              <label className="block text-sm font-semibold text-slate-500 dark:text-slate-400 mb-2">Filière</label>
               <select
                 value={selectedFiliere}
                 onChange={(e) => handleFiliereChange(e.target.value)}
-                className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                className="w-full px-3 py-2 text-sm rounded-xl border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white dark:bg-slate-800 text-slate-900 dark:text-white transition"
               >
                 <option value="">Toutes les filières ({students.length})</option>
                 {filieres.map(f => {
@@ -145,11 +164,11 @@ export default function MesEtudiants() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">Niveau</label>
+              <label className="block text-sm font-semibold text-slate-500 dark:text-slate-400 mb-2">Niveau</label>
               <select
                 value={selectedLevel}
                 onChange={(e) => setSelectedLevel(e.target.value)}
-                className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                className="w-full px-3 py-2 text-sm rounded-xl border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white dark:bg-slate-800 text-slate-900 dark:text-white transition"
               >
                 <option value="">Tous les niveaux</option>
                 {availableLevels.map(l => {
@@ -162,149 +181,153 @@ export default function MesEtudiants() {
             </div>
 
             <div className="sm:col-span-2">
-              <label className="block text-sm font-medium text-slate-700 mb-2">Rechercher</label>
+              <label className="block text-sm font-semibold text-slate-500 dark:text-slate-400 mb-2">Rechercher</label>
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-400" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-blue-400 dark:text-blue-500" />
                 <input
                   type="text"
                   placeholder="Nom, prénom ou matricule..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full pl-10 pr-4 py-2 text-sm rounded-xl border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 transition"
                 />
               </div>
             </div>
           </div>
-        </Card>
+        </motion.div>
 
         {/* En-tête liste */}
-        <div className="flex items-center justify-between flex-wrap gap-3">
-          <h3 className="text-base sm:text-lg font-bold text-slate-800">
-            Liste des étudiants
-            <span className="ml-2 text-sm font-normal text-slate-500">
+        <motion.div variants={itemVariants} className="flex items-center justify-between flex-wrap gap-3">
+          <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+            Liste des étudiants{' '}
+            <span className="text-slate-500 dark:text-slate-400 font-medium">
               ({filteredAndSortedStudents.length} résultat{filteredAndSortedStudents.length > 1 ? 's' : ''})
             </span>
           </h3>
           <div className="flex items-center gap-3 flex-wrap">
             <button
               onClick={toggleSort}
-              className="flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-800 hover:bg-slate-100 rounded-lg transition-colors border border-slate-200"
+              className="flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-800 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition border border-slate-200 dark:border-slate-700"
             >
               <ArrowUpDown className="w-4 h-4" />
               Tri {sortOrder === 'asc' ? 'A-Z' : 'Z-A'}
             </button>
-            <span className="text-xs font-medium bg-slate-200 text-slate-700 px-3 py-1 rounded-full">
+            <span className="font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/40 px-3 py-1 rounded-full text-xs sm:text-sm border border-blue-100 dark:border-blue-800/50">
               {selectedFiliere || 'Toutes'} · {selectedLevel || 'Tous'}
             </span>
           </div>
-        </div>
+        </motion.div>
 
         {/* ── MOBILE : cartes ─────────────────────────────────────── */}
-        <div className="flex flex-col gap-3 sm:hidden">
+        <motion.div variants={itemVariants} className="flex flex-col gap-3 sm:hidden">
           {filteredAndSortedStudents.length === 0 ? (
-            <div className="text-center py-12 text-slate-500 bg-white rounded-2xl border border-slate-200">
+            <div className="text-center py-12 text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-900/50 rounded-[2rem] border border-slate-200/50 dark:border-slate-800/60">
               Aucun étudiant trouvé pour ces critères
             </div>
           ) : (
             filteredAndSortedStudents.map((student) => (
-              <div key={student.id} className="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 space-y-3">
+              <div key={student.id} className="bg-white dark:bg-slate-900/50 rounded-[2rem] border border-slate-200/50 dark:border-slate-800/60 shadow-sm p-5 space-y-3 hover:-translate-y-0.5 hover:shadow-md dark:shadow-none transition-all duration-300">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center shrink-0">
-                    <User className="w-5 h-5 text-emerald-600" />
+                  <div className="w-10 h-10 bg-emerald-50 dark:bg-emerald-900/40 rounded-full flex items-center justify-center shrink-0">
+                    <User className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <p className="font-semibold text-slate-900 text-sm">
+                    <p className="font-bold text-slate-900 dark:text-white text-sm">
                       {student.firstName} {student.name}
                     </p>
-                    <p className="text-xs text-slate-400">{student.matricule}</p>
+                    <p className="text-xs text-slate-400 dark:text-slate-500">{student.matricule}</p>
                   </div>
-                  <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${student.statut === 'Actif' ? 'bg-emerald-100 text-emerald-700' : 'bg-red-100 text-red-600'}`}>
+                  <span className={`text-xs px-2 py-0.5 rounded-full font-bold ${student.statut === 'Actif' ? 'bg-emerald-50 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-400' : 'bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400'}`}>
                     {student.statut}
                   </span>
                 </div>
 
                 <div className="flex items-center gap-2 flex-wrap">
-                  <Badge className="bg-blue-100 text-blue-700 text-xs">{student.filiere}</Badge>
-                  <span className="text-xs font-medium text-slate-600 bg-slate-100 px-2 py-0.5 rounded-full">
+                  <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-blue-50 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 border border-blue-100 dark:border-blue-800/50">
+                    {student.filiere}
+                  </span>
+                  <span className="text-xs font-medium text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-full">
                     {student.level}
                   </span>
                 </div>
 
-                <div className="flex items-center justify-between pt-1 border-t border-slate-100">
+                <div className="flex items-center justify-between pt-1 border-t border-slate-100 dark:border-slate-800/60">
                   <div className="flex items-center gap-1">
-                    <BookOpen className="w-3.5 h-3.5 text-slate-400" />
+                    <BookOpen className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
                     <span className={`text-sm font-bold ${getMoyenneColor(student.moyenne)}`}>
                       {student.moyenne.toFixed(2)}/20
                     </span>
                   </div>
-                  <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${getAppreciationColor(student.appreciation)}`}>
+                  <span className={`text-xs px-2 py-0.5 rounded-full font-bold ${getAppreciationColor(student.appreciation)}`}>
                     {student.appreciation}
                   </span>
                 </div>
               </div>
             ))
           )}
-        </div>
+        </motion.div>
 
         {/* ── DESKTOP : tableau ───────────────────────────────────── */}
-        <Card className="hidden sm:block bg-white border-slate-200 overflow-hidden">
+        <motion.div variants={itemVariants} className="hidden sm:block bg-white dark:bg-slate-900/50 rounded-[2rem] border border-slate-200/50 dark:border-slate-800/60 shadow-sm overflow-hidden">
           <div className="overflow-x-auto">
             {filteredAndSortedStudents.length === 0 ? (
-              <div className="p-8 text-center text-slate-600">
+              <div className="p-8 text-center text-slate-500 dark:text-slate-400">
                 Aucun étudiant trouvé pour ces critères
               </div>
             ) : (
               <table className="w-full">
-                <thead className="bg-slate-50 border-b border-slate-200">
+                <thead className="bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-700/60">
                   <tr>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">Étudiant</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">Matricule</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">Filière</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">Niveau</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">Moyenne</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">Appréciation</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">Statut</th>
+                    <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900 dark:text-white">Étudiant</th>
+                    <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900 dark:text-white">Matricule</th>
+                    <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900 dark:text-white">Filière</th>
+                    <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900 dark:text-white">Niveau</th>
+                    <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900 dark:text-white">Moyenne</th>
+                    <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900 dark:text-white">Appréciation</th>
+                    <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900 dark:text-white">Statut</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-200">
+                <tbody className="divide-y divide-slate-100 dark:divide-slate-800/60">
                   {filteredAndSortedStudents.map((student) => (
-                    <tr key={student.id} className="hover:bg-slate-50 transition">
+                    <tr key={student.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center shrink-0">
-                            <User className="w-4 h-4 text-emerald-600" />
+                          <div className="w-8 h-8 bg-emerald-50 dark:bg-emerald-900/40 rounded-full flex items-center justify-center shrink-0">
+                            <User className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                           </div>
-                          <span className="text-sm font-medium text-slate-900">
+                          <span className="text-sm font-bold text-slate-900 dark:text-white">
                             {student.firstName} {student.name}
                           </span>
                         </div>
                       </td>
                       <td className="px-6 py-4">
-                        <span className="text-xs font-mono text-slate-500 bg-slate-100 px-2 py-1 rounded">
+                        <span className="text-xs font-mono text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-lg">
                           {student.matricule}
                         </span>
                       </td>
                       <td className="px-6 py-4">
-                        <Badge className="bg-blue-100 text-blue-700 text-xs">{student.filiere}</Badge>
+                        <span className="text-xs font-bold px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 border border-blue-100 dark:border-blue-800/50">
+                          {student.filiere}
+                        </span>
                       </td>
                       <td className="px-6 py-4">
-                        <span className="text-sm font-medium text-slate-900">{student.level}</span>
+                        <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{student.level}</span>
                       </td>
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-1">
-                          <Award className="w-4 h-4 text-slate-400" />
+                          <Award className="w-4 h-4 text-slate-400 dark:text-slate-500" />
                           <span className={`text-sm font-bold ${getMoyenneColor(student.moyenne)}`}>
                             {student.moyenne.toFixed(2)}/20
                           </span>
                         </div>
                       </td>
                       <td className="px-6 py-4">
-                        <span className={`text-xs px-2 py-1 rounded-full font-medium ${getAppreciationColor(student.appreciation)}`}>
+                        <span className={`text-xs px-2 py-1 rounded-full font-bold ${getAppreciationColor(student.appreciation)}`}>
                           {student.appreciation}
                         </span>
                       </td>
                       <td className="px-6 py-4">
-                        <span className={`text-xs px-2 py-1 rounded-full font-medium ${student.statut === 'Actif' ? 'bg-emerald-100 text-emerald-700' : 'bg-red-100 text-red-600'}`}>
+                        <span className={`text-xs px-2 py-1 rounded-full font-bold ${student.statut === 'Actif' ? 'bg-emerald-50 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-400' : 'bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400'}`}>
                           {student.statut}
                         </span>
                       </td>
@@ -314,9 +337,9 @@ export default function MesEtudiants() {
               </table>
             )}
           </div>
-        </Card>
+        </motion.div>
 
       </div>
-    </div>
+    </motion.div>
   );
 }

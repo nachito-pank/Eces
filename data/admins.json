@@ -584,21 +584,21 @@
       "notes": [
         {
           "matiere": "Algorithmique et Programmation",
-          "noteDevoir": 15.5,
+          "noteDevoir": 14.17,
           "noteSession": 14
         },
         {
           "matiere": "Développement Web et Mobile",
-          "noteDevoir": 14,
+          "noteDevoir": 14.17,
           "noteSession": 13.5
         },
         {
           "matiere": "Architecture des Ordinateurs",
-          "noteDevoir": 13,
+          "noteDevoir": 14.17,
           "noteSession": 12.5
         }
       ],
-      "moyenne": 13.75,
+      "moyenne": 14.17,
       "appreciation": "Bien",
       "paiements": [
         {
@@ -674,16 +674,16 @@
         },
         {
           "matiere": "Statistiques Descriptives",
-          "noteDevoir": 16,
+          "noteDevoir": 17,
           "noteSession": 15.5
         },
         {
           "matiere": "Programmation Python",
-          "noteDevoir": 18,
+          "noteDevoir": 17,
           "noteSession": 17
         }
       ],
-      "moyenne": 16.67,
+      "moyenne": 17,
       "appreciation": "Excellent",
       "paiements": [
         {
@@ -754,16 +754,16 @@
       "notes": [
         {
           "matiere": "Communication Professionnelle en Anglais",
-          "noteDevoir": 13,
+          "noteDevoir": 12.5,
           "noteSession": 12.5
         },
         {
           "matiere": "Négociation Commerciale Internationale",
-          "noteDevoir": 12,
+          "noteDevoir": 12.5,
           "noteSession": 11
         }
       ],
-      "moyenne": 12.12,
+      "moyenne": 12.5,
       "appreciation": "Assez Bien",
       "paiements": [
         {
@@ -834,21 +834,21 @@
       "notes": [
         {
           "matiere": "Introduction à la Logistique",
-          "noteDevoir": 11,
+          "noteDevoir": 11.33,
           "noteSession": 10.5
         },
         {
           "matiere": "Économie des Transports",
-          "noteDevoir": 13,
+          "noteDevoir": 11.33,
           "noteSession": 12
         },
         {
           "matiere": "Droit des Transports",
-          "noteDevoir": 10,
+          "noteDevoir": 11.33,
           "noteSession": 9.5
         }
       ],
-      "moyenne": 11,
+      "moyenne": 11.33,
       "appreciation": "Passable",
       "paiements": [
         {
@@ -919,21 +919,21 @@
       "notes": [
         {
           "matiere": "Comptabilité Générale",
-          "noteDevoir": 15,
+          "noteDevoir": 14.17,
           "noteSession": 14.5
         },
         {
           "matiere": "Droit des Affaires",
-          "noteDevoir": 14,
+          "noteDevoir": 14.17,
           "noteSession": 13
         },
         {
           "matiere": "Mathématiques Financières",
-          "noteDevoir": 13.5,
+          "noteDevoir": 14.17,
           "noteSession": 12.5
         }
       ],
-      "moyenne": 13.75,
+      "moyenne": 14.17,
       "appreciation": "Bien",
       "paiements": [
         {
@@ -1004,21 +1004,21 @@
       "notes": [
         {
           "matiere": "Algorithmique et Programmation",
-          "noteDevoir": 15.5,
+          "noteDevoir": 14.17,
           "noteSession": 14
         },
         {
           "matiere": "Développement Web et Mobile",
-          "noteDevoir": 14,
+          "noteDevoir": 14.17,
           "noteSession": 13.5
         },
         {
           "matiere": "Architecture des Ordinateurs",
-          "noteDevoir": 13,
+          "noteDevoir": 14.17,
           "noteSession": 12.5
         }
       ],
-      "moyenne": 13.75,
+      "moyenne": 14.17,
       "appreciation": "Bien",
       "paiements": [
         {
@@ -1089,7 +1089,7 @@
       "notes": [
         {
           "matiere": "Fondamentaux des Ressources Humaines",
-          "noteDevoir": 17,
+          "noteDevoir": 16,
           "noteSession": 16.5
         },
         {
@@ -1099,11 +1099,11 @@
         },
         {
           "matiere": "Psychologie du Travail",
-          "noteDevoir": 15,
+          "noteDevoir": 16,
           "noteSession": 14.5
         }
       ],
-      "moyenne": 15.75,
+      "moyenne": 16,
       "appreciation": "Très Bien",
       "paiements": [
         {
@@ -1174,16 +1174,16 @@
       "notes": [
         {
           "matiere": "Anatomie et Physiologie Humaine",
-          "noteDevoir": 14,
+          "noteDevoir": 13.5,
           "noteSession": 15
         },
         {
           "matiere": "Soins Infirmiers Fondamentaux",
-          "noteDevoir": 13,
+          "noteDevoir": 13.5,
           "noteSession": 12.5
         }
       ],
-      "moyenne": 13.62,
+      "moyenne": 13.5,
       "appreciation": "Bien",
       "paiements": [
         {
@@ -1254,16 +1254,16 @@
       "notes": [
         {
           "matiere": "Mécanique Industrielle Appliquée",
-          "noteDevoir": 8,
+          "noteDevoir": 7.75,
           "noteSession": 7.5
         },
         {
           "matiere": "Maintenance Préventive et Corrective",
-          "noteDevoir": 7.5,
+          "noteDevoir": 7.75,
           "noteSession": 6
         }
       ],
-      "moyenne": 7.25,
+      "moyenne": 7.75,
       "appreciation": "Insuffisant",
       "paiements": [
         {
@@ -1334,21 +1334,21 @@
       "notes": [
         {
           "matiere": "Fondamentaux de la Banque",
-          "noteDevoir": 15.5,
+          "noteDevoir": 14.33,
           "noteSession": 14.5
         },
         {
           "matiere": "Mathématiques Financières",
-          "noteDevoir": 14,
+          "noteDevoir": 14.33,
           "noteSession": 13.5
         },
         {
           "matiere": "Droit Bancaire",
-          "noteDevoir": 13.5,
+          "noteDevoir": 14.33,
           "noteSession": 12
         }
       ],
-      "moyenne": 13.83,
+      "moyenne": 14.33,
       "appreciation": "Bien",
       "paiements": [
         {
@@ -1419,21 +1419,21 @@
       "notes": [
         {
           "matiere": "Principes du Marketing",
-          "noteDevoir": 12,
+          "noteDevoir": 12.17,
           "noteSession": 11.5
         },
         {
           "matiere": "Techniques de Vente",
-          "noteDevoir": 13.5,
+          "noteDevoir": 12.17,
           "noteSession": 13
         },
         {
           "matiere": "Marketing Digital et Réseaux Sociaux",
-          "noteDevoir": 11,
+          "noteDevoir": 12.17,
           "noteSession": 10.5
         }
       ],
-      "moyenne": 11.92,
+      "moyenne": 12.17,
       "appreciation": "Passable",
       "paiements": [
         {
@@ -1504,21 +1504,21 @@
       "notes": [
         {
           "matiere": "Topographie et Métrologie",
-          "noteDevoir": 15,
+          "noteDevoir": 15.17,
           "noteSession": 14
         },
         {
           "matiere": "Résistance des Matériaux",
-          "noteDevoir": 16.5,
+          "noteDevoir": 15.17,
           "noteSession": 15.5
         },
         {
           "matiere": "Conduite et Gestion de Chantier",
-          "noteDevoir": 14,
+          "noteDevoir": 15.17,
           "noteSession": 13.5
         }
       ],
-      "moyenne": 14.75,
+      "moyenne": 15.17,
       "appreciation": "Très Bien",
       "paiements": [
         {
@@ -1589,16 +1589,16 @@
       "notes": [
         {
           "matiere": "Électrotechnique Fondamentale",
-          "noteDevoir": 13,
+          "noteDevoir": 13.75,
           "noteSession": 12
         },
         {
           "matiere": "Machines Électriques et Automatismes",
-          "noteDevoir": 14.5,
+          "noteDevoir": 13.75,
           "noteSession": 13.5
         }
       ],
-      "moyenne": 13.25,
+      "moyenne": 13.75,
       "appreciation": "Bien",
       "paiements": [
         {
@@ -1674,16 +1674,16 @@
         },
         {
           "matiere": "Statistiques Descriptives",
-          "noteDevoir": 16,
+          "noteDevoir": 17,
           "noteSession": 15.5
         },
         {
           "matiere": "Programmation Python",
-          "noteDevoir": 18,
+          "noteDevoir": 17,
           "noteSession": 17
         }
       ],
-      "moyenne": 16.67,
+      "moyenne": 17,
       "appreciation": "Excellent",
       "paiements": [
         {
@@ -1754,16 +1754,16 @@
       "notes": [
         {
           "matiere": "Techniques de Secrétariat",
-          "noteDevoir": 8.5,
+          "noteDevoir": 8.75,
           "noteSession": 7
         },
         {
           "matiere": "Bureautique et Gestion Documentaire",
-          "noteDevoir": 9,
+          "noteDevoir": 8.75,
           "noteSession": 8
         }
       ],
-      "moyenne": 8.12,
+      "moyenne": 8.75,
       "appreciation": "Insuffisant",
       "paiements": [
         {
@@ -1834,21 +1834,21 @@
       "notes": [
         {
           "matiere": "Administration Publique Locale",
-          "noteDevoir": 16,
+          "noteDevoir": 14.83,
           "noteSession": 17
         },
         {
           "matiere": "Finances et Budget des Collectivités",
-          "noteDevoir": 15.5,
+          "noteDevoir": 14.83,
           "noteSession": 14.5
         },
         {
           "matiere": "Droit Administratif",
-          "noteDevoir": 13,
+          "noteDevoir": 14.83,
           "noteSession": 12.5
         }
       ],
-      "moyenne": 14.75,
+      "moyenne": 14.83,
       "appreciation": "Très Bien",
       "paiements": [
         {
@@ -1919,16 +1919,16 @@
       "notes": [
         {
           "matiere": "Finances Publiques et Fiscalité",
-          "noteDevoir": 11.5,
+          "noteDevoir": 11.75,
           "noteSession": 10
         },
         {
           "matiere": "Contrôle de Gestion Publique",
-          "noteDevoir": 12,
+          "noteDevoir": 11.75,
           "noteSession": 11
         }
       ],
-      "moyenne": 11.12,
+      "moyenne": 11.75,
       "appreciation": "Passable",
       "paiements": [
         {
@@ -1999,21 +1999,21 @@
       "notes": [
         {
           "matiere": "Comptabilité Générale",
-          "noteDevoir": 15,
+          "noteDevoir": 14.17,
           "noteSession": 14.5
         },
         {
           "matiere": "Droit des Affaires",
-          "noteDevoir": 14,
+          "noteDevoir": 14.17,
           "noteSession": 13
         },
         {
           "matiere": "Mathématiques Financières",
-          "noteDevoir": 13.5,
+          "noteDevoir": 14.17,
           "noteSession": 12.5
         }
       ],
-      "moyenne": 13.75,
+      "moyenne": 14.17,
       "appreciation": "Bien",
       "paiements": [
         {
@@ -2084,7 +2084,7 @@
       "notes": [
         {
           "matiere": "Stratégie et Développement RH",
-          "noteDevoir": 19,
+          "noteDevoir": 17.5,
           "noteSession": 18.5
         },
         {
@@ -2094,11 +2094,11 @@
         },
         {
           "matiere": "Droit Social Avancé",
-          "noteDevoir": 16,
+          "noteDevoir": 17.5,
           "noteSession": 15.5
         }
       ],
-      "moyenne": 17.42,
+      "moyenne": 17.5,
       "appreciation": "Excellent",
       "paiements": [
         {
@@ -2169,16 +2169,16 @@
       "notes": [
         {
           "matiere": "Relations Internationales et Droit Diplomatique",
-          "noteDevoir": 12,
+          "noteDevoir": 12.75,
           "noteSession": 11.5
         },
         {
           "matiere": "Géopolitique et Enjeux Mondiaux",
-          "noteDevoir": 13.5,
+          "noteDevoir": 12.75,
           "noteSession": 12.5
         }
       ],
-      "moyenne": 12.38,
+      "moyenne": 12.75,
       "appreciation": "Assez Bien",
       "paiements": [
         {
@@ -2249,21 +2249,21 @@
       "notes": [
         {
           "matiere": "Mathématiques Actuarielles",
-          "noteDevoir": 16,
+          "noteDevoir": 16.17,
           "noteSession": 15
         },
         {
           "matiere": "Probabilités et Modèles de Risque",
-          "noteDevoir": 17.5,
+          "noteDevoir": 16.17,
           "noteSession": 16.5
         },
         {
           "matiere": "Tarification et Provisionnement",
-          "noteDevoir": 15,
+          "noteDevoir": 16.17,
           "noteSession": 14.5
         }
       ],
-      "moyenne": 15.75,
+      "moyenne": 16.17,
       "appreciation": "Très Bien",
       "paiements": [
         {
@@ -2334,21 +2334,21 @@
       "notes": [
         {
           "matiere": "Cryptographie et Sécurité des Réseaux",
-          "noteDevoir": 13.5,
+          "noteDevoir": 13.17,
           "noteSession": 12.5
         },
         {
           "matiere": "Cybersécurité et Gestion des Incidents",
-          "noteDevoir": 15,
+          "noteDevoir": 13.17,
           "noteSession": 14
         },
         {
           "matiere": "Audit de Sécurité Informatique",
-          "noteDevoir": 11,
+          "noteDevoir": 13.17,
           "noteSession": 10.5
         }
       ],
-      "moyenne": 12.75,
+      "moyenne": 13.17,
       "appreciation": "Assez Bien",
       "paiements": [
         {
@@ -2419,16 +2419,16 @@
       "notes": [
         {
           "matiere": "Méthodes de Prospective Stratégique",
-          "noteDevoir": 12.5,
+          "noteDevoir": 13.25,
           "noteSession": 11.5
         },
         {
           "matiere": "Planification du Développement",
-          "noteDevoir": 14,
+          "noteDevoir": 13.25,
           "noteSession": 13
         }
       ],
-      "moyenne": 12.75,
+      "moyenne": 13.25,
       "appreciation": "Assez Bien",
       "paiements": [
         {
@@ -2499,16 +2499,16 @@
       "notes": [
         {
           "matiere": "Management QHSE en Entreprise",
-          "noteDevoir": 9.5,
+          "noteDevoir": 9.75,
           "noteSession": 8.5
         },
         {
           "matiere": "Audit Environnemental et RSE",
-          "noteDevoir": 10,
+          "noteDevoir": 9.75,
           "noteSession": 9
         }
       ],
-      "moyenne": 9.25,
+      "moyenne": 9.75,
       "appreciation": "Insuffisant",
       "paiements": [
         {
@@ -2584,16 +2584,16 @@
         },
         {
           "matiere": "Normes IFRS et Comptabilité Internationale",
-          "noteDevoir": 13,
+          "noteDevoir": 14.5,
           "noteSession": 14
         },
         {
           "matiere": "Consolidation des Comptes",
-          "noteDevoir": 16,
+          "noteDevoir": 14.5,
           "noteSession": 15.5
         }
       ],
-      "moyenne": 14.67,
+      "moyenne": 14.5,
       "appreciation": "Très Bien",
       "paiements": [
         {

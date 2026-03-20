@@ -2,9 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import React from 'react';
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { Save, Search, User, Calculator } from 'lucide-react';
+import { motion, type Variants } from "framer-motion";
 
 interface Grade {
   studentId: string;
@@ -21,6 +20,23 @@ interface Student {
   level: string;
   matricule: string;
 }
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut" as const
+    }
+  }
+};
 
 export default function NotesDevoirs() {
   const [grades, setGrades] = useState<Grade[]>([]);
@@ -61,13 +77,11 @@ export default function NotesDevoirs() {
     }
   };
 
-  // Quand on change de filière → reset le niveau
   const handleFiliereChange = (filiere: string) => {
     setSelectedFiliere(filiere);
     setSelectedLevel('');
   };
 
-  // Niveaux disponibles selon la filière sélectionnée
   const availableLevels = React.useMemo(() => {
     if (!selectedFiliere) return levels;
     return [...new Set(
@@ -129,19 +143,19 @@ export default function NotesDevoirs() {
   }, [students, selectedFiliere, selectedLevel, searchTerm]);
 
   const getAppreciation = (grade: number) => {
-    if (grade >= 16) return { label: 'Excellent', color: 'bg-emerald-100 text-emerald-700' };
-    if (grade >= 14) return { label: 'Très bien', color: 'bg-blue-100 text-blue-700' };
-    if (grade >= 12) return { label: 'Bien', color: 'bg-sky-100 text-sky-700' };
-    if (grade >= 10) return { label: 'Assez bien', color: 'bg-yellow-100 text-yellow-700' };
-    return { label: 'Insuffisant', color: 'bg-red-100 text-red-600' };
+    if (grade >= 16) return { label: 'Excellent', color: 'bg-emerald-50 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-400' };
+    if (grade >= 14) return { label: 'Très bien', color: 'bg-blue-50 dark:bg-blue-900/40 text-blue-700 dark:text-blue-400' };
+    if (grade >= 12) return { label: 'Bien', color: 'bg-sky-50 dark:bg-sky-900/40 text-sky-700 dark:text-sky-400' };
+    if (grade >= 10) return { label: 'Assez bien', color: 'bg-yellow-50 dark:bg-yellow-900/40 text-yellow-700 dark:text-yellow-400' };
+    return { label: 'Insuffisant', color: 'bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400' };
   };
 
   const getGradeColor = (grade: number) => {
-    if (grade >= 16) return 'text-emerald-600';
-    if (grade >= 14) return 'text-blue-600';
-    if (grade >= 12) return 'text-sky-600';
-    if (grade >= 10) return 'text-orange-500';
-    return 'text-red-500';
+    if (grade >= 16) return 'text-emerald-600 dark:text-emerald-400';
+    if (grade >= 14) return 'text-blue-600 dark:text-blue-400';
+    if (grade >= 12) return 'text-sky-600 dark:text-sky-400';
+    if (grade >= 10) return 'text-orange-500 dark:text-orange-400';
+    return 'text-red-500 dark:text-red-400';
   };
 
   const average = filteredStudents.length > 0
@@ -149,104 +163,103 @@ export default function NotesDevoirs() {
     : 0;
 
   if (loading) return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="text-center text-slate-500">Chargement...</div>
-    </div>
+    <div className="p-20 text-center text-slate-500 dark:text-slate-400">Chargement...</div>
   );
 
   return (
-    <div className="p-4 sm:p-8 bg-slate-50 min-h-screen">
-      <div className="max-w-6xl mr-6 mx-auto space-y-6 sm:space-y-8">
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      className="w-full p-3 sm:p-0 space-y-8"
+    >
+      <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8">
 
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div>
-            <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">Notes Devoirs</h1>
-            <p className="text-slate-600 mt-1 text-sm sm:text-base">
+        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="space-y-1">
+            <h1 className="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Notes Devoirs</h1>
+            <p className="text-slate-500 dark:text-slate-400 font-medium">
               Saisissez et modifiez les notes des devoirs par étudiant
             </p>
           </div>
-          <Button
+          <button
             onClick={handleSave}
-            className="bg-blue-600 hover:bg-blue-700 text-white flex items-center gap-2 w-full sm:w-auto justify-center"
+            className="flex items-center gap-2 fixed bottom-6 right-6 z-10 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 dark:hover:bg-blue-500 text-white font-bold text-sm transition shadow-md hover:shadow-lg justify-center"
           >
             <Save className="w-4 h-4" />
             Enregistrer tout
-          </Button>
-        </div>
+          </button>
+        </motion.div>
 
         {/* Filtres */}
-        <Card className="p-4 sm:p-6 bg-white border-slate-200">
+        <motion.div variants={itemVariants} className="bg-white dark:bg-slate-900/50 border border-slate-200/50 dark:border-slate-800/60 rounded-[2rem] p-6 shadow-sm">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-
-            {/* Filière */}
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">Filière</label>
+              <label className="block text-sm font-semibold text-slate-500 dark:text-slate-400 mb-2">Filière</label>
               <select
                 value={selectedFiliere}
                 onChange={(e) => handleFiliereChange(e.target.value)}
-                className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                className="w-full px-3 py-2 text-sm rounded-xl border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white dark:bg-slate-800 text-slate-900 dark:text-white transition"
               >
                 <option value="">Toutes les filières ({students.length})</option>
-                {filieres.map(f => {
-                  const count = students.filter(s => s.filiere === f).length;
-                  return <option key={f} value={f}>{f} ({count})</option>;
-                })}
+                {filieres.map(f => (
+                  <option key={f} value={f}>
+                    {f} ({students.filter(s => s.filiere === f).length})
+                  </option>
+                ))}
               </select>
             </div>
 
-            {/* Niveau */}
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">Niveau</label>
+              <label className="block text-sm font-semibold text-slate-500 dark:text-slate-400 mb-2">Niveau</label>
               <select
                 value={selectedLevel}
                 onChange={(e) => setSelectedLevel(e.target.value)}
-                className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                className="w-full px-3 py-2 text-sm rounded-xl border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white dark:bg-slate-800 text-slate-900 dark:text-white transition"
               >
                 <option value="">Tous les niveaux</option>
-                {availableLevels.map(l => {
-                  const count = students.filter(s =>
-                    s.level === l && (selectedFiliere === '' || s.filiere === selectedFiliere)
-                  ).length;
-                  return <option key={l} value={l}>{l} ({count})</option>;
-                })}
+                {availableLevels.map(l => (
+                  <option key={l} value={l}>
+                    {l} ({students.filter(s => s.level === l && (selectedFiliere === '' || s.filiere === selectedFiliere)).length})
+                  </option>
+                ))}
               </select>
             </div>
 
-            {/* Recherche */}
             <div className="sm:col-span-2">
-              <label className="block text-sm font-medium text-slate-700 mb-2">Rechercher</label>
+              <label className="block text-sm font-semibold text-slate-500 dark:text-slate-400 mb-2">Rechercher</label>
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-400" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-blue-400 dark:text-blue-500" />
                 <input
                   type="text"
                   placeholder="Nom, prénom ou matricule..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full pl-10 pr-4 py-2 text-sm rounded-xl border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 transition"
                 />
               </div>
             </div>
           </div>
-        </Card>
+        </motion.div>
 
         {/* Badge résumé */}
-        <div className="flex items-center justify-between flex-wrap gap-3">
-          <h3 className="text-base sm:text-lg font-bold text-slate-800">
-            Liste des étudiants
-            <span className="ml-2 text-sm font-normal text-slate-500">
+        <motion.div variants={itemVariants} className="flex items-center justify-between flex-wrap gap-3">
+          <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+            Liste des étudiants{' '}
+            <span className="text-slate-500 dark:text-slate-400 font-medium">
               ({filteredStudents.length} résultat{filteredStudents.length > 1 ? 's' : ''})
             </span>
           </h3>
-          <span className="text-xs font-medium bg-slate-200 text-slate-700 px-3 py-1 rounded-full">
+          <span className="font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/40 px-3 py-1 rounded-full text-xs sm:text-sm border border-blue-100 dark:border-blue-800/50">
             {selectedFiliere || 'Toutes'} · {selectedLevel || 'Tous'}
           </span>
-        </div>
+        </motion.div>
 
         {/* ── MOBILE : cartes ─────────────────────────────────────── */}
-        <div className="flex flex-col gap-3 sm:hidden">
+        <motion.div variants={itemVariants} className="flex flex-col gap-3 sm:hidden">
           {filteredStudents.length === 0 ? (
-            <div className="text-center py-12 text-slate-500 bg-white rounded-2xl border border-slate-200">
+            <div className="text-center py-12 text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-900/50 rounded-[2rem] border border-slate-200/50 dark:border-slate-800/60">
               Aucun étudiant trouvé
             </div>
           ) : (
@@ -254,33 +267,33 @@ export default function NotesDevoirs() {
               const grade = getStudentGrade(student.id);
               const appreciation = getAppreciation(grade);
               return (
-                <div key={student.id} className="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 space-y-3">
+                <div key={student.id} className="bg-white dark:bg-slate-900/50 rounded-[2rem] border border-slate-200/50 dark:border-slate-800/60 shadow-sm p-5 space-y-3 hover:-translate-y-0.5 hover:shadow-md dark:shadow-none transition-all duration-300">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center shrink-0">
-                      <User className="w-5 h-5 text-blue-600" />
+                    <div className="w-10 h-10 bg-blue-50 dark:bg-blue-900/40 rounded-full flex items-center justify-center shrink-0">
+                      <User className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <p className="font-semibold text-slate-900 text-sm">
+                      <p className="font-bold text-slate-900 dark:text-white text-sm">
                         {student.firstName} {student.name}
                       </p>
                       {student.matricule && (
-                        <p className="text-xs text-slate-400 font-mono">{student.matricule}</p>
+                        <p className="text-xs text-slate-400 dark:text-slate-500 font-mono">{student.matricule}</p>
                       )}
                     </div>
                   </div>
 
                   <div className="flex items-center gap-2 flex-wrap">
-                    <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-medium">
+                    <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-blue-50 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 border border-blue-100 dark:border-blue-800/50">
                       {student.filiere}
                     </span>
-                    <span className="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-medium">
+                    <span className="text-xs font-medium text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-full">
                       {student.level}
                     </span>
                   </div>
 
-                  <div className="flex items-center justify-between pt-1 border-t border-slate-100">
+                  <div className="flex items-center justify-between pt-1 border-t border-slate-100 dark:border-slate-800/60">
                     <div className="flex items-center gap-2">
-                      <label className="text-xs text-slate-500 font-medium">Note :</label>
+                      <label className="text-xs text-slate-500 dark:text-slate-400 font-medium">Note :</label>
                       <input
                         type="number"
                         min="0"
@@ -289,11 +302,11 @@ export default function NotesDevoirs() {
                         value={grade || ''}
                         onChange={(e) => handleGradeChange(student.id, e.target.value)}
                         placeholder="0"
-                        className="w-16 px-2 py-1 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 font-semibold text-center"
+                        className={`w-16 px-2 py-1 text-sm border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white dark:bg-slate-800 font-bold text-center transition ${getGradeColor(grade)}`}
                       />
-                      <span className="text-xs text-slate-400">/20</span>
+                      <span className="text-xs text-slate-400 dark:text-slate-500">/20</span>
                     </div>
-                    <span className={`text-xs px-2 py-1 rounded-full font-medium ${appreciation.color}`}>
+                    <span className={`text-xs px-2 py-1 rounded-full font-bold ${appreciation.color}`}>
                       {appreciation.label}
                     </span>
                   </div>
@@ -304,35 +317,35 @@ export default function NotesDevoirs() {
 
           {/* Moyenne mobile */}
           {filteredStudents.length > 0 && (
-            <div className="bg-white rounded-2xl border border-blue-200 p-4 flex items-center justify-between">
-              <span className="text-sm font-semibold text-slate-600">Moyenne de la classe</span>
+            <div className="bg-white dark:bg-slate-900/50 rounded-[2rem] border border-blue-100 dark:border-blue-800/50 p-5 flex items-center justify-between">
+              <span className="text-sm font-semibold text-slate-600 dark:text-slate-300">Moyenne de la classe</span>
               <div className="flex items-center gap-2">
-                <Calculator className="w-4 h-4 text-blue-600" />
-                <span className={`text-lg font-bold ${getGradeColor(average)}`}>
+                <Calculator className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                <span className={`text-lg font-extrabold ${getGradeColor(average)}`}>
                   {average.toFixed(2)}/20
                 </span>
               </div>
             </div>
           )}
-        </div>
+        </motion.div>
 
         {/* ── DESKTOP : tableau ───────────────────────────────────── */}
-        <Card className="hidden sm:block bg-white border-slate-200 overflow-hidden">
+        <motion.div variants={itemVariants} className="hidden sm:block bg-white dark:bg-slate-900/50 rounded-[2rem] border border-slate-200/50 dark:border-slate-800/60 shadow-sm overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-slate-50 border-b border-slate-200">
+              <thead className="bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-700/60">
                 <tr>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">Étudiant</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">Filière</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">Niveau</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">Note / 20</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">Appréciation</th>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900 dark:text-white">Étudiant</th>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900 dark:text-white">Filière</th>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900 dark:text-white">Niveau</th>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900 dark:text-white">Note / 20</th>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900 dark:text-white">Appréciation</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-200">
+              <tbody className="divide-y divide-slate-100 dark:divide-slate-800/60">
                 {filteredStudents.length === 0 ? (
                   <tr>
-                    <td colSpan={5} className="px-6 py-8 text-center text-slate-600">
+                    <td colSpan={5} className="px-6 py-8 text-center text-slate-500 dark:text-slate-400">
                       Aucun étudiant trouvé
                     </td>
                   </tr>
@@ -341,29 +354,29 @@ export default function NotesDevoirs() {
                     const grade = getStudentGrade(student.id);
                     const appreciation = getAppreciation(grade);
                     return (
-                      <tr key={student.id} className="hover:bg-slate-50 transition">
+                      <tr key={student.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
                         <td className="px-6 py-4">
                           <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center shrink-0">
-                              <User className="w-4 h-4 text-blue-600" />
+                            <div className="w-8 h-8 bg-blue-50 dark:bg-blue-900/40 rounded-full flex items-center justify-center shrink-0">
+                              <User className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                             </div>
                             <div>
-                              <p className="text-sm font-medium text-slate-900">
+                              <p className="text-sm font-bold text-slate-900 dark:text-white">
                                 {student.firstName} {student.name}
                               </p>
                               {student.matricule && (
-                                <p className="text-xs text-slate-400 font-mono">{student.matricule}</p>
+                                <p className="text-xs text-slate-400 dark:text-slate-500 font-mono">{student.matricule}</p>
                               )}
                             </div>
                           </div>
                         </td>
                         <td className="px-6 py-4">
-                          <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">
+                          <span className="text-xs font-bold px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 border border-blue-100 dark:border-blue-800/50">
                             {student.filiere}
                           </span>
                         </td>
                         <td className="px-6 py-4">
-                          <span className="text-sm font-medium text-slate-900">{student.level}</span>
+                          <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{student.level}</span>
                         </td>
                         <td className="px-6 py-4">
                           <input
@@ -374,11 +387,11 @@ export default function NotesDevoirs() {
                             value={grade || ''}
                             onChange={(e) => handleGradeChange(student.id, e.target.value)}
                             placeholder="0"
-                            className={`w-20 px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 font-semibold text-center ${getGradeColor(grade)}`}
+                            className={`w-20 px-3 py-2 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white dark:bg-slate-800 font-bold text-center transition ${getGradeColor(grade)}`}
                           />
                         </td>
                         <td className="px-6 py-4">
-                          <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${appreciation.color}`}>
+                          <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold ${appreciation.color}`}>
                             {appreciation.label}
                           </span>
                         </td>
@@ -387,16 +400,16 @@ export default function NotesDevoirs() {
                   })
                 )}
               </tbody>
-              <tfoot className="bg-slate-50 border-t border-slate-200">
+              <tfoot className="bg-slate-50 dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-700/60">
                 <tr>
-                  <td className="px-6 py-4 text-sm font-semibold text-slate-600">
+                  <td className="px-6 py-4 text-sm font-semibold text-slate-600 dark:text-slate-300">
                     Moyenne de la classe
                   </td>
                   <td colSpan={2} />
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-2">
-                      <Calculator className="w-4 h-4 text-blue-600" />
-                      <span className={`font-bold ${getGradeColor(average)}`}>
+                      <Calculator className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                      <span className={`font-extrabold ${getGradeColor(average)}`}>
                         {average.toFixed(2)}/20
                       </span>
                     </div>
@@ -406,9 +419,9 @@ export default function NotesDevoirs() {
               </tfoot>
             </table>
           </div>
-        </Card>
+        </motion.div>
 
       </div>
-    </div>
+    </motion.div>
   );
 }
