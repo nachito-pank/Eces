@@ -345,7 +345,19 @@
       "cycle": "Licence Professionnelle",
       "niveau": "LP",
       "nbEtudiants": 1,
-      "nbEnseignants": 1
+      "nbEnseignants": 1,
+      "matieres": [
+        "Communication Professionnelle en Anglais",
+        "Négociation Commerciale Internationale",
+        "Techniques de Rédaction Professionnelle",
+        "Commerce International",
+        "Traduction et Interprétation",
+        "Droit des Affaires Internationales",
+        "Marketing International",
+        "Gestion Interculturelle",
+        "Économie Internationale",
+        "Correspondance d'Affaires en Anglais"
+      ]
     },
     {
       "id": 2,
@@ -354,7 +366,19 @@
       "cycle": "Licence Professionnelle",
       "niveau": "LP",
       "nbEtudiants": 0,
-      "nbEnseignants": 1
+      "nbEnseignants": 1,
+      "matieres": [
+        "Management QHSE en Entreprise",
+        "Audit Environnemental et RSE",
+        "Systèmes de Management de la Qualité",
+        "Normes ISO 9001 et ISO 14001",
+        "Gestion des Risques Professionnels",
+        "Droit du Travail et Sécurité",
+        "Évaluation des Impacts Environnementaux",
+        "Outils de la Qualité (AMDEC, 5S)",
+        "Management de la Sécurité au Travail",
+        "Développement Durable et Responsabilité Sociale"
+      ]
     },
     {
       "id": 3,
@@ -363,7 +387,19 @@
       "cycle": "Licence Professionnelle",
       "niveau": "LP",
       "nbEtudiants": 1,
-      "nbEnseignants": 1
+      "nbEnseignants": 1,
+      "matieres": [
+        "Mathématiques Financières",
+        "Droit Bancaire",
+        "Techniques Bancaires et de Crédit",
+        "Gestion de Portefeuille",
+        "Marchés Financiers",
+        "Comptabilité Bancaire",
+        "Assurances IARD et Vie",
+        "Fiscalité des Produits Financiers",
+        "Contrôle Interne Bancaire",
+        "Analyse Financière des Entreprises"
+      ]
     },
     {
       "id": 4,
@@ -372,7 +408,19 @@
       "cycle": "Licence Professionnelle",
       "niveau": "LP",
       "nbEtudiants": 2,
-      "nbEnseignants": 1
+      "nbEnseignants": 1,
+      "matieres": [
+        "Comptabilité Générale",
+        "Comptabilité Analytique",
+        "Droit des Sociétés",
+        "Gestion Financière",
+        "Fiscalité des Entreprises",
+        "Contrôle de Gestion",
+        "Mathématiques de Gestion",
+        "Informatique de Gestion",
+        "Audit Comptable",
+        "Statistiques Appliquées à la Gestion"
+      ]
     },
     {
       "id": 5,
@@ -381,7 +429,19 @@
       "cycle": "Licence Professionnelle",
       "niveau": "LP",
       "nbEtudiants": 1,
-      "nbEnseignants": 1
+      "nbEnseignants": 1,
+      "matieres": [
+        "Introduction à la Logistique",
+        "Économie des Transports",
+        "Chaîne d'Approvisionnement",
+        "Gestion des Stocks et Entrepôts",
+        "Transport Multimodal",
+        "Réglementation du Transport",
+        "Systèmes d'Information Logistique",
+        "Commerce International et Incoterms",
+        "Logistique Urbaine",
+        "Gestion de Flotte et Maintenance"
+      ]
     },
     {
       "id": 6,
@@ -390,7 +450,19 @@
       "cycle": "Licence Professionnelle",
       "niveau": "LP",
       "nbEtudiants": 1,
-      "nbEnseignants": 1
+      "nbEnseignants": 1,
+      "matieres": [
+        "Maintenance Préventive et Corrective",
+        "Électrotechnique Fondamentale",
+        "Automatismes Industriels",
+        "Hydraulique et Pneumatique",
+        "Métrologie et Instrumentation",
+        "Gestion de Maintenance Assistée par Ordinateur",
+        "Mécanique des Machines Tournantes",
+        "Sécurité Industrielle",
+        "Thermodynamique Appliquée",
+        "Fiabilité et Analyse des Pannes"
+      ]
     },
     {
       "id": 7,
@@ -399,7 +471,19 @@
       "cycle": "Licence Professionnelle",
       "niveau": "LP",
       "nbEtudiants": 1,
-      "nbEnseignants": 1
+      "nbEnseignants": 1,
+      "matieres": [
+        "Électrotechnique Fondamentale",
+        "Machines Électriques",
+        "Électronique de Puissance",
+        "Automatismes et Programmation d'Automates",
+        "Réseaux Électriques et Distribution",
+        "Énergies Renouvelables",
+        "Câblage et Installations Électriques",
+        "Protection des Installations Électriques",
+        "Électricité Basse et Haute Tension",
+        "Sécurité Électrique"
+      ]
     },
     {
       "id": 8,
@@ -408,7 +492,19 @@
       "cycle": "Licence Professionnelle",
       "niveau": "LP",
       "nbEtudiants": 2,
-      "nbEnseignants": 1
+      "nbEnseignants": 1,
+      "matieres": [
+        "Algorithmique et Programmation",
+        "Développement Web et Mobile",
+        "Bases de Données",
+        "Réseaux Informatiques",
+        "Architecture des Ordinateurs",
+        "Systèmes d'Exploitation",
+        "Programmation Orientée Objet",
+        "Génie Logiciel",
+        "Intelligence Artificielle",
+        "Sécurité des Systèmes Informatiques"
+      ]
     },
     {
       "id": 9,
@@ -417,7 +513,19 @@
       "cycle": "Licence Professionnelle",
       "niveau": "LP",
       "nbEtudiants": 1,
-      "nbEnseignants": 1
+      "nbEnseignants": 1,
+      "matieres": [
+        "Fondamentaux des Ressources Humaines",
+        "Droit du Travail",
+        "Recrutement et Intégration",
+        "Formation et Développement des Compétences",
+        "Gestion de la Paie",
+        "Relations Sociales et Syndicales",
+        "Évaluation des Performances",
+        "Psychologie du Travail",
+        "Communication Interne",
+        "Gestion Prévisionnelle des Emplois et Compétences"
+      ]
     },
     {
       "id": 10,
@@ -426,7 +534,19 @@
       "cycle": "Licence Professionnelle",
       "niveau": "LP",
       "nbEtudiants": 1,
-      "nbEnseignants": 1
+      "nbEnseignants": 1,
+      "matieres": [
+        "Techniques de Secrétariat",
+        "Communication Professionnelle",
+        "Outils Bureautiques Avancés",
+        "Organisation et Gestion du Temps",
+        "Gestion des Agendas et Réunions",
+        "Rédaction Administrative",
+        "Accueil et Relations Publiques",
+        "Droit de la Correspondance Administrative",
+        "Archivage et Gestion Documentaire",
+        "Anglais Professionnel pour Secrétaire"
+      ]
     },
     {
       "id": 11,
@@ -435,7 +555,19 @@
       "cycle": "Licence Professionnelle",
       "niveau": "LP",
       "nbEtudiants": 1,
-      "nbEnseignants": 1
+      "nbEnseignants": 1,
+      "matieres": [
+        "Négociation Commerciale Internationale",
+        "Marketing Fondamental",
+        "Comportement du Consommateur",
+        "Marketing Digital",
+        "Techniques de Vente",
+        "Étude de Marché",
+        "Gestion de la Relation Client",
+        "Communication et Publicité",
+        "Management Commercial",
+        "E-Commerce et Réseaux Sociaux"
+      ]
     },
     {
       "id": 12,
@@ -444,7 +576,19 @@
       "cycle": "Licence Professionnelle",
       "niveau": "LP",
       "nbEtudiants": 1,
-      "nbEnseignants": 1
+      "nbEnseignants": 1,
+      "matieres": [
+        "Topographie et Métrologie",
+        "Résistance des Matériaux",
+        "Béton Armé et Structures",
+        "Mécanique des Sols",
+        "Hydraulique Appliquée",
+        "Voirie et Réseaux Divers",
+        "Dessin Technique et DAO",
+        "Gestion de Chantier",
+        "Matériaux de Construction",
+        "Environnement et Développement Durable"
+      ]
     },
     {
       "id": 13,
@@ -453,7 +597,19 @@
       "cycle": "Licence Professionnelle",
       "niveau": "LP",
       "nbEtudiants": 1,
-      "nbEnseignants": 1
+      "nbEnseignants": 1,
+      "matieres": [
+        "Anatomie et Physiologie Humaine",
+        "Soins Infirmiers Fondamentaux",
+        "Pharmacologie et Thérapeutique",
+        "Sémiologie Médicale",
+        "Hygiène et Prévention des Infections",
+        "Soins d'Urgence et Réanimation",
+        "Santé Publique et Épidémiologie",
+        "Éthique et Déontologie Infirmière",
+        "Pédiatrie et Soins Néonataux",
+        "Santé Mentale et Psychiatrie"
+      ]
     },
     {
       "id": 14,
@@ -462,7 +618,19 @@
       "cycle": "Licence Professionnelle",
       "niveau": "LP",
       "nbEtudiants": 1,
-      "nbEnseignants": 1
+      "nbEnseignants": 1,
+      "matieres": [
+        "Mathématiques Financières",
+        "Mathématiques Actuarielles",
+        "Probabilités et Modèles de Risque",
+        "Statistiques Appliquées à l'Actuariat",
+        "Modèles de Survie et Tables de Mortalité",
+        "Tarification en Assurance",
+        "Provisions Techniques",
+        "Gestion Actif-Passif",
+        "Économétrie et Séries Temporelles",
+        "Réassurance et Gestion du Risque"
+      ]
     },
     {
       "id": 15,
@@ -471,7 +639,19 @@
       "cycle": "Licence Professionnelle",
       "niveau": "LP",
       "nbEtudiants": 2,
-      "nbEnseignants": 1
+      "nbEnseignants": 1,
+      "matieres": [
+        "Introduction à la Data Science",
+        "Statistiques Descriptives",
+        "Programmation Python",
+        "Machine Learning",
+        "Big Data et Traitement de Données",
+        "Visualisation de Données",
+        "Base de Données et SQL",
+        "Deep Learning et Réseaux de Neurones",
+        "Traitement du Langage Naturel",
+        "Éthique et Gouvernance des Données"
+      ]
     },
     {
       "id": 16,
@@ -480,7 +660,19 @@
       "cycle": "Licence +1",
       "niveau": "L+1",
       "nbEtudiants": 1,
-      "nbEnseignants": 1
+      "nbEnseignants": 1,
+      "matieres": [
+        "Administration Publique Locale",
+        "Droit Administratif",
+        "Finances et Budget des Collectivités",
+        "Gestion des Services Publics",
+        "Urbanisme et Aménagement du Territoire",
+        "Politiques Publiques Locales",
+        "Économie du Développement Local",
+        "Droit des Marchés Publics",
+        "Comptabilité Publique",
+        "Relations Intercollectivités"
+      ]
     },
     {
       "id": 17,
@@ -489,7 +681,19 @@
       "cycle": "Licence +1",
       "niveau": "L+1",
       "nbEtudiants": 1,
-      "nbEnseignants": 1
+      "nbEnseignants": 1,
+      "matieres": [
+        "Relations Internationales et Droit Diplomatique",
+        "Géopolitique et Enjeux Mondiaux",
+        "Droit International Public",
+        "Histoire des Relations Internationales",
+        "Négociation et Médiation Internationale",
+        "Organisations Internationales",
+        "Politique Étrangère et Sécurité",
+        "Économie Politique Internationale",
+        "Protocole Diplomatique",
+        "Conflits Contemporains et Résolution"
+      ]
     },
     {
       "id": 18,
@@ -498,7 +702,19 @@
       "cycle": "Licence +1",
       "niveau": "L+1",
       "nbEtudiants": 0,
-      "nbEnseignants": 1
+      "nbEnseignants": 1,
+      "matieres": [
+        "Droit Foncier",
+        "Techniques de Cadastre",
+        "Topographie et Arpentage",
+        "Droit Domanial",
+        "Procédures d'Immatriculation Foncière",
+        "Urbanisme et Permis de Construire",
+        "Contentieux Foncier",
+        "Évaluation et Expertise Immobilière",
+        "Gestion du Domaine de l'État",
+        "Droit des Biens et Successions"
+      ]
     },
     {
       "id": 19,
@@ -507,7 +723,19 @@
       "cycle": "Licence +1",
       "niveau": "L+1",
       "nbEtudiants": 1,
-      "nbEnseignants": 1
+      "nbEnseignants": 1,
+      "matieres": [
+        "Méthodes de Prospective Stratégique",
+        "Planification du Développement",
+        "Analyse des Politiques Publiques",
+        "Économie du Développement",
+        "Gestion de Projets de Développement",
+        "Statistiques et Indicateurs de Développement",
+        "Veille Stratégique et Intelligence Économique",
+        "Modélisation et Scénarios Futurs",
+        "Gouvernance et Stratégie Nationale",
+        "Coopération Internationale et Aide au Développement"
+      ]
     },
     {
       "id": 20,
@@ -516,7 +744,19 @@
       "cycle": "Licence +1",
       "niveau": "L+1",
       "nbEtudiants": 1,
-      "nbEnseignants": 1
+      "nbEnseignants": 1,
+      "matieres": [
+        "Finances Publiques et Fiscalité",
+        "Contrôle de Gestion Publique",
+        "Droit Fiscal",
+        "Budget de l'État",
+        "Comptabilité de l'État",
+        "Marchés Publics",
+        "Audit et Inspection des Finances",
+        "Économie Publique",
+        "Politique Monétaire et Budgétaire",
+        "Droit Administratif Financier"
+      ]
     },
     {
       "id": 21,
@@ -525,7 +765,19 @@
       "cycle": "Master",
       "niveau": "M",
       "nbEtudiants": 1,
-      "nbEnseignants": 1
+      "nbEnseignants": 1,
+      "matieres": [
+        "Cryptographie et Sécurité des Réseaux",
+        "Cybersécurité et Gestion des Incidents",
+        "Tests d'Intrusion et Ethical Hacking",
+        "Sécurité des Applications Web",
+        "Forensique Numérique",
+        "Gouvernance et Politique de Sécurité",
+        "Sécurité des Systèmes d'Information",
+        "Analyse des Malwares",
+        "Sécurité Cloud et Virtualisation",
+        "Conformité et Réglementations (RGPD, ISO 27001)"
+      ]
     },
     {
       "id": 22,
@@ -534,7 +786,19 @@
       "cycle": "Master",
       "niveau": "M",
       "nbEtudiants": 1,
-      "nbEnseignants": 1
+      "nbEnseignants": 1,
+      "matieres": [
+        "Stratégie et Développement RH",
+        "Leadership et Gestion du Changement",
+        "Management de la Performance",
+        "Ingénierie de la Formation",
+        "Gestion des Talents et Carrières",
+        "Droit Social Avancé",
+        "Négociation Collective",
+        "Management Interculturel",
+        "Systèmes d'Information RH",
+        "Responsabilité Sociale et QVT"
+      ]
     },
     {
       "id": 23,
@@ -543,7 +807,19 @@
       "cycle": "Master",
       "niveau": "M",
       "nbEtudiants": 0,
-      "nbEnseignants": 1
+      "nbEnseignants": 1,
+      "matieres": [
+        "Chaîne de la Logistique",
+        "Gestion des Approvisionnements",
+        "Optimisation des Flux Logistiques",
+        "Logistique Inverse et Retours",
+        "Systèmes ERP et TMS",
+        "Gestion des Relations Fournisseurs",
+        "Logistique Internationale",
+        "Entrepôt et Distribution",
+        "Performance de la Supply Chain",
+        "Durabilité et Logistique Verte"
+      ]
     },
     {
       "id": 24,
@@ -552,7 +828,19 @@
       "cycle": "Master",
       "niveau": "M",
       "nbEtudiants": 1,
-      "nbEnseignants": 1
+      "nbEnseignants": 1,
+      "matieres": [
+        "Management QHSE en Entreprise",
+        "Audit Environnemental et RSE",
+        "Normes OHSAS 18001 et ISO 45001",
+        "Gestion des Déchets et Dépollution",
+        "Analyse des Risques Chimiques et Biologiques",
+        "Droit Environnemental",
+        "Plan d'Urgence et Gestion de Crise",
+        "Évaluation des Risques Professionnels",
+        "Indicateurs QHSE et Tableaux de Bord",
+        "Formation et Sensibilisation Sécurité"
+      ]
     },
     {
       "id": 25,
@@ -561,7 +849,19 @@
       "cycle": "Master",
       "niveau": "M",
       "nbEtudiants": 1,
-      "nbEnseignants": 1
+      "nbEnseignants": 1,
+      "matieres": [
+        "Audit Financier et Contrôle Interne",
+        "Consolidation des Comptes",
+        "Normes IFRS et OHADA",
+        "Audit Opérationnel",
+        "Comptabilité Approfondie",
+        "Analyse Financière Avancée",
+        "Droit des Sociétés et Commissariat aux Comptes",
+        "Fiscalité Approfondie",
+        "Évaluation d'Entreprises",
+        "Gouvernance et Éthique Professionnelle"
+      ]
     }
   ],
   "etudiants": [

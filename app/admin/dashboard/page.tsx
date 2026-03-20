@@ -11,11 +11,13 @@ import {
 } from 'lucide-react';
 import { etudiantsApi, enseignantsApi, filieresApi, sousAdminsApi } from '@/lib/api';
 
+// animation variants for page-wide entrance effects
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
 };
 
+// animation variants for each card / item block
 const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
@@ -59,6 +61,7 @@ export default function DashboardPage() {
     fetchAll();
   }, []);
 
+  // configuration des statistiques affichées dans les 4 cartes supérieures
   const statCards = [
     { title: 'Enseignants', value: stats.enseignants, icon: Users,         bg: 'bg-blue-500',    iconBg: 'bg-blue-100 dark:bg-blue-900/40',    iconColor: 'text-blue-600 dark:text-blue-400',    href: '/admin/enseignants' },
     { title: 'Sous-Admins', value: stats.sousAdmins,  icon: UserCog,       bg: 'bg-emerald-500', iconBg: 'bg-emerald-100 dark:bg-emerald-900/40', iconColor: 'text-emerald-600 dark:text-emerald-400', href: '/admin/sous-admins' },
@@ -79,6 +82,7 @@ export default function DashboardPage() {
       </motion.div>
 
       {/* Stats Grid */}
+      {/* Statistiques cartes rapides */}
       <motion.div variants={itemVariants} className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {statCards.map((card) => (
           <div key={card.title} onClick={() => router.push(card.href)}
@@ -104,7 +108,7 @@ export default function DashboardPage() {
       </motion.div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
-        {/* Recent Teachers */}
+        {/* bloc 'Enseignants récents' ; lecture et navigation vers detail ou liste */}
         <motion.div variants={itemVariants} className="lg:col-span-2 bg-white dark:bg-slate-900/50 rounded-[2rem] shadow-sm border border-slate-200/50 dark:border-slate-800/60 p-6 sm:p-8">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">Enseignants récents</h2>
@@ -145,7 +149,7 @@ export default function DashboardPage() {
           )}
         </motion.div>
 
-        {/* Quick Actions */}
+        {/* Bloc action rapide pour navigation rapide et création / configuration */}
         <motion.div variants={itemVariants} className="bg-white dark:bg-slate-900/50 rounded-[2rem] shadow-sm border border-slate-200/50 dark:border-slate-800/60 p-6 sm:p-8">
           <h2 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight mb-6">Raccourcis Rapides</h2>
           <div className="space-y-4">
