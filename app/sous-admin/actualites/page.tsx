@@ -1,11 +1,12 @@
 "use client";
 
 import { useState, useEffect, useMemo } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
-import { Search, Calendar, Newspaper, Trash2, Edit, Eye, Plus } from 'lucide-react';
+import { Search, Calendar, Newspaper, Trash2, Edit, Eye, Plus, Sparkles, Filter, TrendingUp, Zap } from 'lucide-react';
 import adminsData from '@/data/admins.json';
 import ActuCard from '@/components/dashboard/sous-admin/ActuCard';
 import ActuForm from '@/components/dashboard/sous-admin/ActuForm';

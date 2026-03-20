@@ -22,6 +22,7 @@ interface EDTFileUploadProps {
   acceptedTypes?: string;
   maxSize?: number;
   currentFile?: { url: string; type: string; name: string } | null;
+  disabled?: boolean;
 }
 
 export default function EDTFileUpload({
@@ -30,7 +31,8 @@ export default function EDTFileUpload({
   description,
   acceptedTypes = "application/pdf,image/*",
   maxSize = 10 * 1024 * 1024, // 10MB
-  currentFile
+  currentFile,
+  disabled = false
 }: EDTFileUploadProps) {
   const [dragActive, setDragActive] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -143,44 +145,59 @@ export default function EDTFileUpload({
       {!selectedFile && !currentFile ? (
         <Card 
           className={`relative transition-all duration-300 ${
-            dragActive 
-              ? 'border-blue-500 bg-blue-50 scale-[1.02]' 
-              : 'border-gray-300 hover:border-gray-400 bg-white'
+            disabled 
+              ? 'border-gray-200 bg-gray-50 opacity-50 cursor-not-allowed' 
+              : dragActive 
+                ? 'border-blue-500 bg-blue-50 scale-[1.02]' 
+                : 'border-gray-300 hover:border-gray-400 bg-white'
           }`}
         >
           <CardContent className="p-8">
             <div
-              className="relative"
-              onDragEnter={handleDrag}
-              onDragLeave={handleDrag}
-              onDragOver={handleDrag}
-              onDrop={handleDrop}
+              className={`relative ${disabled ? 'pointer-events-none' : ''}`}
+              onDragEnter={!disabled ? handleDrag : undefined}
+              onDragLeave={!disabled ? handleDrag : undefined}
+              onDragOver={!disabled ? handleDrag : undefined}
+              onDrop={!disabled ? handleDrop : undefined}
             >
               <input
                 type="file"
                 id="file-upload"
-                className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                className="absolute inset-0 w-full h-full opacity-0 cursor-pointer disabled:cursor-not-allowed"
                 onChange={handleChange}
                 accept={acceptedTypes}
+                disabled={disabled}
               />
               
               <div className="text-center space-y-4">
                 <div 
-                  className="bg-linear-to-br from-blue-50 via-indigo-50 to-purple-50 border-2 border-dashed border-blue-300 rounded-xl p-8 text-center transition-all duration-300 hover:border-blue-400 hover:bg-blue-50/50"
+                  className={`bg-linear-to-br from-blue-50 via-indigo-50 to-purple-50 border-2 border-dashed rounded-xl p-8 text-center transition-all duration-300 ${
+                    disabled 
+                      ? 'border-gray-300 bg-gray-100' 
+                      : 'border-blue-300 hover:border-blue-400 hover:bg-blue-50/50'
+                  }`}
                 >
                   {isLoading ? (
                     <Loader2 className="h-8 w-8 text-blue-600 animate-spin" />
                   ) : (
-                    <Upload className="h-8 w-8 text-blue-600" />
+                    <Upload className={`h-8 w-8 ${disabled ? 'text-gray-400' : 'text-blue-600'}`} />
                   )}
                 </div>
                 
                 <div className="space-y-2">
-                  <p className="text-lg font-medium text-gray-900">
-                    {isLoading ? 'Traitement en cours...' : 'Glissez-déposez votre fichier ici'}
+                  <p className={`text-lg font-medium ${disabled ? 'text-gray-400' : 'text-gray-900'}`}>
+                    {disabled 
+                      ? 'Veuillez sélectionner une filière et un niveau' 
+                      : isLoading 
+                        ? 'Traitement en cours...' 
+                        : 'Glissez-déposez votre fichier ici'
+                    }
                   </p>
-                  <p className="text-sm text-gray-500">
-                    ou cliquez pour parcourir vos fichiers
+                  <p className={`text-sm ${disabled ? 'text-gray-400' : 'text-gray-500'}`}>
+                    {disabled 
+                      ? 'La sélection de filière et niveau est requise' 
+                      : 'ou cliquez pour parcourir vos fichiers'
+                    }
                   </p>
                 </div>
 

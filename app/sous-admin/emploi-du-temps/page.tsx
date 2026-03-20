@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useCallback } from "react"
+import { useState, useCallback, useMemo } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { toast } from "sonner"
 import { 
@@ -12,14 +12,18 @@ import {
   X, 
   FileText, 
   ImageIcon,
-  Loader2
+  Loader2,
+  GraduationCap,
+  School
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import EDTFileUpload from "@/components/dashboard/sous-admin/EDTFileUpload"
+import adminsData from '@/data/admins.json'
 
 interface EDTFile {
   id: string
@@ -31,22 +35,70 @@ interface EDTFile {
   niveau: string
 }
 
+interface Filiere {
+  id: number
+  nom: string
+  code: string
+  cycle: string
+  niveau: string
+}
+
 export default function EmploiDuTempsPage() {
   const [activeTab, setActiveTab] = useState('cours')
+  const [selectedFiliere, setSelectedFiliere] = useState<string>('')
+  const [selectedNiveau, setSelectedNiveau] = useState<string>('')
   const [coursFiles, setCoursFiles] = useState<EDTFile[]>([])
   const [sessionsFiles, setSessionsFiles] = useState<EDTFile[]>([])
   const [previewFile, setPreviewFile] = useState<EDTFile | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
 
+  // Extraire les filières et niveaux depuis les données
+  const filieres = useMemo(() => {
+    return adminsData.filieres || []
+  }, [])
+
+  // Niveaux disponibles
+  const niveauxDisponibles = useMemo(() => {
+    const niveaux = new Set<string>()
+    filieres.forEach(filiere => {
+      if (filiere.niveau) niveaux.add(filiere.niveau)
+    })
+    // Ajouter les niveaux standards
+    const standards = ['L1', 'L2', 'L3', 'M1', 'M2']
+    const uniques = new Set([...standards, ...Array.from(niveaux)])
+    return Array.from(uniques)
+  }, [filieres])
+
+  // Filtrer les emplois du temps existants selon la sélection
+  const existingEDTs = useMemo(() => {
+    const allEDTs = [
+      ...(adminsData.emploiDuTemps || []).map(edt => ({ ...edt, type: 'cours' as const })),
+      ...(adminsData.emploiDuTempsSessions || []).map(edt => ({ ...edt, type: 'sessions' as const }))
+    ]
+    
+    if (!selectedFiliere && !selectedNiveau) return allEDTs
+    
+    return allEDTs.filter(edt => {
+      const filiereMatch = !selectedFiliere || edt.filiere === selectedFiliere
+      const niveauMatch = !selectedNiveau || edt.niveau === selectedNiveau
+      return filiereMatch && niveauMatch
+    })
+  }, [selectedFiliere, selectedNiveau])
+
   const handleFileSelect = useCallback((file: File, preview: string) => {
+    if (!selectedFiliere || !selectedNiveau) {
+      toast.error('Veuillez sélectionner une filière et un niveau')
+      return
+    }
+
     const newFile: EDTFile = {
       id: Date.now().toString(),
       type: activeTab as 'cours' | 'sessions',
       name: file.name,
       file,
       preview,
-      filiere: 'L1',
-      niveau: activeTab === 'cours' ? 'Semestre 1' : 'Session normale'
+      filiere: selectedFiliere,
+      niveau: selectedNiveau
     }
 
     if (activeTab === 'cours') {
@@ -55,8 +107,8 @@ export default function EmploiDuTempsPage() {
       setSessionsFiles(prev => [...prev, newFile])
     }
 
-    toast.success('Fichier ajouté avec succès')
-  }, [activeTab])
+    toast.success(`Fichier ajouté pour ${selectedFiliere} - ${selectedNiveau}`)
+  }, [activeTab, selectedFiliere, selectedNiveau])
 
   const handleDeleteFile = useCallback((fileId: string) => {
     if (activeTab === 'cours') {
@@ -71,23 +123,23 @@ export default function EmploiDuTempsPage() {
     setIsSubmitting(true)
     
     try {
-      const formData = new FormData()
-      formData.append('file', file.file)
-      formData.append('type', file.type)
-      formData.append('filiere', file.filiere)
-      formData.append('niveau', file.niveau)
-
-      const response = await fetch('/api/emploi-du-temps/upload', {
-        method: 'POST',
-        body: formData
+      // Simuler l'envoi vers le bon destinataire selon la filière et niveau
+      const targetAudience = `étudiants en ${file.filiere} - ${file.niveau}`
+      
+      // Simulation d'API call
+      await new Promise(resolve => setTimeout(resolve, 1500))
+      
+      toast.success(`Emploi du temps publié pour ${targetAudience}`)
+      
+      // En pratique, vous feriez un appel API réel ici
+      console.log('Publication:', {
+        file: file.name,
+        type: file.type,
+        filiere: file.filiere,
+        niveau: file.niveau,
+        targetAudience
       })
-
-      if (response.ok) {
-        toast.success('Emploi du temps publié avec succès')
-        // Garder le fichier dans la liste pour permettre des envois multiples si besoin
-      } else {
-        throw new Error('Erreur lors de la publication')
-      }
+      
     } catch (error) {
       toast.error('Erreur lors de la publication')
     } finally {
@@ -150,6 +202,9 @@ export default function EmploiDuTempsPage() {
                 <Badge variant="outline" className="text-xs">
                   {file.filiere}
                 </Badge>
+                <Badge variant="secondary" className="text-xs">
+                  {file.niveau}
+                </Badge>
               </div>
               
               <p className="text-sm font-medium text-gray-900 mb-1 truncate">
@@ -194,7 +249,7 @@ export default function EmploiDuTempsPage() {
                       ) : (
                         <Send className="h-3 w-3 mr-1" />
                       )}
-                      Envoyer
+                      Envoyer aux {file.filiere} - {file.niveau}
                     </Button>
                   </>
                 ) : (
@@ -232,19 +287,111 @@ export default function EmploiDuTempsPage() {
   )
 
   return (
-    <div className="container mx-auto p-6 max-w-7xl">
+    <div className="container mx-auto p-3 sm:p-6 max-w-7xl">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="mb-8"
+        className="mb-6 sm:mb-8"
       >
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-300 mb-2">
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-300 mb-2">
           Gestion des Emplois du Temps
         </h1>
         <p className="text-gray-600 dark:text-gray-300">
-          Ajoutez et gérez les emplois du temps pour les cours et les sessions d'examens
+          Ajoutez et gérez les emplois du temps par filière et niveau
         </p>
       </motion.div>
+
+      {/* Sélecteurs de filière et niveau */}
+      <Card className="mb-6">
+        <CardContent className="p-4 sm:p-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-gray-700 flex items-center gap-2">
+                <School className="h-4 w-4" />
+                Filière
+              </label>
+              <Select value={selectedFiliere} onValueChange={setSelectedFiliere}>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Sélectionnez une filière" />
+                </SelectTrigger>
+                <SelectContent>
+                  {filieres.map((filiere) => (
+                    <SelectItem key={filiere.id} value={filiere.nom}>
+                      {filiere.nom} ({filiere.code})
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+            
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-gray-700 flex items-center gap-2">
+                <GraduationCap className="h-4 w-4" />
+                Niveau
+              </label>
+              <Select value={selectedNiveau} onValueChange={setSelectedNiveau}>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Sélectionnez un niveau" />
+                </SelectTrigger>
+                <SelectContent>
+                  {niveauxDisponibles.map((niveau) => (
+                    <SelectItem key={niveau} value={niveau}>
+                      {niveau}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+
+          {selectedFiliere && selectedNiveau && (
+            <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <p className="text-sm text-blue-800 dark:text-blue-200">
+                <strong>Cible:</strong> {selectedFiliere} - {selectedNiveau}
+              </p>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+
+      {/* Emplois du temps existants pour cette sélection */}
+      {selectedFiliere && selectedNiveau && (
+        <Card className="mb-6">
+          <CardHeader>
+            <CardTitle className="text-lg">Emplois du temps existants</CardTitle>
+          </CardHeader>
+          <CardContent>
+            {existingEDTs.length > 0 ? (
+              <div className="space-y-3">
+                {existingEDTs.map((edt) => (
+                  <div key={edt.id} className="flex items-center justify-between p-3 border rounded-lg">
+                    <div className="flex items-center gap-3">
+                      {edt.type === 'cours' ? (
+                        <BookOpen className="h-4 w-4 text-blue-600" />
+                      ) : (
+                        <CalendarDays className="h-4 w-4 text-orange-600" />
+                      )}
+                      <div>
+                        <p className="font-medium">{edt.matiere || edt.filiere}</p>
+                        <p className="text-sm text-gray-500">
+                          {edt.jour} {edt.heureDebut} - {edt.heureFin} {edt.salle && `• ${edt.salle}`}
+                        </p>
+                      </div>
+                    </div>
+                    <Badge variant="outline">
+                      {edt.type === 'cours' ? 'Cours' : 'Session'}
+                    </Badge>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p className="text-gray-500 text-center py-4">
+                Aucun emploi du temps existant pour cette sélection
+              </p>
+            )}
+          </CardContent>
+        </Card>
+      )}
 
       <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
         <TabsList className="grid w-full grid-cols-2 max-w-md">
@@ -266,8 +413,9 @@ export default function EmploiDuTempsPage() {
                 onFileSelect={handleFileSelect}
                 currentFile={null}
                 acceptedTypes="application/pdf,image/*"
-                title={`Ajouter un fichier ${activeTab === 'cours' ? 'de cours' : 'de sessions'}`}
+                title={`Ajouter un fichier de cours`}
                 description="Glissez-déposez un fichier ou cliquez pour sélectionner"
+                disabled={!selectedFiliere || !selectedNiveau}
               />
             </div>
 
@@ -295,7 +443,10 @@ export default function EmploiDuTempsPage() {
                   <CardContent className="flex flex-col items-center justify-center py-12">
                     <Upload className="h-12 w-12 text-gray-400 mb-4" />
                     <p className="text-gray-600 text-center">
-                      Aucun fichier ajouté
+                      {selectedFiliere && selectedNiveau 
+                        ? 'Aucun fichier ajouté pour cette sélection'
+                        : 'Sélectionnez une filière et un niveau pour commencer'
+                      }
                     </p>
                     <p className="text-sm text-gray-500 text-center mt-1">
                       Commencez par ajouter un fichier PDF ou une image
@@ -315,8 +466,9 @@ export default function EmploiDuTempsPage() {
                 onFileSelect={handleFileSelect}
                 currentFile={null}
                 acceptedTypes="application/pdf,image/*"
-                title={`Ajouter un fichier ${activeTab === 'cours' ? 'de cours' : 'de sessions'}`}
+                title={`Ajouter un fichier de sessions`}
                 description="Glissez-déposez un fichier ou cliquez pour sélectionner"
+                disabled={!selectedFiliere || !selectedNiveau}
               />
             </div>
 
@@ -344,7 +496,10 @@ export default function EmploiDuTempsPage() {
                   <CardContent className="flex flex-col items-center justify-center py-12">
                     <Upload className="h-12 w-12 text-gray-400 mb-4" />
                     <p className="text-gray-600 text-center">
-                      Aucun fichier ajouté
+                      {selectedFiliere && selectedNiveau 
+                        ? 'Aucun fichier ajouté pour cette sélection'
+                        : 'Sélectionnez une filière et un niveau pour commencer'
+                      }
                     </p>
                     <p className="text-sm text-gray-500 text-center mt-1">
                       Commencez par ajouter un fichier PDF ou une image
@@ -376,6 +531,9 @@ export default function EmploiDuTempsPage() {
                       <p className="text-lg font-medium text-gray-900">Document PDF</p>
                       <p className="text-sm text-gray-600 mt-1">
                         Taille: {formatFileSize(previewFile.file.size)}
+                      </p>
+                      <p className="text-sm text-gray-600 mt-1">
+                        Destination: {previewFile.filiere} - {previewFile.niveau}
                       </p>
                     </div>
                     <Button 

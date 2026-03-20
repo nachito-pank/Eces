@@ -91,8 +91,8 @@ export default function ProfilPage() {
             <div className="w-20 h-20 bg-linear-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
               <User className="h-10 w-10 text-white" />
             </div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">Chargement...</h2>
-            <p className="text-gray-600">Chargement de votre profil</p>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Chargement...</h2>
+            <p className="text-gray-600 dark:text-gray-400">Chargement de votre profil</p>
           </CardContent>
         </Card>
       </div>
@@ -100,17 +100,17 @@ export default function ProfilPage() {
   }
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100">
-      <div className="bg-white shadow-sm border-b border-gray-200">
+    <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
+      <div className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center py-3 sm:py-4 gap-3">
             <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-linear-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center flex-shrink-0">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-linear-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center shrink-0">
                 <User className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
               </div>
               <div className="min-w-0 flex-1">
-                <h1 className="text-lg sm:text-2xl font-bold text-gray-900 truncate">Mon Profil</h1>
-                <p className="text-xs sm:text-sm text-gray-500 hidden sm:block">Gerez vos informations personnelles</p>
+                <h1 className="text-lg sm:text-2xl font-bold text-gray-900 dark:text-white truncate">Mon Profil</h1>
+                <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 hidden sm:block">Gerez vos informations personnelles</p>
               </div>
             </div>
             <div className="flex items-center gap-2 w-full sm:w-auto">
@@ -142,7 +142,7 @@ export default function ProfilPage() {
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8 py-6 sm:py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
           <div className="lg:col-span-1">
-            <Card className="bg-white shadow-lg border border-gray-200 overflow-hidden">
+            <Card className="bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
               <div className="bg-linear-to-r from-blue-500 to-indigo-600 p-4 sm:p-6 text-white">
                 <div className="flex items-center gap-3 sm:gap-4">
                   <div className="relative shrink-0">
@@ -175,15 +175,15 @@ export default function ProfilPage() {
 
               <CardContent className="p-6 space-y-4">
                 <div className="space-y-2">
-                  <div className="flex items-center gap-3 text-sm text-gray-600">
+                  <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
                     <Mail className="h-4 w-4" />
                     <span>{sousAdmin.email}</span>
                   </div>
-                  <div className="flex items-center gap-3 text-sm text-gray-600">
+                  <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
                     <Phone className="h-4 w-4" />
                     <span>{sousAdmin.telephone || 'Non renseigne'}</span>
                   </div>
-                  <div className="flex items-center gap-3 text-sm text-gray-600">
+                  <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
                     <Calendar className="h-4 w-4" />
                     <span>Depuis le {new Date(sousAdmin.dateEmbauche).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
                   </div>
@@ -202,24 +202,24 @@ export default function ProfilPage() {
           </div>
 
           <div className="lg:col-span-2">
-            <Card className="bg-white shadow-lg border border-gray-200">
+            <Card className="bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <Settings className="h-5 w-5 text-blue-600" />
-                  Informations Personnelles
+                  <Settings className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                  <span className="text-gray-900 dark:text-white">Informations Personnelles</span>
                 </CardTitle>
-                <CardDescription>
+                <CardDescription className="text-gray-600 dark:text-gray-400">
                   {isEditing ? 'Modifiez vos informations' : 'Consultez vos informations personnelles'}
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-                  <TabsList className="grid w-full grid-cols-2">
-                    <TabsTrigger value="informations" className="data-[state=active]:bg-blue-50">
+                  <TabsList className="grid w-full grid-cols-2 bg-gray-100 dark:bg-gray-700">
+                    <TabsTrigger value="informations" className="data-[state=active]:bg-blue-50 dark:data-[state=active]:bg-blue-900/50 text-gray-700 dark:text-gray-300">
                       <User className="h-4 w-4 mr-2" />
                       Informations
                     </TabsTrigger>
-                    <TabsTrigger value="securite" className="data-[state=active]:bg-blue-50">
+                    <TabsTrigger value="securite" className="data-[state=active]:bg-blue-50 dark:data-[state=active]:bg-blue-900/50 text-gray-700 dark:text-gray-300">
                       <Shield className="h-4 w-4 mr-2" />
                       Securite
                     </TabsTrigger>
@@ -228,47 +228,47 @@ export default function ProfilPage() {
                   <TabsContent value="informations" className="space-y-4 mt-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <label className="text-sm font-medium text-gray-700">Nom</label>
+                        <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Nom</label>
                         <Input
                           value={formData.nom}
                           onChange={(e) => setFormData(prev => ({ ...prev, nom: e.target.value }))}
                           disabled={!isEditing}
-                          className={!isEditing ? "bg-gray-50" : ""}
+                          className={!isEditing ? "bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white" : "text-gray-900 dark:text-white"}
                         />
                       </div>
                       <div className="space-y-2">
-                        <label className="text-sm font-medium text-gray-700">Prenom</label>
+                        <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Prenom</label>
                         <Input
                           value={formData.prenom}
                           onChange={(e) => setFormData(prev => ({ ...prev, prenom: e.target.value }))}
                           disabled={!isEditing}
-                          className={!isEditing ? "bg-gray-50" : ""}
+                          className={!isEditing ? "bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white" : "text-gray-900 dark:text-white"}
                         />
                       </div>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <label className="text-sm font-medium text-gray-700">Email</label>
+                        <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Email</label>
                         <Input
                           type="email"
                           value={formData.email}
                           onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                           disabled={!isEditing}
-                          className={!isEditing ? "bg-gray-50" : ""}
+                          className={!isEditing ? "bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white" : "text-gray-900 dark:text-white"}
                         />
                       </div>
                       <div className="space-y-2">
-                        <label className="text-sm font-medium text-gray-700">Telephone</label>
+                        <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Telephone</label>
                         <Input
                           value={formData.telephone}
                           onChange={(e) => setFormData(prev => ({ ...prev, telephone: e.target.value }))}
                           disabled={!isEditing}
-                          className={!isEditing ? "bg-gray-50" : ""}
+                          className={!isEditing ? "bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white" : "text-gray-900 dark:text-white"}
                         />
                       </div>
                     </div>
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-gray-700">Date d'embauche</label>
+                      <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Date d'embauche</label>
                       <Input
                         type="date"
                         value={formData.dateEmbauche}
@@ -282,36 +282,36 @@ export default function ProfilPage() {
                   <TabsContent value="securite" className="space-y-4 mt-6">
                     <div className="space-y-4">
                       <div className="space-y-2">
-                        <label className="text-sm font-medium text-gray-700">Changer le mot de passe</label>
+                        <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Changer le mot de passe</label>
                         <Input
                           type="password"
                           placeholder="Nouveau mot de passe"
                           disabled={!isEditing}
-                          className={!isEditing ? "bg-gray-50" : ""}
+                          className={!isEditing ? "bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white" : "text-gray-900 dark:text-white"}
                         />
                       </div>
                       <div className="space-y-2">
-                        <label className="text-sm font-medium text-gray-700">Confirmer le mot de passe</label>
+                        <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Confirmer le mot de passe</label>
                         <Input
                           type="password"
                           placeholder="Confirmer le mot de passe"
                           disabled={!isEditing}
-                          className={!isEditing ? "bg-gray-50" : ""}
+                          className={!isEditing ? "bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white" : "text-gray-900 dark:text-white"}
                         />
                       </div>
                     </div>
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-gray-700">Avatar</label>
+                      <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Avatar</label>
                       <div className="flex items-center gap-4">
                         {formData.avatar && formData.avatar.startsWith('data:') ? (
                           <img 
                             src={formData.avatar} 
                             alt="Avatar preview" 
-                            className="w-12 h-12 rounded-full border-2 border-gray-300 object-cover"
+                            className="w-12 h-12 rounded-full border-2 border-gray-300 dark:border-gray-600 object-cover"
                           />
                         ) : (
                           <div 
-                            className="w-12 h-12 rounded-full border-2 border-gray-300"
+                            className="w-12 h-12 rounded-full border-2 border-gray-300 dark:border-gray-600"
                             style={{ backgroundColor: formData.avatar }}
                           ></div>
                         )}
@@ -334,7 +334,7 @@ export default function ProfilPage() {
                         </Button>
                       </div>
                       {formData.avatar && formData.avatar.startsWith('data:') && (
-                        <p className="text-xs text-gray-500 mt-1">
+                          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
                           Photo de profil uploadée avec succès
                         </p>
                       )}
@@ -343,7 +343,7 @@ export default function ProfilPage() {
                 </Tabs>
               </CardContent>
 
-              <div className="p-6 border-t border-gray-200">
+              <div className="p-6 border-t border-gray-200 dark:border-gray-700">
                 <div className="flex flex-col sm:flex-row justify-end gap-3">
                   {!isEditing ? (
                     <Button 

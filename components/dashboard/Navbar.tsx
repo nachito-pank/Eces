@@ -141,7 +141,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
                 {/* Dropdown notifications */}
                 {isNotificationsOpen && (
-                  <div className="absolute right-0 mt-2 w-80 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 py-2 z-[60] sm:right-0 sm:mt-2 max-sm:fixed max-sm:top-16 max-sm:left-0 max-sm:right-0 max-sm:w-full max-sm:rounded-none max-sm:rounded-t-lg">
+                  <div className="absolute right-0 mt-2 w-80 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 py-2 z-60 sm:right-0 sm:mt-2 max-sm:fixed max-sm:top-16 max-sm:left-0 max-sm:right-0 max-sm:w-full max-sm:rounded-none max-sm:rounded-t-lg">
                     <div className="px-4 py-2 border-b border-gray-200 dark:border-gray-700">
                       <h3 className="font-semibold text-gray-900 dark:text-white">Notifications</h3>
                     </div>
@@ -173,7 +173,7 @@ const Navbar: React.FC<NavbarProps> = ({
                   onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
                   className="flex items-center space-x-2 p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
                 >
-                  <div className="h-8 w-8 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center text-white font-medium">
+                  <div className="h-8 w-8 rounded-full bg-linear-to-r from-blue-500 to-indigo-600 text-white flex items-center justify-center font-medium">
                     {userAvatar ? (
                       <img src={userAvatar} alt={userName} className="h-8 w-8 rounded-full object-cover" />
                     ) : (
