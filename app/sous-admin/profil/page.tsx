@@ -23,6 +23,10 @@ export default function ProfilPage() {
     statut: 'Actif',
     avatar: '#3B82F6'
   });
+  const [passwordData, setPasswordData] = useState({
+    newPassword: '',
+    confirmPassword: ''
+  });
 
   useEffect(() => {
     const sousAdminData = adminsData.sousAdmins?.[0];
@@ -33,7 +37,6 @@ export default function ProfilPage() {
         prenom: sousAdminData.prenom || '',
         email: sousAdminData.email || '',
         telephone: sousAdminData.telephone || '',
-
         dateEmbauche: sousAdminData.dateCreation || new Date().toISOString().split('T')[0],
         statut: sousAdminData.statut || 'Actif',
         avatar: sousAdminData.avatar || '#3B82F6'
@@ -44,6 +47,10 @@ export default function ProfilPage() {
   const handleSave = () => {
     setIsEditing(false);
     console.log('Profil sauvegarde:', formData);
+    if (passwordData.newPassword) {
+      console.log('Mot de passe mis à jour:', passwordData);
+    }
+    alert('Profil mis à jour avec succès !');
   };
 
   const handleCancel = () => {
@@ -59,10 +66,15 @@ export default function ProfilPage() {
         avatar: sousAdmin.avatar || '#3B82F6'
       });
     }
+    setPasswordData({
+      newPassword: '',
+      confirmPassword: ''
+    });
   };
 
   const handleAvatarChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
+    
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
@@ -73,19 +85,16 @@ export default function ProfilPage() {
   };
 
   const triggerAvatarInput = () => {
-    const input = document.getElementById('avatar-input');
-    if (input && isEditing) {
+    const input = document.getElementById('avatar-input') as HTMLInputElement;
+    if (input) {
       input.click();
     }
   };
 
   const handleLogout = () => {
     if (confirm('Etes-vous sur de vouloir vous deconnecter ?')) {
-      // Effacer les données de session/localStorage si nécessaire
       localStorage.removeItem('sousAdminToken');
       sessionStorage.removeItem('sousAdminData');
-      
-      // Rediriger vers la page d'accueil du site
       window.location.href = '/';
     }
   };
@@ -108,6 +117,14 @@ export default function ProfilPage() {
 
   return (
     <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
+      <input
+        id="avatar-input"
+        type="file"
+        accept="image/*"
+        onChange={handleAvatarChange}
+        className="hidden"
+      />
+      
       <div className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center py-3 sm:py-4 gap-3">
@@ -117,7 +134,7 @@ export default function ProfilPage() {
               </div>
               <div className="min-w-0 flex-1">
                 <h1 className="text-lg sm:text-2xl font-bold text-gray-900 dark:text-white truncate">Mon Profil</h1>
-                <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 hidden sm:block">Gerez vos informations personnelles</p>
+                <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 hidden sm:block">Gérez vos informations personnelles</p>
               </div>
             </div>
             <div className="flex items-center gap-2 w-full sm:w-auto">
@@ -170,13 +187,8 @@ export default function ProfilPage() {
                       )}
                     </Avatar>
                     <button 
-                      className={`absolute bottom-0 right-0 rounded-full p-1.5 sm:p-2 transition-all ${
-                        isEditing 
-                          ? 'bg-white/20 hover:bg-white/30 cursor-pointer' 
-                          : 'bg-gray-500/50 cursor-not-allowed opacity-50'
-                      }`}
+                      className="absolute bottom-0 right-0 rounded-full p-1.5 sm:p-2 transition-all bg-white/20 hover:bg-white/30 cursor-pointer"
                       onClick={triggerAvatarInput}
-                      disabled={!isEditing}
                     >
                       <Camera className="h-3 w-3 sm:h-4 sm:w-4 text-white" />
                     </button>
@@ -196,7 +208,7 @@ export default function ProfilPage() {
                   </div>
                   <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
                     <Phone className="h-4 w-4" />
-                    <span>{sousAdmin.telephone || 'Non renseigne'}</span>
+                    <span>{sousAdmin.telephone || 'Non renseigné'}</span>
                   </div>
                   <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
                     <Calendar className="h-4 w-4" />
@@ -236,7 +248,7 @@ export default function ProfilPage() {
                     </TabsTrigger>
                     <TabsTrigger value="securite" className="data-[state=active]:bg-blue-50 dark:data-[state=active]:bg-blue-900/50 text-gray-700 dark:text-gray-300">
                       <Shield className="h-4 w-4 mr-2" />
-                      Securite
+                      Sécurité
                     </TabsTrigger>
                   </TabsList>
 
@@ -247,17 +259,15 @@ export default function ProfilPage() {
                         <Input
                           value={formData.nom}
                           onChange={(e) => setFormData(prev => ({ ...prev, nom: e.target.value }))}
-                          disabled={!isEditing}
-                          className={!isEditing ? "bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white" : "text-gray-900 dark:text-white"}
+                          className="text-gray-900 dark:text-white"
                         />
                       </div>
                       <div className="space-y-2">
-                        <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Prenom</label>
+                        <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Prénom</label>
                         <Input
                           value={formData.prenom}
                           onChange={(e) => setFormData(prev => ({ ...prev, prenom: e.target.value }))}
-                          disabled={!isEditing}
-                          className={!isEditing ? "bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white" : "text-gray-900 dark:text-white"}
+                          className="text-gray-900 dark:text-white"
                         />
                       </div>
                     </div>
@@ -268,17 +278,15 @@ export default function ProfilPage() {
                           type="email"
                           value={formData.email}
                           onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                          disabled={!isEditing}
-                          className={!isEditing ? "bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white" : "text-gray-900 dark:text-white"}
+                          className="text-gray-900 dark:text-white"
                         />
                       </div>
                       <div className="space-y-2">
-                        <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Telephone</label>
+                        <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Téléphone</label>
                         <Input
                           value={formData.telephone}
                           onChange={(e) => setFormData(prev => ({ ...prev, telephone: e.target.value }))}
-                          disabled={!isEditing}
-                          className={!isEditing ? "bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white" : "text-gray-900 dark:text-white"}
+                          className="text-gray-900 dark:text-white"
                         />
                       </div>
                     </div>
@@ -288,8 +296,7 @@ export default function ProfilPage() {
                         type="date"
                         value={formData.dateEmbauche}
                         onChange={(e) => setFormData(prev => ({ ...prev, dateEmbauche: e.target.value }))}
-                        disabled={!isEditing}
-                        className={!isEditing ? "bg-gray-50" : ""}
+                        className="text-gray-900 dark:text-white"
                       />
                     </div>
                   </TabsContent>
@@ -301,8 +308,9 @@ export default function ProfilPage() {
                         <Input
                           type="password"
                           placeholder="Nouveau mot de passe"
-                          disabled={!isEditing}
-                          className={!isEditing ? "bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white" : "text-gray-900 dark:text-white"}
+                          value={passwordData.newPassword}
+                          onChange={(e) => setPasswordData(prev => ({ ...prev, newPassword: e.target.value }))}
+                          className="text-gray-900 dark:text-white"
                         />
                       </div>
                       <div className="space-y-2">
@@ -310,8 +318,9 @@ export default function ProfilPage() {
                         <Input
                           type="password"
                           placeholder="Confirmer le mot de passe"
-                          disabled={!isEditing}
-                          className={!isEditing ? "bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white" : "text-gray-900 dark:text-white"}
+                          value={passwordData.confirmPassword}
+                          onChange={(e) => setPasswordData(prev => ({ ...prev, confirmPassword: e.target.value }))}
+                          className="text-gray-900 dark:text-white"
                         />
                       </div>
                     </div>
@@ -335,24 +344,11 @@ export default function ProfilPage() {
                             ></div>
                           )}
                         </div>
-                        <input
-                          id="avatar-input"
-                          type="file"
-                          accept="image/*"
-                          onChange={handleAvatarChange}
-                          disabled={!isEditing}
-                          className="hidden"
-                        />
                         <Button
                           variant="outline"
                           size="sm"
                           onClick={triggerAvatarInput}
-                          disabled={!isEditing}
-                          className={`flex items-center gap-2 ${
-                            !isEditing 
-                              ? "opacity-50 cursor-not-allowed" 
-                              : "hover:bg-blue-50 dark:hover:bg-blue-900/30 border-blue-200 dark:border-blue-800"
-                          }`}
+                          className="flex items-center gap-2 hover:bg-blue-50 dark:hover:bg-blue-900/30 border-blue-200 dark:border-blue-800"
                         >
                           <Camera className="h-4 w-4" />
                           <span>{formData.avatar && formData.avatar.startsWith('data:') ? 'Changer' : 'Ajouter'}</span>

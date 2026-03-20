@@ -98,7 +98,7 @@ export default function SousAdminDashboard() {
                 className={`relative overflow-hidden rounded-2xl sm:rounded-3xl p-4 sm:p-6 transition-all duration-300 border ${getCardColor(stat.color)} backdrop-blur-sm bg-white/70 dark:bg-slate-800/70`}
               >
                 {/* Background decoration */}
-                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-white/20 to-transparent rounded-full -mr-12 -mt-12"></div>
+                <div className="absolute top-0 right-0 w-24 h-24 bg-linear-to-br from-white/20 to-transparent rounded-full -mr-12 -mt-12"></div>
                 
                 <div className="relative z-10">
                   <div className="flex items-start justify-between mb-3 sm:mb-4">
@@ -132,7 +132,7 @@ export default function SousAdminDashboard() {
                 </div>
 
                 {/* Hover effect overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                <div className="absolute inset-0 bg-linear-to-r from-white/5 to-transparent transform -skew-x-12"></div>
               </motion.div>
             </Link>
           ))}
