@@ -310,7 +310,7 @@ export default function EmploiDuTempsPage() {
                 <School className="h-4 w-4" />
                 Filière
               </label>
-              <Select value={selectedFiliere} onValueChange={setSelectedFiliere}>
+              <Select value={selectedFiliere} onValueChange={(value) => setSelectedFiliere(value || '')}>
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Sélectionnez une filière" />
                 </SelectTrigger>
@@ -329,7 +329,7 @@ export default function EmploiDuTempsPage() {
                 <GraduationCap className="h-4 w-4" />
                 Niveau
               </label>
-              <Select value={selectedNiveau} onValueChange={setSelectedNiveau}>
+              <Select value={selectedNiveau} onValueChange={(value) => setSelectedNiveau(value || '')}>
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Sélectionnez un niveau" />
                 </SelectTrigger>
@@ -372,9 +372,9 @@ export default function EmploiDuTempsPage() {
                         <CalendarDays className="h-4 w-4 text-orange-600" />
                       )}
                       <div>
-                        <p className="font-medium">{edt.matiere || edt.filiere}</p>
+                        <p className="font-medium">{edt.type === 'cours' ? 'Cours' : edt.filiere}</p>
                         <p className="text-sm text-gray-500">
-                          {edt.jour} {edt.heureDebut} - {edt.heureFin} {edt.salle && `• ${edt.salle}`}
+                          {edt.type === 'cours' ? `${edt.code} - ${edt.filiere} - ${edt.niveau}` : `${edt.code} - ${edt.filiere} - ${edt.niveau}`}
                         </p>
                       </div>
                     </div>
