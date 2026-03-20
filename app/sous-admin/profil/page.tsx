@@ -72,6 +72,13 @@ export default function ProfilPage() {
     }
   };
 
+  const triggerAvatarInput = () => {
+    const input = document.getElementById('avatar-input');
+    if (input && isEditing) {
+      input.click();
+    }
+  };
+
   const handleLogout = () => {
     if (confirm('Etes-vous sur de vouloir vous deconnecter ?')) {
       // Effacer les données de session/localStorage si nécessaire
@@ -146,22 +153,30 @@ export default function ProfilPage() {
               <div className="bg-linear-to-r from-blue-500 to-indigo-600 p-4 sm:p-6 text-white">
                 <div className="flex items-center gap-3 sm:gap-4">
                   <div className="relative shrink-0">
-                    <Avatar className="w-16 h-16 sm:w-20 sm:h-20 border-4 border-white/30">
+                    <Avatar className="w-16 h-16 sm:w-20 sm:h-20 border-4 border-white/30 overflow-hidden">
                       {formData.avatar && formData.avatar.startsWith('data:') ? (
-                        <img 
-                          src={formData.avatar} 
-                          alt="Avatar" 
-                          className="w-full h-full object-cover rounded-full"
-                        />
+                        <div className="w-full h-full relative overflow-hidden">
+                          <img 
+                            src={formData.avatar} 
+                            alt="Avatar" 
+                            className="absolute inset-0 w-full h-full object-cover"
+                            style={{ objectPosition: 'center' }}
+                          />
+                        </div>
                       ) : (
-                        <AvatarFallback className="text-xl sm:text-2xl font-bold bg-white/20 text-blue-600">
+                        <AvatarFallback className="text-xl sm:text-2xl font-bold bg-white/20 text-blue-600 w-full h-full">
                           {sousAdmin.prenom?.charAt(0)}{sousAdmin.nom?.charAt(0)}
                         </AvatarFallback>
                       )}
                     </Avatar>
                     <button 
-                      className="absolute bottom-0 right-0 bg-white/20 hover:bg-white/30 rounded-full p-1.5 sm:p-2 transition-colors"
-                      onClick={() => document.getElementById('avatar-input')?.click()}
+                      className={`absolute bottom-0 right-0 rounded-full p-1.5 sm:p-2 transition-all ${
+                        isEditing 
+                          ? 'bg-white/20 hover:bg-white/30 cursor-pointer' 
+                          : 'bg-gray-500/50 cursor-not-allowed opacity-50'
+                      }`}
+                      onClick={triggerAvatarInput}
+                      disabled={!isEditing}
                     >
                       <Camera className="h-3 w-3 sm:h-4 sm:w-4 text-white" />
                     </button>
@@ -303,18 +318,23 @@ export default function ProfilPage() {
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Avatar</label>
                       <div className="flex items-center gap-4">
-                        {formData.avatar && formData.avatar.startsWith('data:') ? (
-                          <img 
-                            src={formData.avatar} 
-                            alt="Avatar preview" 
-                            className="w-12 h-12 rounded-full border-2 border-gray-300 dark:border-gray-600 object-cover"
-                          />
-                        ) : (
-                          <div 
-                            className="w-12 h-12 rounded-full border-2 border-gray-300 dark:border-gray-600"
-                            style={{ backgroundColor: formData.avatar }}
-                          ></div>
-                        )}
+                        <div className="relative">
+                          {formData.avatar && formData.avatar.startsWith('data:') ? (
+                            <div className="w-16 h-16 rounded-full border-2 border-gray-300 dark:border-gray-600 overflow-hidden">
+                              <img 
+                                src={formData.avatar} 
+                                alt="Avatar preview" 
+                                className="w-full h-full object-cover"
+                                style={{ objectPosition: 'center' }}
+                              />
+                            </div>
+                          ) : (
+                            <div 
+                              className="w-16 h-16 rounded-full border-2 border-gray-300 dark:border-gray-600"
+                              style={{ backgroundColor: formData.avatar }}
+                            ></div>
+                          )}
+                        </div>
                         <input
                           id="avatar-input"
                           type="file"
@@ -326,15 +346,20 @@ export default function ProfilPage() {
                         <Button
                           variant="outline"
                           size="sm"
-                          onClick={() => document.getElementById('avatar-input')?.click()}
+                          onClick={triggerAvatarInput}
                           disabled={!isEditing}
-                          className={!isEditing ? "opacity-50" : ""}
+                          className={`flex items-center gap-2 ${
+                            !isEditing 
+                              ? "opacity-50 cursor-not-allowed" 
+                              : "hover:bg-blue-50 dark:hover:bg-blue-900/30 border-blue-200 dark:border-blue-800"
+                          }`}
                         >
                           <Camera className="h-4 w-4" />
+                          <span>{formData.avatar && formData.avatar.startsWith('data:') ? 'Changer' : 'Ajouter'}</span>
                         </Button>
                       </div>
                       {formData.avatar && formData.avatar.startsWith('data:') && (
-                          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
                           Photo de profil uploadée avec succès
                         </p>
                       )}
